@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CapsuleShape" id=3]
+
+[sub_resource type="CapsuleMesh" id=4]
+
+[node name="Game" type="Spatial"]
+
+[node name="Level" type="Spatial" parent="."]
+
+[node name="RigidBody" type="RigidBody" parent="Level"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.22547, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level/RigidBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Level/RigidBody"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Level"]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="Level/CSGCombiner"]
+width = 14.0
+depth = 14.0
+
+[node name="CSGBox2" type="CSGBox" parent="Level/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+operation = 2
+width = 12.0
+depth = 12.0
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.2035, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.750734, 0.660605, 0, -0.660605, 0.750734, 0, 17.0162, 15.1792 )
