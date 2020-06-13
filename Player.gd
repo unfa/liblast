@@ -25,7 +25,7 @@ func walk():
 	if Input.is_action_pressed("MoveLeft"):
 		walkDirection.y -= 1
 		
-	print("Player walkDirection: ", walkDirection)
+	#print("Player walkDirection: ", walkDirection)
 	
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
