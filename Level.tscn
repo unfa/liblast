@@ -23,10 +23,29 @@ use_collision = true
 width = 14.0
 depth = 14.0
 
+[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8, -5 )
+width = 14.0
+depth = 14.0
+
+[node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 4 )
+radius = 3.0
+height = 14.0
+sides = 16
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8, 4 )
+operation = 2
+radius = 2.0
+height = 13.8871
+sides = 16
+
 [node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 operation = 2
 width = 12.0
+height = 6.0
 depth = 12.0
 
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
@@ -40,19 +59,19 @@ operation = 2
 width = 12.0
 depth = 12.0
 
-[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8, -5 )
+[node name="CSGBox8" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 12, 13 )
 width = 14.0
 depth = 14.0
+
+[node name="CSGBox7" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 13, 13 )
+operation = 2
+width = 12.0
+depth = 12.0
 
 [node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, -5 )
 operation = 2
 width = 12.0
 depth = 12.0
-
-[node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 4 )
-radius = 3.0
-height = 14.0
-sides = 16
