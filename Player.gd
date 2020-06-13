@@ -29,6 +29,7 @@ func walk():
 	#print("Player walkDirection: ", walkDirection)
 	
 remote func jump():
+	print("JUMP")
 	velocity.y = JUMP_VELOCITY
 
 func motion(delta):
@@ -42,7 +43,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("MoveJump"):
-		#rpc("jump")
+		rpc("jump")
 		jump()
 
 # Called when the node enters the scene tree for the first time.

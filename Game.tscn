@@ -9,6 +9,7 @@
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
+is_server = false
 
 [node name="Level" type="Spatial" parent="."]
 
