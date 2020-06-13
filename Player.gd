@@ -2,7 +2,7 @@ extends KinematicBody
 
 const GRAVITY = 9.8 
 const JUMP_VELOCITY = 400
-const WALK_VELOCITY = 150
+const WALK_VELOCITY = 550
 
 var velocity = Vector3.ZERO
 
@@ -16,10 +16,13 @@ func gravity():
 	self.velocity.y -= GRAVITY
 	
 func walk():
-	walkDirection = walkDirection.normalized()
-	print("Player walkDirection: ", walkDirection)
+	var walkDirectionNormalized = walkDirection.normalized()
+	print("Player walkDirection: ", walkDirectionNormalized)
 	
-	#velocity.xz = WALK_VELOCITY * walkDirection
+	var walkVelocity = WALK_VELOCITY * walkDirectionNormalized
+	
+	velocity.x = walkVelocity.y
+	velocity.z = - walkVelocity.x
 	
 remote func jump():
 	print("JUMP")
