@@ -1,6 +1,7 @@
 extends KinematicBody
 
 const GRAVITY = 9.8 
+const JUMP_VELOCITY = 400
 
 var velocity = Vector3.ZERO
 
@@ -27,6 +28,10 @@ func walk():
 		
 	#print("Player walkDirection: ", walkDirection)
 	
+func jump():
+	if Input.is_action_just_pressed("MoveJump"):
+		velocity.y = JUMP_VELOCITY
+
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
 	#rpc("move_and_slide", velocity, Vector3.UP)
@@ -34,8 +39,8 @@ func motion(delta):
 func _physics_process(delta):
 	gravity()
 	walk()
+	jump()
 	motion(delta)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
