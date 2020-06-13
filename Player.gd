@@ -16,7 +16,16 @@ func gravity():
 func walk():
 	walkDirection = Vector2.ZERO
 	
-	#if input
+	if Input.is_action_pressed("MoveForward"):
+		walkDirection.x += 1
+	if Input.is_action_pressed("MoveBack"):
+		walkDirection.x -= 1
+	if Input.is_action_pressed("MoveRight"):
+		walkDirection.y += 1
+	if Input.is_action_pressed("MoveLeft"):
+		walkDirection.y -= 1
+		
+	print("Player walkDirection: ", walkDirection)
 	
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
