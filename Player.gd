@@ -2,6 +2,7 @@ extends KinematicBody
 
 const GRAVITY = 9.8 
 const JUMP_VELOCITY = 400
+const WALK_VELOCITY = 150
 
 var velocity = Vector3.ZERO
 
@@ -15,18 +16,10 @@ func gravity():
 	self.velocity.y -= GRAVITY
 	
 func walk():
-	walkDirection = Vector2.ZERO
+	walkDirection = walkDirection.normalized()
+	print("Player walkDirection: ", walkDirection)
 	
-	if Input.is_action_pressed("MoveForward"):
-		walkDirection.x += 1
-	if Input.is_action_pressed("MoveBack"):
-		walkDirection.x -= 1
-	if Input.is_action_pressed("MoveRight"):
-		walkDirection.y += 1
-	if Input.is_action_pressed("MoveLeft"):
-		walkDirection.y -= 1
-		
-	#print("Player walkDirection: ", walkDirection)
+	#velocity.xz = WALK_VELOCITY * walkDirection
 	
 remote func jump():
 	print("JUMP")
@@ -38,13 +31,37 @@ func motion(delta):
 
 func _physics_process(delta):
 	gravity()
+	
+	rpc("walk")
 	walk()
+	
 	motion(delta)
 
 func _input(event):
+	#print(event)
+	
 	if event.is_action_pressed("MoveJump"):
 		rpc("jump")
 		jump()
+		
+	if event.is_action_pressed("MoveForward"):
+		walkDirection.x += 1
+	if event.is_action_pressed("MoveBack"):
+		walkDirection.x -= 1
+	if event.is_action_pressed("MoveRight"):
+		walkDirection.y += 1
+	if event.is_action_pressed("MoveLeft"):
+		walkDirection.y -= 1
+	
+	if event.is_action_released("MoveForward"):
+		walkDirection.x += -1
+	if event.is_action_released("MoveBack"):
+		walkDirection.x -= -1
+	if event.is_action_released("MoveRight"):
+		walkDirection.y += -1
+	if event.is_action_released("MoveLeft"):
+		walkDirection.y -= -1
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -10,3 +10,4 @@ script = ExtResource( 2 )
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7215, 13.0596, -0.85251 )
