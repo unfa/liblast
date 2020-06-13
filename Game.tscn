@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -11,7 +12,7 @@
 [sub_resource type="CapsuleMesh" id=4]
 
 [node name="Game" type="Spatial"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Level" type="Spatial" parent="."]
 
