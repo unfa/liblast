@@ -28,19 +28,22 @@ func walk():
 		
 	#print("Player walkDirection: ", walkDirection)
 	
-func jump():
-	if Input.is_action_just_pressed("MoveJump"):
-		velocity.y = JUMP_VELOCITY
+remote func jump():
+	velocity.y = JUMP_VELOCITY
 
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
 	#rpc("move_and_slide", velocity, Vector3.UP)
-	
+
 func _physics_process(delta):
 	gravity()
 	walk()
-	jump()
 	motion(delta)
+
+func _input(event):
+	if event.is_action_pressed("MoveJump"):
+		#rpc("jump")
+		jump()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
