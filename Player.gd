@@ -15,7 +15,7 @@ var walkDirection = Vector2.ZERO
 func gravity():
 	self.velocity.y -= GRAVITY
 	
-remote func walk():
+remote func walk(walkDirection):
 	var walkDirectionNormalized = walkDirection.normalized()
 	#print("Player walkDirection: ", walkDirectionNormalized)
 	
@@ -35,8 +35,8 @@ func motion(delta):
 func _physics_process(delta):
 	gravity()
 	
-	rpc("walk")
-	walk()
+	rpc("walk", walkDirection)
+	walk(walkDirection)
 	
 	motion(delta)
 
