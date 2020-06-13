@@ -15,13 +15,15 @@ var walkDirection = Vector2.ZERO
 func gravity():
 	self.velocity.y -= GRAVITY
 	
-remote func walk(walkDirection):
-	var walkDirectionNormalized = walkDirection.normalized()
+remote func walk(direction: Vector2):
+	print ("Walk: ", direction)
+	
+	var walkDirectionNormalized = direction.normalized()
 	#print("Player walkDirection: ", walkDirectionNormalized)
 	
 	var walkVelocity = WALK_VELOCITY * walkDirectionNormalized
 	
-	velocity.x = walkVelocity.y
+	velocity.x =   walkVelocity.y
 	velocity.z = - walkVelocity.x
 	
 remote func jump():
@@ -30,7 +32,6 @@ remote func jump():
 
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
-	#rpc("move_and_slide", velocity, Vector3.UP)
 
 func _physics_process(delta):
 	gravity()
