@@ -55,7 +55,8 @@ remote func walk(direction: Vector2):
 	
 remote func jump():
 	print("JUMP")
-	velocity.y = JUMP_VELOCITY
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
 remote func mouselook(rel):
 	self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
