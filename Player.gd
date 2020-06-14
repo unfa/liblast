@@ -4,6 +4,10 @@ const GRAVITY = 9.8
 const JUMP_VELOCITY = 400
 const WALK_VELOCITY = 550
 
+const MOUSE_SENSITIVITY = 1.0 / 30
+
+onready var camera = $Camera
+
 var velocity = Vector3.ZERO
 
 var walkDirection = Vector2.ZERO
@@ -16,7 +20,7 @@ func gravity():
 	self.velocity.y -= GRAVITY
 	
 remote func walk(direction: Vector2):
-	print ("Walk: ", direction)
+	#print ("Walk: ", direction)
 	
 	var walkDirectionNormalized = direction.normalized()
 	#print("Player walkDirection: ", walkDirectionNormalized)
@@ -44,10 +48,20 @@ func _physics_process(delta):
 func _input(event):
 	#print(event)
 	
+	# Moouselook
+	if event is InputEventMouseMotion:
+		var rel = event["relative"]
+		self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
+		camera.rotate_x(rel.y * MOUSE_SENSITIVITY)
+	
+	# Jump
+	
 	if event.is_action_pressed("MoveJump"):
 		rpc("jump")
 		jump()
 		
+	# Walk
+	
 	if event.is_action_pressed("MoveForward"):
 		walkDirection.x += 1
 	if event.is_action_pressed("MoveBack"):
