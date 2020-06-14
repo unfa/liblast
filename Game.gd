@@ -8,6 +8,8 @@ export var MAX_PLAYERS = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	if is_server:
 		initialize_server()
 	else:

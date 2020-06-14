@@ -36,7 +36,7 @@ remote func jump():
 
 remote func mouselook(rel):
 	self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
-	camera.rotate_x(-rel.y * MOUSE_SENSITIVITY)
+	camera.rotation.x = clamp(camera.rotation.x-rel.y * MOUSE_SENSITIVITY, -PI/2, PI/2)
 
 func motion(delta):
 	self.move_and_slide(velocity.rotated(Vector3.UP, self.rotation.y) * delta, Vector3.UP)
@@ -54,7 +54,9 @@ func _input(event):
 	
 	# Moouselook
 	if event is InputEventMouseMotion:
-		var rel = event["relative"]
+		var rel = event.relative
+		
+		rpc("mouselook", rel)
 		mouselook(rel)
 	# Jump
 	
