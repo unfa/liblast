@@ -37,6 +37,7 @@ func initialize_server():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
+	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	add_player(get_tree().get_network_unique_id())
 	return peer
 
@@ -57,8 +58,6 @@ func get_player_names():
 	return player_names
 
 remote func check_players(player_names):
-	print(player_names)
-	
 	for player_name in player_names:
 		if not $Players.has_node(player_name):
 			var player = player_scene.instance()
@@ -78,11 +77,20 @@ func add_player(id):
 	var player_names = get_player_names()
 	rpc("check_players", player_names)
 
+remote func remove_player(id):
+	for player in $Players.get_children():
+		if player.name == str(id):
+			remove_child(player)
+
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
 	
 	add_player(id)
+
+func on_peer_disconnected(id):
+	print("Peer disconnected with id ", id)
 	
+	rpc("remove_player", id)
 
 func on_connection_established():
 	print("Connection has been established")
