@@ -39,7 +39,7 @@ remote func mouselook(rel):
 	camera.rotate_x(-rel.y * MOUSE_SENSITIVITY)
 
 func motion(delta):
-	self.move_and_slide(velocity * delta, Vector3.UP)
+	self.move_and_slide(velocity.rotated(Vector3.UP, self.rotation.y) * delta, Vector3.UP)
 
 func _physics_process(delta):
 	gravity()
