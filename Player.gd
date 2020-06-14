@@ -24,7 +24,8 @@ var walkDirInt = Vector2.ZERO
 # var b = "text"
 
 func gravity():
-	self.velocity.y -= GRAVITY
+	if not is_on_floor():
+		self.velocity.y -= GRAVITY
 	
 remote func walk(direction: Vector2):
 	
