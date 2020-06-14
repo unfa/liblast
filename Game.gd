@@ -13,8 +13,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	initialize()
 	
-	
-	
 	debug_connection_status()
 
 func debug_connection_status():
@@ -39,6 +37,7 @@ func initialize_server():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
+	add_player(get_tree().get_network_unique_id())
 	return peer
 
 func initialize_client():
@@ -48,11 +47,29 @@ func initialize_client():
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	return peer
 
-func on_peer_connected(id):
-	print("Peer connected with id ", id)
+func get_players():
+	return $Players.get_children()
+
+remote func check_players(players):
+	for player in players:
+		if not $Players.has_node(player.name):
+			$Players.add_child(player)
+
+func add_player(id):
 	var player = player_scene.instance()
+	
+	player.name = str(id)
 	add_child(player)
 	player.set_network_master(id)
+	player.translation += Vector3(0.0, 3.0, 0.0)
+	
+	rpc("check_players", get_players())
+
+func on_peer_connected(id):
+	print("Peer connected with id ", id)
+	
+	add_player(id)
+	
 
 func on_connection_established():
 	print("Connection has been established")
