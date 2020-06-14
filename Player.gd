@@ -1,5 +1,7 @@
 extends KinematicBody
 
+export var is_me = false
+
 const GRAVITY = 9.8 
 const JUMP_VELOCITY = 400
 const WALK_VELOCITY = 550
