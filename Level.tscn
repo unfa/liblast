@@ -77,19 +77,19 @@ width = 12.0
 depth = 12.0
 
 [node name="CSGBox9" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 16.4633, 6.96057, -15.5364 )
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 16.4633, 6.96057, -13.835 )
 width = 19.8983
 height = 1.04801
 depth = 3.06491
 
 [node name="CSGBox10" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( -4.2222e-08, 1.13133e-08, 1, 0.258819, 0.965926, 0, -0.965926, 0.258819, -4.37114e-08, -10.5367, 1.96057, -4.53643 )
+transform = Transform( -4.2222e-08, 1.13133e-08, 1, 0.258819, 0.965926, 0, -0.965926, 0.258819, -4.37114e-08, -8.61319, 2.55869, -9.30531 )
 width = 19.8983
 height = 1.04801
 depth = 3.06491
 
 [node name="CSGBox11" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1.3411e-07, -2.98023e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, 1.19209e-07, 24.4633, 1.96057, -4.53643 )
+transform = Transform( 1.3411e-07, -2.98023e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, 1.19209e-07, 19.4633, 11.0535, 10.8751 )
 width = 19.8983
 height = 1.04801
 depth = 3.06491
