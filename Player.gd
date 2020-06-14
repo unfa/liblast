@@ -1,7 +1,7 @@
 extends KinematicBody
 
-const GRAVITY = 9.8 
-const JUMP_VELOCITY = 400
+const GRAVITY = 9.8 * 1.5
+const JUMP_VELOCITY = 600
 const WALK_VELOCITY = 700
 
 const AIR_CONTROL = 0.1
@@ -48,11 +48,11 @@ remote func walk(direction: Vector2):
 	debug.text = "Interpolation: " + String(interpolation)
 	debug.text += "\nwalkVelocity: " + String(walkVelocity)
 	debug.text += "\ncurrentVelocity: " + String(currentVelocity)
-	
+	debug.text += "\nvelocity: " + String(velocity)
 	debug.text += "\nis_on_floor(): " + String(is_on_floor())
 
-	velocity.x = lerp(velocity.x, walkVelocity.y, interpolation)
-	velocity.z = lerp(velocity.z, - walkVelocity.x, interpolation)
+	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
+	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
 remote func jump():
 	print("JUMP")
@@ -64,7 +64,7 @@ remote func mouselook(rel):
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * MOUSE_SENSITIVITY, -PI/2, PI/2)
 
 func motion(delta):
-	self.move_and_slide(velocity.rotated(Vector3.UP, self.rotation.y) * delta, Vector3.UP)
+	self.move_and_slide(velocity * delta, Vector3.UP, true)
 
 func _physics_process(delta):
 	gravity()
