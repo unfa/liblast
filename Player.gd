@@ -4,7 +4,7 @@ const GRAVITY = 9.8
 const JUMP_VELOCITY = 400
 const WALK_VELOCITY = 550
 
-const MOUSE_SENSITIVITY = 1.0 / 30
+const MOUSE_SENSITIVITY = 1.0 / 300
 
 onready var camera = $Camera
 
@@ -34,6 +34,10 @@ remote func jump():
 	print("JUMP")
 	velocity.y = JUMP_VELOCITY
 
+remote func mouselook(rel):
+	self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
+	camera.rotate_x(-rel.y * MOUSE_SENSITIVITY)
+
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP)
 
@@ -51,9 +55,7 @@ func _input(event):
 	# Moouselook
 	if event is InputEventMouseMotion:
 		var rel = event["relative"]
-		self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
-		camera.rotate_x(rel.y * MOUSE_SENSITIVITY)
-	
+		mouselook(rel)
 	# Jump
 	
 	if event.is_action_pressed("MoveJump"):
