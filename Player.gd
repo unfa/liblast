@@ -40,13 +40,16 @@ remote func walk(direction: Vector2):
 		interpolation = WALK_ACCEL
 	else:
 		interpolation = WALK_DECEL
-		
+	
+	if not is_on_floor():
+		interpolation *= AIR_CONTROL
+	
 	debug.text = "Interpolation: " + String(interpolation)
 	debug.text += "\nwalkVelocity: " + String(walkVelocity)
 	debug.text += "\ncurrentVelocity: " + String(currentVelocity)
 	
-	# TODO add air control multiplier for mid-air movement
-	
+	debug.text += "\nis_on_floor(): " + String(is_on_floor())
+
 	velocity.x = lerp(velocity.x, walkVelocity.y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.x, interpolation)
 	
