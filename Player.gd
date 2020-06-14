@@ -6,13 +6,13 @@ const WALK_VELOCITY = 700
 
 const AIR_CONTROL = 0.1
 
-const WALK_ACCEL = 0.1
+const WALK_ACCEL = 0.25
 const WALK_DECEL = 0.1
 
 const MOUSE_SENSITIVITY = 1.0 / 300
 
 onready var camera = $Camera
-onready var debug = get_tree().root.find_node("Debug")
+onready var debug = $"../Debug" # really bad
 
 var velocity = Vector3.ZERO
 
@@ -33,12 +33,30 @@ remote func walk(direction: Vector2):
 	
 	var walkVelocity = WALK_VELOCITY * walkDirectionNormalized
 	
-	velocity.x =   walkVelocity.y
-	velocity.z = - walkVelocity.x
+	var interpolation
+	
+	var currentVelocity = Vector2(- velocity.z, velocity.x)
+	if walkVelocity.dot(currentVelocity) > 0:
+		interpolation = WALK_ACCEL
+	else:
+		interpolation = WALK_DECEL
+	
+	if not is_on_floor():
+		interpolation *= AIR_CONTROL
+	
+	debug.text = "Interpolation: " + String(interpolation)
+	debug.text += "\nwalkVelocity: " + String(walkVelocity)
+	debug.text += "\ncurrentVelocity: " + String(currentVelocity)
+	
+	debug.text += "\nis_on_floor(): " + String(is_on_floor())
+
+	velocity.x = lerp(velocity.x, walkVelocity.y, interpolation)
+	velocity.z = lerp(velocity.z, - walkVelocity.x, interpolation)
 	
 remote func jump():
 	print("JUMP")
-	velocity.y = JUMP_VELOCITY
+	if is_on_floor():
+		velocity.y = JUMP_VELOCITY
 
 remote func mouselook(rel):
 	self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
