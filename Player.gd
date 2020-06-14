@@ -1,18 +1,23 @@
 extends KinematicBody
 
-export var is_me = false
-
 const GRAVITY = 9.8 
 const JUMP_VELOCITY = 400
-const WALK_VELOCITY = 550
+const WALK_VELOCITY = 700
+
+const AIR_CONTROL = 0.1
+
+const WALK_ACCEL = 0.1
+const WALK_DECEL = 0.1
 
 const MOUSE_SENSITIVITY = 1.0 / 300
 
 onready var camera = $Camera
+onready var debug = get_tree().root.find_node("Debug")
 
 var velocity = Vector3.ZERO
 
 var walkDirection = Vector2.ZERO
+var walkDirInt = Vector2.ZERO
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -22,7 +27,6 @@ func gravity():
 	self.velocity.y -= GRAVITY
 	
 remote func walk(direction: Vector2):
-	#print ("Walk: ", direction)
 	
 	var walkDirectionNormalized = direction.normalized()
 	#print("Player walkDirection: ", walkDirectionNormalized)
