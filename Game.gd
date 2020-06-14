@@ -59,7 +59,7 @@ func add_player(id):
 	var player = player_scene.instance()
 	
 	player.name = str(id)
-	add_child(player)
+	$Players.add_child(player)
 	player.set_network_master(id)
 	player.translation += Vector3(0.0, 3.0, 0.0)
 	
