@@ -81,3 +81,15 @@ transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 1
 width = 19.8983
 height = 1.04801
 depth = 3.06491
+
+[node name="CSGBox10" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -4.2222e-08, 1.13133e-08, 1, 0.258819, 0.965926, 0, -0.965926, 0.258819, -4.37114e-08, -10.5367, 1.96057, -4.53643 )
+width = 19.8983
+height = 1.04801
+depth = 3.06491
+
+[node name="CSGBox11" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.3411e-07, -2.98023e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, 1.19209e-07, 24.4633, 1.96057, -4.53643 )
+width = 19.8983
+height = 1.04801
+depth = 3.06491
