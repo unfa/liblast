@@ -21,3 +21,12 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0
 visible = false
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="Debug" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}

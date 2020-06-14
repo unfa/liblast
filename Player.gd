@@ -12,7 +12,7 @@ const WALK_DECEL = 0.1
 const MOUSE_SENSITIVITY = 1.0 / 300
 
 onready var camera = $Camera
-onready var debug = $"../Debug" # really bad
+onready var debug = $Debug
 
 var velocity = Vector3.ZERO
 

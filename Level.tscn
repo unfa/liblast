@@ -75,3 +75,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, -5 )
 operation = 2
 width = 12.0
 depth = 12.0
+
+[node name="CSGBox9" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 16.4633, 6.96057, -15.5364 )
+width = 19.8983
+height = 1.04801
+depth = 3.06491
