@@ -112,8 +112,10 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	
+	# only show the debug label on local machine
+	if name != String(get_tree().get_network_unique_id()):
+		debug.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
