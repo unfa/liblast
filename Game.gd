@@ -51,7 +51,7 @@ func get_players():
 	return $Players.get_children()
 
 remote func check_players(players):
-	for player in players:
+	for player in parse_json(players):
 		if not $Players.has_node(player.name):
 			$Players.add_child(player)
 
@@ -63,7 +63,8 @@ func add_player(id):
 	player.set_network_master(id)
 	player.translation += Vector3(0.0, 3.0, 0.0)
 	
-	rpc("check_players", get_players())
+	var player_json = to_json(get_players())
+	rpc("check_players", player_json)
 
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
