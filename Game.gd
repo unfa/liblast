@@ -47,24 +47,36 @@ func initialize_client():
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	return peer
 
-func get_players():
-	return $Players.get_children()
+func get_player_names():
+	var players =  $Players.get_children()
+	
+	var player_names = []
+	for player in players:
+		player_names.append(player.name)
+	
+	return player_names
 
-remote func check_players(players):
-	for player in parse_json(players):
-		if not $Players.has_node(player.name):
+remote func check_players(player_names):
+	print(player_names)
+	
+	for player_name in player_names:
+		if not $Players.has_node(player_name):
+			var player = player_scene.instance()
+			
+			player.name = player_name
 			$Players.add_child(player)
+			player.translation += Vector3(0.0, 3.0, 0.0)
 
 func add_player(id):
 	var player = player_scene.instance()
 	
-	player.name = str(id)
 	$Players.add_child(player)
+	player.name = str(id)
 	player.set_network_master(id)
 	player.translation += Vector3(0.0, 3.0, 0.0)
 	
-	var player_json = to_json(get_players())
-	rpc("check_players", player_json)
+	var player_names = get_player_names()
+	rpc("check_players", player_names)
 
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
