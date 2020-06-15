@@ -6,6 +6,7 @@
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
 is_server = false
+SERVER_IP = "172.28.166.24"
 
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
