@@ -3,7 +3,7 @@ extends Spatial
 export var is_server = true
 
 export var SERVER_PORT = 9999
-export var SERVER_IP = "172.28.162.191"
+export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191"
 export var MAX_PLAYERS = 10
 
 var player_scene = preload("res://Player.tscn")
