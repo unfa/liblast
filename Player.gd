@@ -19,14 +19,19 @@ var velocity = Vector3.ZERO
 var walkDirection = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 func gravity():
+	#print("--------")
+	#print(get_tree().get_network_unique_id())
+	#print(name, " ", self.velocity.y)
+	#print(name, " ", self.translation.y)
 	if not is_on_floor():
 		self.velocity.y -= GRAVITY
-	
+
 remote func walk(direction: Vector2):
 	
 	var walkDirectionNormalized = direction.normalized()
@@ -67,15 +72,21 @@ func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP, true)
 
 func _physics_process(delta):
+	if str(get_tree().get_network_unique_id()) != name:
+		return
+	
 	gravity()
 	
 	rpc("walk", walkDirection)
 	walk(walkDirection)
 	
 	motion(delta)
+	
+	rset("translation", translation)
 
 func _input(event):
-	#print(event)
+	if str(get_tree().get_network_unique_id()) != name:
+		return
 	
 	# Moouselook
 	if event is InputEventMouseMotion:
@@ -112,6 +123,7 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rset_config("translation", MultiplayerAPI.RPC_MODE_SYNC)
 	
 	# only show the debug label on local machine
 	if name != String(get_tree().get_network_unique_id()):
