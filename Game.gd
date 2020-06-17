@@ -69,8 +69,8 @@ sync func check_players(player_names):
 func add_player(id, check=true):
 	var player = player_scene.instance()
 	
-	$Players.add_child(player)
 	player.name = str(id)
+	$Players.add_child(player)
 	player.set_network_master(id)
 	player.translation += Vector3(0.0, 3.0, 0.0)
 	
