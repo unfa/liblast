@@ -32,10 +32,6 @@ var walkDirInt = Vector2.ZERO
 # var b = "text"
 
 func gravity():
-	#print("--------")
-	#print(get_tree().get_network_unique_id())
-	#print(name, " ", self.velocity.y)
-	#print(name, " ", self.translation.y)
 	if not is_on_floor():
 		self.velocity.y -= GRAVITY
 

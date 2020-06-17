@@ -11,33 +11,31 @@ var player_scene = preload("res://Player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initialize()
+	pass
+	#initialize()
 	
-	debug_connection_status()
+	#debug_connection_status()
 
 func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
 		if GAME_MODE == "PLAYING":
-			GAME_MODE = "MENU"
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			open_menu()
 		else:
-			GAME_MODE = "PLAYING"
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			close_menu()
+
+func open_menu():
+	GAME_MODE = "MENU"
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$MenuContainer.show()
+
+func close_menu():
+	GAME_MODE = "PLAYING"
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$MenuContainer.hide()
 
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
 		print("We are trying to connect")
-
-func initialize():
-	var peer
-	
-	if is_server:
-		peer = initialize_server()
-	else:
-		peer = initialize_client()
-	
-	get_tree().network_peer = peer
-	
 
 func initialize_server():
 	var peer = NetworkedMultiplayerENet.new()
@@ -45,14 +43,19 @@ func initialize_server():
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	add_player(1, false)
-	return peer
+	get_tree().network_peer = peer
+	close_menu()
 
 func initialize_client():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(SERVER_IP, SERVER_PORT)
 	get_tree().connect("connected_to_server", self, "on_connection_established")
 	get_tree().connect("connection_failed", self, "on_connection_failed")
-	return peer
+	get_tree().network_peer = peer
+	close_menu()
+
+func quit():
+	get_tree().quit()
 
 func get_player_names():
 	var players =  $Players.get_children()
