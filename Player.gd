@@ -17,6 +17,8 @@ onready var health = max_health
 onready var camera = $Camera
 onready var debug = $Debug
 
+onready var game = get_parent().get_parent()
+
 onready var crosshair_pos = $CrosshairContainer.rect_size / 2
 
 var velocity = Vector3.ZERO
@@ -110,6 +112,9 @@ func shoot():
 
 func _input(event):
 	if str(get_tree().get_network_unique_id()) != name:
+		return
+	
+	if game.GAME_MODE != "PLAYING":
 		return
 	
 	# Moouselook

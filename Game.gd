@@ -5,15 +5,24 @@ export var is_server = true
 export var SERVER_PORT = 9999
 export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191"
 export var MAX_PLAYERS = 10
+export (String, "MENU", "PLAYING") var GAME_MODE = "MENU"
 
 var player_scene = preload("res://Player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	initialize()
 	
 	debug_connection_status()
+
+func _input(event):
+	if event.is_action_pressed("ToggleMenu"):
+		if GAME_MODE == "PLAYING":
+			GAME_MODE = "MENU"
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			GAME_MODE = "PLAYING"
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
