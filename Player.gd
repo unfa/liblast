@@ -103,7 +103,6 @@ func shoot():
 		var hit = result.collider
 		print(hit)
 		if hit.has_method("on_hit"):
-			print("askdjhgfv")
 			hit.rpc("on_hit")
 
 func _input(event):
@@ -152,7 +151,7 @@ func _ready():
 	rset_config("translation", MultiplayerAPI.RPC_MODE_SYNC)
 	
 	# only show the debug label on local machine
-	if name !=  "1": # String(get_tree().get_network_unique_id()):
+	if name != String(get_tree().get_network_unique_id()):
 		debug.hide()
 		print(get_tree().get_network_unique_id())
 		print(name)

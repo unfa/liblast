@@ -34,7 +34,6 @@ func close_menu():
 func open_quick_join_menu():
 	$MenuContainer/MainMenu.hide()
 	$MenuContainer/QuickJoinMenu.show()
-	
 
 func close_quick_join_menu():
 	$MenuContainer/MainMenu.show()
@@ -45,11 +44,11 @@ func join_home():
 	initialize_client()
 
 func join_unfa():
-	SERVER_IP = "172.28.162.191"
+	SERVER_IP = "172.25.162.191"
 	initialize_client()
 
 func join_jan():
-	SERVER_IP = "172.28.166.24"
+	SERVER_IP = "172.25.166.24"
 	initialize_client()
 
 func debug_connection_status():
@@ -67,9 +66,9 @@ func initialize_server():
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
-	add_player(1, false)
 	get_tree().network_peer = peer
 	close_menu()
+	add_player(1, false)
 
 func initialize_client():
 	var peer = NetworkedMultiplayerENet.new()
@@ -102,6 +101,8 @@ sync func check_players(player_names):
 			
 			if player_name == str(get_tree().get_network_unique_id()):
 				player.camera.current = true
+				player.set_network_master(get_tree().get_network_unique_id())
+				print(get_tree().get_network_unique_id())
 
 func add_player(id, check=true):
 	var player = player_scene.instance()
