@@ -1,10 +1,134 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
 
+[sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=3]
+output_port_for_preview = 0
+uniform_name = "BaseTexture"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=4]
+output_port_for_preview = 0
+uniform_name = "BaseTextureNormal"
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=5]
+uniform_name = "ScalarUniform"
+
+[sub_resource type="VisualShader" id=6]
+code = "shader_type spatial;
+render_mode world_vertex_coords;
+
+uniform sampler2D BaseTexture : hint_albedo;
+uniform float ScalarUniform;
+uniform sampler2D BaseTextureNormal : hint_normal;
+
+
+// TRIPLANAR FUNCTION GLOBAL CODE
+	vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+		vec4 samp = vec4(0.0);
+		samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+		samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+		samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+		return samp;
+	}
+
+	uniform vec3 triplanar_scale = vec3(1.0, 1.0, 1.0);
+	uniform vec3 triplanar_offset;
+	uniform float triplanar_sharpness = 0.5;
+
+	varying vec3 triplanar_power_normal;
+	varying vec3 triplanar_pos;
+
+void vertex() {
+// Output:0
+
+	// TRIPLANAR FUNCTION VERTEX CODE
+		triplanar_power_normal = pow(abs(NORMAL), vec3(triplanar_sharpness));
+		triplanar_power_normal /= dot(triplanar_power_normal, vec3(1.0));
+		triplanar_pos = VERTEX * triplanar_scale + triplanar_offset;
+		triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+void fragment() {
+// TextureUniformTriplanar:3
+	vec3 n_out3p0;
+	float n_out3p1;
+	{
+		vec4 n_tex_read = triplanar_texture( BaseTexture, triplanar_power_normal, triplanar_pos );
+		n_out3p0 = n_tex_read.rgb;
+		n_out3p1 = n_tex_read.a;
+	}
+
+// ScalarUniform:6
+	float n_out6p0 = ScalarUniform;
+
+// TextureUniformTriplanar:5
+	vec3 n_out5p0;
+	float n_out5p1;
+	{
+		vec4 n_tex_read = triplanar_texture( BaseTextureNormal, triplanar_power_normal, triplanar_pos );
+		n_out5p0 = n_tex_read.rgb;
+		n_out5p1 = n_tex_read.a;
+	}
+
+// Output:0
+	ALBEDO = n_out3p0;
+	ROUGHNESS = n_out6p0;
+	NORMALMAP = n_out5p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -531, 641.5 )
+flags/world_vertex_coords = true
+nodes/fragment/0/position = Vector2( 220, 100 )
+nodes/fragment/3/node = SubResource( 3 )
+nodes/fragment/3/position = Vector2( -640, 20 )
+nodes/fragment/5/node = SubResource( 4 )
+nodes/fragment/5/position = Vector2( -280, 500 )
+nodes/fragment/6/node = SubResource( 5 )
+nodes/fragment/6/position = Vector2( -140, 200 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 5, 0, 0, 8, 6, 0, 0, 3 )
+
+[sub_resource type="OpenSimplexNoise" id=7]
+octaves = 7
+period = 256.0
+persistence = 0.859
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=8]
+seamless = true
+noise = SubResource( 7 )
+
+[sub_resource type="NoiseTexture" id=9]
+seamless = true
+as_normalmap = true
+bump_strength = 4.0
+noise = SubResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 6 )
+shader_param/ScalarUniform = 0.4
+shader_param/triplanar_scale = Vector3( 0.1, 0.1, 0.1 )
+shader_param/triplanar_offset = null
+shader_param/triplanar_sharpness = 0.5
+shader_param/BaseTexture = SubResource( 8 )
+shader_param/BaseTextureNormal = SubResource( 9 )
+
 [node name="Level" type="Spatial"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Node"]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 24.5477, 7 )
+shadow_enabled = true
 
 [node name="RigidBody" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.22547, 0 )
@@ -17,6 +141,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
+material_override = SubResource( 10 )
 use_collision = true
 
 [node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
