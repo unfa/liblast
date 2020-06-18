@@ -1,8 +1,8 @@
 extends KinematicBody
 
 const GRAVITY = 9.8 * 1.5
-const JUMP_VELOCITY = 600
-const WALK_VELOCITY = 700
+const JUMP_VELOCITY = 400
+const WALK_VELOCITY = 550
 
 const AIR_CONTROL = 0.1
 

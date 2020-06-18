@@ -1,25 +1,35 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 0.33
+height = 1.1
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.2
+height = 0.3
 
 [sub_resource type="CapsuleMesh" id=2]
+radius = 0.33
+mid_height = 1.1
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70316, -0.0651628 )
-near = 1.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+[node name="CollisionShapeBody" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.882822, 0 )
 shape = SubResource( 1 )
 
+[node name="CollisionShapeFeet" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150321, 0 )
+shape = SubResource( 3 )
+
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.882822, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -37,21 +47,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = -511.401
+margin_top = -300.599
+margin_right = 512.599
+margin_bottom = 299.401
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="CrosshairContainer"]
+[node name="CrosshairCenter" type="Control" parent="CrosshairContainer"]
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
 
-[node name="ColorRect" type="ColorRect" parent="CrosshairContainer/Control"]
+[node name="Line1" type="ColorRect" parent="CrosshairContainer/CrosshairCenter"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 20.0
@@ -61,7 +71,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect2" type="ColorRect" parent="CrosshairContainer/Control"]
+[node name="Line2" type="ColorRect" parent="CrosshairContainer/CrosshairCenter"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 20.0
@@ -72,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect3" type="ColorRect" parent="CrosshairContainer/Control"]
+[node name="Line3" type="ColorRect" parent="CrosshairContainer/CrosshairCenter"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 20.0
@@ -83,7 +93,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect4" type="ColorRect" parent="CrosshairContainer/Control"]
+[node name="Line4" type="ColorRect" parent="CrosshairContainer/CrosshairCenter"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 20.0
@@ -93,11 +103,3 @@ rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Crosshair" type="TextureRect" parent="CrosshairContainer"]
-visible = false
-margin_left = 480.0
-margin_top = 268.0
-margin_right = 544.0
-margin_bottom = 332.0
-texture = ExtResource( 2 )
