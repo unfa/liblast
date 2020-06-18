@@ -33,13 +33,69 @@ __meta__ = {
 }
 
 [node name="CrosshairContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CrosshairContainer"]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="ColorRect" type="ColorRect" parent="CrosshairContainer/Control"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CrosshairContainer/Control"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CrosshairContainer/Control"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="CrosshairContainer/Control"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Crosshair" type="TextureRect" parent="CrosshairContainer"]
+visible = false
 margin_left = 480.0
 margin_top = 268.0
 margin_right = 544.0
