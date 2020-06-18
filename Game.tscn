@@ -5,6 +5,7 @@
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
+SERVER_IP = "127.0.0.1"
 
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
@@ -17,61 +18,96 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuList" type="VBoxContainer" parent="MenuContainer"]
+[node name="MainMenu" type="VBoxContainer" parent="MenuContainer"]
 margin_left = 362.0
 margin_top = 252.0
 margin_right = 662.0
 margin_bottom = 348.0
 rect_min_size = Vector2( 300, 0 )
 
-[node name="AdressBook" type="MenuButton" parent="MenuContainer/MenuList"]
+[node name="QuickJoin" type="Button" parent="MenuContainer/MainMenu"]
 margin_right = 300.0
 margin_bottom = 20.0
-text = "Select destination"
-items = [ "Unfa", null, 0, false, false, 0, 0, null, "", false, "Jan", null, 0, false, false, 1, 0, null, "", false ]
+text = "Quick Join"
 
-[node name="Destination" type="HBoxContainer" parent="MenuContainer/MenuList"]
+[node name="Destination" type="HBoxContainer" parent="MenuContainer/MainMenu"]
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 48.0
 
-[node name="IPAdress" type="LineEdit" parent="MenuContainer/MenuList/Destination"]
+[node name="IPAdress" type="LineEdit" parent="MenuContainer/MainMenu/Destination"]
 margin_right = 208.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.38
 placeholder_text = "IP address"
 
-[node name="Port" type="LineEdit" parent="MenuContainer/MenuList/Destination"]
+[node name="Port" type="LineEdit" parent="MenuContainer/MainMenu/Destination"]
 margin_left = 212.0
 margin_right = 300.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "port"
 
-[node name="NetworkType" type="HBoxContainer" parent="MenuContainer/MenuList"]
+[node name="NetworkType" type="HBoxContainer" parent="MenuContainer/MainMenu"]
 margin_top = 52.0
 margin_right = 300.0
 margin_bottom = 72.0
 
-[node name="Host" type="Button" parent="MenuContainer/MenuList/NetworkType"]
+[node name="Host" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
 margin_right = 148.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Host"
 
-[node name="Join" type="Button" parent="MenuContainer/MenuList/NetworkType"]
+[node name="Join" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
 margin_left = 152.0
 margin_right = 300.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Join"
 
-[node name="Quit" type="Button" parent="MenuContainer/MenuList"]
+[node name="Quit" type="Button" parent="MenuContainer/MainMenu"]
 margin_top = 76.0
 margin_right = 300.0
 margin_bottom = 96.0
 text = "Quit"
-[connection signal="pressed" from="MenuContainer/MenuList/NetworkType/Host" to="." method="initialize_server"]
-[connection signal="pressed" from="MenuContainer/MenuList/NetworkType/Join" to="." method="initialize_client"]
-[connection signal="pressed" from="MenuContainer/MenuList/Quit" to="." method="quit"]
+
+[node name="QuickJoinMenu" type="VBoxContainer" parent="MenuContainer"]
+visible = false
+margin_left = 362.0
+margin_top = 254.0
+margin_right = 662.0
+margin_bottom = 346.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="Back" type="Button" parent="MenuContainer/QuickJoinMenu"]
+margin_right = 300.0
+margin_bottom = 20.0
+text = "Back"
+
+[node name="Home" type="Button" parent="MenuContainer/QuickJoinMenu"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 44.0
+text = "Home"
+
+[node name="Unfa" type="Button" parent="MenuContainer/QuickJoinMenu"]
+margin_top = 48.0
+margin_right = 300.0
+margin_bottom = 68.0
+text = "Unfa"
+
+[node name="Jan" type="Button" parent="MenuContainer/QuickJoinMenu"]
+margin_top = 72.0
+margin_right = 300.0
+margin_bottom = 92.0
+text = "Jan"
+[connection signal="pressed" from="MenuContainer/MainMenu/QuickJoin" to="." method="open_quick_join_menu"]
+[connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Host" to="." method="initialize_server"]
+[connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Join" to="." method="initialize_client"]
+[connection signal="pressed" from="MenuContainer/MainMenu/Quit" to="." method="quit"]
+[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Back" to="." method="close_quick_join_menu"]
+[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Home" to="." method="join_home"]
+[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Unfa" to="." method="join_unfa"]
+[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Jan" to="." method="join_jan"]

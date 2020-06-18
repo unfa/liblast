@@ -2,8 +2,8 @@ extends Spatial
 
 export var is_server = true
 
-export var SERVER_PORT = 9999
-export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191"
+export var SERVER_PORT = 9999 setget , get_port
+export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191" setget , get_ip
 export var MAX_PLAYERS = 10
 export (String, "MENU", "PLAYING") var GAME_MODE = "MENU"
 
@@ -11,10 +11,8 @@ var player_scene = preload("res://Player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#initialize()
-	
-	#debug_connection_status()
+	$MenuContainer/MainMenu/Destination/IPAdress.set_text(SERVER_IP)
+	$MenuContainer/MainMenu/Destination/Port.set_text(str(SERVER_PORT))
 
 func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
@@ -33,9 +31,36 @@ func close_menu():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$MenuContainer.hide()
 
+func open_quick_join_menu():
+	$MenuContainer/MainMenu.hide()
+	$MenuContainer/QuickJoinMenu.show()
+	
+
+func close_quick_join_menu():
+	$MenuContainer/MainMenu.show()
+	$MenuContainer/QuickJoinMenu.hide()
+
+func join_home():
+	SERVER_IP = "127.0.0.1"
+	initialize_client()
+
+func join_unfa():
+	SERVER_IP = "172.28.162.191"
+	initialize_client()
+
+func join_jan():
+	SERVER_IP = "172.28.166.24"
+	initialize_client()
+
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
 		print("We are trying to connect")
+
+func get_ip():
+	return SERVER_IP
+
+func get_port():
+	return SERVER_PORT
 
 func initialize_server():
 	var peer = NetworkedMultiplayerENet.new()
