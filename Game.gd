@@ -122,6 +122,9 @@ sync func remove_player(id):
 		if player.name == str(id):
 			$Players.remove_child(player)
 
+func get_spawn_point():
+	return $Level/SpawnPoint
+
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
 	

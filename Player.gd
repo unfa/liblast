@@ -26,7 +26,6 @@ var velocity = Vector3.ZERO
 var walkDirection = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -90,6 +89,14 @@ func _physics_process(delta):
 master func on_hit():
 	health -= 30
 	print(health)
+
+master func kill():
+	health = 0
+	spawn()
+
+func spawn():
+	health = 150
+	game.get_spawn_point().spawn(self)
 
 func shoot():
 	var space_state = get_world().direct_space_state

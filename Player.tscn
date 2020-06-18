@@ -6,11 +6,11 @@
 radius = 0.33
 height = 1.1
 
-[sub_resource type="CylinderShape" id=3]
+[sub_resource type="CylinderShape" id=2]
 radius = 0.2
 height = 0.3
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="CapsuleMesh" id=3]
 radius = 0.33
 mid_height = 1.1
 
@@ -26,11 +26,11 @@ shape = SubResource( 1 )
 
 [node name="CollisionShapeFeet" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150321, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.882822, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Debug" type="Label" parent="."]
