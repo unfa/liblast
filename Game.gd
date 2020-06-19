@@ -16,10 +16,18 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
-		if GAME_MODE == "PLAYING":
+		if GAME_MODE == "PLAYING" and not $MenuContainer.is_visible():
 			open_menu()
-		else:
+		elif $MenuContainer/MainMenu.is_visible():
 			close_menu()
+		else:
+			# Find the back button
+			var children = $MenuContainer.get_children()
+			for child in children:
+				var buttons = child.get_children()
+				for button in buttons:
+					if button.name == "Back":
+						button.emit_signal("pressed")
 
 func open_menu():
 	GAME_MODE = "MENU"
