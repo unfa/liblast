@@ -5,5 +5,3 @@
 [node name="Weapon" type="Spatial"]
 
 [node name="Handgun" parent="." instance=ExtResource( 1 )]
-
-[editable path="Handgun"]
