@@ -19,67 +19,73 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainer"]
-margin_left = 362.0
-margin_top = 252.0
-margin_right = 662.0
-margin_bottom = 348.0
-rect_min_size = Vector2( 300, 0 )
+margin_left = 312.0
+margin_top = 240.0
+margin_right = 712.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 400, 0 )
 
 [node name="QuickJoin" type="Button" parent="MenuContainer/MainMenu"]
-margin_right = 300.0
+margin_right = 400.0
 margin_bottom = 20.0
 text = "Quick Join"
 
 [node name="Destination" type="HBoxContainer" parent="MenuContainer/MainMenu"]
 margin_top = 24.0
-margin_right = 300.0
+margin_right = 400.0
 margin_bottom = 48.0
 
 [node name="IPAdress" type="LineEdit" parent="MenuContainer/MainMenu/Destination"]
-margin_right = 208.0
+margin_right = 278.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.38
 placeholder_text = "IP address"
 
 [node name="Port" type="LineEdit" parent="MenuContainer/MainMenu/Destination"]
-margin_left = 212.0
-margin_right = 300.0
+margin_left = 282.0
+margin_right = 400.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "port"
 
 [node name="NetworkType" type="HBoxContainer" parent="MenuContainer/MainMenu"]
 margin_top = 52.0
-margin_right = 300.0
+margin_right = 400.0
 margin_bottom = 72.0
 
 [node name="Host" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
-margin_right = 148.0
+margin_right = 198.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Host"
 
 [node name="Join" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
-margin_left = 152.0
-margin_right = 300.0
+margin_left = 202.0
+margin_right = 400.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Join"
 
-[node name="Quit" type="Button" parent="MenuContainer/MainMenu"]
+[node name="Options" type="Button" parent="MenuContainer/MainMenu"]
 margin_top = 76.0
-margin_right = 300.0
+margin_right = 400.0
 margin_bottom = 96.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="MenuContainer/MainMenu"]
+margin_top = 100.0
+margin_right = 400.0
+margin_bottom = 120.0
 text = "Quit"
 
 [node name="QuickJoinMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
-margin_left = 362.0
+margin_left = 312.0
 margin_top = 254.0
-margin_right = 662.0
+margin_right = 712.0
 margin_bottom = 346.0
-rect_min_size = Vector2( 300, 0 )
+rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/QuickJoinMenu"]
 margin_right = 300.0
@@ -103,11 +109,101 @@ margin_top = 72.0
 margin_right = 300.0
 margin_bottom = 92.0
 text = "Jan"
-[connection signal="pressed" from="MenuContainer/MainMenu/QuickJoin" to="." method="open_quick_join_menu"]
+
+[node name="OptionsMenu" type="VBoxContainer" parent="MenuContainer"]
+visible = false
+margin_left = 312.0
+margin_top = 266.0
+margin_right = 712.0
+margin_bottom = 334.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Back" type="Button" parent="MenuContainer/OptionsMenu"]
+margin_left = 129.0
+margin_top = -10.0
+margin_right = 171.0
+margin_bottom = 10.0
+text = "Back"
+
+[node name="Controls" type="Button" parent="MenuContainer/OptionsMenu"]
+margin_left = 129.0
+margin_top = -10.0
+margin_right = 171.0
+margin_bottom = 10.0
+text = "Controls"
+
+[node name="Graphics" type="Button" parent="MenuContainer/OptionsMenu"]
+margin_left = 129.0
+margin_top = -10.0
+margin_right = 171.0
+margin_bottom = 10.0
+text = "Graphics"
+
+[node name="ControlsMenu" type="VBoxContainer" parent="MenuContainer"]
+visible = false
+margin_left = 312.0
+margin_top = 280.0
+margin_right = 712.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Back" type="Button" parent="MenuContainer/ControlsMenu"]
+margin_right = 300.0
+margin_bottom = 20.0
+text = "Back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/ControlsMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SensitivityLabel" type="Label" parent="MenuContainer/ControlsMenu/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Sensitivity"
+
+[node name="SensitivitySlider" type="HSlider" parent="MenuContainer/ControlsMenu/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 0.2
+max_value = 5.0
+step = 0.0
+value = 1.0
+exp_edit = true
+allow_greater = true
+allow_lesser = true
+
+[node name="GraphicsMenu" type="VBoxContainer" parent="MenuContainer"]
+visible = false
+margin_left = 312.0
+margin_top = 268.0
+margin_right = 712.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="Back" type="Button" parent="MenuContainer/GraphicsMenu"]
+margin_right = 300.0
+margin_bottom = 20.0
+text = "Back"
+
+[node name="Fullscreen" type="CheckButton" parent="MenuContainer/GraphicsMenu"]
+margin_top = 24.0
+margin_right = 300.0
+margin_bottom = 64.0
+text = "Fullscreen"
+[connection signal="pressed" from="MenuContainer/MainMenu/QuickJoin" to="." method="open_menu" binds= [ "QuickJoinMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Host" to="." method="initialize_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Join" to="." method="initialize_client"]
+[connection signal="pressed" from="MenuContainer/MainMenu/Options" to="." method="open_menu" binds= [ "OptionsMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Quit" to="." method="quit"]
-[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Back" to="." method="close_quick_join_menu"]
+[connection signal="pressed" from="MenuContainer/QuickJoinMenu/Back" to="." method="return_to_menu" binds= [ "MainMenu" ]]
 [connection signal="pressed" from="MenuContainer/QuickJoinMenu/Home" to="." method="join_home"]
 [connection signal="pressed" from="MenuContainer/QuickJoinMenu/Unfa" to="." method="join_unfa"]
 [connection signal="pressed" from="MenuContainer/QuickJoinMenu/Jan" to="." method="join_jan"]
+[connection signal="pressed" from="MenuContainer/OptionsMenu/Back" to="." method="return_to_menu" binds= [ "MainMenu" ]]
+[connection signal="pressed" from="MenuContainer/OptionsMenu/Controls" to="." method="open_menu" binds= [ "ControlsMenu" ]]
+[connection signal="pressed" from="MenuContainer/OptionsMenu/Graphics" to="." method="open_menu" binds= [ "GraphicsMenu" ]]
+[connection signal="pressed" from="MenuContainer/ControlsMenu/Back" to="." method="return_to_menu" binds= [ "OptionsMenu" ]]
+[connection signal="value_changed" from="MenuContainer/ControlsMenu/HBoxContainer/SensitivitySlider" to="." method="set_mouse_sensitivity"]
+[connection signal="pressed" from="MenuContainer/GraphicsMenu/Back" to="." method="return_to_menu" binds= [ "OptionsMenu" ]]
+[connection signal="toggled" from="MenuContainer/GraphicsMenu/Fullscreen" to="." method="set_fullscreen"]
