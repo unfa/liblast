@@ -1,11 +1,11 @@
 extends Spatial
 
-export var is_server = true
-
 export var SERVER_PORT = 9999 setget , get_port
 export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191" setget , get_ip
 export var MAX_PLAYERS = 10
 export (String, "MENU", "PLAYING") var GAME_MODE = "MENU"
+
+var mouse_sensitivity_multiplier = 1.0
 
 var player_scene = preload("res://Player.tscn")
 
@@ -17,35 +17,43 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
 		if GAME_MODE == "PLAYING" and not $MenuContainer.is_visible():
-			open_menu()
+			open_menus()
 		elif $MenuContainer/MainMenu.is_visible():
-			close_menu()
+			close_menus()
 		else:
 			# Find the back button
 			var children = $MenuContainer.get_children()
 			for child in children:
-				var buttons = child.get_children()
-				for button in buttons:
-					if button.name == "Back":
-						button.emit_signal("pressed")
+				if child.is_visible():
+					var buttons = child.get_children()
+					for button in buttons:
+						if button.name == "Back":
+							print(child.name)
+							button.emit_signal("pressed")
 
-func open_menu():
+func open_menus():
 	GAME_MODE = "MENU"
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$MenuContainer.show()
 
-func close_menu():
+func close_menus():
 	GAME_MODE = "PLAYING"
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$MenuContainer.hide()
 
-func open_quick_join_menu():
-	$MenuContainer/MainMenu.hide()
-	$MenuContainer/QuickJoinMenu.show()
+func return_to_menu(type):
+	for menu in $MenuContainer.get_children():
+		if menu.name == type:
+			menu.show()
+		else:
+			menu.hide()
 
-func close_quick_join_menu():
-	$MenuContainer/MainMenu.show()
-	$MenuContainer/QuickJoinMenu.hide()
+func open_menu(type):
+	for menu in $MenuContainer.get_children():
+		if menu.name == type:
+			menu.show()
+		else:
+			menu.hide()
 
 func join_home():
 	SERVER_IP = "127.0.0.1"
@@ -58,6 +66,13 @@ func join_unfa():
 func join_jan():
 	SERVER_IP = "172.25.166.24"
 	initialize_client()
+
+func set_mouse_sensitivity(sensitivity_multiplier):
+	mouse_sensitivity_multiplier = sensitivity_multiplier
+	print(sensitivity_multiplier)
+
+func set_fullscreen(is_fullscreen):
+	OS.window_fullscreen = is_fullscreen
 
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
@@ -75,7 +90,7 @@ func initialize_server():
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	get_tree().network_peer = peer
-	close_menu()
+	close_menus()
 	add_player(1, false)
 
 func initialize_client():
@@ -84,7 +99,7 @@ func initialize_client():
 	get_tree().connect("connected_to_server", self, "on_connection_established")
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	get_tree().network_peer = peer
-	close_menu()
+	close_menus()
 
 func quit():
 	get_tree().quit()

@@ -9,7 +9,7 @@ const AIR_CONTROL = 0.1
 const WALK_ACCEL = 0.25
 const WALK_DECEL = 0.1
 
-const MOUSE_SENSITIVITY = 1.0 / 300
+const MOUSE_SENSITIVITY = 1.0 / 1000
 
 export var max_health = 150
 onready var health = max_health
@@ -18,8 +18,6 @@ onready var camera = $Camera
 onready var debug = $Debug
 
 onready var game = get_parent().get_parent()
-
-onready var crosshair_pos = $CrosshairContainer.rect_size / 2
 
 var velocity = Vector3.ZERO
 
@@ -67,8 +65,9 @@ remote func jump():
 		velocity.y = JUMP_VELOCITY
 
 remote func mouselook(rel):
-	self.rotate_y(- rel.x * MOUSE_SENSITIVITY)
-	camera.rotation.x = clamp(camera.rotation.x-rel.y * MOUSE_SENSITIVITY, -PI/2, PI/2)
+	var sensitivity = MOUSE_SENSITIVITY * game.mouse_sensitivity_multiplier
+	self.rotate_y(- rel.x * sensitivity)
+	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
 
 func motion(delta):
 	self.move_and_slide(velocity * delta, Vector3.UP, true)
@@ -100,6 +99,7 @@ func spawn():
 
 func shoot():
 	var space_state = get_world().direct_space_state
+	var crosshair_pos = OS.get_real_window_size() / 2
 	
 	var from = $Camera.project_ray_origin(crosshair_pos)
 	var to = from + $Camera.project_ray_normal(crosshair_pos) * 1000
