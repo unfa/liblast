@@ -24,6 +24,8 @@ var velocity = Vector3.ZERO
 var walkDirection = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
+var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -111,6 +113,11 @@ func shoot():
 		print(hit)
 		if hit.has_method("on_hit"):
 			hit.rpc("on_hit")
+		else:
+			var effect = bulletHitEffect.instance()
+			effect.global_transform.origin = result.position
+			get_tree().root.call_deferred("add_child", effect)
+			
 
 func _input(event):
 	if str(get_tree().get_network_unique_id()) != name:
