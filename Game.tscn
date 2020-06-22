@@ -1,11 +1,36 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=3]
 
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+tonemap_mode = 2
+tonemap_white = 2.0
+ssao_enabled = true
+ssao_radius = 2.5
+ssao_radius2 = 4.0
+ssao_quality = 2
+glow_enabled = true
+glow_levels/1 = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_levels/6 = true
+glow_levels/7 = true
+glow_strength = 0.77
+glow_blend_mode = 0
+glow_hdr_threshold = 1.5
+glow_bicubic_upscale = true
+
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
 SERVER_IP = "127.0.0.1"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
 
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
