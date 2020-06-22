@@ -1,0 +1,192 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Assets/Effects/CircleHard.svg" type="Texture" id=1]
+[ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=2]
+
+[sub_resource type="Animation" id=20]
+resource_name = "Effect"
+length = 5.0
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="SphereMesh" id=4]
+radius = 0.1
+height = 0.2
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 1 ), 0.0, -0.386777, 0, 0, Vector2( 0.987179, 0 ), -0.127956, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.65
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+damping = 7.82
+damping_random = 0.92
+scale = 2.0
+scale_random = 0.5
+scale_curve = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+size = Vector2( 0.1, 0.1 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.0346021, 0.083045, 0.49481, 1 )
+colors = PoolColorArray( 1, 0.984375, 0.75, 1, 0.933594, 0.694326, 0.12764, 1, 0.963584, 0.38076, 0.069996, 1, 0.439216, 0, 0, 0.176471, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+lifetime_randomness = 0.34
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+damping = 7.82
+damping_random = 0.92
+scale_random = 0.5
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 9 )
+hue_variation = 0.01
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 4, 4, 4, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=12]
+material = SubResource( 11 )
+size = Vector2( 0.1, 0.1 )
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.0692042, 0.474048, 1 )
+colors = PoolColorArray( 0.756863, 0.756863, 0.756863, 0.329412, 0.598546, 0.598546, 0.598546, 0.512111, 0.504174, 0.504174, 0.504174, 0.223016, 0.431373, 0.431373, 0.431373, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.278253 ), 0.0, 1.12677, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.2
+angular_velocity = 395.12
+angular_velocity_random = 1.0
+damping = 9.0
+damping_random = 0.83
+scale = 8.0
+scale_random = 0.5
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 14 )
+hue_variation = 0.01
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=18]
+material = SubResource( 17 )
+
+[node name="BulletHit" type="Spatial"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Effect"
+anims/Effect = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="ParticlesDust" type="Particles" parent="."]
+emitting = false
+amount = 128
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="ParticlesSparks" type="Particles" parent="."]
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="ParticlesSmoke" type="Particles" parent="."]
+emitting = false
+amount = 16
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 18 )
