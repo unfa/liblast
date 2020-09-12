@@ -20,7 +20,8 @@ glow_levels/2 = true
 glow_levels/4 = true
 glow_levels/6 = true
 glow_levels/7 = true
-glow_strength = 0.77
+glow_intensity = 0.42
+glow_strength = 0.2
 glow_blend_mode = 0
 glow_hdr_threshold = 1.5
 glow_bicubic_upscale = true
@@ -35,6 +36,7 @@ environment = SubResource( 2 )
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
 [node name="Players" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.7154, -1.16819 )
 
 [node name="MenuContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0

@@ -72,7 +72,15 @@ remote func mouselook(rel):
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
 
 func motion(delta):
-	self.move_and_slide(velocity * delta, Vector3.UP, true)
+	var slide_velocity = self.move_and_slide(velocity * delta, Vector3.UP, true)
+	
+	debug.text += "\nslide_velocity: " + String( slide_velocity )
+	debug.text += "\nslide dot product: " + String( velocity.normalized().dot(slide_velocity.normalized()) )
+	debug.text += "\nslide count: " + String( self.get_slide_count() )
+	for i in range(0, self.get_slide_count() ):
+		debug.text += "\nslide " + String(i) + ": " + String( self.get_slide_collision(i).normal )
+		debug.text += "\nslide dot " + String(i) + ": " + String( self.get_slide_collision(i).normal.dot(velocity.normalized()) )
+		
 
 func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
