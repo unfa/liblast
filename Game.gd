@@ -9,10 +9,44 @@ var mouse_sensitivity_multiplier = 1.0
 
 var player_scene = preload("res://Player.tscn")
 
+var settingmap = {
+	"is_fullscreen": "set_fullscreen",
+	"mouse_sensitivity": "set_mouse_sensitivity"
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MenuContainer/MainMenu/Destination/IPAdress.set_text(SERVER_IP)
 	$MenuContainer/MainMenu/Destination/Port.set_text(str(SERVER_PORT))
+	
+	load_settings()
+
+func load_settings():
+	var load_settings = File.new()
+	load_settings.open("user://settings.save", File.READ)
+	
+	if load_settings.is_open():
+		var settings = parse_json(load_settings.get_as_text())
+		
+		for setting in settings:
+			load_setting(setting, settings[setting])
+
+func load_setting(setting, value):
+	call(settingmap[setting], value, false)
+
+func save_setting(setting, value):
+	var save_settings = File.new()
+	save_settings.open("user://settings.save", File.READ_WRITE)
+	
+	if save_settings.is_open():
+		var settings = parse_json(save_settings.get_as_text())
+		settings[setting] = value
+		save_settings.store_string(to_json(settings))
+	else:
+		save_settings.close()
+		save_settings.open("user://settings.save", File.WRITE)
+		var settings = {setting: value}
+		save_settings.store_string(to_json(settings))
 
 func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
@@ -67,12 +101,27 @@ func join_jan():
 	SERVER_IP = "172.25.166.24"
 	initialize_client()
 
-func set_mouse_sensitivity(sensitivity_multiplier):
-	mouse_sensitivity_multiplier = sensitivity_multiplier
-	print(sensitivity_multiplier)
+func set_mouse_sensitivity(sensitivity_multiplier, save=true):
+	if mouse_sensitivity_multiplier != sensitivity_multiplier:
+		mouse_sensitivity_multiplier = sensitivity_multiplier
+	else:
+		return
+	
+	if save:
+		save_setting("mouse_sensitivity", sensitivity_multiplier)
+	else:
+		$MenuContainer/ControlsMenu/HBoxContainer/SensitivitySlider.value = sensitivity_multiplier
 
-func set_fullscreen(is_fullscreen):
-	OS.window_fullscreen = is_fullscreen
+func set_fullscreen(is_fullscreen, save=true):
+	if OS.window_fullscreen != is_fullscreen:
+		OS.window_fullscreen = is_fullscreen
+	else:
+		return
+	
+	if save:
+		save_setting("is_fullscreen", is_fullscreen)
+	else:
+		$MenuContainer/GraphicsMenu/Fullscreen.pressed = is_fullscreen
 
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
