@@ -79,8 +79,15 @@ func motion(delta):
 	debug.text += "\nslide count: " + String( self.get_slide_count() )
 	for i in range(0, self.get_slide_count() ):
 		debug.text += "\nslide " + String(i) + ": " + String( self.get_slide_collision(i).normal )
-		debug.text += "\nslide dot " + String(i) + ": " + String( self.get_slide_collision(i).normal.dot(velocity.normalized()) )
+		var dot_product = self.get_slide_collision(i).normal.dot(velocity)
+		debug.text += "\nslide dot " + String(i) + ": " + String( dot_product )
 		
+		if dot_product < -2:
+			# Push represents the component vector pushing into the surface
+			var push = (dot_product + 50) * self.get_slide_collision(i).normal
+			debug.text += "\npush " + String(i) + ": " + String( push )
+			
+			velocity -= push
 
 func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
