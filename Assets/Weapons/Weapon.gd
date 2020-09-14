@@ -1,5 +1,6 @@
 extends Spatial
 
+var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,5 +17,15 @@ func _ready():
 #	pass
 
 func shoot():
+	var casing_instance = casing.instance()
+	casing_instance.global_transform = find_node("Ejector").global_transform
+	
+	# TODO - fix casing rotation
+	# TODO - apply initial linear and angular velocity	
+	
+	get_tree().root.call_deferred("add_child", casing_instance)
+	
 	$Handgun/AnimationPlayer.stop()
-	$Handgun/AnimationPlayer.play("Shoot")
+	$Handgun/AnimationPlayer.play("Shoot", -1, 2)
+	
+	
