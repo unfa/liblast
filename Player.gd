@@ -115,6 +115,11 @@ func spawn():
 	game.get_spawn_point().spawn(self)
 
 func shoot():
+	
+	var gun = find_node("Weapon")
+	
+	gun.shoot()
+	
 	var space_state = get_world().direct_space_state
 	var crosshair_pos = get_viewport().size / 2
 	
