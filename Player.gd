@@ -116,7 +116,9 @@ func spawn():
 
 func shoot():
 	var space_state = get_world().direct_space_state
-	var crosshair_pos = OS.get_real_window_size() / 2
+	var crosshair_pos = get_viewport().size / 2
+	
+	print(OS.get_real_window_size()/2)
 	
 	var from = $Camera.project_ray_origin(crosshair_pos)
 	var to = from + $Camera.project_ray_normal(crosshair_pos) * 1000
