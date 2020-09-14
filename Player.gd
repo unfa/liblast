@@ -73,6 +73,7 @@ remote func mouselook(rel):
 
 func motion(delta):
 	var slide_velocity = self.move_and_slide(velocity * delta, Vector3.UP, true)
+	#var slide_velocity = self.move_and_collide(velocity * delta, Vector3.UP)
 	
 	debug.text += "\nslide_velocity: " + String( slide_velocity )
 	debug.text += "\nslide dot product: " + String( velocity.normalized().dot(slide_velocity.normalized()) )
@@ -82,12 +83,17 @@ func motion(delta):
 		var dot_product = self.get_slide_collision(i).normal.dot(velocity)
 		debug.text += "\nslide dot " + String(i) + ": " + String( dot_product )
 		
-		if dot_product < -2:
-			# Push represents the component vector pushing into the surface
-			var push = (dot_product + 50) * self.get_slide_collision(i).normal
-			debug.text += "\npush " + String(i) + ": " + String( push )
-			
-			velocity -= push
+		#if dot_product < 0:
+		#	# Push represents the component vector pushing into the surface
+		#	var push = dot_product * self.get_slide_collision(i).normal
+		#	debug.text += "\npush " + String(i) + ": " + String( push )
+		#	
+		#	velocity -= push
+	
+	velocity = slide_velocity / delta
+	
+	if is_on_floor():
+		velocity -= get_floor_normal() * 150
 
 func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
