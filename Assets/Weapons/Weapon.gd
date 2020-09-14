@@ -20,6 +20,10 @@ func shoot():
 	var casing_instance = casing.instance()
 	casing_instance.global_transform = find_node("Ejector").global_transform
 	
+	casing_instance.rotate_y(deg2rad(90))
+	casing_instance.angular_velocity = Vector3(rand_range(0, 40), 0, 0)
+	casing_instance.linear_velocity = Vector3(rand_range(0, 1), 5, 0)
+	
 	# TODO - fix casing rotation
 	# TODO - apply initial linear and angular velocity	
 	
