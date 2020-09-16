@@ -158,8 +158,9 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		var rel = event.relative
 		
-		rpc("mouselook", rel)
+		#rpc("mouselook", rel)
 		mouselook(rel)
+		rset_unreliable("transform", transform)
 	# Jump
 	
 	if event.is_action_pressed("MoveJump"):

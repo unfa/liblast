@@ -182,7 +182,7 @@ func add_player(id, check=true):
 	player.name = str(id)
 	$Players.add_child(player)
 	player.set_network_master(id)
-	player.translation += Vector3(0.0, 3.0, 0.0)
+	player.translation += Vector3(0.0, 0.0, 0.0)
 	
 	var player_names = get_player_names()
 	
