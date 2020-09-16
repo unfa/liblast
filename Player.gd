@@ -75,7 +75,7 @@ remote func mouselook(rel):
 	rotate_y(- rel.x * sensitivity)
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
 	
-	rpc_unreliable("mouselook_abs", camera.rotation)
+	rpc_unreliable("mouselook_abs", camera.rotation.x, rotation.y)
 
 func motion(delta):
 	var slide_velocity = move_and_slide(velocity * delta, Vector3.UP, true)
