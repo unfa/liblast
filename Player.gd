@@ -66,10 +66,15 @@ remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+remote func mouselook_abs(rotation):
+	camera.rotation = rotation
+
 remote func mouselook(rel):
 	var sensitivity = MOUSE_SENSITIVITY * game.mouse_sensitivity_multiplier
 	self.rotate_y(- rel.x * sensitivity)
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
+	
+	rpc_unreliable("mouselook_abs", camera.rotation)
 
 func motion(delta):
 	var slide_velocity = self.move_and_slide(velocity * delta, Vector3.UP, true)
@@ -158,9 +163,8 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		var rel = event.relative
 		
-		#rpc("mouselook", rel)
 		mouselook(rel)
-		rset_unreliable("transform", transform)
+		camera.rset("rotation", rotation)
 	# Jump
 	
 	if event.is_action_pressed("MoveJump"):
