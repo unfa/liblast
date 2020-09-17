@@ -17,6 +17,16 @@ onready var health = max_health
 onready var camera = $Camera
 onready var debug = $Debug
 
+onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
+							$"Sounds/Footstep-Concrete-02",
+							$"Sounds/Footstep-Concrete-03",
+							$"Sounds/Footstep-Concrete-04"]	
+
+var sfx_footsteps_last = 0
+var sfx_footsteps_next = 0
+var sfx_footsteps_delay = 0.2
+var sfx_footsteps_play = false
+
 onready var game = get_parent().get_parent()
 
 var velocity = Vector3.ZERO
@@ -29,6 +39,17 @@ var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+func sfx_play_footsteps():
+	if not sfx_footsteps_play:
+		sfx_footsteps_play = true
+		while sfx_footsteps_next == sfx_footsteps_last:
+			sfx_footsteps_next = randi() % len(sfx_foosteps)
+		sfx_footsteps_last = sfx_footsteps_next
+		print("Play footstep: ", String(sfx_footsteps_next) )
+		sfx_foosteps[sfx_footsteps_next].play()
+		yield(get_tree().create_timer(sfx_footsteps_delay),"timeout")
+		sfx_footsteps_play = false
 
 func gravity():
 	if not is_on_floor():
@@ -62,6 +83,9 @@ remote func walk(direction: Vector2):
 	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
+	if walkVelocity.length() > 0 and is_on_floor():
+		sfx_play_footsteps()
+		
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY

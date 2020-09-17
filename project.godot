@@ -22,6 +22,11 @@ https://github.com/unfa/liblast"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+enable_audio_input=true
+mix_rate=48000
+
 [input]
 
 MoveForward={
