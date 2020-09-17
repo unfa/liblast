@@ -1,2 +1,2 @@
-# jam-01
-Game jam
+# Liblast
+Libre Multiplayer FPS Game build with Godot game Engine
