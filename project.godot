@@ -15,7 +15,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="jam-01"
+config/name="Liblast"
+config/description="Libre Multiplayer FPS Game build with Godot game Engine
+
+https://github.com/unfa/liblast"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
