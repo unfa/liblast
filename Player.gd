@@ -116,7 +116,9 @@ func _physics_process(delta):
 
 master func on_hit():
 	health -= 30
-	print(health)
+	
+	if health <= 0:
+		rpc("kill")
 
 master func kill():
 	health = 0

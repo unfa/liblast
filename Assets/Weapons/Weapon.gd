@@ -16,7 +16,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func shoot():
+remote func shoot():
 	var casing_instance = casing.instance()
 	casing_instance.global_transform = find_node("Ejector").global_transform
 	
