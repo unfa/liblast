@@ -32,4 +32,6 @@ remote func shoot():
 	$Handgun/AnimationPlayer.stop()
 	$Handgun/AnimationPlayer.play("Shoot", -1, 2)
 	
+	$SoundShoot.play(0)
+	
 	
