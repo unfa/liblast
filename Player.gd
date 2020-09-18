@@ -36,10 +36,6 @@ var walkDirInt = Vector2.ZERO
 
 var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 func sfx_play_footsteps():
 	if not sfx_footsteps_play:
 		sfx_footsteps_play = true
