@@ -138,11 +138,16 @@ func _physics_process(delta):
 	
 	rset("translation", translation)
 
-master func on_hit():
+master func on_hit(damage, location):
 	health -= 30
+	
+	rpc("blood_splatter", location)
 	
 	if health <= 0:
 		rpc("kill")
+
+remote func blood_splatter(location):
+	pass
 
 master func kill():
 	health = 0
@@ -153,15 +158,12 @@ func spawn():
 	game.get_spawn_point().spawn(self)
 
 func shoot():
-	
 	var gun = find_node("Weapon")
 	
 	gun.shoot()
 	
 	var space_state = get_world().direct_space_state
 	var crosshair_pos = get_viewport().size / 2
-	
-	print(OS.get_real_window_size()/2)
 	
 	var from = $Camera.project_ray_origin(crosshair_pos)
 	var to = from + $Camera.project_ray_normal(crosshair_pos) * 1000
@@ -170,14 +172,9 @@ func shoot():
 	
 	if "collider" in result:
 		var hit = result.collider
-		print(hit)
+		
 		if hit.has_method("on_hit"):
-			hit.rpc("on_hit")
-		else:
-			var effect = bulletHitEffect.instance()
-			effect.global_transform.origin = result.position
-			get_tree().root.call_deferred("add_child", effect)
-			
+			hit.rpc("on_hit", 30, result.position)
 
 func _input(event):
 	if str(get_tree().get_network_unique_id()) != name:
