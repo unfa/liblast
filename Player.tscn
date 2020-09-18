@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/SFX/Player-Step-Concrete-02.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/SFX/Player-Step-Concrete-04.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SFX/Player-Step-Concrete-03.wav" type="AudioStream" id=6]
+[ext_resource path="res://LevelComponents/Hitmarker.gd" type="Script" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.33
@@ -128,13 +129,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CrosshairHitConfirmation" type="Control" parent="CrosshairContainer"]
+[node name="Hitmarker" type="Control" parent="CrosshairContainer"]
+light_mask = -2147483647
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
+script = ExtResource( 7 )
 
-[node name="Line1" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line1" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -145,7 +148,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line2" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line2" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -156,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line3" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line3" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -167,7 +170,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line4" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line4" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
