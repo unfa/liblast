@@ -57,7 +57,16 @@ __meta__ = {
 SoundClip = "res://Assets/SFX/Player-Jump-01.wav"
 
 [node name="Footsteps" parent="Sounds" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/SFX/Weapons-BulletFlyBy-01.wav"
+SoundClip = "res://Assets/SFX/Player-Step-Concrete-01.wav"
+PlayUntilEnd = true
+MinDelay = 0.2
+
+[node name="Death" parent="Sounds" instance=ExtResource( 7 )]
+SoundClip = "res://Assets/SFX/Player-Death-01.wav"
+MinDelay = 0.2
+
+[node name="Pain" parent="Sounds" instance=ExtResource( 7 )]
+SoundClip = "res://Assets/SFX/Player-Pain-01.wav"
 MinDelay = 0.2
 
 [node name="CrosshairContainer" type="CenterContainer" parent="."]

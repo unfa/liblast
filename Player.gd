@@ -34,7 +34,8 @@ var velocity = Vector3.ZERO
 var walkDirection = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
-var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
+#var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
+var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
 
 #func sfx_play_footsteps():
 #	if not sfx_footsteps_play:
@@ -79,8 +80,8 @@ remote func walk(direction: Vector2):
 	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
-#	if walkVelocity.length() > 0 and is_on_floor():
-#		sfx_play_footsteps()
+	if walkVelocity.length() > 0 and is_on_floor():
+		$Sounds/Footsteps.play()
 #
 remote func jump():
 	if is_on_floor():
@@ -142,9 +143,14 @@ master func on_hit(damage, location):
 	
 	if health <= 0:
 		rpc("kill")
+		$Sounds/Death.play()
+	else:
+		$Sounds/Pain.play()
 
 remote func blood_splatter(location):
-	pass
+	var effect = bodyHitEffect.instance()
+	add_child(effect)
+	effect.global_transform.origin = location
 
 master func kill():
 	health = 0

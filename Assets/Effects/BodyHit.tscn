@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Effects/CircleHard.svg" type="Texture" id=1]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=2]
 [ext_resource path="res://Assets/Effects/FreeTimer.gd" type="Script" id=3]
+[ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Effect"
@@ -197,4 +198,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_editor_description_": "Time to delete this scene."
 }
+
+[node name="SoundPlayer" parent="." instance=ExtResource( 4 )]
+SoundClip = "res://Assets/SFX/Weapons-BulletHitPlayer-01.wav"
+AutoPlay = true
 [connection signal="timeout" from="FreeTimer" to="FreeTimer" method="_on_FreeTimer_timeout"]
