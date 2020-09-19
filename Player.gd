@@ -149,7 +149,7 @@ master func on_hit(damage, location):
 
 remote func blood_splatter(location):
 	var effect = bodyHitEffect.instance()
-	add_child(effect)
+	get_tree().root.add_child(effect)
 	effect.global_transform.origin = location
 
 master func kill():
