@@ -7,6 +7,7 @@ const SFX_dir = "res://Assets/SFX/" # all sound clips must reside somewhere in t
 onready var player = $AudioStreamPlayer3D # playback backend
 
 export(String, FILE, "*-01.wav") var SoundClip = SFX_dir + "Test-01.wav"
+export(bool) var AutoPlay = false
 export(float) var MinimumRandomDistance = 0.35 # gives optimal playback repetition for sound clip groups of different sizes. 
 export(bool) var PlayUntilEnd = false # determines if the play() function is allowed to sop a previously started sound
 export(float) var MinDelay = 0 # determines how many seconds must pass before the sound can be triggered again
@@ -46,6 +47,9 @@ func _ready():
 	
 	print ("Clips: ", len(clips))
 	print ("min_distance: ", min_distance)
+	
+	if AutoPlay:
+		play()
 
 func pick_random():
 	return randi() % len(clips)
