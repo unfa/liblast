@@ -4,6 +4,5 @@
 
 [node name="SoundPlayer" type="Spatial"]
 script = ExtResource( 1 )
-SoundClip = "res://Assets/SFX"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

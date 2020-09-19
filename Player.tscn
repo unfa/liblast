@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/SFX/UI-HitConfirmation.wav" type="AudioStream" id=3]
 [ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://GUI/Hitmarker.gd" type="Script" id=8]
+[ext_resource path="res://GUI/HitConfirmation.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.33
@@ -54,6 +55,10 @@ __meta__ = {
 
 [node name="Jump" parent="Sounds" instance=ExtResource( 7 )]
 SoundClip = "res://Assets/SFX/Player-Jump-01.wav"
+
+[node name="Footsteps" parent="Sounds" instance=ExtResource( 7 )]
+SoundClip = "res://Assets/SFX/Weapons-BulletFlyBy-01.wav"
+MinDelay = 0.2
 
 [node name="CrosshairContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
@@ -117,7 +122,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hitmarker" type="Control" parent="CrosshairContainer"]
+[node name="HitConfirmation" type="Control" parent="CrosshairContainer"]
 light_mask = -2147483647
 margin_left = 512.0
 margin_top = 300.0
@@ -125,7 +130,10 @@ margin_right = 512.0
 margin_bottom = 300.0
 script = ExtResource( 8 )
 
-[node name="Line1" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
+[node name="HitConfirmationSound" type="AudioStreamPlayer" parent="CrosshairContainer/HitConfirmation"]
+stream = ExtResource( 3 )
+
+[node name="Line1" type="ColorRect" parent="CrosshairContainer/HitConfirmation"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -136,7 +144,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line2" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
+[node name="Line2" type="ColorRect" parent="CrosshairContainer/HitConfirmation"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -147,7 +155,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line3" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
+[node name="Line3" type="ColorRect" parent="CrosshairContainer/HitConfirmation"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -158,7 +166,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line4" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
+[node name="Line4" type="ColorRect" parent="CrosshairContainer/HitConfirmation"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0

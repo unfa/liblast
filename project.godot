@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 
 [audio]
 
+driver="ALSA"
 enable_audio_input=true
 mix_rate=48000
 

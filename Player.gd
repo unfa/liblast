@@ -17,15 +17,15 @@ onready var health = max_health
 onready var camera = $Camera
 onready var debug = $Debug
 
-onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
-							$"Sounds/Footstep-Concrete-02",
-							$"Sounds/Footstep-Concrete-03",
-							$"Sounds/Footstep-Concrete-04"]	
+#onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
+#							$"Sounds/Footstep-Concrete-02",
+#							$"Sounds/Footstep-Concrete-03",
+#							$"Sounds/Footstep-Concrete-04"]	
 
-var sfx_footsteps_last = 0
-var sfx_footsteps_next = 0
-var sfx_footsteps_delay = 0.2
-var sfx_footsteps_play = false
+#var sfx_footsteps_last = 0
+#var sfx_footsteps_next = 0
+#var sfx_footsteps_delay = 0.2
+#var sfx_footsteps_play = false
 
 onready var game = get_parent().get_parent()
 
@@ -85,7 +85,7 @@ remote func walk(direction: Vector2):
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$Sounds/Jump.play()
+		$Sounds/Jump.play() 
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -175,7 +175,7 @@ func shoot():
 		
 		if hit is get_script():
 			print("Is player")
-			$CrosshairContainer/Hitmarker.activate(.2)
+			$CrosshairContainer/HitConfirmation.activate(.2)
 
 func _input(event):
 	if str(get_tree().get_network_unique_id()) != name:
