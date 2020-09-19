@@ -1,5 +1,10 @@
 extends Spatial
 
+export(bool) var Hitscan = false
+export(int) var Damage = 100
+
+onready var camera = get_parent().get_parent()
+
 var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 
@@ -18,6 +23,9 @@ func _ready():
 #	pass
 
 remote func shoot():
+	
+	#print ("Camera location: ", camera.global_transform.origin)
+	
 	var casing_instance = casing.instance()
 	casing_instance.global_transform = find_node("Ejector").global_transform
 	
