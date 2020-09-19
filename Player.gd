@@ -52,6 +52,10 @@ func gravity():
 	if not is_on_floor():
 		self.velocity.y -= GRAVITY
 
+func get_closest_point(A: Vector3, B: Vector3):
+	var diff = B - A
+	return A - (A.dot(diff) * diff) / (diff.length_squared())
+ 
 remote func walk(direction: Vector2):
 	
 	var walkDirectionNormalized = direction.normalized()
