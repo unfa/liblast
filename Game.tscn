@@ -219,6 +219,7 @@ margin_right = 300.0
 margin_bottom = 64.0
 text = "Fullscreen"
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickJoin" to="." method="open_menu" binds= [ "QuickJoinMenu" ]]
+[connection signal="text_changed" from="MenuContainer/MainMenu/Destination/IPAdress" to="." method="set_ip"]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Host" to="." method="initialize_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Join" to="." method="initialize_client"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Options" to="." method="open_menu" binds= [ "OptionsMenu" ]]

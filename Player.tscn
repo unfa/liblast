@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/SFX/Player-Step-Concrete-04.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SFX/Player-Step-Concrete-03.wav" type="AudioStream" id=6]
 [ext_resource path="res://SoundPlayer.gd" type="Script" id=7]
+[ext_resource path="res://GUI/Hitmarker.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.33
@@ -68,7 +69,7 @@ stream = ExtResource( 6 )
 stream = ExtResource( 5 )
 
 [node name="SoundPlayer" type="Spatial" parent="Sounds"]
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sounds/SoundPlayer"]
 
@@ -134,13 +135,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CrosshairHitConfirmation" type="Control" parent="CrosshairContainer"]
+[node name="Hitmarker" type="Control" parent="CrosshairContainer"]
+light_mask = -2147483647
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
+script = ExtResource( 7 )
 
-[node name="Line1" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line1" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -151,7 +154,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line2" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line2" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -162,7 +165,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line3" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line3" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0
@@ -173,7 +176,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Line4" type="ColorRect" parent="CrosshairContainer/CrosshairHitConfirmation"]
+[node name="Line4" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
 margin_top = -1.0
 margin_right = 16.0

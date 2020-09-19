@@ -101,6 +101,9 @@ func join_jan():
 	SERVER_IP = "172.25.166.24"
 	initialize_client()
 
+func set_ip(ip):
+	SERVER_IP = ip
+
 func set_mouse_sensitivity(sensitivity_multiplier, save=true):
 	if mouse_sensitivity_multiplier != sensitivity_multiplier:
 		mouse_sensitivity_multiplier = sensitivity_multiplier

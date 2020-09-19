@@ -36,10 +36,6 @@ var walkDirInt = Vector2.ZERO
 
 var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 func sfx_play_footsteps():
 	if not sfx_footsteps_play:
 		sfx_footsteps_play = true
@@ -175,6 +171,10 @@ func shoot():
 		
 		if hit.has_method("on_hit"):
 			hit.rpc("on_hit", 30, result.position)
+		
+		if hit is get_script():
+			print("Is player")
+			$CrosshairContainer/Hitmarker.activate(.2)
 
 func _input(event):
 	if str(get_tree().get_network_unique_id()) != name:
