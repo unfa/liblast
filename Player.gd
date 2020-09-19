@@ -36,16 +36,16 @@ var walkDirInt = Vector2.ZERO
 
 var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 
-func sfx_play_footsteps():
-	if not sfx_footsteps_play:
-		sfx_footsteps_play = true
-		while sfx_footsteps_next == sfx_footsteps_last:
-			sfx_footsteps_next = randi() % len(sfx_foosteps)
-		sfx_footsteps_last = sfx_footsteps_next
-		print("Play footstep: ", String(sfx_footsteps_next) )
-		sfx_foosteps[sfx_footsteps_next].play()
-		yield(get_tree().create_timer(sfx_footsteps_delay),"timeout")
-		sfx_footsteps_play = false
+#func sfx_play_footsteps():
+#	if not sfx_footsteps_play:
+#		sfx_footsteps_play = true
+#		while sfx_footsteps_next == sfx_footsteps_last:
+#			sfx_footsteps_next = randi() % len(sfx_foosteps)
+#		sfx_footsteps_last = sfx_footsteps_next
+#		print("Play footstep: ", String(sfx_footsteps_next) )
+#		sfx_foosteps[sfx_footsteps_next].play()
+#		yield(get_tree().create_timer(sfx_footsteps_delay),"timeout")
+#		sfx_footsteps_play = false
 
 func gravity():
 	if not is_on_floor():
@@ -79,12 +79,13 @@ remote func walk(direction: Vector2):
 	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
-	if walkVelocity.length() > 0 and is_on_floor():
-		sfx_play_footsteps()
-		
+#	if walkVelocity.length() > 0 and is_on_floor():
+#		sfx_play_footsteps()
+#
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$Sounds/Jump.play()
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x

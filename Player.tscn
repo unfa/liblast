@@ -1,12 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/SFX/Player-Step-Concrete-01.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/SFX/Player-Step-Concrete-02.wav" type="AudioStream" id=4]
-[ext_resource path="res://Assets/SFX/Player-Step-Concrete-04.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/SFX/Player-Step-Concrete-03.wav" type="AudioStream" id=6]
-[ext_resource path="res://SoundPlayer.gd" type="Script" id=7]
+[ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GUI/Hitmarker.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -56,22 +52,8 @@ __meta__ = {
 
 [node name="Sounds" type="Spatial" parent="."]
 
-[node name="Footstep-Concrete-01" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 3 )
-
-[node name="Footstep-Concrete-02" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 4 )
-
-[node name="Footstep-Concrete-03" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 6 )
-
-[node name="Footstep-Concrete-04" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 5 )
-
-[node name="SoundPlayer" type="Spatial" parent="Sounds"]
-script = ExtResource( 8 )
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sounds/SoundPlayer"]
+[node name="Jump" parent="Sounds" instance=ExtResource( 7 )]
+SoundClip = "res://Assets/SFX/Player-Jump-01.wav"
 
 [node name="CrosshairContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
@@ -141,7 +123,7 @@ margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Line1" type="ColorRect" parent="CrosshairContainer/Hitmarker"]
 margin_left = 8.0
