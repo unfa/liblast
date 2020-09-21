@@ -55,4 +55,6 @@ remote func shoot():
 	
 	$SoundShoot.play()
 	
-	
+	$Handgun/Muzzle/MuzzleFlash.emitting = true
+	yield(get_tree().create_timer(0.1),"timeout")
+	$Handgun/Muzzle/MuzzleFlash.emitting = false
