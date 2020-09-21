@@ -26,7 +26,7 @@ glow_blend_mode = 0
 glow_hdr_threshold = 1.5
 glow_bicubic_upscale = true
 
-[node name="Game" type="Spatial"]
+[node name="Game" type="Node"]
 script = ExtResource( 2 )
 SERVER_IP = "127.0.0.1"
 
@@ -68,6 +68,8 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.38
 placeholder_text = "IP address"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="Port" type="LineEdit" parent="MenuContainer/MainMenu/Destination"]
 margin_left = 282.0
@@ -75,6 +77,8 @@ margin_right = 400.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "port"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="NetworkType" type="HBoxContainer" parent="MenuContainer/MainMenu"]
 margin_top = 52.0
@@ -82,13 +86,20 @@ margin_right = 400.0
 margin_bottom = 72.0
 
 [node name="Host" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
-margin_right = 198.0
+margin_right = 130.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Host"
 
+[node name="HostAsSpectator" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
+margin_left = 134.0
+margin_right = 265.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Host As Spectator"
+
 [node name="Join" type="Button" parent="MenuContainer/MainMenu/NetworkType"]
-margin_left = 202.0
+margin_left = 269.0
 margin_right = 400.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -221,6 +232,7 @@ text = "Fullscreen"
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickJoin" to="." method="open_menu" binds= [ "QuickJoinMenu" ]]
 [connection signal="text_changed" from="MenuContainer/MainMenu/Destination/IPAdress" to="." method="set_ip"]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Host" to="." method="initialize_server"]
+[connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/HostAsSpectator" to="." method="initialize_server" binds= [ false ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/NetworkType/Join" to="." method="initialize_client"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Options" to="." method="open_menu" binds= [ "OptionsMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Quit" to="." method="quit"]

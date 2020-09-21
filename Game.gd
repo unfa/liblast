@@ -1,4 +1,4 @@
-extends Spatial
+extends Node
 
 export var SERVER_PORT = 9999 setget , get_port
 export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191" setget , get_ip
@@ -136,14 +136,15 @@ func get_ip():
 func get_port():
 	return SERVER_PORT
 
-func initialize_server():
+func initialize_server(join=true):
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	get_tree().network_peer = peer
 	close_menus()
-	add_player(1, false)
+	if join:
+		add_player(1, false)
 
 func initialize_client():
 	var peer = NetworkedMultiplayerENet.new()
