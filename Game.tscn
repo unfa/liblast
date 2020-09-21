@@ -36,7 +36,6 @@ environment = SubResource( 2 )
 [node name="Level" parent="." instance=ExtResource( 3 )]
 
 [node name="Players" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6315, 8.00684, -4.99273 )
 
 [node name="MenuContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0

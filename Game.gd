@@ -1,9 +1,10 @@
 extends Node
 
 export var SERVER_PORT = 9999 setget , get_port
-export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1")  var SERVER_IP = "172.28.162.191" setget , get_ip
+export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1") var SERVER_IP = "172.28.162.191" setget , get_ip
 export var MAX_PLAYERS = 10
 export (String, "MENU", "PLAYING") var GAME_MODE = "MENU"
+export var auto_host = false
 
 var mouse_sensitivity_multiplier = 1.0
 
@@ -20,6 +21,10 @@ func _ready():
 	$MenuContainer/MainMenu/Destination/Port.set_text(str(SERVER_PORT))
 	
 	load_settings()
+	
+	if auto_host:
+		initialize_server(false)
+		print("qwueyhgfiuyqwgaadsf")
 
 func load_settings():
 	var load_settings = File.new()
@@ -71,9 +76,10 @@ func open_menus():
 	$MenuContainer.show()
 
 func close_menus():
-	GAME_MODE = "PLAYING"
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$MenuContainer.hide()
+	if has_node("MenuContainer"):
+		GAME_MODE = "PLAYING"
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$MenuContainer.hide()
 
 func return_to_menu(type):
 	for menu in $MenuContainer.get_children():
