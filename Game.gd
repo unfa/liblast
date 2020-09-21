@@ -1,6 +1,6 @@
 extends Node
 
-export var SERVER_PORT = 9999 setget , get_port
+export var SERVER_PORT = 80 setget , get_port
 export(String, "172.28.162.191", "172.28.166.24", "127.0.0.1") var SERVER_IP = "172.28.162.191" setget , get_ip
 export var MAX_PLAYERS = 10
 export (String, "MENU", "PLAYING") var GAME_MODE = "MENU"
