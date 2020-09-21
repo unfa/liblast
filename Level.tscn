@@ -153,23 +153,12 @@ script = ExtResource( 3 )
 width = 14.0
 depth = 14.0
 
-[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 8, -5 )
-width = 14.0
-depth = 14.0
-
 [node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7, 4 )
 radius = 3.0
 height = 14.0
-sides = 16
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 10.5677, 4 )
-operation = 2
-radius = 2.0
-height = 14.1775
-sides = 16
+sides = 24
+smooth_faces = false
 
 [node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
@@ -178,10 +167,81 @@ width = 12.0
 height = 6.0
 depth = 12.0
 
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.78163, 4 )
+operation = 2
+radius = 2.0
+height = 14.1775
+sides = 24
+smooth_faces = false
+
+[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8736, 8, -5.0366 )
+width = 14.0
+depth = 14.0
+
 [node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -12 )
 width = 14.0
 depth = 14.0
+
+[node name="CSGBox15" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.59864, 4, -25.8491 )
+width = 40.5262
+depth = 14.0
+
+[node name="CSGBox16" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.8614, 4, -6.45679 )
+width = 52.6566
+depth = 14.0
+
+[node name="CSGBox17" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.2837, 1.77627, 13.1345 )
+width = 23.4838
+height = 6.22713
+depth = 12.7782
+
+[node name="CSGBox18" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 1.77627, 6.76296 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 2.03151
+
+[node name="CSGBox19" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 2.36537, 7.73524 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 2.03151
+
+[node name="CSGBox20" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 2.94159, 7.73524 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 5.4952
+
+[node name="CSGBox21" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 3.55982, 9.34489 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 5.4952
+
+[node name="CSGBox22" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 4.18278, 9.34489 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 8.21342
+
+[node name="CSGBox23" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.45777, 4.67019, 10.3097 )
+operation = 2
+width = 8.97262
+height = 0.652383
+depth = 8.9872
 
 [node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -12 )
@@ -200,6 +260,13 @@ operation = 2
 width = 12.0
 depth = 12.0
 
+[node name="CSGCylinder3" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.68932, 11.1741, 15.8729 )
+operation = 2
+height = 2.26886
+sides = 16
+smooth_faces = false
+
 [node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, -5 )
 operation = 2
@@ -212,17 +279,35 @@ width = 19.8983
 height = 1.04801
 depth = 3.06491
 
+[node name="CSGBox13" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 16.4633, 8.8368, -15.389 )
+width = 19.8983
+height = 3.0157
+depth = 0.482565
+
 [node name="CSGBox10" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( -4.2222e-08, 1.13133e-08, 1, 0.258819, 0.965926, 0, -0.965926, 0.258819, -4.37114e-08, -8.61319, 2.55869, -9.30531 )
 width = 19.8983
 height = 1.04801
 depth = 3.06491
 
+[node name="CSGBox12" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -4.2222e-08, 1.13133e-08, 1, 0.258819, 0.965926, 0, -0.965926, 0.258819, -4.37114e-08, -10.0518, 4.14058, -9.30531 )
+width = 19.8983
+height = 2.8803
+depth = 0.413662
+
 [node name="CSGBox11" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1.3411e-07, -2.98023e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, 1.19209e-07, 19.4633, 11.0535, 10.8751 )
 width = 19.8983
 height = 1.04801
 depth = 3.06491
+
+[node name="CSGBox14" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.3411e-07, -2.98023e-08, -1, 0.258819, 0.965926, 0, 0.965926, -0.258819, 1.19209e-07, 20.9571, 12.0994, 10.8751 )
+width = 19.8983
+height = 2.38673
+depth = 0.262265
 
 [node name="Killfloor" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.36458, 0 )
