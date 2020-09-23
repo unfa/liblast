@@ -158,7 +158,27 @@ remote func blood_splatter(location):
 
 master func kill():
 	health = 0
+	
+	var gibs = $Player/Gibs.duplicate()
+	get_tree().root.add_child(gibs)
+	gibs.global_transform = global_transform
+	gibs.show()
+	for i in gibs.get_children():
+		i.sleeping = false
+	
+	$MeshInstance.hide()
+	yield(get_tree().create_timer(3), "timeout")
+	
+	$MeshInstance.show()
 	spawn()
+	
+	yield(get_tree().create_timer(3), "timeout")
+	
+	for i in gibs.get_children():
+		i.queue_free()
+		yield(get_tree().create_timer(rand_range(0.1, 1)), "timeout")
+	
+	gibs.queue_free()
 
 func spawn():
 	health = 150
@@ -204,7 +224,7 @@ func _input(event):
 	if event.is_action_pressed("MoveJump"):
 		rpc("jump")
 		jump()
-		
+
 	# Walk
 	if event.is_action_pressed("MoveForward"):
 		walkDirection.x += 1
