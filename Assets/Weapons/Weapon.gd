@@ -9,7 +9,7 @@ onready var player = get_parent().get_parent().get_parent()
 
 onready var ejector = find_node("Ejector")
 
-onready var sound_shoot = $SoundShoot
+#onready var sound_shoot = $SoundShoot
 
 var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
@@ -20,8 +20,8 @@ var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	sound_shoot.global_transform = camera.get_global_transform()
+#func _ready():
+	#sound_shoot.global_transform = camera.get_global_transform()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
