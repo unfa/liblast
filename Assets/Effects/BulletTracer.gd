@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if first:
-		translate_object_local(Vector3(- rand_range(0, velocity),0 ,0))
+		translate_object_local(Vector3(- rand_range(0, velocity) - velocity*3 ,0 ,0))
 		first = false
 	else:
 		translate_object_local(Vector3(-velocity,0,0))
