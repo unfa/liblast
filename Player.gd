@@ -249,6 +249,12 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	for i in $Player/Gibs.get_children():
+		print(i)
+		#disabled = true
+		#$"Player/Gibs/PlayerGibs _cell /shape0".set_disabled(true)
+	
 	rset_config("translation", MultiplayerAPI.RPC_MODE_SYNC)
 	
 	# only show the debug label on local machine

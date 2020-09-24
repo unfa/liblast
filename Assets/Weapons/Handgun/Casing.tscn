@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.material" type="Material" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SFX/Collision-ShellCasing.wav" type="AudioStream" id=3]
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.024889
+height = 0.139563
 
 [sub_resource type="CylinderShape" id=1]
-radius = 0.0117538
-height = 0.0549308
+radius = 0.1
+height = 0.5
 
 [sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
@@ -22,20 +27,32 @@ surfaces/0 = {
 }
 
 [node name="Casing" type="RigidBody"]
-mass = 0.2
-sleeping = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58307e-05, 0, 0.000259399 )
+mass = 0.27
+contacts_reported = 3
+contact_monitor = true
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionFine" type="CollisionShape" parent="."]
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionCoarse" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.000679016, 0, 0.00038147 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Casing" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="FreeTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+attenuation_filter_cutoff_hz = 20000.0
+[connection signal="body_entered" from="." to="." method="_on_Casing_body_entered"]
 [connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]
