@@ -186,6 +186,7 @@ sync func check_players(player_names):
 				player.camera.current = true
 				player.set_network_master(get_tree().get_network_unique_id())
 				
+				local_player = player
 
 func add_player(id, check=true):
 	var player = player_scene.instance()

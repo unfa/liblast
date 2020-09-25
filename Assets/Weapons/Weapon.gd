@@ -21,20 +21,6 @@ onready var muzzle = find_node("Muzzle")
 var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#sound_shoot.global_transform = camera.get_global_transform()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func shoot():
 	rpc("show_muzzle_flash")
 	rpc("show_tracer")
@@ -73,10 +59,10 @@ sync func spawn_casing():
 	get_tree().root.call_deferred("add_child", casing_instance)
 
 remote func compute_bullet_flyby():
-	var player = get_tree().root.get_node("Game").local_player
+	var local_player = get_tree().root.get_node("Game").local_player
 	var transform = find_node("Muzzle").global_transform
 	
 	var from = transform.xform(Vector3())
 	var to = transform.xform(Vector3(-1000, 0, 0))
 	
-	player.on_bullet_flyby(from, to)
+	local_player.on_bullet_flyby(from, to)
