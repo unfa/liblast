@@ -17,6 +17,8 @@ onready var health = max_health
 onready var camera = $Camera
 onready var debug = $Debug
 
+var is_dead = false
+
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
 #							$"Sounds/Footstep-Concrete-03",
@@ -30,7 +32,6 @@ onready var debug = $Debug
 onready var game = get_parent().get_parent()
 
 var velocity = Vector3.ZERO
-
 var walkDirection = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
@@ -128,6 +129,10 @@ func motion(delta):
 		velocity -= get_floor_normal() * 150
 
 func _physics_process(delta):
+	
+	if is_dead:
+		return
+	
 	if str(get_tree().get_network_unique_id()) != name:
 		return
 	
@@ -168,8 +173,12 @@ master func kill():
 	for i in gibs.get_children():
 		i.get_child(1).disabled = false
 	
+	# Respawn timer
+	
+	is_dead = true
 	$MeshInstance.hide()
 	yield(get_tree().create_timer(3), "timeout")
+	
 	
 	$MeshInstance.show()
 	spawn()
@@ -183,6 +192,7 @@ master func kill():
 	gibs.queue_free()
 
 func spawn():
+	is_dead = false
 	health = 150
 	game.get_spawn_point().spawn(self)
 
@@ -210,6 +220,10 @@ func shoot():
 			$CrosshairContainer/HitConfirmation.activate(.2)
 
 func _input(event):
+	
+	if is_dead:
+		return
+	
 	if str(get_tree().get_network_unique_id()) != name:
 		return
 	
