@@ -173,13 +173,15 @@ remote func blood_splatter(location):
 master func kill():
 	health = 0
 	
+	$CollisionShapeBody.disabled = true
+	$CollisionShapeFeet.disabled = true
+	
+	# spawn gibs
+	
 	var gibs = $Player/Gibs.duplicate()
 	get_tree().root.add_child(gibs)
 	gibs.global_transform = global_transform
 	gibs.show()
-	
-	$CollisionShapeBody.disabled = true
-	$CollisionShapeFeet.disabled = true
 	
 	# enable the ragdoll colliders
 	for i in gibs.get_children():
