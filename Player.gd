@@ -59,12 +59,15 @@ func get_closest_point(_A: Vector3, _B: Vector3):
 	
 	var diff = B - A
 	var result = A - (A.dot(diff) * diff) / (diff.length_squared())
-	return result.xform(transform)
+	return transform.xform(result)
 
 func on_bullet_flyby(from, to):
 	var closest_point = get_closest_point(from, to)
 	
-	get_tree().root.call_deferred("add_child", preload("res://Audio/BulletFlyBySoundPlayer.tscn"))
+	var flyby_noise = preload("res://Audio/BulletFlyBySoundPlayer.tscn").instance()
+	flyby_noise.translation = closest_point
+	
+	get_tree().root.call_deferred("add_child", flyby_noise)
 
 remote func walk(direction: Vector2):
 	
