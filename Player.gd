@@ -169,6 +169,9 @@ master func kill():
 	gibs.global_transform = global_transform
 	gibs.show()
 	
+	$CollisionShapeBody.disabled = true
+	$CollisionShapeFeet.disabled = true
+	
 	# enable the ragdoll colliders
 	for i in gibs.get_children():
 		i.get_child(1).disabled = false
@@ -178,6 +181,8 @@ master func kill():
 	is_dead = true
 	$MeshInstance.hide()
 	$Camera/Hand.hide()
+	$CrosshairContainer.hide()
+	
 	yield(get_tree().create_timer(3), "timeout")
 	
 	
@@ -204,6 +209,11 @@ func spawn():
 	$MeshInstance.show()
 	$Camera/Hand.show()
 	
+	$CrosshairContainer.show()
+	
+	$CollisionShapeBody.disabled = false
+	$CollisionShapeFeet.disabled = false
+	
 	$Camera.rotation = Vector3.ZERO
 	rotation = Vector3.ZERO
 
@@ -223,12 +233,13 @@ func shoot():
 	
 	if "collider" in result:
 		var hit = result.collider
-		
+				
 		if hit.has_method("on_hit"):
 			hit.rpc("on_hit", 30, result.position)
 		
 		if hit is get_script():
-			print("Is player")
+			print("Is a live player")
+			
 			$CrosshairContainer/HitConfirmation.activate(.2)
 
 func _input(event):
