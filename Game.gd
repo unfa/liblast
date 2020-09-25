@@ -15,6 +15,8 @@ var settingmap = {
 	"mouse_sensitivity": "set_mouse_sensitivity"
 }
 
+var local_player = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MenuContainer/MainMenu/Destination/IPAdress.set_text(SERVER_IP)
@@ -24,7 +26,6 @@ func _ready():
 	
 	if auto_host:
 		initialize_server(false)
-		print("qwueyhgfiuyqwgaadsf")
 
 func load_settings():
 	var load_settings = File.new()
@@ -184,7 +185,7 @@ sync func check_players(player_names):
 			if player_name == str(get_tree().get_network_unique_id()):
 				player.camera.current = true
 				player.set_network_master(get_tree().get_network_unique_id())
-				print(get_tree().get_network_unique_id())
+				
 
 func add_player(id, check=true):
 	var player = player_scene.instance()
