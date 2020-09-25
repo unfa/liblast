@@ -26,7 +26,7 @@ func _ready():
 	
 	#print("SoundClip: ", SoundClip)
 	var group = SoundClip.left(SoundClip.find_last('-')).right(SoundClip.find_last('/') + 1)
-	print("group: ", group)
+	#print("group: ", group)
 	
 	while true:
 		var file = dir.get_next()
@@ -38,15 +38,15 @@ func _ready():
 		
 	dir.list_dir_end()
 	
-	print(files)
+	#print(files)
 	
 	for f in files:
 		clips.append(load(SFX_dir + f))
 	
 	min_distance = floor(len(clips) * MinimumRandomDistance)
 	
-	print ("Clips: ", len(clips))
-	print ("min_distance: ", min_distance)
+	#print ("Clips: ", len(clips))
+	#print ("min_distance: ", min_distance)
 	
 	if AutoPlay:
 		play()
@@ -69,14 +69,14 @@ func play():
 	while recently_played.has(i):
 		i = pick_random()
 	
-	print("i: ", i)
+	#print("i: ", i)
 	
 	recently_played.append(i)
 	
 	if len(recently_played) > min_distance:
 		recently_played.remove(0)
 		
-	print("recently played: ", recently_played)
+	#print("recently played: ", recently_played)
 	
 
 	player.stream = clips[i]
