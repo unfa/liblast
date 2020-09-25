@@ -200,6 +200,8 @@ func add_player(id, check=true):
 	
 	if check:
 		rpc("check_players", player_names)
+	else:
+		local_player = player
 
 sync func remove_player(id):
 	for player in $Players.get_children():
