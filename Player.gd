@@ -163,8 +163,10 @@ master func kill():
 	get_tree().root.add_child(gibs)
 	gibs.global_transform = global_transform
 	gibs.show()
+	
+	# enable the ragdoll colliders
 	for i in gibs.get_children():
-		i.sleeping = false
+		i.get_child(1).disabled = false
 	
 	$MeshInstance.hide()
 	yield(get_tree().create_timer(3), "timeout")
@@ -249,9 +251,9 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	# disabled the ragdoll collider
 	for i in $Player/Gibs.get_children():
-		print(i)
+		i.get_child(1).disabled = true
 		#disabled = true
 		#$"Player/Gibs/PlayerGibs _cell /shape0".set_disabled(true)
 	
