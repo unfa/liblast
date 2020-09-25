@@ -24,10 +24,10 @@ func _on_FreeTimer_timeout():
 	
 func _on_Casing_body_entered(body):
 	
-	$AudioStreamPlayer3D.max_db = max(100 - (linear_velocity.length() * 10), 0)
+	$AudioStreamPlayer3D.max_db = max(20 - (linear_velocity.length() * 10), 0)
 	$AudioStreamPlayer3D.pitch_scale = rand_range(0.98, 1.02)
 	print($AudioStreamPlayer3D.max_db)
-	$AudioStreamPlayer3D.play()
+	#$AudioStreamPlayer3D.play()
 	
 	collisions += 1
 	#print("collision: ", String(collisions))
