@@ -53,9 +53,13 @@ func gravity():
 	if not is_on_floor():
 		self.velocity.y -= GRAVITY
 
-func get_closest_point(A: Vector3, B: Vector3):
+func get_closest_point(_A: Vector3, _B: Vector3):
+	var A = transform.inverse().xform(_A)
+	var B = transform.inverse().xform(_B)
+	
 	var diff = B - A
-	return A - (A.dot(diff) * diff) / (diff.length_squared())
+	var result = A - (A.dot(diff) * diff) / (diff.length_squared())
+	return result.xform(transform)
  
 remote func walk(direction: Vector2):
 	
