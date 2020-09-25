@@ -195,6 +195,10 @@ master func kill():
 func spawn():
 	is_dead = false
 	health = 150
+	
+	velocity = Vector3()
+	walkDirection = Vector2.ZERO
+	
 	game.get_spawn_point().spawn(self)
 	
 	$MeshInstance.show()
