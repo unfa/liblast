@@ -11,6 +11,8 @@ export(bool) var AutoPlay = false
 export(float) var MinimumRandomDistance = 0.35 # gives optimal playback repetition for sound clip groups of different sizes. 
 export(bool) var PlayUntilEnd = false # determines if the play() function is allowed to sop a previously started sound
 export(float) var MinDelay = 0 # determines how many seconds must pass before the sound can be triggered again
+export(float) var PitchScale = 1
+export(float) var RandomizePitch = 0
 var min_distance = 0 # this  determines how ofte na sound is allowed to play (any Nth time) this is calculated automatically based on maximum_repetition
 var clips = [] # holds loaded sound stream resources
 var recently_played = [] # holds indexes of recently played 
@@ -78,8 +80,13 @@ func play():
 		
 	#print("recently played: ", recently_played)
 	
-
 	player.stream = clips[i]
+	
+	if RandomizePitch != 0:
+		player.pitch_scale = PitchScale + rand_range(-RandomizePitch /2, RandomizePitch/2)
+	else:
+		player.pitch_scale = PitchScale
+		
 	player.play()
 	
 	ready = false

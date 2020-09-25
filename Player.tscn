@@ -61,6 +61,7 @@ SoundClip = "res://Assets/SFX/Player-Jump-01.wav"
 SoundClip = "res://Assets/SFX/Player-Step-Concrete-01.wav"
 PlayUntilEnd = true
 MinDelay = 0.2
+RandomizePitch = 0.2
 
 [node name="Death" parent="Sounds" instance=ExtResource( 7 )]
 SoundClip = "res://Assets/SFX/Player-Death-01.wav"
