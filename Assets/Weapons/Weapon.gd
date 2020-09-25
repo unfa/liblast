@@ -2,12 +2,19 @@ extends Spatial
 
 export(bool) var Hitscan = false
 export(int) var Damage = 100
+export(float) var Delay = 0.1
+export(bool) var Automatic = false
+export(int) var Rounds = 10
+export(int) var MaxRoundsInClip = 10
+export(int) var Clips = 1
+export(int) var MaxClips = 4
+
 
 onready var camera = get_parent().get_parent()
-
 onready var player = get_parent().get_parent().get_parent()
 
 onready var ejector = find_node("Ejector")
+onready var muzzle = find_node("Muzzle")
 
 #onready var sound_shoot = $SoundShoot
 
@@ -48,7 +55,7 @@ sync func show_muzzle_flash():
 sync func show_tracer():
 	var tracer_instance = tracer.instance()
 	tracer_instance.hide()
-	tracer_instance.global_transform = find_node("Muzzle").global_transform
+	tracer_instance.global_transform = muzzle.global_transform
 	
 	get_tree().root.call_deferred("add_child", tracer_instance)
 	tracer_instance.call_deferred("show")
