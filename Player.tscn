@@ -77,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -511.401
-margin_top = -300.757
+margin_top = -301.225
 margin_right = 512.599
-margin_bottom = 299.243
+margin_bottom = 298.775
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,6 +150,7 @@ margin_top = -1.0
 margin_right = 16.0
 margin_bottom = 1.0
 rect_rotation = 45.3067
+rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -161,6 +162,7 @@ margin_top = -1.0
 margin_right = 16.0
 margin_bottom = 1.0
 rect_rotation = 135.307
+rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,6 +174,7 @@ margin_top = -1.0
 margin_right = 16.0
 margin_bottom = 1.0
 rect_rotation = 225.306
+rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -183,6 +186,7 @@ margin_top = -1.0
 margin_right = 16.0
 margin_bottom = 1.0
 rect_rotation = -44.6931
+rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -194,6 +194,7 @@ master func kill():
 	$Camera/Hand.hide()
 	$CrosshairContainer.hide()
 	
+	
 	yield(get_tree().create_timer(3), "timeout")
 	
 	

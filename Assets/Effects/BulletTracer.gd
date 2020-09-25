@@ -20,4 +20,5 @@ func _process(delta):
 		translate_object_local(Vector3(-velocity,0,0))
 
 func _on_Raycast_body_entered(body):
+	print("Tracer died: body")
 	queue_free()

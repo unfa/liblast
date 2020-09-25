@@ -16,11 +16,11 @@ input_ray_pickable = false
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Raycast"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00372178, -6.92157e-07, 2.79426 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0.0037213, -6.92157e-07, -0.15803 )
 shape = SubResource( 1 )
 
 [node name="BulletTracer" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.07302e-08, 0, -1, 0, 0.25, 0, 0.25, 0, -1.62921e-07, -0.00849247, 0.0281134, 0.0116889 )
+transform = Transform( -4.07302e-08, 0, -1, 0, 0.25, 0, 0.25, 0, -1.62921e-07, 0, 0, 0 )
 
 [node name="Tracer" parent="BulletTracer" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0101204, 0, -0.0227299 )
