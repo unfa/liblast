@@ -177,6 +177,7 @@ master func kill():
 	
 	is_dead = true
 	$MeshInstance.hide()
+	$Camera/Hand.hide()
 	yield(get_tree().create_timer(3), "timeout")
 	
 	
@@ -195,9 +196,16 @@ func spawn():
 	is_dead = false
 	health = 150
 	game.get_spawn_point().spawn(self)
+	
+	$MeshInstance.show()
+	$Camera/Hand.show()
+	
+	$Camera.rotation = Vector3.ZERO
+	rotation = Vector3.ZERO
 
 func shoot():
 	var gun = find_node("Weapon")
+	
 	
 	gun.shoot()
 	
