@@ -168,7 +168,7 @@ master func on_hit(damage, location):
 	else:
 		$Sounds/Pain.play()
 
-remote func blood_splatter(location):
+sync func blood_splatter(location):
 	var effect = bodyHitEffect.instance()
 	get_tree().root.add_child(effect)
 	effect.global_transform.origin = location
