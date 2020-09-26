@@ -174,10 +174,22 @@ remote func blood_splatter(location):
 	effect.global_transform.origin = location
 
 master func kill():
+	if is_dead:
+		return
+	
+	#print ("kill")
+	is_dead = true
+	
+	
+	#print ("set as dead")
+		
 	health = 0
+	#print ("health:", health)
 	
 	$CollisionShapeBody.disabled = true
 	$CollisionShapeFeet.disabled = true
+	
+	#print ("collision disabled")
 	
 	# spawn gibs
 	
@@ -186,13 +198,16 @@ master func kill():
 	gibs.global_transform = global_transform
 	gibs.show()
 	
+	#print ("gibs spawned")
+	
 	# enable the ragdoll colliders
 	for i in gibs.get_children():
 		i.get_child(1).disabled = false
 	
-	# Respawn timer
+	#print ("gibs enabled")
 	
-	is_dead = true
+	# Respawn timer
+	#print ("set as dead")
 	$MeshInstance.hide()
 	$Camera/Hand.hide()
 	$CrosshairContainer.hide()
