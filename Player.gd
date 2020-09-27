@@ -98,12 +98,12 @@ remote func walk(direction: Vector2):
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
 	if walkVelocity.length() > 0 and is_on_floor():
-		$Sounds/Footsteps.play()
+		$Sounds/Footsteps.rpc("play")
 #
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$Sounds/Jump.play() 
+		$Sounds/Jump.rpc("play")
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x

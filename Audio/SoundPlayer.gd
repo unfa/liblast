@@ -56,7 +56,7 @@ func _ready():
 func pick_random():
 	return randi() % len(clips)
 
-func play():
+sync func play():
 	
 	if PlayUntilEnd:
 		if player.playing:
