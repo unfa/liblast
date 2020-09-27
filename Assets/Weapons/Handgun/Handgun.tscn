@@ -68,9 +68,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
 [node name="Ejector" parent="Handgun" index="1"]
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
 
-[node name="Shell" parent="Handgun" index="3"]
-visible = false
-
 [node name="SoundShoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
 

@@ -34,9 +34,7 @@ sync func show_muzzle_flash():
 	$SoundShoot.play()
 	
 	$MuzzleFlash.emitting = true
-	
 	yield(get_tree().create_timer(0.07),"timeout")
-	
 	$MuzzleFlash.emitting = false
 
 sync func show_tracer():

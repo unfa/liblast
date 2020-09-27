@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.material" type="Material" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.gd" type="Script" id=2]
 [ext_resource path="res://Assets/SFX/Collision-ShellCasing.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Effects/SubtleSmoke.png" type="Texture" id=4]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.024889
@@ -25,6 +26,45 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 2292
 }
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.0311111, 0.528889, 1 )
+colors = PoolColorArray( 0.623529, 0.623529, 0.623529, 0, 0.866667, 0.866667, 0.866667, 1, 0.729412, 0.729412, 0.729412, 0.356863, 0.597656, 0.597656, 0.597656, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.0818182 ), 0.0, 0.717355, 0, 0, Vector2( 1, 1 ), 1.47236, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+direction = Vector3( 0, 0, 1 )
+spread = 1.36
+gravity = Vector3( 0, 0.5, 0 )
+initial_velocity = 0.1
+initial_velocity_random = 0.3
+damping = 0.5
+scale = 5.0
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_specular_mode = 4
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 1, 1, 0.0784314 )
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="QuadMesh" id=10]
+material = SubResource( 9 )
+size = Vector2( 0.15, 0.15 )
 
 [node name="Casing" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58307e-05, 0, 0.000259399 )
@@ -55,5 +95,16 @@ autostart = true
 stream = ExtResource( 3 )
 max_db = -10.0
 attenuation_filter_cutoff_hz = 20000.0
+
+[node name="Smoke" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0305352, 0, 4.07454e-10 )
+emitting = false
+amount = 64
+lifetime = 4.0
+one_shot = true
+explosiveness = 0.85
+local_coords = false
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 10 )
 [connection signal="body_entered" from="." to="." method="_on_Casing_body_entered"]
 [connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]

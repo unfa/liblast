@@ -12,16 +12,16 @@ var collisions = 0
 func _ready():
 	$CollisionCoarse.disabled = false
 	$CollisionFine.disabled = true
+	
+	$Smoke.emitting = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _process(delta):
+	$Smoke.global_transform.basis = Transform.IDENTITY.basis # reset particle emmiter rotation
 
 func _on_FreeTimer_timeout():
 	queue_free()
-	
 func _on_Casing_body_entered(body):
 	
 	$AudioStreamPlayer3D.max_db = max(20 - (linear_velocity.length() * 10), 0)
@@ -36,5 +36,5 @@ func _on_Casing_body_entered(body):
 		$CollisionCoarse.disabled = true
 		$CollisionFine.disabled = false
 		
-	if collisions == 10:
-		queue_free()
+	#if collisions == 10:
+	#	queue_free()
