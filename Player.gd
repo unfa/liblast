@@ -98,12 +98,12 @@ remote func walk(direction: Vector2):
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
 	if walkVelocity.length() > 0 and is_on_floor():
-		$Sounds/Footsteps.rpc("play")
+		$Sounds/Footsteps.play()
 #
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$Sounds/Jump.rpc("play")
+		$Sounds/Jump.play() 
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -162,7 +162,7 @@ master func on_hit(damage, location):
 	
 	rpc("blood_splatter", location)
 	
-	if health <= 0 and not is_dead:
+	if health <= 0:
 		rpc("kill")
 		$Sounds/Death.play()
 	else:
@@ -177,23 +177,44 @@ master func kill():
 	if is_dead:
 		return
 	
+	#print ("kill")
 	is_dead = true
 	
+	
+	#print ("set as dead")
+		
 	health = 0
+	#print ("health:", health)
 	
 	$CollisionShapeBody.disabled = true
 	$CollisionShapeFeet.disabled = true
+	
+	#print ("collision disabled")
+	
+	# spawn gibs
 	
 	var gibs = $Player/Gibs.duplicate()
 	get_tree().root.add_child(gibs)
 	gibs.global_transform = global_transform
 	gibs.show()
 	
+	#print ("gibs spawned")
+	
 	# enable the ragdoll colliders
 	for i in gibs.get_children():
 		i.get_child(1).disabled = false
 	
+	#print ("gibs enabled")
+	
+	# Respawn timer
+	#print ("set as dead")
+	$MeshInstance.hide()
+	$Camera/Hand.hide()
+	$CrosshairContainer.hide()
+	
+	
 	yield(get_tree().create_timer(3), "timeout")
+	
 	
 	$MeshInstance.show()
 	spawn()
@@ -205,11 +226,6 @@ master func kill():
 		yield(get_tree().create_timer(rand_range(0.1, 1)), "timeout")
 	
 	gibs.queue_free()
-
-func despawn():
-	$MeshInstance.hide()
-	$Camera/Hand.hide()
-	$CrosshairContainer.hide()
 
 func spawn():
 	is_dead = false
