@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/HUD/HeathBarEmpty.svg" type="Texture" id=1]
-[ext_resource path="res://Assets/HUD/HeathBarProgress.svg" type="Texture" id=2]
-[ext_resource path="res://Assets/HUD/HeathBarUnder.svg" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/HealthBarProgress.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/HealthBarUnder.svg" type="Texture" id=3]
 [ext_resource path="res://Assets/HUD/Panel.svg" type="Texture" id=4]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
