@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GUI/HitConfirmation.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SFX/UI-HitConfirmation.wav" type="AudioStream" id=2]
+
+[node name="CrosshairContainer" type="CenterContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -511.401
+margin_top = -301.225
+margin_right = 512.599
+margin_bottom = 298.775
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CrosshairCenter" type="Control" parent="."]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Line1" type="ColorRect" parent="CrosshairCenter"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2" type="ColorRect" parent="CrosshairCenter"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line3" type="ColorRect" parent="CrosshairCenter"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line4" type="ColorRect" parent="CrosshairCenter"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HitConfirmation" type="Control" parent="."]
+light_mask = -2147483647
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 1 )
+
+[node name="HitConfirmationSound" type="AudioStreamPlayer" parent="HitConfirmation"]
+stream = ExtResource( 2 )
+
+[node name="Line1" type="ColorRect" parent="HitConfirmation"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 16.0
+margin_bottom = 1.0
+rect_rotation = 45.3067
+rect_scale = Vector2( 1, 0.5 )
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2" type="ColorRect" parent="HitConfirmation"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 16.0
+margin_bottom = 1.0
+rect_rotation = 135.307
+rect_scale = Vector2( 1, 0.5 )
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line3" type="ColorRect" parent="HitConfirmation"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 16.0
+margin_bottom = 1.0
+rect_rotation = 225.306
+rect_scale = Vector2( 1, 0.5 )
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line4" type="ColorRect" parent="HitConfirmation"]
+margin_left = 8.0
+margin_top = -1.0
+margin_right = 16.0
+margin_bottom = 1.0
+rect_rotation = -44.6931
+rect_scale = Vector2( 1, 0.5 )
+rect_pivot_offset = Vector2( -8, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

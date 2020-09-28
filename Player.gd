@@ -12,7 +12,7 @@ const WALK_DECEL = 0.1
 const MOUSE_SENSITIVITY = 1.0 / 1000
 
 export var max_health = 150
-onready var health = max_health
+onready var health = max_health setget set_health
 
 onready var camera = $Camera
 onready var debug = $Debug
@@ -48,6 +48,11 @@ var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
 #		sfx_foosteps[sfx_footsteps_next].play()
 #		yield(get_tree().create_timer(sfx_footsteps_delay),"timeout")
 #		sfx_footsteps_play = false
+
+func set_health(value):
+	health = value
+	print("Set health")
+	$HUD.updateHealth(value)
 
 func gravity():
 	if not is_on_floor():
@@ -158,7 +163,8 @@ func _physics_process(delta):
 	rset("translation", translation)
 
 master func on_hit(damage, location):
-	health -= 30
+	
+	set_health(health - 30)
 	
 	rpc("blood_splatter", location)
 	
@@ -183,7 +189,7 @@ master func kill():
 	
 	#print ("set as dead")
 		
-	health = 0
+	set_health(0)
 	#print ("health:", health)
 	
 	$CollisionShapeBody.disabled = true
@@ -193,16 +199,16 @@ master func kill():
 	
 	# spawn gibs
 	
-	var gibs = $Player/Gibs.duplicate()
-	get_tree().root.add_child(gibs)
-	gibs.global_transform = global_transform
-	gibs.show()
+	#var gibs = $Player/Gibs.duplicate()
+	#get_tree().root.add_child(gibs)
+	#gibs.global_transform = global_transform
+	#gibs.show()
 	
 	#print ("gibs spawned")
 	
 	# enable the ragdoll colliders
-	for i in gibs.get_children():
-		i.get_child(1).disabled = false
+	#for i in gibs.get_children():
+#		i.get_child(1).disabled = false
 	
 	#print ("gibs enabled")
 	
@@ -210,7 +216,7 @@ master func kill():
 	#print ("set as dead")
 	$MeshInstance.hide()
 	$Camera/Hand.hide()
-	$CrosshairContainer.hide()
+	$HUD.updateCrosshair(false, false)
 	
 	
 	yield(get_tree().create_timer(3), "timeout")
@@ -221,15 +227,15 @@ master func kill():
 	
 	yield(get_tree().create_timer(3), "timeout")
 	
-	for i in gibs.get_children():
-		i.queue_free()
-		yield(get_tree().create_timer(rand_range(0.1, 1)), "timeout")
+#	for i in gibs.get_children():
+#		i.queue_free()
+#		yield(get_tree().create_timer(rand_range(0.1, 1)), "timeout")
 	
-	gibs.queue_free()
+#	gibs.queue_free()
 
 func spawn():
 	is_dead = false
-	health = 150
+	set_health(150)
 	
 	velocity = Vector3()
 	walkDirection = Vector2.ZERO
@@ -239,7 +245,7 @@ func spawn():
 	$MeshInstance.show()
 	$Camera/Hand.show()
 	
-	$CrosshairContainer.show()
+	$HUD.updateCrosshair(true, false)
 	
 	$CollisionShapeBody.disabled = false
 	$CollisionShapeFeet.disabled = false
@@ -249,7 +255,6 @@ func spawn():
 
 func shoot():
 	var gun = find_node("Weapon")
-	
 	
 	gun.shoot()
 	
@@ -270,7 +275,7 @@ func shoot():
 		if hit is get_script():
 			print("Is a live player")
 			
-			$CrosshairContainer/HitConfirmation.activate(.2)
+			$HUD.updateCrosshair(true, true)
 
 func _input(event):
 	
@@ -318,9 +323,10 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_health(150)
 	# disabled the ragdoll collider
-	for i in $Player/Gibs.get_children():
-		i.get_child(1).disabled = true
+	#for i in $Player/Gibs.get_children():
+	#	i.get_child(1).disabled = true
 		#disabled = true
 		#$"Player/Gibs/PlayerGibs _cell /shape0".set_disabled(true)
 	
