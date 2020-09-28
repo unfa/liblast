@@ -102,8 +102,7 @@ remote func walk(direction: Vector2):
 	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
 	
-	if walkVelocity.length() > 0 and is_on_floor():
-		$Sounds/Footsteps.play()
+	#if walkVelocity.length() > 0 and is_on_floor():
 #
 remote func jump():
 	if is_on_floor():
@@ -123,6 +122,10 @@ remote func mouselook(rel):
 
 func motion(delta):
 	var slide_velocity = move_and_slide(velocity * delta, Vector3.UP, true)
+	
+	if slide_velocity.length() > 2 and is_on_floor():
+		$Sounds/Footsteps.play()
+	
 	#var slide_velocity = move_and_collide(velocity * delta, Vector3.UP)
 	
 	debug.text += "\nslide_velocity: " + String( slide_velocity )
@@ -170,7 +173,6 @@ master func on_hit(damage, location):
 	
 	if health <= 0:
 		rpc("kill")
-		$Sounds/Death.rpc("play")
 	else:
 		$Sounds/Pain.rpc("play")
 
@@ -182,6 +184,8 @@ sync func blood_splatter(location):
 master func kill():
 	if is_dead:
 		return
+	
+	$Sounds/Death.rpc("play")
 	
 	#print ("kill")
 	is_dead = true
