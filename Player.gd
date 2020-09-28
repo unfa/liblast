@@ -164,9 +164,9 @@ master func on_hit(damage, location):
 	
 	if health <= 0:
 		rpc("kill")
-		$Sounds/Death.play()
+		$Sounds/Death.rpc("play")
 	else:
-		$Sounds/Pain.play()
+		$Sounds/Pain.rpc("play")
 
 sync func blood_splatter(location):
 	var effect = bodyHitEffect.instance()
