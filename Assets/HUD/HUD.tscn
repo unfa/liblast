@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/HUD/HeathBarEmpty.svg" type="Texture" id=1]
+[ext_resource path="res://Assets/HUD/HeathBarProgress.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/HeathBarUnder.svg" type="Texture" id=3]
+
+[sub_resource type="VisualShaderNodeColorConstant" id=1]
+constant = Color( 0, 0, 0, 0.176471 )
+
+[sub_resource type="VisualShader" id=2]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.000000, 0.000000, 0.000000);
+	float n_out2p1 = 0.176471;
+
+// Output:0
+	COLOR.rgb = n_out2p0;
+	COLOR.a = n_out2p1;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, -7 )
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 840, 80 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( 300, 60 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.610558
+margin_right = 0.610596
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = -50.0
+margin_right = 148.0
+margin_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="Health"]
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+max_value = 150.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0, 0, 0, 0.0980392 )
+tint_progress = Color( 0, 1, 1.2, 0.75 )
+nine_patch_stretch = true
+stretch_margin_left = 25
+stretch_margin_top = 25
+stretch_margin_right = 25
+stretch_margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthText" type="Label" parent="Health/HealthBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -24.5
+margin_right = 80.0
+margin_bottom = 24.5
+text = "150"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weapon" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -148.0
+margin_top = -50.0
+margin_right = -32.0
+margin_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Weapon"]
+material = SubResource( 3 )
+margin_right = 116.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Weapon"]
+material = SubResource( 3 )
+margin_right = 116.0
+margin_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RoundsClips" type="Label" parent="Weapon/VBoxContainer"]
+margin_top = 16.0
+margin_right = 116.0
+margin_bottom = 30.0
+text = "12 / 6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponName" type="Label" parent="Weapon/VBoxContainer"]
+margin_top = 34.0
+margin_right = 116.0
+margin_bottom = 48.0
+text = "Handgun"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
