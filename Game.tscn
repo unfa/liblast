@@ -88,9 +88,9 @@ text = "Quit"
 [node name="ConnectMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
 margin_left = 312.0
-margin_top = 216.0
+margin_top = 212.0
 margin_right = 712.0
-margin_bottom = 384.0
+margin_bottom = 388.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/ConnectMenu"]

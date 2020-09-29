@@ -325,6 +325,13 @@ func _input(event):
 	if event.is_action_pressed("WeaponPrimary"):
 		shoot()
 
+func set_local_player():
+	set_network_master(get_tree().get_network_unique_id())
+	game.local_player = self
+	camera.current = true
+	
+	$HUD.show()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_health(150)

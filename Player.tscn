@@ -70,3 +70,4 @@ SoundClip = "res://Assets/SFX/Player-Pain-01.wav"
 MinDelay = 0.2
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+visible = false

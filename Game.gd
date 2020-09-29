@@ -205,10 +205,7 @@ sync func check_players(player_names):
 			player.translation += Vector3(0.0, 3.0, 0.0)
 			
 			if player_name == str(get_tree().get_network_unique_id()):
-				player.camera.current = true
-				player.set_network_master(get_tree().get_network_unique_id())
-				
-				local_player = player
+				player.set_local_player()
 
 func add_player(id, check=true):
 	var player = player_scene.instance()
