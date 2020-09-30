@@ -56,14 +56,21 @@ __meta__ = {
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainer"]
 margin_left = 312.0
-margin_top = 266.0
+margin_top = 244.0
 margin_right = 712.0
-margin_bottom = 334.0
+margin_bottom = 356.0
 rect_min_size = Vector2( 400, 0 )
 
-[node name="Connect" type="Button" parent="MenuContainer/MainMenu"]
+[node name="QuickConnect" type="Button" parent="MenuContainer/MainMenu"]
 margin_right = 400.0
-margin_bottom = 20.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Quick Connect!"
+
+[node name="Connect" type="Button" parent="MenuContainer/MainMenu"]
+margin_top = 44.0
+margin_right = 400.0
+margin_bottom = 64.0
 text = "Connect"
 
 [node name="Disconnect" type="Button" parent="MenuContainer/MainMenu"]
@@ -74,15 +81,15 @@ margin_bottom = 44.0
 text = "Disconnect"
 
 [node name="Options" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 24.0
+margin_top = 68.0
 margin_right = 400.0
-margin_bottom = 44.0
+margin_bottom = 88.0
 text = "Options"
 
 [node name="Quit" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 48.0
+margin_top = 92.0
 margin_right = 400.0
-margin_bottom = 68.0
+margin_bottom = 112.0
 text = "Quit"
 
 [node name="ConnectMenu" type="VBoxContainer" parent="MenuContainer"]
@@ -255,6 +262,8 @@ margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 64.0
 text = "Fullscreen"
+[connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="join_test_server"]
+[connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="_on_QuickConnect_pressed"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Connect" to="." method="open_menu" binds= [ "ConnectMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Options" to="." method="open_menu" binds= [ "OptionsMenu" ]]
