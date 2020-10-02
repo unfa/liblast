@@ -12,12 +12,12 @@ var player_scene = preload("res://Player.tscn")
 
 var settingmap = {
 	"is_fullscreen": "set_fullscreen",
-	"mouse_sensitivity": "set_mouse_sensitivity"
+	"mouse_sensitivity": "set_mouse_sensitivity",
+	"nickname": "set_nickname"
 }
 
 onready var peer = NetworkedMultiplayerENet.new()
 var local_player = null setget set_local_player
-var player_name = "guest"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -147,6 +147,12 @@ func set_fullscreen(is_fullscreen, save=true):
 	else:
 		$MenuContainer/GraphicsMenu/Fullscreen.pressed = is_fullscreen
 
+func set_nickname(nickname, save=true):
+	if save:
+		save_setting("nickname", nickname)
+	else:
+		$MenuContainer/MainMenu/Name.text = nickname
+
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
 		print("We are trying to connect")
@@ -161,13 +167,8 @@ func initialize_server(join=true):
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
-	get_tree().network_peer = peer
 	
-	$MenuContainer/MainMenu/Connect.hide()
-	$MenuContainer/MainMenu/Disconnect.show()
-	close_menus()
-	
-	print(get_tree().get_network_unique_id())
+	initialize()
 	
 	if join:
 		add_player(1, false)
@@ -178,12 +179,16 @@ func initialize_client():
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	get_tree().network_peer = peer
 	
+	initialize()
+
+func initialize():
 	return_to_menu("MainMenu")
 	
 	$MenuContainer/MainMenu/Connect.hide()
 	$MenuContainer/MainMenu/Disconnect.show()
 	
 	close_menus()
+	set_nickname($MenuContainer/MainMenu/Name.text)
 
 func free_client():
 	$MenuContainer/MainMenu/Connect.show()

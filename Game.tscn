@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://GUI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=3]
 
@@ -50,33 +51,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.943848
 margin_right = -0.943848
+theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainer"]
 margin_left = 312.0
-margin_top = 230.0
+margin_top = 172.0
 margin_right = 712.0
-margin_bottom = 370.0
+margin_bottom = 428.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Name" type="LineEdit" parent="MenuContainer/MainMenu"]
 margin_right = 400.0
-margin_bottom = 24.0
+margin_bottom = 48.0
 placeholder_text = "Enter your name"
 
 [node name="QuickConnect" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 28.0
+margin_top = 52.0
 margin_right = 400.0
-margin_bottom = 68.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 0, 40 )
 text = "Quick Connect!"
 
 [node name="Connect" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 72.0
+margin_top = 104.0
 margin_right = 400.0
-margin_bottom = 92.0
+margin_bottom = 152.0
 text = "Connect"
 
 [node name="Disconnect" type="Button" parent="MenuContainer/MainMenu"]
@@ -87,23 +89,23 @@ margin_bottom = 44.0
 text = "Disconnect"
 
 [node name="Options" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 96.0
+margin_top = 156.0
 margin_right = 400.0
-margin_bottom = 116.0
+margin_bottom = 204.0
 text = "Options"
 
 [node name="Quit" type="Button" parent="MenuContainer/MainMenu"]
-margin_top = 120.0
+margin_top = 208.0
 margin_right = 400.0
-margin_bottom = 140.0
+margin_bottom = 256.0
 text = "Quit"
 
 [node name="ConnectMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
 margin_left = 312.0
-margin_top = 224.0
+margin_top = 142.0
 margin_right = 712.0
-margin_bottom = 376.0
+margin_bottom = 458.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/ConnectMenu"]
@@ -184,9 +186,9 @@ text = "Jan"
 [node name="OptionsMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
 margin_left = 312.0
-margin_top = 266.0
+margin_top = 224.0
 margin_right = 712.0
-margin_bottom = 334.0
+margin_bottom = 376.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/OptionsMenu"]
@@ -213,9 +215,9 @@ text = "Graphics"
 [node name="ControlsMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
 margin_left = 312.0
-margin_top = 280.0
+margin_top = 255.0
 margin_right = 712.0
-margin_bottom = 320.0
+margin_bottom = 345.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/ControlsMenu"]
@@ -247,9 +249,9 @@ allow_lesser = true
 [node name="GraphicsMenu" type="VBoxContainer" parent="MenuContainer"]
 visible = false
 margin_left = 312.0
-margin_top = 268.0
+margin_top = 250.0
 margin_right = 712.0
-margin_bottom = 332.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 400, 0 )
 
 [node name="Back" type="Button" parent="MenuContainer/GraphicsMenu"]

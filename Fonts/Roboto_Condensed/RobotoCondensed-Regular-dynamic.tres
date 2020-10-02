@@ -3,5 +3,8 @@
 [ext_resource path="res://Fonts/Roboto_Condensed/RobotoCondensed-Regular.tres" type="DynamicFontData" id=1]
 
 [resource]
-size = 48
+size = 32
+outline_size = 2
+outline_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+use_mipmaps = true
 font_data = ExtResource( 1 )
