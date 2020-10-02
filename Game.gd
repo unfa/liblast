@@ -16,7 +16,8 @@ var settingmap = {
 }
 
 onready var peer = NetworkedMultiplayerENet.new()
-var local_player = null
+var local_player = null setget set_local_player
+var player_name = "guest"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,11 @@ func _ready():
 	
 	if auto_host:
 		initialize_server(false)
+
+func set_local_player(player):
+	local_player = player
+	player.set_local_player()
+	player.rpc("set_nickname", $MenuContainer/MainMenu/Name.text)
 
 func load_settings():
 	var load_settings = File.new()
@@ -101,6 +107,9 @@ func join_test_server():
 	SERVER_IP = "unfa.xyz"
 	initialize_client()
 
+sync func set_player_name(player, name):
+	print(name)
+
 func join_home():
 	SERVER_IP = "127.0.0.1"
 	initialize_client()
@@ -158,6 +167,8 @@ func initialize_server(join=true):
 	$MenuContainer/MainMenu/Disconnect.show()
 	close_menus()
 	
+	print(get_tree().get_network_unique_id())
+	
 	if join:
 		add_player(1, false)
 
@@ -186,26 +197,33 @@ func free_client():
 func quit():
 	get_tree().quit()
 
-func get_player_names():
+func get_player_data():
 	var players =  $Players.get_children()
 	
-	var player_names = []
+	var player_data = {}
 	for player in players:
-		player_names.append(player.name)
+		var data = {}
+		data["nickname"] = player.nickname
+		
+		player_data[player.name] = data
 	
-	return player_names
+	return player_data
 
-sync func check_players(player_names):
-	for player_name in player_names:
+sync func check_players(player_data):
+	for player_name in player_data:
 		if not $Players.has_node(player_name):
 			var player = player_scene.instance()
 			
 			player.name = player_name
+			
 			$Players.add_child(player)
 			player.translation += Vector3(0.0, 3.0, 0.0)
 			
+			var data = player_data[player_name]
+			player.set_nickname(data["nickname"])
+			
 			if player_name == str(get_tree().get_network_unique_id()):
-				player.set_local_player()
+				set_local_player(player)
 
 func add_player(id, check=true):
 	var player = player_scene.instance()
@@ -215,12 +233,12 @@ func add_player(id, check=true):
 	player.set_network_master(id)
 	player.translation += Vector3(0.0, 0.0, 0.0)
 	
-	var player_names = get_player_names()
-	
 	if check:
-		rpc("check_players", player_names)
+		var player_data = get_player_data()
+		rpc("check_players", player_data)
 	else:
-		local_player = player
+		set_local_player(player)
+		
 
 sync func remove_player(id):
 	for player in $Players.get_children():
