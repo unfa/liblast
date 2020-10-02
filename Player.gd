@@ -320,6 +320,7 @@ func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
 	camera.current = true
 	$HUD.show()
+	$Billboard.hide()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

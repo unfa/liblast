@@ -9,7 +9,7 @@
 [ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="QuadMesh" id=1]
-size = Vector2( 1, 0.3 )
+size = Vector2( 2, 0.6 )
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.33
