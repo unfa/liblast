@@ -37,6 +37,7 @@ var walkDirInt = Vector2.ZERO
 
 #var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
+onready var nickname = "guest" setget set_nickname
 
 #func sfx_play_footsteps():
 #	if not sfx_footsteps_play:
@@ -51,8 +52,14 @@ var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
 
 func set_health(value):
 	health = value
-	print("Set health")
 	$HUD.updateHealth(value)
+	print(value)
+	$Billboard.rpc("set_health", value)
+	#$Billboard.set_health(value)
+
+sync func set_nickname(_nickname):
+	$Billboard.set_nickname(_nickname)
+	nickname = _nickname
 
 func gravity():
 	if not is_on_floor():
@@ -149,7 +156,6 @@ func motion(delta):
 		velocity -= get_floor_normal() * 150
 
 func _physics_process(delta):
-	
 	if is_dead:
 		return
 	
@@ -312,9 +318,7 @@ func _input(event):
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
-	game.local_player = self
 	camera.current = true
-	
 	$HUD.show()
 
 # Called when the node enters the scene tree for the first time.
