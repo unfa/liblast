@@ -70,3 +70,6 @@ SoundClip = "res://Assets/SFX/Player-Pain-01.wav"
 MinDelay = 0.2
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+visible = false
+[connection signal="ammo_changed" from="Camera/Hand/Weapon" to="HUD" method="update_ammo"]
+[connection signal="damage_dealt" from="Camera/Hand/Weapon" to="HUD" method="update_crosshair" binds= [ true, true ]]

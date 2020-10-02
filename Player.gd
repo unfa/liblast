@@ -220,8 +220,7 @@ master func kill():
 	#print ("set as dead")
 	$MeshInstance.hide()
 	$Camera/Hand.hide()
-	$HUD.updateCrosshair(false, false)
-	
+	#$HUD.update_crosshair(false, false)
 	
 	yield(get_tree().create_timer(3), "timeout")
 	
@@ -249,8 +248,6 @@ func spawn():
 	$MeshInstance.show()
 	$Camera/Hand.show()
 	
-	$HUD.updateCrosshair(true, false)
-	
 	$CollisionShapeBody.disabled = false
 	$CollisionShapeFeet.disabled = false
 	
@@ -258,28 +255,14 @@ func spawn():
 	rotation = Vector3.ZERO
 
 func shoot():
-	var gun = find_node("Weapon")
+	var weapon = find_node("Weapon")
 	
-	gun.shoot()
+	var remaining_ammo = weapon.shoot($Camera)
+
+func reload():
+	var weapon = find_node("Weapon")
 	
-	var space_state = get_world().direct_space_state
-	var crosshair_pos = get_viewport().size / 2
-	
-	var from = $Camera.project_ray_origin(crosshair_pos)
-	var to = from + $Camera.project_ray_normal(crosshair_pos) * 1000
-	
-	var result = space_state.intersect_ray(from, to)
-	
-	if "collider" in result:
-		var hit = result.collider
-				
-		if hit.has_method("on_hit"):
-			hit.rpc("on_hit", 30, result.position)
-		
-		if hit is get_script():
-			print("Is a live player")
-			
-			$HUD.updateCrosshair(true, true)
+	weapon.reload()
 
 func _input(event):
 	
@@ -324,6 +307,15 @@ func _input(event):
 	
 	if event.is_action_pressed("WeaponPrimary"):
 		shoot()
+	if event.is_action_pressed("WeaponReload"):
+		reload()
+
+func set_local_player():
+	set_network_master(get_tree().get_network_unique_id())
+	game.local_player = self
+	camera.current = true
+	
+	$HUD.show()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

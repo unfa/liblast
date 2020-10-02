@@ -15,12 +15,13 @@ var settingmap = {
 	"mouse_sensitivity": "set_mouse_sensitivity"
 }
 
+onready var peer = NetworkedMultiplayerENet.new()
 var local_player = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MenuContainer/MainMenu/Destination/IPAdress.set_text(SERVER_IP)
-	$MenuContainer/MainMenu/Destination/Port.set_text(str(SERVER_PORT))
+	$MenuContainer/ConnectMenu/Destination/IPAdress.set_text(SERVER_IP)
+	$MenuContainer/ConnectMenu/Destination/Port.set_text(str(SERVER_PORT))
 	
 	load_settings()
 	
@@ -96,6 +97,10 @@ func open_menu(type):
 		else:
 			menu.hide()
 
+func join_test_server():
+	SERVER_IP = "unfa.xyz"
+	initialize_client()
+
 func join_home():
 	SERVER_IP = "127.0.0.1"
 	initialize_client()
@@ -144,22 +149,39 @@ func get_port():
 	return SERVER_PORT
 
 func initialize_server(join=true):
-	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	get_tree().network_peer = peer
+	
+	$MenuContainer/MainMenu/Connect.hide()
+	$MenuContainer/MainMenu/Disconnect.show()
 	close_menus()
+	
 	if join:
 		add_player(1, false)
 
 func initialize_client():
-	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(SERVER_IP, SERVER_PORT)
 	get_tree().connect("connected_to_server", self, "on_connection_established")
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	get_tree().network_peer = peer
+	
+	return_to_menu("MainMenu")
+	
+	$MenuContainer/MainMenu/Connect.hide()
+	$MenuContainer/MainMenu/Disconnect.show()
+	
 	close_menus()
+
+func free_client():
+	$MenuContainer/MainMenu/Connect.show()
+	$MenuContainer/MainMenu/Disconnect.hide()
+	
+	for player in $Players.get_children():
+		player.queue_free()
+	
+	peer.close_connection()
 
 func quit():
 	get_tree().quit()
@@ -183,10 +205,7 @@ sync func check_players(player_names):
 			player.translation += Vector3(0.0, 3.0, 0.0)
 			
 			if player_name == str(get_tree().get_network_unique_id()):
-				player.camera.current = true
-				player.set_network_master(get_tree().get_network_unique_id())
-				
-				local_player = player
+				player.set_local_player()
 
 func add_player(id, check=true):
 	var player = player_scene.instance()

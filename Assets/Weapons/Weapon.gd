@@ -1,5 +1,8 @@
 extends Spatial
 
+signal damage_dealt
+signal ammo_changed(type, amount)
+
 export(bool) var Hitscan = false
 export(int) var Damage = 100
 export(float) var Delay = 0.1
@@ -9,35 +12,90 @@ export(int) var MaxRoundsInClip = 10
 export(int) var Clips = 1
 export(int) var MaxClips = 4
 
-
 onready var camera = get_parent().get_parent()
 onready var player = get_parent().get_parent().get_parent()
 
 onready var ejector = find_node("Ejector")
 onready var muzzle = find_node("Muzzle")
 
+onready var current_rounds = Rounds
+
+var currently_fireing = false
+var cached_fire = false
+
 #onready var sound_shoot = $SoundShoot
 
 var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 
-func shoot():
-	rpc("show_muzzle_flash")
-	rpc("show_tracer")
-	rpc("spawn_casing")
-	rpc("compute_bullet_flyby")
+func shoot(camera):
+	if cached_fire == true:
+		return
+	
+	if currently_fireing == true:
+		cached_fire = true
+		yield($Handgun/AnimationPlayer, "animation_finished")
+	
+	# TODO: mutexes
+	currently_fireing = true
+	cached_fire = false
+	
+	if current_rounds > 0:
+		rpc("fire_weapon", current_rounds)
+		rpc("compute_bullet_flyby")
+		
+		current_rounds -= 1
+		emit_signal("ammo_changed", "handgun", current_rounds)
+		
+		var space_state = get_world().direct_space_state
+		
+		var crosshair_pos = get_viewport().size / 2
+		
+		var from = camera.project_ray_origin(crosshair_pos)
+		var to = from + camera.project_ray_normal(crosshair_pos) * 1000
+	
+		var result = space_state.intersect_ray(from, to)
+		
+		if "collider" in result:
+			var hit = result.collider
+					
+			if hit.has_method("on_hit"):
+				hit.rpc("on_hit", 30, result.position)
+			
+			if hit is preload("res://Player.gd"):
+				emit_signal("damage_dealt")
+	else:
+		rpc("dry_fire")
+	
+	return current_rounds
 
+sync func fire_weapon(var rounds_left):
+	show_muzzle_flash(rounds_left)
+	show_tracer()
+	spawn_casing()
+	yield($Handgun/AnimationPlayer, "animation_finished")
+	
+	if !cached_fire:
+		currently_fireing = false
 
-sync func show_muzzle_flash():
+sync func dry_fire():
+	pass
+
+func show_muzzle_flash(var rounds_left):
 	$Handgun/AnimationPlayer.stop()
-	$Handgun/AnimationPlayer.play("Shoot", -1, 2)
+	
+	if rounds_left == 1:
+		$Handgun/AnimationPlayer.play("Empty", -1, 2)
+	else:
+		$Handgun/AnimationPlayer.play("Shoot", -1, 2)
+	
 	$SoundShoot.play()
 	
 	$MuzzleFlash.emitting = true
 	yield(get_tree().create_timer(0.07),"timeout")
 	$MuzzleFlash.emitting = false
 
-sync func show_tracer():
+func show_tracer():
 	var tracer_instance = tracer.instance()
 	tracer_instance.hide()
 	tracer_instance.global_transform = muzzle.global_transform
@@ -45,7 +103,7 @@ sync func show_tracer():
 	get_tree().root.call_deferred("add_child", tracer_instance)
 	tracer_instance.call_deferred("show")
 
-sync func spawn_casing():
+func spawn_casing():
 	var casing_instance = casing.instance()
 	casing_instance.global_transform = ejector.global_transform
 	
@@ -64,3 +122,21 @@ remote func compute_bullet_flyby():
 	var to = global_transform.xform(Vector3(-1000, 0, 0))
 	
 	local_player.on_bullet_flyby(from, to)
+
+func reload():
+	rpc("play_reload_animation")
+	
+	currently_fireing = true
+	cached_fire = false
+	
+	yield($Handgun/AnimationPlayer, "animation_finished")
+	
+	if not cached_fire:
+		currently_fireing = false
+	
+	current_rounds = Rounds
+	
+	emit_signal("ammo_changed", "handgun", current_rounds)
+
+sync func play_reload_animation():
+	$Handgun/AnimationPlayer.play("Reload", 0.5, 1)
