@@ -276,9 +276,9 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="PlayerListContainer"]
 margin_left = 262.0
-margin_top = 49.0
+margin_top = 50.0
 margin_right = 762.0
-margin_bottom = 549.0
+margin_bottom = 550.0
 rect_min_size = Vector2( 500, 500 )
 
 [node name="PlayerList" type="VBoxContainer" parent="PlayerListContainer/Panel"]
