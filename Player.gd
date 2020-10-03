@@ -53,7 +53,6 @@ onready var nickname = "guest" setget set_nickname
 func set_health(value):
 	health = value
 	$HUD.updateHealth(value)
-	print(value)
 	$Billboard.rpc("set_health", value)
 	#$Billboard.set_health(value)
 
@@ -274,7 +273,6 @@ func reload():
 	weapon.reload()
 
 func _input(event):
-	
 	if is_dead:
 		return
 	
@@ -339,8 +337,6 @@ func _ready():
 	# only show the debug label on local machine
 	if name != String(get_tree().get_network_unique_id()):
 		debug.hide()
-		print(get_tree().get_network_unique_id())
-		print(name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

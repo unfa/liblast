@@ -16,7 +16,7 @@ var settingmap = {
 	"nickname": "set_nickname"
 }
 
-onready var peer = NetworkedMultiplayerENet.new()
+var peer = NetworkedMultiplayerENet.new()
 var local_player = null setget set_local_player
 
 func set_local_player(player):
@@ -206,6 +206,9 @@ func free_client():
 		player_list_item.queue_free()
 	
 	peer.close_connection()
+	
+	get_tree().network_peer = null
+	local_player = null
 
 func quit():
 	get_tree().quit()
@@ -222,7 +225,7 @@ func get_player_data():
 	
 	return player_data
 
-sync func check_players(player_data):
+remote func check_players(player_data):
 	for player_name in player_data:
 		if not $Players.has_node(player_name):
 			var player = player_scene.instance()
@@ -255,6 +258,8 @@ func join_game():
 	
 	var player_data = get_player_data()
 	
+	set_network_master(1)
+	
 	rpc("set_player_data", player_data)
 
 func on_player_added(player):
@@ -281,8 +286,6 @@ master func set_player_data(player_data):
 	check_players(player_data)
 	var new_player_data = get_player_data()
 	
-	print(new_player_data)
-	
 	rpc("check_players", new_player_data)
 
 func on_peer_disconnected(id):
@@ -291,6 +294,7 @@ func on_peer_disconnected(id):
 	rpc("remove_player", id)
 
 func on_connection_established():
+	print("connection_established")
 	join_game()
 
 func on_connection_failed():
