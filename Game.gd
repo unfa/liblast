@@ -19,6 +19,10 @@ var settingmap = {
 onready var peer = NetworkedMultiplayerENet.new()
 var local_player = null setget set_local_player
 
+func set_local_player(player):
+	local_player = player
+	player.set_local_player()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MenuContainer/ConnectMenu/Destination/IPAdress.set_text(SERVER_IP)
@@ -28,11 +32,6 @@ func _ready():
 	
 	if auto_host:
 		initialize_server(false)
-
-func set_local_player(player):
-	local_player = player
-	player.set_local_player()
-	player.rpc("set_nickname", $MenuContainer/MainMenu/Name.text)
 
 func load_settings():
 	var load_settings = File.new()
@@ -75,8 +74,13 @@ func _input(event):
 					var buttons = child.get_children()
 					for button in buttons:
 						if button.name == "Back":
-							print(child.name)
 							button.emit_signal("pressed")
+	
+	if event.is_action_pressed("ShowPlayerList") and !$MenuContainer.visible:
+		$PlayerListContainer.show()
+	
+	if event.is_action_released("ShowPlayerList"):
+		$PlayerListContainer.hide()
 
 func open_menus():
 	GAME_MODE = "MENU"
@@ -107,8 +111,8 @@ func join_test_server():
 	SERVER_IP = "unfa.xyz"
 	initialize_client()
 
-sync func set_player_name(player, name):
-	print(name)
+#sync func set_player_name(player, name):
+#	print(name)
 
 func join_home():
 	SERVER_IP = "127.0.0.1"
@@ -167,11 +171,13 @@ func initialize_server(join=true):
 	peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
+	get_tree().network_peer = peer
 	
 	initialize()
 	
 	if join:
-		add_player(1, false)
+		join_game()
+		#add_player(peer.get_unique_id(), false)
 
 func initialize_client():
 	peer.create_client(SERVER_IP, SERVER_PORT)
@@ -188,7 +194,6 @@ func initialize():
 	$MenuContainer/MainMenu/Disconnect.show()
 	
 	close_menus()
-	set_nickname($MenuContainer/MainMenu/Name.text)
 
 func free_client():
 	$MenuContainer/MainMenu/Connect.show()
@@ -196,6 +201,9 @@ func free_client():
 	
 	for player in $Players.get_children():
 		player.queue_free()
+	
+	for player_list_item in $PlayerListContainer/Panel/PlayerList.get_children():
+		player_list_item.queue_free()
 	
 	peer.close_connection()
 
@@ -220,6 +228,7 @@ sync func check_players(player_data):
 			var player = player_scene.instance()
 			
 			player.name = player_name
+			player.set_network_master(int(player_name))
 			
 			$Players.add_child(player)
 			player.translation += Vector3(0.0, 3.0, 0.0)
@@ -227,36 +236,54 @@ sync func check_players(player_data):
 			var data = player_data[player_name]
 			player.set_nickname(data["nickname"])
 			
-			if player_name == str(get_tree().get_network_unique_id()):
-				set_local_player(player)
+			on_player_added(player)
 
-func add_player(id, check=true):
+func join_game():
 	var player = player_scene.instance()
+	var id = peer.get_unique_id()
 	
 	player.name = str(id)
-	$Players.add_child(player)
 	player.set_network_master(id)
-	player.translation += Vector3(0.0, 0.0, 0.0)
 	
-	if check:
-		var player_data = get_player_data()
-		rpc("check_players", player_data)
-	else:
-		set_local_player(player)
-		
+	$Players.add_child(player)
+	set_local_player(player)
+	
+	var nickname = $MenuContainer/MainMenu/Name.text
+	set_nickname(nickname)
+	player.set_nickname(nickname)
+	on_player_added(player)
+	
+	var player_data = get_player_data()
+	
+	rpc("set_player_data", player_data)
+
+func on_player_added(player):
+	var player_list_item = preload("res://PlayerListItem.tscn").instance()
+	$PlayerListContainer/Panel/PlayerList.add_child(player_list_item)
+	player_list_item.player = player
 
 sync func remove_player(id):
+	for player_list_item in $PlayerListContainer/Panel/PlayerList.get_children():
+		if player_list_item.network_id == str(id):
+			player_list_item.queue_free()
+	
 	for player in $Players.get_children():
 		if player.name == str(id):
-			$Players.remove_child(player)
+			player.queue_free()
 
 func get_spawn_point():
 	return $Level/SpawnPoint
 
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
+
+master func set_player_data(player_data):
+	check_players(player_data)
+	var new_player_data = get_player_data()
 	
-	add_player(id)
+	print(new_player_data)
+	
+	rpc("check_players", new_player_data)
 
 func on_peer_disconnected(id):
 	print("Peer disconnected with id ", id)
@@ -264,7 +291,7 @@ func on_peer_disconnected(id):
 	rpc("remove_player", id)
 
 func on_connection_established():
-	print("Connection has been established")
+	join_game()
 
 func on_connection_failed():
 	print("Connection has failed")

@@ -57,9 +57,12 @@ func set_health(value):
 	$Billboard.rpc("set_health", value)
 	#$Billboard.set_health(value)
 
-sync func set_nickname(_nickname):
+func set_nickname(_nickname):
 	$Billboard.set_nickname(_nickname)
 	nickname = _nickname
+
+remote func set_player_data(player):
+	nickname = player.nickname
 
 func gravity():
 	if not is_on_floor():
