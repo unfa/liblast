@@ -174,7 +174,6 @@ func _physics_process(delta):
 	rset("translation", translation)
 
 master func on_hit(damage, location):
-	
 	set_health(health - 30)
 	
 	rpc("blood_splatter", location)

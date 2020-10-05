@@ -258,8 +258,6 @@ func join_game():
 	
 	var player_data = get_player_data()
 	
-	set_network_master(1)
-	
 	rpc("set_player_data", player_data)
 
 func on_player_added(player):
