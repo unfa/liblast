@@ -12,7 +12,6 @@ export(int) var MaxRoundsInClip = 10
 export(int) var Clips = 1
 export(int) var MaxClips = 4
 
-onready var camera = get_parent().get_parent()
 onready var player = get_parent().get_parent().get_parent()
 
 onready var ejector = find_node("Ejector")
@@ -64,6 +63,7 @@ func shoot(camera):
 			
 			if hit is preload("res://Player.gd"):
 				emit_signal("damage_dealt")
+				print(player.get_network_master())
 	else:
 		rpc("dry_fire")
 	
@@ -121,7 +121,8 @@ remote func compute_bullet_flyby():
 	var from = global_transform.xform(Vector3())
 	var to = global_transform.xform(Vector3(-1000, 0, 0))
 	
-	local_player.on_bullet_flyby(from, to)
+	if local_player:
+		local_player.on_bullet_flyby(from, to)
 
 func reload():
 	rpc("play_reload_animation")
