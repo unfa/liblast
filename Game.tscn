@@ -11,6 +11,7 @@ background_mode = 2
 background_sky = SubResource( 1 )
 tonemap_mode = 2
 tonemap_white = 2.0
+ss_reflections_enabled = true
 ssao_enabled = true
 ssao_radius = 2.5
 ssao_radius2 = 4.0
