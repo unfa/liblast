@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
@@ -11,17 +11,9 @@
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 2, 0.6 )
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=2]
 radius = 0.33
 height = 1.1
-
-[sub_resource type="CylinderShape" id=4]
-radius = 0.2
-height = 0.3
-
-[sub_resource type="CapsuleMesh" id=5]
-radius = 0.33
-mid_height = 1.1
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -35,7 +27,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, 
 [node name="Weapon" parent="Camera/Hand" instance=ExtResource( 2 )]
 
 [node name="Billboard" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03304, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49795, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 script = ExtResource( 4 )
@@ -58,7 +50,7 @@ __meta__ = {
 
 [node name="Nametag" type="Label" parent="Billboard/Viewport/VBoxContainer"]
 margin_right = 500.0
-margin_bottom = 57.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 500, 50 )
 custom_fonts/font = ExtResource( 5 )
 text = "guest"
@@ -72,22 +64,13 @@ __meta__ = {
 anchor_top = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 61.0
+margin_top = 54.0
 margin_right = 500.0
-margin_bottom = 111.0
+margin_bottom = 104.0
 
 [node name="CollisionShapeBody" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.882822, 0 )
-shape = SubResource( 3 )
-
-[node name="CollisionShapeFeet" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150321, 0 )
-shape = SubResource( 4 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.882822, 0 )
-mesh = SubResource( 5 )
-material/0 = null
+shape = SubResource( 2 )
 
 [node name="Debug" type="Label" parent="."]
 margin_right = 41.0

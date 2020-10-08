@@ -204,35 +204,12 @@ master func kill():
 	#print ("health:", health)
 	
 	$CollisionShapeBody.disabled = true
-	$CollisionShapeFeet.disabled = true
 	
-	#print ("collision disabled")
-	
-	# spawn gibs
-	
-	#var gibs = $Player/Gibs.duplicate()
-	#get_tree().root.add_child(gibs)
-	#gibs.global_transform = global_transform
-	#gibs.show()
-	
-	#print ("gibs spawned")
-	
-	# enable the ragdoll colliders
-	#for i in gibs.get_children():
-#		i.get_child(1).disabled = false
-	
-	#print ("gibs enabled")
-	
-	# Respawn timer
-	#print ("set as dead")
-	$MeshInstance.hide()
 	$Camera/Hand.hide()
 	#$HUD.update_crosshair(false, false)
 	
 	yield(get_tree().create_timer(3), "timeout")
 	
-	
-	$MeshInstance.show()
 	spawn()
 	
 	yield(get_tree().create_timer(3), "timeout")
@@ -252,7 +229,7 @@ func spawn():
 	
 	game.get_spawn_point().spawn(self)
 	
-	$MeshInstance.show()
+	#$MeshInstance.show()
 	$Camera/Hand.show()
 	
 	$CollisionShapeBody.disabled = false

@@ -8,7 +8,7 @@ export var auto_host = false
 
 var mouse_sensitivity_multiplier = 1.0
 
-var player_scene = preload("res://Player.tscn")
+var player_scene = preload("res://Assets/Characters/HerMajestyTheQueen/HerMajestyTheQueen.tscn")
 
 var settingmap = {
 	"is_fullscreen": "set_fullscreen",

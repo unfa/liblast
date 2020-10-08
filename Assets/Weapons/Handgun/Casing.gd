@@ -35,6 +35,6 @@ func _on_Casing_body_entered(body):
 	if collisions == 3:
 		$CollisionCoarse.disabled = true
 		$CollisionFine.disabled = false
-		
+	
 	#if collisions == 10:
 	#	queue_free()
