@@ -233,7 +233,6 @@ func spawn():
 	$Camera/Hand.show()
 	
 	$CollisionShapeBody.disabled = false
-	$CollisionShapeFeet.disabled = false
 	
 	$Camera.rotation = Vector3.ZERO
 	rotation = Vector3.ZERO
