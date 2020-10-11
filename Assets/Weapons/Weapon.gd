@@ -141,3 +141,4 @@ func reload():
 
 sync func play_reload_animation():
 	$Handgun/AnimationPlayer.play("Reload", 0.5, 1)
+	$SoundReload.play()
