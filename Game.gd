@@ -190,10 +190,10 @@ func initialize_client():
 func initialize():
 	return_to_menu("MainMenu")
 	
-	$MenuContainer/MainMenu/Connect.hide()
-	$MenuContainer/MainMenu/Disconnect.show()
+	#$MenuContainer/MainMenu/Connect.hide()
+	#$MenuContainer/MainMenu/Disconnect.show()
 	
-	close_menus()
+	#close_menus()
 
 func free_client():
 	$MenuContainer/MainMenu/Connect.show()
@@ -259,6 +259,19 @@ func join_game():
 	var player_data = get_player_data()
 	
 	rpc("set_player_data", player_data)
+	
+	player.hide()
+	open_menu("CharacterSelectScreen")
+	
+
+sync func spawn(player_id):
+	var spawning_player = $Players.get_node(str(player_id))
+	
+	$Level.show()
+	
+	spawning_player.spawn()
+	spawning_player.show()
+	close_menus()
 
 func on_player_added(player):
 	var player_list_item = preload("res://PlayerListItem.tscn").instance()

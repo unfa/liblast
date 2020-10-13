@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CharacterSelect.gd" type="Script" id=1]
+[ext_resource path="res://GUI/theme.tres" type="Theme" id=2]
+
+[node name="CharacterSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+use_top_left = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = -146.0
+margin_top = -50.0
+margin_right = 146.0
+margin_bottom = 50.0
+
+[node name="CharacterList" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 292.0
+margin_bottom = 48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CharacterList"]
+margin_right = 292.0
+margin_bottom = 48.0
+text = "Her Majesty the Queen"
+
+[node name="SelectButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_left = 102.0
+margin_top = 52.0
+margin_right = 190.0
+margin_bottom = 100.0
+size_flags_horizontal = 4
+text = "Select"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/SelectButton" to="." method="spawn"]

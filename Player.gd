@@ -17,7 +17,7 @@ onready var health = max_health setget set_health
 onready var camera = $Camera
 onready var debug = $Debug
 
-var is_dead = false
+var is_dead = true
 
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
@@ -229,8 +229,8 @@ func spawn():
 	
 	game.get_spawn_point().spawn(self)
 	
-	#$MeshInstance.show()
 	$Camera/Hand.show()
+	$HUD.show()
 	
 	$CollisionShapeBody.disabled = false
 	
@@ -295,7 +295,7 @@ func _input(event):
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
 	camera.current = true
-	$HUD.show()
+	#$HUD.show()
 	$Billboard.hide()
 
 # Called when the node enters the scene tree for the first time.
