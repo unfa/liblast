@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://LevelComponents/Killfloor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelComponents/SpawnPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://LevelComponents/LevelGeometry.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Maps/Rotor/Rotor.gltf" type="PackedScene" id=4]
 
 [sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=1]
 output_port_for_preview = 0
@@ -123,6 +124,9 @@ shader_param/BaseTexture = SubResource( 6 )
 shader_param/BaseTextureNormal = SubResource( 7 )
 
 [node name="Level" type="Spatial"]
+
+[node name="Rotor" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5341, -105.864, 0 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -297,5 +301,8 @@ depth = 0.262265
 
 [node name="Killfloor" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.36458, 0 )
+monitoring = false
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 2 )]
+
+[editable path="Rotor"]
