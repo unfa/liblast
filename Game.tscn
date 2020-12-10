@@ -300,6 +300,7 @@ alignment = 1
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Options" to="." method="open_menu" binds= [ "OptionsMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Quit" to="." method="quit"]
+[connection signal="pressed" from="MenuContainer/CharacterSelectScreen/CenterContainer/VBoxContainer/Options/DisconnectButton" to="." method="free_client"]
 [connection signal="pressed" from="MenuContainer/ConnectMenu/Back" to="." method="return_to_menu" binds= [ "MainMenu" ]]
 [connection signal="text_changed" from="MenuContainer/ConnectMenu/Destination/IPAdress" to="." method="set_ip"]
 [connection signal="pressed" from="MenuContainer/ConnectMenu/NetworkType/Host" to="." method="initialize_server"]
@@ -315,3 +316,5 @@ alignment = 1
 [connection signal="value_changed" from="MenuContainer/ControlsMenu/HBoxContainer/SensitivitySlider" to="." method="set_mouse_sensitivity"]
 [connection signal="pressed" from="MenuContainer/GraphicsMenu/Back" to="." method="return_to_menu" binds= [ "OptionsMenu" ]]
 [connection signal="toggled" from="MenuContainer/GraphicsMenu/Fullscreen" to="." method="set_fullscreen"]
+
+[editable path="MenuContainer/CharacterSelectScreen"]

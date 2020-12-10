@@ -209,6 +209,8 @@ func free_client():
 	
 	get_tree().network_peer = null
 	local_player = null
+	
+	return_to_menu("MainMenu")
 
 func quit():
 	get_tree().quit()
