@@ -3,7 +3,7 @@
 [ext_resource path="res://GUI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Level.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CharacterSelect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/CharacterSelect.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ProceduralSky" id=1]
 
