@@ -19,6 +19,8 @@ var settingmap = {
 var peer = NetworkedMultiplayerENet.new()
 var local_player = null setget set_local_player
 
+onready var menu_stack = [$MenuContainer/MainMenu]
+
 func set_local_player(player):
 	local_player = player
 	player.set_local_player()
@@ -64,7 +66,7 @@ func _input(event):
 	if event.is_action_pressed("ToggleMenu"):
 		if GAME_MODE == "PLAYING" and not $MenuContainer.is_visible():
 			open_menus()
-		elif $MenuContainer/MainMenu.is_visible():
+		elif $MenuContainer/CharacterSelectScreen.is_visible():
 			close_menus()
 		else:
 			# Find the back button
@@ -93,9 +95,16 @@ func close_menus():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		$MenuContainer.hide()
 
-func return_to_menu(type):
+func return_to_menu(type=null):
+	if type == null:
+		menu_stack.pop_back()
+		type = menu_stack[-1].name
+	
 	for menu in $MenuContainer.get_children():
 		if menu.name == type:
+			if type != null:
+				while menu_stack[-1].name != type:
+					menu_stack.pop_back()
 			menu.show()
 		else:
 			menu.hide()
@@ -103,6 +112,7 @@ func return_to_menu(type):
 func open_menu(type):
 	for menu in $MenuContainer.get_children():
 		if menu.name == type:
+			menu_stack.append(menu)
 			menu.show()
 		else:
 			menu.hide()
