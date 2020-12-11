@@ -11,6 +11,7 @@ const WALK_DECEL = 0.1
 
 const MOUSE_SENSITIVITY = 1.0 / 1000
 
+export var show_healthbar = true
 export var max_health = 150
 onready var health = max_health setget set_health
 
@@ -310,7 +311,7 @@ func set_local_player():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_health(150)
+	set_health(max_health)
 	# disabled the ragdoll collider
 	#for i in $Player/Gibs.get_children():
 	#	i.get_child(1).disabled = true
@@ -318,6 +319,8 @@ func _ready():
 		#$"Player/Gibs/PlayerGibs _cell /shape0".set_disabled(true)
 	
 	rset_config("translation", MultiplayerAPI.RPC_MODE_SYNC)
+	if !show_healthbar:
+		$Billboard.hide()
 	
 	# only show the debug label on local machine
 	if name != String(get_tree().get_network_unique_id()):
