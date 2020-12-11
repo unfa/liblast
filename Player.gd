@@ -225,7 +225,17 @@ func spawn():
 	set_health(150)
 	
 	velocity = Vector3()
+	
 	walkDirection = Vector2.ZERO
+	# Fix bug when holding walking button when spawning
+	if Input.is_action_pressed("MoveForward"):
+		walkDirection.x += 1
+	if Input.is_action_pressed("MoveBack"):
+		walkDirection.x -= 1
+	if Input.is_action_pressed("MoveRight"):
+		walkDirection.y += 1
+	if Input.is_action_pressed("MoveLeft"):
+		walkDirection.y -= 1
 	
 	game.get_spawn_point().spawn(self)
 	
