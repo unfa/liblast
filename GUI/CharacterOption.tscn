@@ -32,9 +32,9 @@ transparent_bg = true
 render_target_v_flip = true
 
 [node name="Camera" type="Camera" parent="Viewport"]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 1.38191, -8.49631 )
+transform = Transform( -0.625242, 0.175081, -0.760538, -7.30989e-08, 0.974511, 0.224339, 0.780431, 0.140266, -0.609306, -7.03924, 3.8129, -5.88859 )
 fov = 39.6532
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Viewport"]
-transform = Transform( 1, 0, 0, 0, -0.361787, 0.932261, 0, -0.932261, -0.361787, 0, 3.34228, -3.37409 )
-light_energy = 2.9
+transform = Transform( 0.471935, 0.821912, 0.318964, 0.304802, -0.491585, 0.815745, 0.827268, -0.287758, -0.482517, 0, 3.34228, -3.37409 )
+light_energy = 3.31
