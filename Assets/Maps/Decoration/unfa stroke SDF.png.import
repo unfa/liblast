@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/unfa stroke SDF.png-3641780226239c6e0a23248de482929e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Maps/Decoration/unfa stroke SDF.png"
+dest_files=[ "res://.import/unfa stroke SDF.png-3641780226239c6e0a23248de482929e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=1.0
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=true
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
