@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://LevelComponents/Killfloor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelComponents/SpawnPoint.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Maps/Rotor/Rotor.gltf" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Maps/Rotor/Crank.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Maps/Decoration/unfa stroke.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Maps/DM1/DM1.escn" type="PackedScene" id=7]
 
 [sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=1]
 output_port_for_preview = 0
@@ -127,8 +128,12 @@ shader_param/BaseTextureNormal = SubResource( 7 )
 
 [node name="Level" type="Spatial"]
 
+[node name="DM1" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 0, 0 )
+
 [node name="Rotor" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5341, -105.864, 0 )
+visible = false
 
 [node name="Crank " parent="Rotor" index="2"]
 transform = Transform( 0.993238, 0, -0.116093, 0, 1, 0, 0.116093, 0, 0.993238, 0, -3.13982, 0 )
@@ -141,6 +146,7 @@ transform = Transform( 0.41961, 0.641844, -0.641844, 0, 0.707107, 0.707107, 0.90
 shadow_enabled = true
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
+visible = false
 material_override = SubResource( 8 )
 use_collision = true
 script = ExtResource( 3 )
@@ -313,5 +319,6 @@ monitoring = false
 transform = Transform( 1.96589, 0, 0, 0, 1.96589, 0, 0, 0, 1.00018, 0.00612259, 3.93148, -4.98933 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.224, 4.23483, 0 )
 
 [editable path="Rotor"]
