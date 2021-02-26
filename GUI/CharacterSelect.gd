@@ -24,4 +24,4 @@ func add_character(character_name):
 	character_option.set_character(packed_character)
 
 func spawn():
-	get_parent().get_parent().spawn(get_tree().get_network_unique_id())
+	game.spawn(get_tree().get_network_unique_id())
