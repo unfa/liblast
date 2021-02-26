@@ -39,6 +39,7 @@ var walkDirInt = Vector2.ZERO
 #var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
 var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
 onready var nickname = "guest" setget set_nickname
+var player_class = "none"
 
 #func sfx_play_footsteps():
 #	if not sfx_footsteps_play:
@@ -311,6 +312,12 @@ func set_local_player():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Set player class
+	var path = get_script().get_path()
+	
+	if path.find("res://Assets/Characters/") != -1:
+		player_class = path.replace("res://Assets/Characters/", "").split("/")[0]
+	
 	set_health(max_health)
 	# disabled the ragdoll collider
 	#for i in $Player/Gibs.get_children():

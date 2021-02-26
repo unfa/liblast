@@ -251,15 +251,21 @@ func get_player_data():
 	for player in players:
 		var data = {}
 		data["nickname"] = player.nickname
+		data["char_class"] = player.player_class
 		
 		player_data[player.name] = data
 	
 	return player_data
 
+func get_character_scene(character_name):
+	var path = "res://Assets/Characters/" + character_name + "/" + character_name + ".tscn"
+	var packed_character = load(path)
+
 remote func check_players(player_data):
 	for player_name in player_data:
 		if not $Players.has_node(player_name):
-			var player = player_scene.instance()
+			var data = player_data[player_name]
+			var player = get_character_scene(data["char_class"]).instance()
 			
 			player.name = player_name
 			player.set_network_master(int(player_name))
@@ -267,7 +273,6 @@ remote func check_players(player_data):
 			$Players.add_child(player)
 			player.translation += Vector3(0.0, 3.0, 0.0)
 			
-			var data = player_data[player_name]
 			player.set_nickname(data["nickname"])
 			
 			on_player_added(player)
