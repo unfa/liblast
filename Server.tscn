@@ -4,3 +4,5 @@
 
 [node name="Game" instance=ExtResource( 2 )]
 auto_host = true
+
+[editable path="MenuContainer/CharacterSelectScreen"]

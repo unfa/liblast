@@ -40,8 +40,6 @@ func set_local_player(player):
 	
 	var player_data = get_player_data()
 	
-	print(player_data)
-	
 	rpc("set_player_data", player_data)
 	 
 	player.hide()
@@ -262,6 +260,7 @@ func get_player_data():
 func get_character_scene(character_name):
 	var path = "res://Assets/Characters/" + character_name + "/" + character_name + ".tscn"
 	var packed_character = load(path)
+	return packed_character
 
 remote func check_players(player_data):
 	for player_name in player_data:
@@ -318,8 +317,6 @@ func on_peer_connected(id):
 master func set_player_data(player_data):
 	check_players(player_data)
 	var new_player_data = get_player_data()
-	
-	print(new_player_data)
 	
 	rpc("check_players", new_player_data)
 
