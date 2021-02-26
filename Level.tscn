@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Maps/Rotor/Rotor.gltf" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Maps/Rotor/Crank.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Maps/Decoration/unfa stroke.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Maps/DM1/DM1.escn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Maps/DM1/DM1.glb" type="PackedScene" id=7]
 
 [sub_resource type="VisualShaderNodeTextureUniformTriplanar" id=1]
 output_port_for_preview = 0
@@ -129,7 +129,7 @@ shader_param/BaseTextureNormal = SubResource( 7 )
 [node name="Level" type="Spatial"]
 
 [node name="DM1" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93, -4.12157, 0 )
 
 [node name="Rotor" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.5341, -105.864, 0 )
@@ -312,13 +312,15 @@ height = 2.38673
 depth = 0.262265
 
 [node name="Killfloor" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.7533, -4.36458, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 89.7533, -4.05563, 0 )
 monitoring = false
 
 [node name="unfa stroke" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1.96589, 0, 0, 0, 1.96589, 0, 0, 0, 1.00018, 0.00612259, 3.93148, -4.98933 )
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.224, 4.23483, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4743, 5.96329, 0 )
+
+[editable path="DM1"]
 
 [editable path="Rotor"]
