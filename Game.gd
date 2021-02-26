@@ -39,6 +39,7 @@ func set_local_player(player):
 	on_player_added(player)
 	
 	var player_data = get_player_data()
+	print(player_data)
 	
 	rpc("set_player_data", player_data)
 	 
@@ -264,8 +265,14 @@ func get_character_scene(character_name):
 
 remote func check_players(player_data):
 	for player_name in player_data:
+		var data = player_data[player_name]
+		
+		if $Players.has_node(player_name):
+			var p = $Players.get_node(player_name)
+			if data["char_class"] != p.player_class:
+				$Players.remove_child(p)
+		
 		if not $Players.has_node(player_name):
-			var data = player_data[player_name]
 			var player = get_character_scene(data["char_class"]).instance()
 			
 			player.name = player_name
@@ -277,6 +284,8 @@ remote func check_players(player_data):
 			player.set_nickname(data["nickname"])
 			
 			on_player_added(player)
+			
+			print(player.player_class)
 
 func join_game():
 	var player = player_scene.instance()
@@ -316,6 +325,7 @@ func on_peer_connected(id):
 
 master func set_player_data(player_data):
 	check_players(player_data)
+	
 	var new_player_data = get_player_data()
 	
 	rpc("check_players", new_player_data)
