@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Fonts/Roboto_Condensed/RobotoCondensed-Regular-dynamic.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Health.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/SFX/Jetpack-Thrust.wav" type="AudioStream" id=8]
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 2, 0.6 )
@@ -100,7 +101,12 @@ MinDelay = 0.2
 SoundClip = "res://Assets/SFX/Player-Pain-01.wav"
 MinDelay = 0.2
 
+[node name="Jetpack" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 8 )
+unit_db = -12.0
+autoplay = true
+stream_paused = true
+
 [node name="HUD" parent="." instance=ExtResource( 3 )]
-visible = false
 [connection signal="ammo_changed" from="Camera/Hand/Weapon" to="HUD" method="update_ammo"]
 [connection signal="damage_dealt" from="Camera/Hand/Weapon" to="HUD" method="update_crosshair" binds= [ true, true ]]

@@ -20,6 +20,14 @@ onready var debug = $Debug
 
 var is_dead = true
 
+const JETPACK_FUEL_MAX = 1
+const JETPACK_REFILL_RATE = 1/5
+const JETPACK_THRUST = 1500
+
+var jetpack_active = false # is the jetpack active?
+var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
+
+
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
 #							$"Sounds/Footstep-Concrete-03",
@@ -166,6 +174,14 @@ func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
 		return
 	
+	if jetpack_active and jetpack_fuel > 0.25:
+		velocity.y += JETPACK_THRUST * delta
+		jetpack_fuel -= delta
+		$Sounds/Jetpack.stream_paused = false
+	elif not jetpack_active:
+		jetpack_fuel = max(JETPACK_FUEL_MAX, jetpack_fuel + JETPACK_REFILL_RATE * delta)
+		$Sounds/Jetpack.stream_paused = true
+	
 	gravity()
 	
 	rpc("walk", walkDirection)
@@ -299,10 +315,16 @@ func _input(event):
 	if event.is_action_released("MoveLeft"):
 		walkDirection.y -= -1
 	
+	if event.is_action_pressed("MoveJetpack"):
+		jetpack_active = true
+	else:
+		jetpack_active = false
+		
 	if event.is_action_pressed("WeaponPrimary"):
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
 		reload()
+		
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
@@ -332,6 +354,10 @@ func _ready():
 	# only show the debug label on local machine
 	if name != String(get_tree().get_network_unique_id()):
 		debug.hide()
+	
+	# initialize sound looping
+	
+	#$Sounds/Jetpack.stream.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
