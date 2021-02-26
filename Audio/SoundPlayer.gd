@@ -1,10 +1,10 @@
-extends Spatial
+extends Node3D
 
 # This Scene is meant for playing back sound groups. For simple, singular sound effects use stock Godot nodes, this is meant to play a random sound among a group with variations.
 
 const SFX_dir = "res://Assets/SFX/" # all sound clips must reside somewhere in this directory
 
-onready var player = $AudioStreamPlayer3D # playback backend
+@onready var player = $AudioStreamPlayer3D # playback backend
 
 export(String, FILE, "*-01.wav") var SoundClip = SFX_dir + "Test-01.wav"
 export(bool) var AutoPlay = false

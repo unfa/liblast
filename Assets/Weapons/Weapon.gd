@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 signal damage_dealt
 signal ammo_changed(type, amount)
