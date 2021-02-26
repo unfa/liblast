@@ -117,6 +117,7 @@ remote func walk(direction: Vector2):
 	debug.text += "\nvelocity: " + String(velocity)
 	debug.text += "\nis_on_floor(): " + String(is_on_floor())
 	debug.text += "\nhealth: " + String(health)
+	debug.text += "\njetpack: " + String(jetpack_fuel)
 	
 	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
 	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
