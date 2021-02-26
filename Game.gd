@@ -40,8 +40,10 @@ func set_local_player(player):
 	
 	var player_data = get_player_data()
 	
-	rpc("set_player_data", player_data)
+	print(player_data)
 	
+	rpc("set_player_data", player_data)
+	 
 	player.hide()
 
 # Called when the node enters the scene tree for the first time.
@@ -316,6 +318,8 @@ func on_peer_connected(id):
 master func set_player_data(player_data):
 	check_players(player_data)
 	var new_player_data = get_player_data()
+	
+	print(new_player_data)
 	
 	rpc("check_players", new_player_data)
 
