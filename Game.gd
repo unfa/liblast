@@ -22,8 +22,27 @@ var local_player = null setget set_local_player
 onready var menu_stack = [$MenuContainer/MainMenu]
 
 func set_local_player(player):
+	if local_player != null:
+		$Players.remove_child(local_player)
+	
 	local_player = player
+	
+	var id = peer.get_unique_id()
+	player.name = str(id)
+	player.set_network_master(id)
+	$Players.add_child(local_player)
 	player.set_local_player()
+	
+	var nickname = $MenuContainer/MainMenu/Name.text
+	set_nickname(nickname)
+	player.set_nickname(nickname)
+	on_player_added(player)
+	
+	var player_data = get_player_data()
+	
+	rpc("set_player_data", player_data)
+	
+	player.hide()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -255,26 +274,10 @@ remote func check_players(player_data):
 
 func join_game():
 	var player = player_scene.instance()
-	var id = peer.get_unique_id()
 	
-	player.name = str(id)
-	player.set_network_master(id)
-	
-	$Players.add_child(player)
 	set_local_player(player)
 	
-	var nickname = $MenuContainer/MainMenu/Name.text
-	set_nickname(nickname)
-	player.set_nickname(nickname)
-	on_player_added(player)
-	
-	var player_data = get_player_data()
-	
-	rpc("set_player_data", player_data)
-	
-	player.hide()
 	open_menu("CharacterSelectScreen")
-	
 
 sync func spawn(player_id):
 	var spawning_player = $Players.get_node(str(player_id))
