@@ -10,6 +10,10 @@ Standard FPS stuff:
 - Space to jump
 - R to reload
 
+Less standard:
+
+- Shift to use jetpack
+
 ## Features in 0.1 pre-alpha release
 
 The game currently has:
