@@ -108,5 +108,6 @@ autoplay = true
 stream_paused = true
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+
 [connection signal="ammo_changed" from="Camera/Hand/Weapon" to="HUD" method="update_ammo"]
 [connection signal="damage_dealt" from="Camera/Hand/Weapon" to="HUD" method="update_crosshair" binds= [ true, true ]]

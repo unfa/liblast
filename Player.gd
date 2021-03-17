@@ -1,12 +1,12 @@
 extends KinematicBody
 
-const GRAVITY = 9.8 * 1.5
-const JUMP_VELOCITY = 400
-const WALK_VELOCITY = 550
+const GRAVITY = Vector3.DOWN * 9.8 * 1.5
+const JUMP_VELOCITY = 9
+const WALK_VELOCITY = 8
 
 const AIR_CONTROL = 0.1
 
-const WALK_ACCEL = 0.25
+const WALK_ACCEL = 5
 const WALK_DECEL = 0.1
 
 const MOUSE_SENSITIVITY = 1.0 / 1000
@@ -27,7 +27,6 @@ const JETPACK_THRUST = 1500
 var jetpack_active = false # is the jetpack active?
 var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 
-
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
 #							$"Sounds/Footstep-Concrete-03",
@@ -41,7 +40,7 @@ var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 onready var game = get_parent().get_parent()
 
 var velocity = Vector3.ZERO
-var walkDirection = Vector2.ZERO
+var walk_direction = Vector2.ZERO
 var walkDirInt = Vector2.ZERO
 
 #var bulletHitEffect = preload("res://Assets/Effects/BulletHit.tscn")
@@ -73,10 +72,6 @@ func set_nickname(_nickname):
 remote func set_player_data(player):
 	nickname = player.nickname
 
-func gravity():
-	if not is_on_floor():
-		self.velocity.y -= GRAVITY
-
 func get_closest_point(_A: Vector3, _B: Vector3):
 	var A = transform.inverse().xform(_A)
 	var B = transform.inverse().xform(_B)
@@ -93,41 +88,10 @@ func on_bullet_flyby(from, to):
 	
 	get_tree().root.call_deferred("add_child", flyby_noise)
 
-remote func walk(direction: Vector2):
-	
-	var walkDirectionNormalized = direction.normalized()
-	#print("Player walkDirection: ", walkDirectionNormalized)
-	
-	var walkVelocity = WALK_VELOCITY * walkDirectionNormalized
-	
-	var interpolation
-	
-	var currentVelocity = Vector2(- velocity.z, velocity.x)
-	if walkVelocity.dot(currentVelocity) > 0:
-		interpolation = WALK_ACCEL
-	else:
-		interpolation = WALK_DECEL
-	
-	if not is_on_floor():
-		interpolation *= AIR_CONTROL
-	
-	debug.text = "Interpolation: " + String(interpolation)
-	debug.text += "\nwalkVelocity: " + String(walkVelocity)
-	debug.text += "\ncurrentVelocity: " + String(currentVelocity)
-	debug.text += "\nvelocity: " + String(velocity)
-	debug.text += "\nis_on_floor(): " + String(is_on_floor())
-	debug.text += "\nhealth: " + String(health)
-	debug.text += "\njetpack: " + String(jetpack_fuel)
-	
-	velocity.x = lerp(velocity.x, walkVelocity.rotated(- self.rotation.y).y, interpolation)
-	velocity.z = lerp(velocity.z, - walkVelocity.rotated(- self.rotation.y).x, interpolation)
-	
-	#if walkVelocity.length() > 0 and is_on_floor():
-#
 remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$Sounds/Jump.play() 
+		$Sounds/Jump.play()
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -140,34 +104,6 @@ remote func mouselook(rel):
 	
 	rpc_unreliable("mouselook_abs", camera.rotation.x, rotation.y)
 
-func motion(delta):
-	var slide_velocity = move_and_slide(velocity * delta, Vector3.UP, true)
-	
-	if slide_velocity.length() > 2 and is_on_floor():
-		$Sounds/Footsteps.play()
-	
-	#var slide_velocity = move_and_collide(velocity * delta, Vector3.UP)
-	
-	debug.text += "\nslide_velocity: " + String( slide_velocity )
-	debug.text += "\nslide dot product: " + String( velocity.normalized().dot(slide_velocity.normalized()) )
-	debug.text += "\nslide count: " + String( self.get_slide_count() )
-	for i in range(0, self.get_slide_count() ):
-		debug.text += "\nslide " + String(i) + ": " + String( self.get_slide_collision(i).normal )
-		var dot_product = self.get_slide_collision(i).normal.dot(velocity)
-		debug.text += "\nslide dot " + String(i) + ": " + String( dot_product )
-		
-		#if dot_product < 0:
-		#	# Push represents the component vector pushing into the surface
-		#	var push = dot_product * self.get_slide_collision(i).normal
-		#	debug.text += "\npush " + String(i) + ": " + String( push )
-		#	
-		#	velocity -= push
-	
-	velocity = slide_velocity / delta
-	
-	if is_on_floor():
-		velocity -= get_floor_normal() * 150
-
 func _physics_process(delta):
 	if is_dead:
 		return
@@ -175,22 +111,55 @@ func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
 		return
 	
-	if jetpack_active and jetpack_fuel > 0.25:
-		velocity.y += JETPACK_THRUST * delta
-		jetpack_fuel -= delta
-		$Sounds/Jetpack.stream_paused = false
-	elif not jetpack_active and jetpack_fuel < JETPACK_FUEL_MAX:
-		jetpack_fuel = min(JETPACK_FUEL_MAX, jetpack_fuel + JETPACK_REFILL_RATE * delta)
-		$Sounds/Jetpack.stream_paused = true
+	walk(delta)
+	fall(delta)
 	
-	gravity()
 	
-	rpc("walk", walkDirection)
-	walk(walkDirection)
-	
-	motion(delta)
+	var movement_vector = Vector3()
+	if Input.is_action_just_pressed("MoveJump"):
+		movement_vector = move_and_slide(velocity, Vector3.UP)
+	else:
+		var upvector = Vector3.UP
+		
+		if is_on_floor():
+			upvector = get_floor_normal()
+		
+		movement_vector = move_and_slide_with_snap(velocity, Vector3.DOWN, upvector, true)
+	velocity = movement_vector
 	
 	rset("translation", translation)
+
+func walk(delta):
+	# Walk
+	walk_direction = Vector2()
+	
+	if Input.is_action_pressed("MoveForward"):
+		walk_direction.y -= 1
+	if Input.is_action_pressed("MoveBack"):
+		walk_direction.y += 1
+	if Input.is_action_pressed("MoveLeft"):
+		walk_direction.x -= 1
+	if Input.is_action_pressed("MoveRight"):
+		walk_direction.x += 1
+	
+	walk_direction = walk_direction.normalized()
+	
+	var walking_speed = Vector2(velocity.x, velocity.z)
+	
+	walking_speed = walking_speed.rotated(rotation.y)
+	walking_speed = lerp(walking_speed, walk_direction * WALK_VELOCITY, delta * WALK_ACCEL)
+	walking_speed = walking_speed.rotated(-rotation.y)
+	
+	velocity.x = walking_speed.x
+	velocity.z = walking_speed.y
+
+func fall(delta):
+	print(is_on_floor())
+	
+	if is_on_floor():
+		velocity -= delta * get_floor_normal() * 20
+	else:
+		velocity += delta * GRAVITY
 
 master func on_hit(damage, location):
 	set_health(health - 30)
@@ -245,17 +214,6 @@ func spawn():
 	
 	velocity = Vector3()
 	
-	walkDirection = Vector2.ZERO
-	# Fix bug when holding walking button when spawning
-	if Input.is_action_pressed("MoveForward"):
-		walkDirection.x += 1
-	if Input.is_action_pressed("MoveBack"):
-		walkDirection.x -= 1
-	if Input.is_action_pressed("MoveRight"):
-		walkDirection.y += 1
-	if Input.is_action_pressed("MoveLeft"):
-		walkDirection.y -= 1
-	
 	game.get_spawn_point().spawn(self)
 	
 	$Camera/Hand.show()
@@ -296,25 +254,6 @@ func _input(event):
 	if event.is_action_pressed("MoveJump"):
 		rpc("jump")
 		jump()
-
-	# Walk
-	if event.is_action_pressed("MoveForward"):
-		walkDirection.x += 1
-	if event.is_action_pressed("MoveBack"):
-		walkDirection.x -= 1
-	if event.is_action_pressed("MoveRight"):
-		walkDirection.y += 1
-	if event.is_action_pressed("MoveLeft"):
-		walkDirection.y -= 1
-	
-	if event.is_action_released("MoveForward"):
-		walkDirection.x += -1
-	if event.is_action_released("MoveBack"):
-		walkDirection.x -= -1
-	if event.is_action_released("MoveRight"):
-		walkDirection.y += -1
-	if event.is_action_released("MoveLeft"):
-		walkDirection.y -= -1
 	
 	if event.is_action_pressed("MoveJetpack"):
 		jetpack_active = true
