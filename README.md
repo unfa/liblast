@@ -11,25 +11,24 @@ Standard FPS stuff:
 - R to reload
 
 Less standard:
-
-- Shift to use jetpack
+- Shift to use jetpack (you have 1 second of jetpack, and it recharges for 5 seconds - ther's not HUD fro this and it's broken, also balance changes will most likely ensue, you can use it to get to that high platform on the DM1 level)
 
 ## Features in 0.1 pre-alpha release
 
 The game currently has:
 
-- a public online server at unfa.xyz (accessible via Connect > Test Server menu)
+- ~~a public online server at unfa.xyz (accessible via Quick Connect)~~ only deployed on demand for now
 - simple but exciting gameplay
 - one weapon (a handgun)
 - a very basic HUD with health and ammo indication
-- a single test level (watch you step!)
+- a single test level designed for 2-4 pleayer deathmatch
 - particle effects
-- mouth-made sound effects fro various things
+- mouth-made sound effects for various things
 - bullet fly-by sound effects!
 - gun animation, bouncing shell casings and smoke effects
 
-- a random rigidbody cube that's not working correctly
+- ~~a random rigidbody cube that's not working correctly
 
 Video of a version of the game not long before 0.1 release:
 
-https://youtu.be/g3KvNeu4X54
+https://youtu.be/g3KvNeu4X54 (quite outdated as of 2021-02)
