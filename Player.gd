@@ -179,8 +179,8 @@ func _physics_process(delta):
 		velocity.y += JETPACK_THRUST * delta
 		jetpack_fuel -= delta
 		$Sounds/Jetpack.stream_paused = false
-	elif not jetpack_active:
-		jetpack_fuel = max(JETPACK_FUEL_MAX, jetpack_fuel + JETPACK_REFILL_RATE * delta)
+	elif not jetpack_active and jetpack_fuel < JETPACK_FUEL_MAX:
+		jetpack_fuel = min(JETPACK_FUEL_MAX, jetpack_fuel + JETPACK_REFILL_RATE * delta)
 		$Sounds/Jetpack.stream_paused = true
 	
 	gravity()
