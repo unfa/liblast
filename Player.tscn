@@ -22,9 +22,10 @@ animation = "Land"
 animation = "Walk"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
-priority = 2
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
@@ -36,7 +37,7 @@ switch_mode = 2
 xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
-priority = 2
+priority = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 xfade_time = 0.2
@@ -46,16 +47,16 @@ xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachine" id=18]
 states/Idle/node = SubResource( 7 )
-states/Idle/position = Vector2( 110, 43 )
+states/Idle/position = Vector2( 59, 2 )
 states/Jump/node = SubResource( 8 )
-states/Jump/position = Vector2( 614, 25 )
+states/Jump/position = Vector2( 618, 2 )
 states/Land/node = SubResource( 9 )
 states/Land/position = Vector2( 599, 249 )
 states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 110, 240 )
 transitions = [ "Idle", "Jump", SubResource( 11 ), "Jump", "Land", SubResource( 12 ), "Land", "Idle", SubResource( 13 ), "Land", "Walk", SubResource( 14 ), "Walk", "Jump", SubResource( 15 ), "Walk", "Idle", SubResource( 16 ), "Idle", "Walk", SubResource( 17 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -126, -31 )
+graph_offset = Vector2( 18, -75 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
 
