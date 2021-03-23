@@ -18,7 +18,10 @@ onready var health = max_health setget set_health
 onready var camera = $Camera
 onready var debug = $Debug
 
+onready var weapon_bob_anim = $Camera/Hand/WeaponBobAnimationTree["parameters/playback"]
+
 var is_dead = true
+var was_on_floor = false
 
 const JETPACK_FUEL_MAX = 1
 const JETPACK_REFILL_RATE = 1/5
@@ -92,6 +95,7 @@ remote func jump():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Sounds/Jump.play()
+		weapon_bob_anim.travel("Jump")
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -152,14 +156,27 @@ func walk(delta):
 	
 	velocity.x = walking_speed.x
 	velocity.z = walking_speed.y
+	
+	if walking_speed.length() > 0 and is_on_floor():
+		weapon_bob_anim.travel("Walk")
+	elif walking_speed.length() == 0 and is_on_floor():
+		weapon_bob_anim.travel("Idle")
+
 
 func fall(delta):
 	print(is_on_floor())
 	
 	if is_on_floor():
 		velocity -= delta * get_floor_normal() * 20
+		
+		if not was_on_floor: # if this is the first frame of ground conotact after a frame of no ground contact - we've just ended a fall
+			weapon_bob_anim.travel("Land")
+		
 	else:
 		velocity += delta * GRAVITY
+	
+	was_on_floor = is_on_floor()
+	
 
 master func on_hit(damage, location):
 	set_health(health - 30)

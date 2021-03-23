@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=2]
@@ -9,10 +9,126 @@
 [ext_resource path="res://Audio/SoundPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/SFX/Jetpack-Thrust.wav" type="AudioStream" id=8]
 
-[sub_resource type="QuadMesh" id=1]
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Land"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id=18]
+states/Idle/node = SubResource( 7 )
+states/Idle/position = Vector2( 110, 43 )
+states/Jump/node = SubResource( 8 )
+states/Jump/position = Vector2( 614, 25 )
+states/Land/node = SubResource( 9 )
+states/Land/position = Vector2( 599, 249 )
+states/Walk/node = SubResource( 10 )
+states/Walk/position = Vector2( 110, 240 )
+transitions = [ "Idle", "Jump", SubResource( 11 ), "Jump", "Land", SubResource( 12 ), "Land", "Idle", SubResource( 13 ), "Land", "Walk", SubResource( 14 ), "Walk", "Jump", SubResource( 15 ), "Walk", "Idle", SubResource( 16 ), "Idle", "Walk", SubResource( 17 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -126, -31 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=19]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( -1.6245, -1.1487, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.4, -0.559 ), Vector3( 0.335, -0.39, -0.559 ), Vector3( 0.335, -0.4, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Jump"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.05, 2 ),
+"transitions": PoolRealArray( 0.31864, 0.450625, 2.92817, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.46, -0.559 ), Vector3( 0.335, -0.35, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Land"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 0.120742, 0.435276, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.45, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( -1.68179, -1.23114, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.41, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="QuadMesh" id=4]
 size = Vector2( 2, 0.6 )
 
-[sub_resource type="CapsuleShape" id=2]
+[sub_resource type="CapsuleShape" id=5]
 radius = 0.33
 height = 1.1
 
@@ -23,13 +139,25 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.4, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.385, -0.559 )
+
+[node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../WeaponBobAnimationPlayer")
+active = true
+parameters/playback = SubResource( 19 )
+
+[node name="WeaponBobAnimationPlayer" type="AnimationPlayer" parent="Camera/Hand"]
+anims/Idle = SubResource( 1 )
+anims/Jump = SubResource( 6 )
+anims/Land = SubResource( 2 )
+anims/Walk = SubResource( 3 )
 
 [node name="Weapon" parent="Camera/Hand" instance=ExtResource( 2 )]
 
 [node name="Billboard" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49795, 0 )
-mesh = SubResource( 1 )
+mesh = SubResource( 4 )
 material/0 = null
 script = ExtResource( 4 )
 
@@ -71,7 +199,7 @@ margin_bottom = 104.0
 
 [node name="CollisionShapeBody" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.882822, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Debug" type="Label" parent="."]
 margin_right = 41.0
