@@ -1,7 +1,7 @@
 # Liblast
 Libre Multiplayer FPS Game build with Godot 3 game engine.
 
-![Screenshot 01](https://raw.githubusercontent.com/unfa/liblast/master/Screenshots/01.png)
+![Screenshot 01](https://github.com/unfa/liblast/raw/master/Screenshots/01.png)
 
 ## Controls
 
