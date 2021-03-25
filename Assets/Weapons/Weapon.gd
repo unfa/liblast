@@ -65,7 +65,7 @@ func shoot(camera):
 				emit_signal("damage_dealt")
 				print(player.get_network_master())
 	else:
-		rpc("dry_fire")
+		reload()
 	
 	return current_rounds
 
