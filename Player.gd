@@ -101,9 +101,9 @@ remote func jump():
 """
 # Charge when empty variant.
 func jetpack(delta):
-	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack used: %s\nJetpack sound: %s" % [
-		jetpack_fuel, jetpack_active, jetpack_used, !$Sounds/Jetpack.stream_paused
-	]
+	#debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack used: %s\nJetpack sound: %s" % [
+	#	jetpack_fuel, jetpack_active, jetpack_used, !$Sounds/Jetpack.stream_paused
+	#]
 	
 	# Enable jetpack when it is fully charged.
 	if jetpack_fuel == JETPACK_FUEL_MAX:
@@ -130,9 +130,9 @@ func jetpack(delta):
 
 # Charge when grounded variant.
 func jetpack(delta):
-	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
-		jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
-	]
+	#debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
+	#	jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
+	#]
 	
 	# Only charge when grounded.
 	if is_on_floor():
