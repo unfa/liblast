@@ -164,8 +164,6 @@ func walk(delta):
 
 
 func fall(delta):
-	print(is_on_floor())
-	
 	if is_on_floor():
 		velocity -= delta * get_floor_normal() * 20
 		
