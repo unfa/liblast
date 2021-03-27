@@ -169,7 +169,9 @@ func fall(delta):
 	if is_on_floor():
 		velocity -= delta * get_floor_normal() * 20
 		
-		if not was_on_floor: # if this is the first frame of ground conotact after a frame of no ground contact - we've just ended a fall
+		# If this is the first frame of ground contact after a frame of no
+		# ground contact - we've just ended a fall.
+		if not was_on_floor:
 			weapon_bob_anim.travel("Land")
 		
 	else:
