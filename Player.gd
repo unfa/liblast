@@ -23,11 +23,12 @@ onready var weapon_bob_anim = $Camera/Hand/WeaponBobAnimationTree["parameters/pl
 var is_dead = true
 var was_on_floor = false
 
-const JETPACK_FUEL_MAX = 1
-const JETPACK_REFILL_RATE = 1/5
-const JETPACK_THRUST = 1500
+const JETPACK_FUEL_MAX = 0.6
+const JETPACK_REFILL_RATE = 0.2
+const JETPACK_THRUST = 25
 
 var jetpack_active = false # is the jetpack active?
+var jetpack_used = false # Is the jetpack recharging?
 var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
@@ -93,9 +94,65 @@ func on_bullet_flyby(from, to):
 
 remote func jump():
 	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 		$Sounds/Jump.play()
 		weapon_bob_anim.travel("Jump")
+
+"""
+# Charge when empty variant.
+func jetpack(delta):
+	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack used: %s\nJetpack sound: %s" % [
+		jetpack_fuel, jetpack_active, jetpack_used, !$Sounds/Jetpack.stream_paused
+	]
+	
+	# Enable jetpack when it is fully charged.
+	if jetpack_fuel == JETPACK_FUEL_MAX:
+		jetpack_used = false
+	# Disable jetpack when it is empty.
+	elif jetpack_fuel <= 0 and not jetpack_active:
+		jetpack_used = true
+	
+	if jetpack_active and not jetpack_used and jetpack_fuel > 0:
+		velocity.y += JETPACK_THRUST * delta
+		jetpack_fuel -= delta
+		$Sounds/Jetpack.stream_paused = false
+	else:
+		$Sounds/Jetpack.stream_paused = true
+	
+	# Only charge when fully empty.
+	if jetpack_used:
+		jetpack_fuel = clamp(
+			jetpack_fuel + JETPACK_REFILL_RATE * delta,
+			0.0,
+			JETPACK_FUEL_MAX
+		)
+"""
+
+# Charge when grounded variant.
+func jetpack(delta):
+	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
+		jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
+	]
+	
+	# Only charge when grounded.
+	if is_on_floor():
+		jetpack_fuel = clamp(
+			jetpack_fuel + JETPACK_REFILL_RATE * delta,
+			0.0,
+			JETPACK_FUEL_MAX
+		)
+		
+		$Sounds/Jetpack.stream_paused = true
+	
+	# Only use jetpack in the air.
+	else:
+		if jetpack_active and jetpack_fuel > 0:
+			velocity.y += JETPACK_THRUST * delta
+			jetpack_fuel -= delta
+			$Sounds/Jetpack.stream_paused = false
+		else:
+			$Sounds/Jetpack.stream_paused = true
+	
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -117,7 +174,7 @@ func _physics_process(delta):
 	
 	walk(delta)
 	fall(delta)
-	
+	jetpack(delta)
 	
 	var movement_vector = Vector3()
 	if Input.is_action_just_pressed("MoveJump"):
@@ -134,7 +191,6 @@ func _physics_process(delta):
 	rset("translation", translation)
 
 func walk(delta):
-	# Walk
 	walk_direction = Vector2()
 	
 	if Input.is_action_pressed("MoveForward"):
@@ -176,7 +232,6 @@ func fall(delta):
 		velocity += delta * GRAVITY
 	
 	was_on_floor = is_on_floor()
-	
 
 master func on_hit(damage, location):
 	set_health(health - 30)
@@ -274,7 +329,7 @@ func _input(event):
 	
 	if event.is_action_pressed("MoveJetpack"):
 		jetpack_active = true
-	else:
+	if event.is_action_released("MoveJetpack"):
 		jetpack_active = false
 		
 	if event.is_action_pressed("WeaponPrimary"):
