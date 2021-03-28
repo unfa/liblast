@@ -22,7 +22,7 @@ ss_reflections_fade_in = 0.14489
 ss_reflections_fade_out = 1.10957
 glow_enabled = true
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=3]
 resource_name = "ProceduralSmoke"
 code = "shader_type spatial;
 varying float elapsed_time;
@@ -302,18 +302,18 @@ ALBEDO = color.rgb;
 ALPHA = vec3(o349717_0_1_f).r * color.a * density;
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 shader_param/density = 1.0
 shader_param/speed = 1.0
 shader_param/offset = 0.0
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="QuadMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
 size = Vector2( 16, 16 )
 
-[sub_resource type="Shader" id=7]
+[sub_resource type="Shader" id=6]
 resource_name = "ProceduralSmoke"
 code = "shader_type spatial;
 varying float elapsed_time;
@@ -593,19 +593,19 @@ ALBEDO = color.rgb;
 ALPHA = vec3(o349717_0_1_f).r * color.a * density;
 }"
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=7]
 render_priority = -1
-shader = SubResource( 7 )
+shader = SubResource( 6 )
 shader_param/density = 1.0
 shader_param/speed = 0.5
 shader_param/offset = 0.0
 shader_param/color = Color( 16.19, 8.72, 4, 0.08 )
 
-[sub_resource type="QuadMesh" id=9]
-material = SubResource( 8 )
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
 size = Vector2( 16, 16 )
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=9]
 resource_name = "ProceduralSmoke"
 code = "shader_type spatial;
 varying float elapsed_time;
@@ -885,19 +885,19 @@ ALBEDO = color.rgb;
 ALPHA = vec3(o349717_0_1_f).r * color.a * density;
 }"
 
-[sub_resource type="ShaderMaterial" id=11]
+[sub_resource type="ShaderMaterial" id=10]
 render_priority = -2
-shader = SubResource( 10 )
+shader = SubResource( 9 )
 shader_param/density = 1.0
 shader_param/speed = 0.5
 shader_param/offset = 2.0
 shader_param/color = Color( 32.1216, 8.21569, 3.31765, 0.0156863 )
 
-[sub_resource type="QuadMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
 size = Vector2( 16, 16 )
 
-[sub_resource type="Shader" id=13]
+[sub_resource type="Shader" id=12]
 code = "shader_type spatial;
 varying float elapsed_time;
 uniform float density = 1.0;
@@ -1176,19 +1176,19 @@ ALBEDO = color.rgb;
 ALPHA = vec3(o349717_0_1_f).r * color.a * density;
 }"
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=13]
 render_priority = -1
-shader = SubResource( 13 )
+shader = SubResource( 12 )
 shader_param/density = 0.9
 shader_param/speed = 0.025
 shader_param/offset = 0.0
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="QuadMesh" id=15]
-material = SubResource( 14 )
+[sub_resource type="QuadMesh" id=14]
+material = SubResource( 13 )
 size = Vector2( 16, 16 )
 
-[sub_resource type="Shader" id=16]
+[sub_resource type="Shader" id=15]
 resource_name = "ProceduralSmoke"
 code = "shader_type spatial;
 varying float elapsed_time;
@@ -1468,16 +1468,16 @@ ALBEDO = color.rgb;
 ALPHA = vec3(o349717_0_1_f).r * color.a * density;
 }"
 
-[sub_resource type="ShaderMaterial" id=17]
+[sub_resource type="ShaderMaterial" id=16]
 render_priority = -1
-shader = SubResource( 16 )
+shader = SubResource( 15 )
 shader_param/density = 1.0
 shader_param/speed = 0.04
 shader_param/offset = 4.0
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="QuadMesh" id=18]
-material = SubResource( 17 )
+[sub_resource type="QuadMesh" id=17]
+material = SubResource( 16 )
 size = Vector2( 16, 16 )
 
 [node name="Level" type="Spatial"]
@@ -1512,27 +1512,27 @@ transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819,
 
 [node name="Smoke" type="MeshInstance" parent="Decoration"]
 transform = Transform( -2.2784, -0.0721805, 0.0292005, -0.0763719, 2.1169, -0.726229, 0.0102602, -1.31866, -2.45904, 20.5998, 18.8929, 11.196 )
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="Fire1" type="MeshInstance" parent="Decoration"]
 transform = Transform( -1.28173, 0, -1.12052e-07, 0, 1.28173, 0, 1.12052e-07, 0, -1.28173, 20.9064, 14.0944, 13.2243 )
-mesh = SubResource( 9 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Fire2" type="MeshInstance" parent="Decoration"]
 transform = Transform( -1.75568, 0.132384, 0.00625218, 0.128407, 1.72797, -0.529913, -0.0459799, -0.527954, -1.73272, 20.8181, 12.5297, 15.416 )
-mesh = SubResource( 12 )
+mesh = SubResource( 11 )
 material/0 = null
 
 [node name="Clouds" type="MeshInstance" parent="Decoration"]
 transform = Transform( 9.20067, 11.3376, -0.0795001, -0.35721, 0.187535, -14.5957, -11.3322, 9.1991, 0.395536, -10.8813, 40.9324, 1.15229 )
-mesh = SubResource( 15 )
+mesh = SubResource( 14 )
 material/0 = null
 
 [node name="Clouds2" type="MeshInstance" parent="Decoration"]
 transform = Transform( 4.36766, 12.6479, 5.84422, 2.01429, 5.48714, -13.3803, -13.7864, 4.80863, -0.103444, -10.8813, 64.2284, -14.1764 )
-mesh = SubResource( 18 )
+mesh = SubResource( 17 )
 material/0 = null
 
 [node name="DM1" parent="." instance=ExtResource( 1 )]
