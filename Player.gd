@@ -130,9 +130,9 @@ func jetpack(delta):
 
 # Charge when grounded variant.
 func jetpack(delta):
-	#debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
-	#	jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
-	#]
+	debug.text = "Jetpack fuel: %s\nJetpack active: %s\nJetpack sound: %s" % [
+		jetpack_fuel, jetpack_active, !$Sounds/Jetpack.stream_paused
+	]
 	
 	# Only charge when grounded.
 	if is_on_floor():
