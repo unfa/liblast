@@ -138,7 +138,7 @@ func open_menu(type):
 			menu.hide()
 
 func join_test_server():
-	SERVER_IP = "unfa.xyz"
+	SERVER_IP = "85.144.28.107"
 	initialize_client()
 
 #sync func set_player_name(player, name):
