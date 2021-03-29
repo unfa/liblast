@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Maps/DM1/DM1.glb" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Maps/DM1/DM1.lmbake" type="BakedLightmapData" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://LevelComponents/SpawnPoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Maps/DM1/OmniFlicker.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Maps/DM1/SpotFlicker.gd" type="Script" id=11]
+[ext_resource path="res://Assets/SFX/Ambient_Pipes.wav" type="AudioStream" id=12]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -1480,6 +1481,10 @@ shader_param/color = Color( 1, 1, 1, 1 )
 material = SubResource( 16 )
 size = Vector2( 16, 16 )
 
+[sub_resource type="CylinderShape" id=18]
+radius = 67.07
+height = 84.58
+
 [node name="Level" type="Spatial"]
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 9 )]
@@ -1534,6 +1539,38 @@ material/0 = null
 transform = Transform( 4.36766, 12.6479, 5.84422, 2.01429, 5.48714, -13.3803, -13.7864, 4.80863, -0.103444, -10.8813, 64.2284, -14.1764 )
 mesh = SubResource( 17 )
 material/0 = null
+
+[node name="Sound" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Pipes" type="AudioStreamPlayer3D" parent="Sound"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 9.67349, 9, -22.8842 )
+stream = ExtResource( 12 )
+attenuation_model = 1
+unit_db = -25.0
+unit_size = 5.0
+autoplay = true
+
+[node name="Pipes2" type="AudioStreamPlayer3D" parent="Sound"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 15.6735, 7, -22.8842 )
+stream = ExtResource( 12 )
+attenuation_model = 1
+unit_db = -25.0
+unit_size = 5.0
+pitch_scale = 0.99
+autoplay = true
+
+[node name="Area" type="Area" parent="Sound"]
+monitoring = false
+monitorable = false
+reverb_bus_enable = true
+reverb_bus_name = "Reverb1"
+reverb_bus_amount = 1.0
+reverb_bus_uniformity = 1.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Sound/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+shape = SubResource( 18 )
 
 [node name="DM1" parent="." instance=ExtResource( 1 )]
 

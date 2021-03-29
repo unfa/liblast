@@ -89,11 +89,11 @@ func show_muzzle_flash(var rounds_left):
 	else:
 		$Handgun/AnimationPlayer.play("Shoot", -1, 2)
 	
-	$SoundShoot.play()
-	
 	$MuzzleFlash.emitting = true
 	yield(get_tree().create_timer(0.07),"timeout")
 	$MuzzleFlash.emitting = false
+	
+	$SoundShoot.play()
 
 func show_tracer():
 	var tracer_instance = tracer.instance()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Player-Death-02.wav-0d51af55304229d7f11130e435aa5556.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Player-Death-02.wav"
+dest_files=[ "res://.import/Player-Death-02.wav-0d51af55304229d7f11130e435aa5556.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
