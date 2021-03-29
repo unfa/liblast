@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Player-Pain-02.wav-b7dba9e43b5cd9d1d46a255b01f31efa.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Player-Pain-02.wav"
+dest_files=[ "res://.import/Player-Pain-02.wav-b7dba9e43b5cd9d1d46a255b01f31efa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

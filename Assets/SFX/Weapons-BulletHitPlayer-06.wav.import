@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons-BulletHitPlayer-06.wav-10b52886c64f079aa4f373887e2e127b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Weapons-BulletHitPlayer-06.wav"
+dest_files=[ "res://.import/Weapons-BulletHitPlayer-06.wav-10b52886c64f079aa4f373887e2e127b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

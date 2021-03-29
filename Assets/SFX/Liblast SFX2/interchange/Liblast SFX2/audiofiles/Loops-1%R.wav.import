@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Loops-1%R.wav-47a7bb6b678cb6178ffb7ea5591cdda9.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/interchange/Liblast SFX2/audiofiles/Loops-1%R.wav"
+dest_files=[ "res://.import/Loops-1%R.wav-47a7bb6b678cb6178ffb7ea5591cdda9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

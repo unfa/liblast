@@ -260,6 +260,7 @@ rect_min_size = Vector2( 500, 500 )
 
 [node name="PlayerList" type="VBoxContainer" parent="PlayerListContainer/Panel"]
 alignment = 1
+
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="join_test_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Connect" to="." method="open_menu" binds= [ "ConnectMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]
