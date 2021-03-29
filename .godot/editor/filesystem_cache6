@@ -1,0 +1,194 @@
+515ae35726e8b3b9d928fc2455c3174c
+::res://::1614369826
+Billboard.gd::GDScript::1614369360::0::1::::<><>::
+default_bus_layout.tres::AudioBusLayout::1601325307::0::1::::<><>::
+default_env.tres::Environment::1608078753::0::1::::<><>::
+Game.gd::GDScript::1614369360::0::1::::<><>::
+Game.tscn::PackedScene::1614367793::0::1::::<><>::res://GUI/theme.tres<>res://Game.gd<>res://Level.tscn<>res://GUI/CharacterSelect.tscn
+Gibs.gd::GDScript::1614369360::0::1::::<>Node3D<>::
+Health.tscn::PackedScene::1601666054::0::1::::<><>::res://Assets/HUD/HealthBarOver.svg<>res://Assets/HUD/HealthBarUnder.svg<>res://Assets/HUD/HealthBarProgress.svg
+icon.png::StreamTexture2D::1592085178::1614369905::1::::<><>::
+Level.tscn::PackedScene::1608078753::0::1::::<><>::res://LevelComponents/Killfloor.tscn<>res://LevelComponents/SpawnPoint.tscn<>res://LevelComponents/LevelGeometry.gd<>res://Assets/Maps/Rotor/Rotor.gltf<>res://Assets/Maps/Rotor/Crank.gd<>res://Assets/Maps/Decoration/unfa stroke.tscn
+Player.gd::GDScript::1614369360::0::1::::<><>::
+Player.tscn::PackedScene::1614368553::0::1::::<><>::res://Player.gd<>res://Assets/Weapons/Handgun/Handgun.tscn<>res://Assets/HUD/HUD.tscn<>res://Billboard.gd<>res://Audio/SoundPlayer.gd<>res://<>res://Audio/SoundPlayer.tscn<>res://<>res://
+PlayerListItem.gd::GDScript::1614369360::0::1::::<><>::
+PlayerListItem.tscn::PackedScene::1601761923::0::1::::<><>::res://PlayerListItem.gd
+Server.tscn::PackedScene::1607641926::0::1::::<><>::res://Game.tscn
+::res://Assets/::1602454623
+::res://Assets/Characters/::1607870259
+::res://Assets/Characters/HerMajestyTheQueen/::1614369359
+HerMajestyTheQueen.gd::GDScript::1614369359::0::1::::<><>::
+HerMajestyTheQueen.tscn::PackedScene::1607870255::0::1::::<><>::res://Player.tscn<>res://Assets/Characters/HerMajestyTheQueen/HerMajestyTheQueen.gd<>res://Assets/Characters/HerMajestyTheQueen/Throne/Throne.gltf<>res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/RoyalGuard.tscn
+::res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/::1614368085
+hat.material::StandardMaterial3D::1602192040::0::1::::<><>::
+pants.material::StandardMaterial3D::1602192040::0::1::::<><>::
+royalguard.gltf::PackedScene::1602192040::1614368085::1::::<><>::res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/skin.material<>res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/tunic.material<>res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/pants.material<>res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/shoe.material<>res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/hat.material
+RoyalGuard.tscn::PackedScene::1602192040::0::1::::<><>::res://Assets/Characters/HerMajestyTheQueen/RoyalGuard/royalguard.gltf
+shoe.material::StandardMaterial3D::1602192040::0::1::::<><>::
+skin.material::StandardMaterial3D::1602192040::0::1::::<><>::
+tunic.material::StandardMaterial3D::1602192040::0::1::::<><>::
+::res://Assets/Characters/HerMajestyTheQueen/Throne/::1614368081
+Gold.material::StandardMaterial3D::1602192040::0::1::::<><>::
+Silk.material::StandardMaterial3D::1602192040::0::1::::<><>::
+Throne.gltf::PackedScene::1602192040::1614368081::1::::<><>::res://Assets/Characters/HerMajestyTheQueen/Throne/Gold.material<>res://Assets/Characters/HerMajestyTheQueen/Throne/Silk.material
+::res://Assets/Characters/SmartFridge/::1614368080
+Material.material::StandardMaterial3D::1607870259::0::1::::<><>::
+Material_001.material::StandardMaterial3D::1607870259::0::1::::<><>::
+Material_002.material::StandardMaterial3D::1607870259::0::1::::<><>::
+SmartFridge.gltf::PackedScene::1607870259::1614368080::1::::<><>::res://Assets/Characters/SmartFridge/Material.material<>res://Assets/Characters/SmartFridge/Material_002.material<>res://Assets/Characters/SmartFridge/Material_001.material
+SmartFridge.tscn::PackedScene::1607870259::0::1::::<><>::res://Player.tscn<>res://Assets/Characters/SmartFridge/SmartFridge.gltf
+::res://Assets/Effects/::1614369826
+BodyHit.tscn::PackedScene::1600597576::0::1::::<><>::res://Assets/Effects/CircleHard.svg<>res://Assets/Effects/CircleSoft.svg<>res://Assets/Effects/FreeTimer.gd<>res://Audio/SoundPlayer.tscn
+BulletHit.tscn::PackedScene::1600597576::0::1::::<><>::res://Assets/Effects/CircleHard.svg<>res://Assets/Effects/CircleSoft.svg<>res://Assets/Effects/FreeTimer.gd<>res://Audio/SoundPlayer.tscn
+BulletTracer.gd::GDScript::1614369359::0::1::::<>Node3D<>::
+BulletTracer.gltf::PackedScene::1600982225::1614368042::1::::<><>::res://Assets/Effects/BulletTracerMaterial.material
+BulletTracer.tscn::PackedScene::1601245396::0::1::::<><>::res://Assets/Effects/BulletTracer.gd<>res://Assets/Effects/BulletTracer.gltf<>res://Assets/Effects/BulletTracerMaterial.tres
+BulletTracerMaterial.material::StandardMaterial3D::1607983950::0::1::::<><>::
+BulletTracerMaterial.tres::ShaderMaterial::1608078661::0::1::::<><>::
+CircleHard.svg::StreamTexture2D::1592591030::1614369905::1::::<><>::
+CircleSoft.svg::StreamTexture2D::1592591056::1614369905::1::::<><>::
+FreeTimer.gd::GDScript::1614369359::0::1::::<>Timer<>::
+Sprite.svg::StreamTexture2D::1592518261::1614369905::1::::<><>::
+SubtleSmoke.png::StreamTexture2D::1601220470::1614369905::1::::<><>::
+SubtleSmoke.svg::StreamTexture2D::1601220458::1614369906::1::::<><>::
+::res://Assets/HUD/::1614369826
+Crosshair.tscn::PackedScene::1601329592::0::1::::<><>::res://GUI/HitConfirmation.gd<>res://Assets/SFX/UI-HitConfirmation.wav
+HealthBarOver.svg::StreamTexture2D::1601323140::1614369906::1::::<><>::
+HealthBarProgress.svg::StreamTexture2D::1601323298::1614369906::1::::<><>::
+HealthBarUnder.svg::StreamTexture2D::1601323741::1614369906::1::::<><>::
+HUD.gd::GDScript::1614369359::0::1::::<><>::
+HUD.tscn::PackedScene::1601666054::0::1::::<><>::res://Health.tscn<>res://Assets/HUD/Panel.svg<>res://GUI/HitConfirmation.gd<>res://Assets/SFX/UI-HitConfirmation.wav<>res://Assets/HUD/HUD.gd
+Panel.svg::StreamTexture2D::1601325076::1614369906::1::::<><>::
+Sprite.svg::StreamTexture2D::1592518261::1614369906::1::::<><>::
+::res://Assets/Maps/::1607984087
+::res://Assets/Maps/Decoration/::1614369826
+unfa SDF shader.tres::VisualShader::1614367793::0::1::::<><>::res://Assets/Maps/Decoration/unfa stroke NOR.png<>res://Assets/Maps/Decoration/unfa stroke SDF.png
+unfa stroke NOR.png::StreamTexture2D::1607983437::1614369906::1::::<><>::
+unfa stroke SDF.png::StreamTexture2D::1608078501::1614369906::1::::<><>::
+unfa stroke.tscn::PackedScene::1614367793::0::1::::<><>::res://Assets/Maps/Decoration/unfa stroke SDF.png<>res://Assets/Maps/Decoration/unfa stroke NOR.png
+::res://Assets/Maps/Materials/::1614369836
+Floor 01.tres::StandardMaterial3D::1602458747::0::1::::<><>::res://Assets/Maps/Materials/Floor 01_albedo.png<>res://Assets/Maps/Materials/Floor 01_orm.png<>res://Assets/Maps/Materials/Floor 01_normal.png
+Floor 01_albedo.png::StreamTexture2D::1602458740::1614369932::1::::<><>::
+Floor 01_normal.png::StreamTexture2D::1602458747::1614368015::1::::<><>::
+Floor 01_orm.png::StreamTexture2D::1602458745::1614367969::1::::<><>::
+graph.png::StreamTexture2D::1602611315::1614367941::1::::<><>::
+::res://Assets/Maps/Rotor/::1614369359
+Crank.gd::GDScript::1614369359::0::1::::<>MeshInstance<>::
+Material_001.material::StandardMaterial3D::1607871599::0::1::::<><>::
+Rotor.gltf::PackedScene::1602962018::1614368079::1::::<><>::res://Assets/Maps/Rotor/Material_001.material
+::res://Assets/Player/::1614368076
+Player.gltf::PackedScene::1600888060::1614368076::1::::<><>::res://Assets/Player/PlayerSkin.material<>res://Assets/Player/PlayerMeat.material
+PlayerMeat.material::StandardMaterial3D::1600888139::0::1::::<><>::
+PlayerSkin.material::StandardMaterial3D::1600888139::0::1::::<><>::
+::res://Assets/SFX/::1614369826
+Collision-ShellCasing.wav::AudioStreamSample::1600988175::1614367933::1::::<><>::
+Player-Death-01.wav::AudioStreamSample::1600379845::1614367931::1::::<><>::
+Player-Death-02.wav::AudioStreamSample::1600379845::1614367931::1::::<><>::
+Player-Fall-Concrete-01.wav::AudioStreamSample::1600379843::1614367930::1::::<><>::
+Player-Jump-01.wav::AudioStreamSample::1600379844::1614367930::1::::<><>::
+Player-Jump-02.wav::AudioStreamSample::1600379844::1614367930::1::::<><>::
+Player-Land-01.wav::AudioStreamSample::1600379844::1614369932::1::::<><>::
+Player-Pain-01.wav::AudioStreamSample::1600379843::1614369932::1::::<><>::
+Player-Pain-02.wav::AudioStreamSample::1600379844::1614369932::1::::<><>::
+Player-Pain-03.wav::AudioStreamSample::1600379845::1614369932::1::::<><>::
+Player-Step-Concrete-01.wav::AudioStreamSample::1600379843::1614369932::1::::<><>::
+Player-Step-Concrete-02.wav::AudioStreamSample::1600379843::1614369932::1::::<><>::
+Player-Step-Concrete-03.wav::AudioStreamSample::1600379843::1614369932::1::::<><>::
+Player-Step-Concrete-04.wav::AudioStreamSample::1600379843::1614369933::1::::<><>::
+Test-01.wav::AudioStreamSample::1600597576::1614369933::1::::<><>::
+UI-HitConfirmation.wav::AudioStreamSample::1600379859::1614369933::1::::<><>::
+Weapons-BulletFlyBy-01.wav::AudioStreamSample::1600460650::1614369933::1::::<><>::
+Weapons-BulletFlyBy-02.wav::AudioStreamSample::1600460651::1614369904::1::::<><>::
+Weapons-BulletFlyBy-03.wav::AudioStreamSample::1600460651::1614369904::1::::<><>::
+Weapons-BulletFlyBy-04.wav::AudioStreamSample::1600460651::1614369904::1::::<><>::
+Weapons-BulletFlyBy-05.wav::AudioStreamSample::1600460651::1614369904::1::::<><>::
+Weapons-BulletFlyBy-06.wav::AudioStreamSample::1600460651::1614369904::1::::<><>::
+Weapons-BulletFlyBy-07.wav::AudioStreamSample::1600460652::1614369904::1::::<><>::
+Weapons-BulletHitPlayer-01.wav::AudioStreamSample::1600460649::1614369904::1::::<><>::
+Weapons-BulletHitPlayer-02.wav::AudioStreamSample::1600460649::1614369904::1::::<><>::
+Weapons-BulletHitPlayer-03.wav::AudioStreamSample::1600460649::1614369904::1::::<><>::
+Weapons-BulletHitPlayer-04.wav::AudioStreamSample::1600460650::1614369904::1::::<><>::
+Weapons-BulletHitPlayer-05.wav::AudioStreamSample::1600460650::1614369905::1::::<><>::
+Weapons-BulletHitPlayer-06.wav::AudioStreamSample::1600460650::1614369905::1::::<><>::
+Weapons-BulletHitPlayer-07.wav::AudioStreamSample::1600460650::1614369905::1::::<><>::
+Weapons-BulletHitWall-01.wav::AudioStreamSample::1600460648::1614369905::1::::<><>::
+Weapons-BulletHitWall-02.wav::AudioStreamSample::1600460648::1614369905::1::::<><>::
+Weapons-BulletHitWall-03.wav::AudioStreamSample::1600460648::1614369905::1::::<><>::
+Weapons-BulletHitWall-04.wav::AudioStreamSample::1600460648::1614369905::1::::<><>::
+Weapons-BulletHitWall-05.wav::AudioStreamSample::1600460648::1614369905::1::::<><>::
+Weapons-BulletHitWall-06.wav::AudioStreamSample::1600460649::1614369905::1::::<><>::
+Weapons-BulletHitWall-07.wav::AudioStreamSample::1600460649::1614369905::1::::<><>::
+Weapons-Empty.wav::AudioStreamSample::1602453551::1614369905::1::::<><>::
+Weapons-Handgun-Reload.wav::AudioStreamSample::1602453551::1614369905::1::::<><>::
+Weapons-Handgun-Shoot.wav::AudioStreamSample::1600379842::1614369905::1::::<><>::
+::res://Assets/SFX/Liblast SFX/::1602529184
+::res://Assets/SFX/Liblast SFX/analysis/::1602453356
+::res://Assets/SFX/Liblast SFX/dead/::1600378268
+::res://Assets/SFX/Liblast SFX/export/::1600379525
+::res://Assets/SFX/Liblast SFX/externals/::1600378268
+::res://Assets/SFX/Liblast SFX/interchange/::1600378373
+::res://Assets/SFX/Liblast SFX/interchange/Liblast SFX/::1600378268
+::res://Assets/SFX/Liblast SFX/interchange/Liblast SFX/audiofiles/::1614367935
+Audio-1.wav::AudioStreamSample::1600379193::1614367935::1::::<><>::
+Draft-1.wav::AudioStreamSample::1600459890::1614367934::1::::<><>::
+Draft-2.wav::AudioStreamSample::1600460288::1614367934::1::::<><>::
+Draft-3.wav::AudioStreamSample::1600460301::1614367934::1::::<><>::
+Draft-4-2.wav::AudioStreamSample::1602453350::1614367934::1::::<><>::
+Draft-4-3.wav::AudioStreamSample::1602453356::1614367933::1::::<><>::
+Draft-4.wav::AudioStreamSample::1602453284::1614367933::1::::<><>::
+::res://Assets/SFX/Liblast SFX/interchange/Liblast SFX/midifiles/::1600988072
+::res://Assets/SFX/Liblast SFX/peaks/::1602453356
+::res://Assets/SFX/Liblast SFX/plugins/::1602453268
+::res://Assets/SFX/Liblast SFX/plugins/1256/::1602529184
+::res://Assets/SFX/Liblast SFX/plugins/1256/state1/::1602453268
+::res://Assets/SFX/Liblast SFX/plugins/1575/::1602529184
+::res://Assets/SFX/Liblast SFX/plugins/1575/state1/::1602453268
+::res://Assets/SFX/Liblast SFX/plugins/330/::1602529184
+::res://Assets/SFX/Liblast SFX/plugins/330/state1/::1600378759
+::res://Assets/SFX/Liblast SFX/plugins/330/state2/::1600378879
+::res://Assets/SFX/Liblast SFX/plugins/9259/::1602529184
+::res://Assets/SFX/Liblast SFX/plugins/9259/state1/::1600988073
+::res://Assets/SFX/Liblast SFX/plugins/9259/state2/::1600988121
+::res://Assets/SFX/Liblast SFX/plugins/9259/state3/::1600988173
+::res://Assets/SFX/Liblast SFX/plugins/9259/state4/::1602453268
+::res://Assets/Weapons/::1614369359
+Weapon.gd::GDScript::1614369359::0::1::::<><>::
+Weapon.tscn::PackedScene::1601325307::0::1::::<><>::res://Assets/Weapons/Handgun/Handgun.gltf<>res://Assets/Weapons/Weapon.gd<>res://Assets/SFX/Weapons-Handgun-Shoot.wav<>res://Assets/Effects/CircleSoft.svg
+::res://Assets/Weapons/Handgun/::1614369359
+Casing.gd::GDScript::1614369359::0::1::::<>RigidBody<>::
+Casing.gltf::PackedScene::1600119427::1614368081::1::::<><>::res://Assets/Weapons/Handgun/Casing.material
+Casing.material::StandardMaterial3D::1600119479::0::1::::<><>::
+Casing.tscn::PackedScene::1601245396::0::1::::<><>::res://Assets/Weapons/Handgun/Casing.material<>res://Assets/Weapons/Handgun/Casing.gd<>res://Assets/SFX/Collision-ShellCasing.wav<>res://Assets/Effects/SubtleSmoke.png
+Handgun.gltf::PackedScene::1601245525::1614368084::1::::<><>::res://Assets/Weapons/Handgun/HandgunPlastic.material<>res://Assets/Weapons/Handgun/HandgunMetal.material
+Handgun.tscn::PackedScene::1602454303::0::1::::<><>::res://Assets/Weapons/Handgun/Handgun.gltf<>res://Assets/Weapons/Weapon.gd<>res://Assets/SFX/Weapons-Handgun-Shoot.wav<>res://Assets/Effects/CircleSoft.svg<>res://Assets/SFX/Weapons-Empty.wav<>res://Assets/SFX/Weapons-Handgun-Reload.wav
+HandgunMetal.material::StandardMaterial3D::1608078661::0::1::::<><>::
+HandgunPlastic.material::StandardMaterial3D::1608078661::0::1::::<><>::
+::res://Audio/::1614369360
+BulletFlyBySoundPlayer.gd::GDScript::1614369360::0::1::::<>Node3D<>::
+BulletFlyBySoundPlayer.tscn::PackedScene::1601245396::0::1::::<><>::res://Audio/SoundPlayer.tscn<>res://Audio/BulletFlyBySoundPlayer.gd
+SoundPlayer.gd::GDScript::1614369360::0::1::::<><>::
+SoundPlayer.tscn::PackedScene::1614369192::0::1::::<><>::res://Audio/SoundPlayer.gd
+::res://Fonts/::1601666054
+::res://Fonts/Roboto_Condensed/::1601758494
+RobotoCondensed-Bold.ttf::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-BoldItalic.ttf::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-Italic.ttf::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-Light.ttf::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-LightItalic.ttf::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-Regular-dynamic.tres::Font::1601758494::0::1::::<><>::res://Fonts/Roboto_Condensed/RobotoCondensed-Regular.tres
+RobotoCondensed-Regular.tres::FontData::1601666054::0::1::::<><>::
+RobotoCondensed-Regular.ttf::FontData::1601666054::0::1::::<><>::
+::res://GUI/::1614369360
+CharacterOption.gd::GDScript::1614369360::0::1::::<>Control<>::
+CharacterOption.tscn::PackedScene::1607870259::0::1::::<><>::res://GUI/CharacterOption.gd
+CharacterSelect.gd::GDScript::1614369360::0::1::::<><>::
+CharacterSelect.tscn::PackedScene::1607870259::0::1::::<><>::res://GUI/CharacterSelect.gd<>res://GUI/theme.tres
+HitConfirmation.gd::GDScript::1614369360::0::1::::<><>::
+theme.tres::Theme::1614368553::0::1::::<><>::res://Fonts/Roboto_Condensed/RobotoCondensed-Regular-dynamic.tres
+::res://Godot/::1614367748
+::res://LevelComponents/::1614369360
+Killfloor.gd::GDScript::1614369360::0::1::::<>Node3D<>::
+Killfloor.tscn::PackedScene::1592523293::0::1::::<><>::res://LevelComponents/Killfloor.gd
+LevelGeometry.gd::GDScript::1614369360::0::1::::<><>::
+SpawnPoint.gd::GDScript::1614369360::0::1::::<>Node3D<>::
+SpawnPoint.tscn::PackedScene::1592523293::0::1::::<><>::res://LevelComponents/SpawnPoint.gd
