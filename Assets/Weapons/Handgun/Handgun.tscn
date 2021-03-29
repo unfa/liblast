@@ -70,7 +70,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
 [node name="Ejector" parent="Handgun" index="1"]
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
 
-[node name="SoundShoot" type="AudioStreamPlayer3D" parent="."]
+[node name="Sounds" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295478, 0.724833, 0.584699 )
+
+[node name="SoundShoot" type="AudioStreamPlayer3D" parent="Sounds"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 stream = ExtResource( 3 )
 attenuation_model = 3
@@ -80,10 +83,10 @@ emission_angle_enabled = true
 emission_angle_degrees = 60.0
 attenuation_filter_cutoff_hz = 15000.0
 
-[node name="SoundEmpty" type="AudioStreamPlayer3D" parent="."]
+[node name="SoundEmpty" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
 
-[node name="SoundReload" type="AudioStreamPlayer3D" parent="."]
+[node name="SoundReload" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 6 )
 
 [editable path="Handgun"]
