@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/512942__freemusicpromo__single-gunshot.wav-a9dbc4144233492b10bc5a03e41a49c0.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/interchange/Liblast SFX2/audiofiles/512942__freemusicpromo__single-gunshot.wav"
+dest_files=[ "res://.import/512942__freemusicpromo__single-gunshot.wav-a9dbc4144233492b10bc5a03e41a49c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

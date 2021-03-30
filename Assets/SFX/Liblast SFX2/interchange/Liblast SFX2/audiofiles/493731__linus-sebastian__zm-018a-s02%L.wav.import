@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/493731__linus-sebastian__zm-018a-s02%L.wav-44cb731a27bda8af000aef7029104f5b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/interchange/Liblast SFX2/audiofiles/493731__linus-sebastian__zm-018a-s02%L.wav"
+dest_files=[ "res://.import/493731__linus-sebastian__zm-018a-s02%L.wav-44cb731a27bda8af000aef7029104f5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
