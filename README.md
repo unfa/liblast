@@ -1,5 +1,5 @@
 # Liblast
-Libre Multiplayer FPS Game build with Godot 3 game engine.
+Libre Multiplayer FPS Game build with Godot 3.2.3 game engine.
 
 ![Screenshot 01](https://github.com/unfa/liblast/raw/master/Screenshots/01.png)
 ![Screenshot 02](https://github.com/unfa/liblast/raw/master/Screenshots/02.png)
