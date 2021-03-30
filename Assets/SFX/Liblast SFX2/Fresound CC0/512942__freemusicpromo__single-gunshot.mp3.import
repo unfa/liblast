@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/512942__freemusicpromo__single-gunshot.mp3-c88e9b8153cb444ccb4034b699f0b50d.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/Fresound CC0/512942__freemusicpromo__single-gunshot.mp3"
+dest_files=[ "res://.import/512942__freemusicpromo__single-gunshot.mp3-c88e9b8153cb444ccb4034b699f0b50d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
