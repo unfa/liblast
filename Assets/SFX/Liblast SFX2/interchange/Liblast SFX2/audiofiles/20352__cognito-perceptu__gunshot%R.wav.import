@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/20352__cognito-perceptu__gunshot%R.wav-fdf03ea8e68f119bc829aaf38943df86.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/interchange/Liblast SFX2/audiofiles/20352__cognito-perceptu__gunshot%R.wav"
+dest_files=[ "res://.import/20352__cognito-perceptu__gunshot%R.wav-fdf03ea8e68f119bc829aaf38943df86.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

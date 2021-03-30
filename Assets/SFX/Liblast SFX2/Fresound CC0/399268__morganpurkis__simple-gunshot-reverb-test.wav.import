@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/399268__morganpurkis__simple-gunshot-reverb-test.wav-2fdb5df8dc8def39b36c0a8c01e83a86.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Liblast SFX2/Fresound CC0/399268__morganpurkis__simple-gunshot-reverb-test.wav"
+dest_files=[ "res://.import/399268__morganpurkis__simple-gunshot-reverb-test.wav-2fdb5df8dc8def39b36c0a8c01e83a86.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
