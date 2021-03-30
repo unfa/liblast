@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody
 
 const GRAVITY = Vector3.DOWN * 9.8 * 1.5

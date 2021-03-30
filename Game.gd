@@ -318,7 +318,7 @@ sync func remove_player(id):
 			player.queue_free()
 
 func get_spawn_point():
-	return $Level/SpawnPoint
+	return $Level/SpawnPoints.get_spawn_point()
 
 func on_peer_connected(id):
 	print("Peer connected with id ", id)
