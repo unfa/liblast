@@ -136,7 +136,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.393263, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.396778, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )
@@ -151,9 +151,6 @@ anims/Land = SubResource( 16 )
 anims/Walk = SubResource( 17 )
 
 [node name="Weapon" parent="Camera/Hand" instance=ExtResource( 2 )]
-
-[node name="SoundShoot" parent="Camera/Hand/Weapon" index="2"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.973939, 0.369099, 0.299776 )
 
 [node name="Billboard" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49795, 0 )
@@ -243,9 +240,9 @@ autoplay = true
 attenuation_filter_cutoff_hz = 15000.0
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
-
 [connection signal="ammo_changed" from="Camera/Hand/Weapon" to="HUD" method="update_ammo"]
 [connection signal="damage_dealt" from="Camera/Hand/Weapon" to="HUD" method="update_crosshair" binds= [ true, true ]]
 
 [editable path="Camera/Hand/Weapon"]
+
 [editable path="Camera/Hand/Weapon/Handgun"]
