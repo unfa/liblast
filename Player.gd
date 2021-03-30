@@ -1,13 +1,14 @@
 extends KinematicBody
 
 const GRAVITY = Vector3.DOWN * 9.8 * 1.5
-const JUMP_VELOCITY = 9
+const JUMP_VELOCITY = 8
 const WALK_VELOCITY = 8
 
 const AIR_CONTROL = 0.1
 
+const JUMP_ACCEL = 1
 const WALK_ACCEL = 5
-const WALK_DECEL = 0.1
+#const WALK_DECEL = 0.1
 
 const MOUSE_SENSITIVITY = 1.0 / 1000
 
@@ -21,6 +22,9 @@ onready var debug = $Debug
 onready var weapon_bob_anim = $Camera/Hand/WeaponBobAnimationTree["parameters/playback"]
 
 var is_dead = true
+var is_on_floor = false
+var jump_timeout = 0.0
+var floor_normal = Vector3.UP
 var was_on_floor = false
 
 const JETPACK_FUEL_MAX = 1
@@ -92,8 +96,9 @@ func on_bullet_flyby(from, to):
 	get_tree().root.call_deferred("add_child", flyby_noise)
 
 remote func jump():
-	if is_on_floor():
+	if is_on_floor:
 		velocity.y = JUMP_VELOCITY
+		jump_timeout = 0.2
 		$Sounds/Jump.play()
 		weapon_bob_anim.travel("Jump")
 
@@ -115,25 +120,41 @@ func _physics_process(delta):
 	if str(get_tree().get_network_unique_id()) != name:
 		return
 	
+	check_floor_collision()
+	
 	walk(delta)
 	fall(delta)
 	
-	
 	var movement_vector = Vector3()
-	if Input.is_action_just_pressed("MoveJump"):
+	if jump_timeout > 0:
 		movement_vector = move_and_slide(velocity, Vector3.UP)
 	else:
-		var upvector = Vector3.UP
-		
-		if is_on_floor():
-			upvector = get_floor_normal()
-		
+		var upvector = floor_normal
 		movement_vector = move_and_slide_with_snap(velocity, Vector3.DOWN, upvector, true)
+		
 	velocity = movement_vector
 	
 	rset("translation", translation)
 
+func check_floor_collision():
+	var space_state = get_world().direct_space_state
+	
+	var from = global_transform.xform(Vector3(0, 0.0, 0))
+	var to = global_transform.xform(Vector3(0, -0.3, 0.0))
+	
+	var result  = space_state.intersect_ray(from, to)
+	
+	if jump_timeout > 0:
+		is_on_floor = false
+	elif result:
+		is_on_floor = true
+		floor_normal = result.normal
+	else:
+		is_on_floor = false
+
 func walk(delta):
+	jump_timeout -= delta
+	
 	# Walk
 	walk_direction = Vector2()
 	
@@ -151,31 +172,35 @@ func walk(delta):
 	var walking_speed = Vector2(velocity.x, velocity.z)
 	
 	walking_speed = walking_speed.rotated(rotation.y)
-	walking_speed = lerp(walking_speed, walk_direction * WALK_VELOCITY, delta * WALK_ACCEL)
+	
+	if is_on_floor:
+		walking_speed = lerp(walking_speed, walk_direction * WALK_VELOCITY, delta * WALK_ACCEL)
+	else:
+		walking_speed = lerp(walking_speed, walk_direction * JUMP_VELOCITY, delta * JUMP_ACCEL)
 	walking_speed = walking_speed.rotated(-rotation.y)
 	
 	velocity.x = walking_speed.x
 	velocity.z = walking_speed.y
 	
-	if walking_speed.length() > 0 and is_on_floor():
+	# Make walking perpendicular to the floor
+	if is_on_floor:
+		velocity.y -= velocity.dot(floor_normal) / floor_normal.y
+	
+	if walking_speed.length() > 0 and is_on_floor:
 		weapon_bob_anim.travel("Walk")
-	elif walking_speed.length() == 0 and is_on_floor():
+	elif walking_speed.length() == 0 and is_on_floor:
 		weapon_bob_anim.travel("Idle")
 
 
 func fall(delta):
-	print(is_on_floor())
-	
-	if is_on_floor():
-		velocity -= delta * get_floor_normal() * 20
-		
+	if is_on_floor:
 		if not was_on_floor: # if this is the first frame of ground conotact after a frame of no ground contact - we've just ended a fall
 			weapon_bob_anim.travel("Land")
-		
+	
 	else:
 		velocity += delta * GRAVITY
 	
-	was_on_floor = is_on_floor()
+	was_on_floor = is_on_floor
 	
 
 master func on_hit(damage, location):
@@ -199,15 +224,9 @@ master func kill():
 	
 	$Sounds/Death.rpc("play")
 	
-	#print ("kill")
 	is_dead = true
 	
-	
-	#print ("set as dead")
-		
 	set_health(0)
-	#print ("health:", health)
-	
 	$CollisionShapeBody.disabled = true
 	
 	$Camera/Hand.hide()
