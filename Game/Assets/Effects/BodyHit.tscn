@@ -1,0 +1,205 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Assets/Effects/CircleHard.svg" type="Texture" id=1]
+[ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/Effects/FreeTimer.gd" type="Script" id=3]
+[ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Effect"
+length = 5.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParticlesDust:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParticlesSparks:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ParticlesSmoke:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, -0.386777, 0, 0, Vector2( 0.987179, 0 ), -0.127956, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.65
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+damping = 7.82
+damping_random = 0.92
+scale_random = 0.5
+scale_curve = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.839216, 0, 0, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+size = Vector2( 0.1, 0.1 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.0346021, 0.083045, 0.49481, 1 )
+colors = PoolColorArray( 1, 0.984375, 0.75, 1, 0.933594, 0.694326, 0.12764, 1, 0.963584, 0.38076, 0.069996, 1, 0.439216, 0, 0, 0.176471, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.34
+spread = 180.0
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+damping = 7.82
+damping_random = 0.92
+scale = 0.5
+scale_random = 0.5
+scale_curve = SubResource( 3 )
+color_ramp = SubResource( 8 )
+hue_variation = 0.01
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_billboard_mode = 3
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.4
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.756863, 0, 0, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
+size = Vector2( 0.1, 0.1 )
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.0692042, 0.474048, 1 )
+colors = PoolColorArray( 0.756863, 0.756863, 0.756863, 0.329412, 0.598546, 0.598546, 0.598546, 0.512111, 0.504174, 0.504174, 0.504174, 0.223016, 0.431373, 0.431373, 0.431373, 0 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 0.278253 ), 0.0, 1.12677, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.2
+angular_velocity = 395.12
+angular_velocity_random = 1.0
+damping = 9.0
+damping_random = 0.83
+scale = 4.0
+scale_random = 0.5
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 13 )
+hue_variation = 0.01
+hue_variation_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=17]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.396078, 0, 0, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=18]
+material = SubResource( 17 )
+
+[node name="BulletHit" type="Spatial"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Effect"
+anims/Effect = SubResource( 1 )
+
+[node name="ParticlesDust" type="Particles" parent="."]
+emitting = false
+amount = 128
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )
+
+[node name="ParticlesSparks" type="Particles" parent="."]
+emitting = false
+amount = 64
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="ParticlesSmoke" type="Particles" parent="."]
+emitting = false
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 18 )
+
+[node name="FreeTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "Time to delete this scene."
+}
+
+[node name="SoundPlayer" parent="." instance=ExtResource( 4 )]
+SoundClip = "res://Assets/SFX/Weapons-BulletHitPlayer-01.wav"
+AutoPlay = true
+[connection signal="timeout" from="FreeTimer" to="FreeTimer" method="_on_FreeTimer_timeout"]

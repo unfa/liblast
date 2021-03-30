@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UndoHistory>
+  <UndoTransaction tv-sec="1602453389" tv-usec="726252" name="adjust region gain">
+    <StatefulDiffCommand obj-id="15720" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="0.28183823823928833" to="0.25118857622146606"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453389" tv-usec="766387" name="adjust region gain">
+    <StatefulDiffCommand obj-id="15720" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="0.25118857622146606" to="0.22387202084064484"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453389" tv-usec="806271" name="adjust region gain">
+    <StatefulDiffCommand obj-id="15720" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="0.22387202084064484" to="0.19952614605426788"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453390" tv-usec="823877" name="delete objects">
+    <StatefulDiffCommand obj-id="2515" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="22" to="21"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="2766" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="12" to="11"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="2877" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="13" to="12"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="2948" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="14" to="13"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3039" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="15" to="14"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3168" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="16" to="15"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3272" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="17" to="16"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3375" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="18" to="17"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3591" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="19" to="18"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3692" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="20" to="19"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="3881" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="21" to="20"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4037" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="23" to="22"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4134" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="24" to="23"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4233" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="25" to="24"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4334" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="26" to="25"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4485" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="27" to="26"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4590" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="28" to="27"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="4697" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="29" to="28"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="15162" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="30" to="29"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="15692" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="31" to="30"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="15674" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="32" to="31"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="15406" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="33" to="32"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="15415" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <layering-index from="34" to="33"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <StatefulDiffCommand obj-id="1784" type-name="ARDOUR::AudioPlaylist">
+      <Changes>
+        <Regions>
+          <Remove id="15720"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15720"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453392" tv-usec="461759" name="region drag">
+    <StatefulDiffCommand obj-id="15674" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <position from="3253484" to="3266100"/>
+        <beat from="135.56183333333331" to="136.08750000000001"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15674"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15674"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453398" tv-usec="787029" name="Region start trim">
+    <StatefulDiffCommand obj-id="15674" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <start from="599489" to="597817"/>
+        <length from="7904" to="9576"/>
+        <position from="3266100" to="3264428"/>
+        <beat from="136.08750000000001" to="136.01783333333333"/>
+        <Envelope>
+          <from>
+            <AutomationList automation-id="envelope" id="16786" interpolation-style="Exponential" state="Off">
+              <events>0 1
+7904 1
+</events>
+            </AutomationList>
+          </from>
+          <to>
+            <AutomationList automation-id="envelope" id="16787" interpolation-style="Exponential" state="Off">
+              <events>0 1
+9576 1
+</events>
+            </AutomationList>
+          </to>
+        </Envelope>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15674"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15674"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453401" tv-usec="48347" name="split">
+    <StatefulDiffCommand obj-id="1784" type-name="ARDOUR::AudioPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="16799"/>
+          <Add id="16790"/>
+          <Remove id="15415"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="15415"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453402" tv-usec="742514" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1" to="1.1220184564590454"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453402" tv-usec="854461" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.1220184564590454" to="1.2589254379272461"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453402" tv-usec="918383" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.2589254379272461" to="1.4125375747680664"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453403" tv-usec="30477" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.4125375747680664" to="1.5848932266235352"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453403" tv-usec="142660" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.5848932266235352" to="1.7782795429229736"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453403" tv-usec="254408" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.7782795429229736" to="1.9952625036239624"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453403" tv-usec="382665" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="1.9952625036239624" to="2.2387213706970215"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453403" tv-usec="510423" name="adjust region gain">
+    <StatefulDiffCommand obj-id="16790" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <scale-amplitude from="2.2387213706970215" to="2.5118868350982666"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453406" tv-usec="777835" name="change fade out length">
+    <MementoCommand obj-id="16793" type-name="ARDOUR::AutomationList">
+      <AutomationList automation-id="fadeout" id="16793" interpolation-style="Curved" state="Off">
+        <events>0 1
+1.9393939971923828 0.99886733911550885
+3.8787879943847656 0.99547192230339399
+5.8181819915771484 0.98982144127527472
+7.7575759887695312 0.98192869618882905
+9.6969699859619141 0.97181156665131863
+11.636363983154297 0.9594929712165241
+13.57575798034668 0.94500081546684744
+15.515151977539062 0.92836792879818764
+17.454545974731445 0.90963199005079642
+19.393939971923828 0.88883544215458044
+21.333333969116211 0.86602539598220885
+23.272727966308594 0.84125352362782713
+25.212121963500977 0.81457594135313838
+27.151515960693359 0.78605308246601313
+29.090909957885742 0.75574956041960206
+31.030303955078125 0.72373402244207363
+32.969696044921875 0.69007902790898956
+34.909091949462891 0.65486071464754436
+36.848487854003906 0.61815892823618979
+38.787879943847656 0.5800568864602571
+40.727272033691406 0.54064083177629574
+42.666667938232422 0.49999997297228316
+44.606063842773438 0.45822645111753457
+46.545455932617188 0.41541498203247024
+48.484848022460938 0.37166246619609478
+50.424243927001953 0.32706792846270311
+52.363639831542969 0.28173247517396005
+54.303031921386719 0.2357588969086416
+56.242424011230469 0.18925124993221634
+58.181819915771484 0.1423147961488434
+60.1212158203125 0.095055952925701945
+64 1.0000000116860974e-07
+</events>
+      </AutomationList>
+      <AutomationList automation-id="fadeout" id="16793" interpolation-style="Curved" state="Off">
+        <events>0 1
+78.272729605436325 0.99886733911550885
+156.54545921087265 0.99547192230339399
+234.81818881630898 0.98982144127527472
+313.0909184217453 0.98192869618882905
+391.36364802718163 0.97181156665131863
+469.63637763261795 0.9594929712165241
+547.90910723805428 0.94500081546684744
+626.1818368434906 0.92836792879818764
+704.45456644892693 0.90963199005079642
+782.72729605436325 0.88883544215458044
+861.00002565979958 0.86602539598220885
+939.2727552652359 0.84125352362782713
+1017.5454848706722 0.81457594135313838
+1095.8182144761086 0.78605308246601313
+1174.0909440815449 0.75574956041960206
+1252.3636736869812 0.72373402244207363
+1330.6363263130188 0.69007902790898956
+1408.9091328978539 0.65486071464754436
+1487.1819394826889 0.61815892823618979
+1565.4545921087265 0.5800568864602571
+1643.7272447347641 0.54064083177629574
+1722.0000513195992 0.49999997297228316
+1800.2728579044342 0.45822645111753457
+1878.5455105304718 0.41541498203247024
+1956.8181631565094 0.37166246619609478
+2035.0909697413445 0.32706792846270311
+2113.3637763261795 0.28173247517396005
+2191.6364289522171 0.2357588969086416
+2269.9090815782547 0.18925124993221634
+2348.1818881630898 0.1423147961488434
+2426.4546947479248 0.095055952925701945
+2583 1.0000000116860974e-07
+</events>
+      </AutomationList>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453409" tv-usec="592525" name="new CD marker">
+    <MementoCommand obj-id="49" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2776451" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+      </Locations>
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2776451" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="CD1" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453419" tv-usec="282474" name="rename marker">
+    <MementoCommand obj-id="49" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2776451" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="CD1" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2776451" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="Weapons-Pistol-Reload" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="16860" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="152" left-frame="3225516" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="16860" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453535" tv-usec="577304" name="move marker">
+    <MementoCommand obj-id="49" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2776451" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="Weapons-Pistol-Reload" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2777629" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="Weapons-Pistol-Reload" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="38" left-frame="2762220" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="38" left-frame="2762220" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1602453537" tv-usec="301236" name="move marker">
+    <MementoCommand obj-id="49" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2777629" end="2785075" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="Weapons-Pistol-Reload" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+      <Locations>
+        <Location id="1243" name="session" start="0" end="2129511" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1600378652"/>
+        <Location id="1638" name="UI-HitConfirmation" start="24000" end="72000" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600378942"/>
+        <Location id="1843" name="Weapons-Handgun-Shoot" start="192000" end="222388" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379201"/>
+        <Location id="1869" name="Player-Pain-01" start="286581" end="309965" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379233"/>
+        <Location id="1878" name="Player-Step-Concrete-01" start="464128" end="476560" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379249"/>
+        <Location id="1887" name="Player-Step-Concrete-02" start="493432" end="507640" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379272"/>
+        <Location id="1896" name="Player-Step-Concrete-03" start="526436" end="539608" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379276"/>
+        <Location id="1905" name="Player-Step-Concrete-04" start="557516" end="567580" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379281"/>
+        <Location id="1914" name="Player-Fall-Concrete-01" start="637288" end="655048" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379289"/>
+        <Location id="1923" name="Player-Jump-01" start="729936" end="749768" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379307"/>
+        <Location id="1937" name="Player-Land-01" start="810152" end="829688" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379320"/>
+        <Location id="1961" name="Player-Jump-02" start="885188" end="907980" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379346"/>
+        <Location id="1970" name="Player-Land-01" start="948532" end="978132" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379350"/>
+        <Location id="1979" name="Player-Pain-02" start="1091352" end="1119324" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379363"/>
+        <Location id="1992" name="Player-Pain-03" start="1133236" end="1155732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379373"/>
+        <Location id="2005" name="Player-Pain-03" start="1181928" end="1206200" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379379"/>
+        <Location id="2014" name="Player-Death-01" start="1264808" end="1307136" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379386"/>
+        <Location id="2023" name="Player-Death-02" start="1369888" end="1406888" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600379393"/>
+        <Location id="2228" name="Weapons-BulletHitWall-01" start="1499166" end="1531430" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459903"/>
+        <Location id="2241" name="Weapons-BulletHitWall-02" start="1535352" end="1548376" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459941"/>
+        <Location id="2258" name="Weapons-BulletHitWall-03" start="1567986" end="1589076" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459950"/>
+        <Location id="2267" name="Weapons-BulletHitWall-04" start="1601212" end="1640728" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600459957"/>
+        <Location id="2281" name="Weapons-BulletHitWall-05" start="1661374" end="1673954" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460018"/>
+        <Location id="2290" name="Weapons-BulletHitWall-06" start="1737742" end="1757614" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460030"/>
+        <Location id="2304" name="Weapons-BulletHitWall-07" start="1784182" end="1818454" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460041"/>
+        <Location id="6066" name="Weapons-BulletHitPlayer-01" start="1906737" end="1927501" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460507"/>
+        <Location id="6075" name="Weapons-BulletHitPlayer-02" start="1980745" end="1994665" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460519"/>
+        <Location id="6084" name="Weapons-BulletHitPlayer-03" start="2024013" end="2049301" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460526"/>
+        <Location id="6088" name="Weapons-BulletHitPlayer-04" start="2087813" end="2115885" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460529"/>
+        <Location id="6092" name="Weapons-BulletHitPlayer-05" start="2136765" end="2164141" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460531"/>
+        <Location id="6096" name="Weapons-BulletHitPlayer-06" start="2178525" end="2204509" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460533"/>
+        <Location id="6100" name="Weapons-BulletHitPlayer-07" start="2230029" end="2269469" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460535"/>
+        <Location id="6104" name="Weapons-BulletFlyBy-01" start="2359949" end="2370505" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460577"/>
+        <Location id="6113" name="Weapons-BulletFlyBy-02" start="2383613" end="2397069" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460586"/>
+        <Location id="6117" name="Weapons-BulletFlyBy-03" start="2410641" end="2425373" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460588"/>
+        <Location id="6121" name="Weapons-BulletFlyBy-04" start="2443469" end="2458317" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460591"/>
+        <Location id="6125" name="Weapons-BulletFlyBy-05" start="2477921" end="2497061" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460593"/>
+        <Location id="6129" name="Weapons-BulletFlyBy-06" start="2513185" end="2528845" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460595"/>
+        <Location id="6133" name="Weapons-BulletFlyBy-07" start="2542069" end="2553089" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600460597"/>
+        <Location id="10597" name="Collision-ShellCasing" start="2580738" end="2594740" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1600988101"/>
+        <Location id="15153" name="Weapons-Empty" start="2777629" end="2786861" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453297"/>
+        <Location id="16860" name="Weapons-Pistol-Reload" start="3263516" end="3302732" flags="IsCDMarker,IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1602453409"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="38" left-frame="2762220" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="38" left-frame="2762220" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="16790"/>
+          </Regions>
+          <MIDINotes region-id="10579">
+            <note note-id="3245"/>
+          </MIDINotes>
+          <Marker id="15153" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+</UndoHistory>

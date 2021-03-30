@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UI_Confirm_Hit.wav-a2d5a642af4a47a72e68b4d81e89d6a4.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/UI_Confirm_Hit.wav"
+dest_files=[ "res://.import/UI_Confirm_Hit.wav-a2d5a642af4a47a72e68b4d81e89d6a4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,245 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Classes/UI/Health.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Classes/UI/Billboard.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/Roboto_Condensed/RobotoCondensed-Regular-dynamic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Audio/SFX/Jetpack-Thrust.wav" type="AudioStream" id=4]
+[ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Weapons/Handgun/Handgun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/UI/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Classes/Player/Player.gd" type="Script" id=8]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Land"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=5]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 1
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+switch_mode = 2
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+switch_mode = 2
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Idle/node = SubResource( 1 )
+states/Idle/position = Vector2( 59, 2 )
+states/Jump/node = SubResource( 2 )
+states/Jump/position = Vector2( 618, 2 )
+states/Land/node = SubResource( 3 )
+states/Land/position = Vector2( 599, 249 )
+states/Walk/node = SubResource( 4 )
+states/Walk/position = Vector2( 110, 240 )
+transitions = [ "Idle", "Jump", SubResource( 5 ), "Jump", "Land", SubResource( 6 ), "Land", "Idle", SubResource( 7 ), "Land", "Walk", SubResource( 8 ), "Walk", "Jump", SubResource( 9 ), "Walk", "Idle", SubResource( 10 ), "Idle", "Walk", SubResource( 11 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 18, -75 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[sub_resource type="Animation" id=14]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( -1.6245, -1.1487, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.4, -0.559 ), Vector3( 0.335, -0.39, -0.559 ), Vector3( 0.335, -0.4, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.05, 2 ),
+"transitions": PoolRealArray( 0.31864, 0.450625, 2.92817, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.46, -0.559 ), Vector3( 0.335, -0.35, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 0.120742, 0.435276, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.45, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( -1.68179, -1.23114, 1 ),
+"update": 0,
+"values": [ Vector3( 0.335, -0.385, -0.559 ), Vector3( 0.335, -0.41, -0.559 ), Vector3( 0.335, -0.385, -0.559 ) ]
+}
+
+[sub_resource type="QuadMesh" id=18]
+size = Vector2( 2, 0.6 )
+
+[sub_resource type="CapsuleShape" id=19]
+radius = 0.33
+height = 1.1
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 8 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
+
+[node name="Hand" type="Spatial" parent="Camera"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.39967, -0.559 )
+
+[node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../WeaponBobAnimationPlayer")
+active = true
+parameters/playback = SubResource( 13 )
+
+[node name="WeaponBobAnimationPlayer" type="AnimationPlayer" parent="Camera/Hand"]
+anims/Idle = SubResource( 14 )
+anims/Jump = SubResource( 15 )
+anims/Land = SubResource( 16 )
+anims/Walk = SubResource( 17 )
+
+[node name="Weapon" parent="Camera/Hand" instance=ExtResource( 6 )]
+
+[node name="Billboard" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49795, 0 )
+mesh = SubResource( 18 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="Viewport" type="Viewport" parent="Billboard"]
+size = Vector2( 500, 150 )
+transparent_bg = true
+handle_input_locally = false
+hdr = false
+usage = 0
+render_target_v_flip = true
+gui_disable_input = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Billboard/Viewport"]
+margin_right = 500.0
+margin_bottom = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nametag" type="Label" parent="Billboard/Viewport/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 500, 50 )
+custom_fonts/font = ExtResource( 3 )
+text = "guest"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" parent="Billboard/Viewport/VBoxContainer" instance=ExtResource( 1 )]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 54.0
+margin_right = 500.0
+margin_bottom = 104.0
+
+[node name="CollisionShapeBody" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0.882822, 0 )
+shape = SubResource( 19 )
+
+[node name="Debug" type="Label" parent="."]
+margin_right = 41.0
+margin_bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sounds" type="Spatial" parent="."]
+
+[node name="Jump" parent="Sounds" instance=ExtResource( 5 )]
+SoundClip = "res://Assets/Audio/SFX/Player-Jump-01.wav"
+
+[node name="Footsteps" parent="Sounds" instance=ExtResource( 5 )]
+SoundClip = "res://Assets/Audio/SFX/Player-Step-Concrete-01.wav"
+PlayUntilEnd = true
+MinDelay = 0.2
+RandomizePitch = 0.2
+
+[node name="Death" parent="Sounds" instance=ExtResource( 5 )]
+SoundClip = "res://Assets/Audio/SFX/Player-Death-01.wav"
+MinDelay = 0.2
+
+[node name="Pain" parent="Sounds" instance=ExtResource( 5 )]
+SoundClip = "res://Assets/Audio/SFX/Player-Pain-01.wav"
+MinDelay = 0.2
+
+[node name="Jetpack" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 4 )
+unit_db = -12.0
+autoplay = true
+stream_paused = true
+
+[node name="Ambient" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00283742, 0.541029, -0.000331998 )
+unit_db = -24.0
+unit_size = 15.0
+autoplay = true
+attenuation_filter_cutoff_hz = 15000.0
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[editable path="Camera/Hand/Weapon"]
+[editable path="Camera/Hand/Weapon/Handgun"]
