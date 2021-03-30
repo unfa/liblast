@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UI_Accept.wav-d667a7d5c91baaa8800a1465f7e44626.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/UI_Accept.wav"
+dest_files=[ "res://.import/UI_Accept.wav-d667a7d5c91baaa8800a1465f7e44626.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

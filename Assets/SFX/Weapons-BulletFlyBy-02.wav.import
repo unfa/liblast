@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons-BulletFlyBy-02.wav-848f663156f8eb95e6bb76e04626567b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Weapons-BulletFlyBy-02.wav"
+dest_files=[ "res://.import/Weapons-BulletFlyBy-02.wav-848f663156f8eb95e6bb76e04626567b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Player_Fridge_Ambient.wav-3e4480f3121b333fd56654388823c1bd.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Player_Fridge_Ambient.wav"
+dest_files=[ "res://.import/Player_Fridge_Ambient.wav-3e4480f3121b333fd56654388823c1bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

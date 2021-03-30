@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Characters/Default/Default.gd" type="Script" id=2]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Hand" parent="Camera" index="0"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.390237, -0.559 )
+
+[node name="WeaponBobAnimationTree" parent="Camera/Hand" index="0"]
+parameters/playback = SubResource( 1 )
+
+[editable path="Camera/Hand/Weapon"]
+[editable path="Camera/Hand/Weapon/Handgun"]

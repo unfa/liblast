@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Weapons/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Assets/SFX/Weapons-Handgun-Shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/Weapons_Handun_Shot.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=1]
@@ -69,6 +69,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
 
 [node name="SoundShoot" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.63089, 0.616708, 0.43745 )
 stream = ExtResource( 3 )
+unit_db = 4.0
+unit_size = 25.0
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+attenuation_filter_cutoff_hz = 15000.0
 
 [editable path="Handgun"]

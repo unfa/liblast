@@ -27,6 +27,9 @@ var cached_fire = false
 var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
 var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 
+func _ready():
+	$Sounds.global_transform.origin = get_parent().get_parent().global_transform.origin
+
 func shoot(camera):
 	if cached_fire == true:
 		return
@@ -89,11 +92,11 @@ func show_muzzle_flash(var rounds_left):
 	else:
 		$Handgun/AnimationPlayer.play("Shoot", -1, 2)
 	
-	$SoundShoot.play()
-	
 	$MuzzleFlash.emitting = true
 	yield(get_tree().create_timer(0.07),"timeout")
 	$MuzzleFlash.emitting = false
+	
+	$Sounds/SoundShoot.play()
 
 func show_tracer():
 	var tracer_instance = tracer.instance()
@@ -141,4 +144,4 @@ func reload():
 
 sync func play_reload_animation():
 	$Handgun/AnimationPlayer.play("Reload", 0.5, 1)
-	$SoundReload.play()
+	$Sounds/SoundReload.play()

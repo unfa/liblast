@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons-Empty.wav-58be33cd6e5ef469c594b4afb33ee07d.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Weapons-Empty.wav"
+dest_files=[ "res://.import/Weapons-Empty.wav-58be33cd6e5ef469c594b4afb33ee07d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
