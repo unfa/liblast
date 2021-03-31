@@ -1,4 +1,3 @@
-class_name Weapon
 extends Spatial
 
 signal damage_dealt
