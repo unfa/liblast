@@ -332,6 +332,12 @@ func shoot():
 func reload():
 	active_weapon.reload()
 
+sync func switch_to_next_weapon():
+	active_weapon = weapons.next_weapon()
+
+sync func switch_to_prev_weapon():
+	active_weapon = weapons.prev_weapon()
+
 func _input(event):
 	if is_dead:
 		return
@@ -364,9 +370,9 @@ func _input(event):
 		reload()
 	
 	if event.is_action_pressed("NextWeapon"):
-		active_weapon = weapons.next_weapon()
+		rpc("switch_to_next_weapon")
 	if event.is_action_pressed("PrevWeapon"):
-		active_weapon = weapons.prev_weapon()
+		rpc("switch_to_prev_weapon")
 
 
 func set_local_player():
