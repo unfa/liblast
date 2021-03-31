@@ -324,13 +324,12 @@ func spawn():
 	rotation = Vector3.ZERO
 
 func shoot():
-	#var weapon = find_node("Weapon")
-	
+	# The underscore indicates an unused variable.
+	# Because it is declared in this scope, it will disappear as soon as the
+	# function returns. As is, it exists solely to catch the return value of shoot().
 	var _remaining_ammo = active_weapon.shoot($Camera)
 
 func reload():
-	#var weapon = find_node("Weapon")
-	
 	active_weapon.reload()
 
 func _input(event):
