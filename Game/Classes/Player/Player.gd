@@ -36,6 +36,9 @@ var jetpack_active = false # is the jetpack active?
 var jetpack_used = false # Is the jetpack recharging?
 var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 
+onready var weapons = $Camera/Hand/Weapons
+onready var active_weapon = weapons.switch_to_weapon(0)
+
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
 #							$"Sounds/Footstep-Concrete-03",
@@ -321,14 +324,19 @@ func spawn():
 	rotation = Vector3.ZERO
 
 func shoot():
-	var weapon = find_node("Weapon")
-	
-	var remaining_ammo = weapon.shoot($Camera)
+	# The underscore indicates an unused variable.
+	# Because it is declared in this scope, it will disappear as soon as the
+	# function returns. As is, it exists solely to catch the return value of shoot().
+	var _remaining_ammo = active_weapon.shoot($Camera)
 
 func reload():
-	var weapon = find_node("Weapon")
-	
-	weapon.reload()
+	active_weapon.reload()
+
+sync func switch_to_next_weapon():
+	active_weapon = weapons.next_weapon()
+
+sync func switch_to_prev_weapon():
+	active_weapon = weapons.prev_weapon()
 
 func _input(event):
 	if is_dead:
@@ -360,7 +368,12 @@ func _input(event):
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
 		reload()
-		
+	
+	if event.is_action_pressed("NextWeapon"):
+		rpc("switch_to_next_weapon")
+	if event.is_action_pressed("PrevWeapon"):
+		rpc("switch_to_prev_weapon")
+
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
