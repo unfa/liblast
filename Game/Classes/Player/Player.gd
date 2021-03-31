@@ -36,6 +36,9 @@ var jetpack_active = false # is the jetpack active?
 var jetpack_used = false # Is the jetpack recharging?
 var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 
+onready var weapons = $Camera/Hand/Weapons
+onready var active_weapon = weapons.switch_to_weapon(0)
+
 #onready var sfx_foosteps = [$"Sounds/Footstep-Concrete-01",
 #							$"Sounds/Footstep-Concrete-02",
 #							$"Sounds/Footstep-Concrete-03",
@@ -321,14 +324,14 @@ func spawn():
 	rotation = Vector3.ZERO
 
 func shoot():
-	var weapon = find_node("Weapon")
+	#var weapon = find_node("Weapon")
 	
-	var remaining_ammo = weapon.shoot($Camera)
+	var _remaining_ammo = active_weapon.shoot($Camera)
 
 func reload():
-	var weapon = find_node("Weapon")
+	#var weapon = find_node("Weapon")
 	
-	weapon.reload()
+	active_weapon.reload()
 
 func _input(event):
 	if is_dead:
@@ -360,7 +363,12 @@ func _input(event):
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
 		reload()
-		
+	
+	if event.is_action_pressed("NextWeapon"):
+		active_weapon = weapons.next_weapon()
+	if event.is_action_pressed("PrevWeapon"):
+		active_weapon = weapons.prev_weapon()
+
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
