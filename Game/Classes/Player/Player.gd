@@ -309,7 +309,7 @@ master func kill():
 
 func spawn():
 	is_dead = false
-	set_health(150)
+	set_health(max_health)
 	
 	velocity = Vector3()
 	
@@ -383,6 +383,8 @@ func set_local_player():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HUD/Health/HealthBar.max_value = max_health
+	
 	# Set player class
 	var path = get_script().get_path()
 	
