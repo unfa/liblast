@@ -1,3 +1,4 @@
+class_name Weapon
 extends Spatial
 
 signal damage_dealt
@@ -64,7 +65,7 @@ func shoot(camera):
 			if hit.has_method("on_hit"):
 				hit.rpc("on_hit", 30, result.position)
 			
-			if hit is preload("res://Classes/Player/Player.gd"):
+			if hit is Player:
 				emit_signal("damage_dealt")
 				print(player.get_network_master())
 	else:
