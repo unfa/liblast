@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trail3d_icon.svg-8b210038e0dc69dfd0c78cba261254df.stex"
+path="res://.import/trail3d_icon.svg-60360d95e003e9f2e157d4d86537e5fd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Addons/addons/Trail/trail3d_icon.svg"
-dest_files=[ "res://.import/trail3d_icon.svg-8b210038e0dc69dfd0c78cba261254df.stex" ]
+source_file="res://addons/Trail/trail3d_icon.svg"
+dest_files=[ "res://.import/trail3d_icon.svg-60360d95e003e9f2e157d4d86537e5fd.stex" ]
 
 [params]
 

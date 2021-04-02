@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <instant>
   <LastUsedSnapshot name="Liblast SFX2"/>
-  <Main x="1920" y="0" w="1920" h="1051" current-tab="editor"/>
-  <Editor id="42" edit-horizontal-pane-pos="0.98342543840408325" notebook-shrunk="0" edit-vertical-pane-pos="0.9234088659286499" mixer-width="Wide" zoom-focus="ZoomFocusPlayhead" zoom="256" grid-type="GridTypeBeat" snap-mode="SnapOff" internal-grid-type="GridTypeBeat" internal-snap-mode="SnapMagnetic" pre-internal-grid-type="GridTypeBeat" pre-internal-snap-mode="SnapOff" edit-point="EditAtMouse" visible-track-count="-1" playhead="613178" left-frame="508986" y-origin="1308" maximised="0" follow-playhead="0" stationary-playhead="0" mouse-mode="MouseObject" join-object-range="0" show-editor-mixer="1" show-editor-list="0" editor-list-page="0" show-marker-lines="0" show-touched-automation="0" nudge-clock-value="240000">
+  <Main x="0" y="0" w="1920" h="1006" current-tab="editor"/>
+  <Editor id="42" edit-horizontal-pane-pos="0.97435897588729858" notebook-shrunk="0" edit-vertical-pane-pos="0.9234088659286499" mixer-width="Wide" zoom-focus="ZoomFocusPlayhead" zoom="356" grid-type="GridTypeBeat" snap-mode="SnapOff" internal-grid-type="GridTypeBeat" internal-snap-mode="SnapMagnetic" pre-internal-grid-type="GridTypeBeat" pre-internal-snap-mode="SnapOff" edit-point="EditAtMouse" visible-track-count="-1" playhead="4019089" left-frame="3809761" y-origin="0" maximised="0" follow-playhead="0" stationary-playhead="0" mouse-mode="MouseObject" join-object-range="0" show-editor-mixer="1" show-editor-list="0" editor-list-page="0" show-marker-lines="0" show-touched-automation="0" nudge-clock-value="240000">
     <Window name="Editor" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" tabbed="1"/>
     <Buttons>
       <Press/>
       <Release/>
     </Buttons>
     <Selection>
-      <StripableView id="85677"/>
       <MIDINotes region-id="37946">
         <note note-id="7119"/>
       </MIDINotes>
-      <Marker id="86017" start="1"/>
+      <MIDINotes region-id="109076">
+        <note note-id="49464"/>
+      </MIDINotes>
+      <Marker id="109092" start="1"/>
     </Selection>
     <RegionList/>
     <EditorLocations clock-mode="Timecode"/>

@@ -33,6 +33,10 @@ driver="ALSA"
 enable_audio_input=true
 mix_rate=48000
 
+[editor_plugins]
+
+enabled=PoolStringArray( "Trail" )
+
 [input]
 
 MoveForward={

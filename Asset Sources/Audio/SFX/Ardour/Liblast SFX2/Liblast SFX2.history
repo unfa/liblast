@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UndoHistory>
+  <UndoTransaction tv-sec="1617315023" tv-usec="91883" name="add marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="mark1" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="687">
+        <Selection>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="687">
+        <Selection>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315027" tv-usec="447352" name="rename marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="mark1" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="687">
+        <Selection>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="687">
+        <Selection>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315106" tv-usec="443226" name="insert file">
+    <StatefulDiffCommand obj-id="101999" type-name="ARDOUR::AudioPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="102030"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="1705">
+        <Selection>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="2080" left-frame="2198342" y-origin="1705">
+        <Selection>
+          <StripableView id="101960"/>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315109" tv-usec="706962" name="fixed time region drag">
+    <StatefulDiffCommand obj-id="102030" type-name="ARDOUR::AudioRegion">
+      <Changes/>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315110" tv-usec="565573" name="fixed time region drag">
+    <StatefulDiffCommand obj-id="102030" type-name="ARDOUR::AudioRegion">
+      <Changes/>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315113" tv-usec="801953" name="region drag">
+    <StatefulDiffCommand obj-id="102030" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <position from="0" to="4086846"/>
+        <beat from="0" to="170.28524999999999"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="4166" left-frame="1587150" y-origin="1705">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315657" tv-usec="781716" name="mute region">
+    <StatefulDiffCommand obj-id="102030" type-name="ARDOUR::AudioRegion">
+      <Changes>
+        <muted from="0" to="1"/>
+        <position from="0" to="4086846"/>
+        <beat from="0" to="170.28524999999999"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="102030"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315659" tv-usec="433123" name="create region">
+    <StatefulDiffCommand obj-id="102102" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="109076"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseDraw" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="37946"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseDraw" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="37946"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315660" tv-usec="130592" name="Create Note">
+    <NoteDiffCommand midi-source="109074">
+      <ChangedNotes/>
+      <AddedNotes>
+        <note id="49464" note="63" channel="0" time="0.49791666666666667" length="1.7979166666666666" velocity="64"/>
+      </AddedNotes>
+      <RemovedNotes/>
+    </NoteDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseDraw" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="37946"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <Marker id="101868" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseDraw" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315673" tv-usec="914240" name="region drag">
+    <StatefulDiffCommand obj-id="109076" type-name="ARDOUR::MidiRegion">
+      <Changes>
+        <position from="4008882" to="4030722"/>
+        <beat from="167.03674999999998" to="167.94675000000001"/>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="520" left-frame="3855482" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315679" tv-usec="205393" name="new skip marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4050416" end="4242371" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="2865" left-frame="2824196" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="2865" left-frame="2824196" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315680" tv-usec="855432" name="move marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4050416" end="4242371" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4033948" end="4242371" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="358" left-frame="3934797" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="358" left-frame="3934797" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315682" tv-usec="109769" name="move marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4033948" end="4242371" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4033948" end="4138909" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="358" left-frame="3934797" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="358" left-frame="3934797" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1617315693" tv-usec="397107" name="rename marker">
+    <MementoCommand obj-id="51" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="unnamed1" start="4033948" end="4138909" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+      <Locations>
+        <Location id="21690" name="UI_Click" start="24928" end="108224" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954820"/>
+        <Location id="21699" name="UI_Hover" start="184528" end="246240" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616954833"/>
+        <Location id="34961" name="session" start="0" end="275711" flags="IsSessionRange" locked="0" position-lock-style="AudioTime" timestamp="1616955436"/>
+        <Location id="38106" name="UI" start="21584" end="21584" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616955782"/>
+        <Location id="38287" name="UI_Accept" start="343476" end="454860" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956266"/>
+        <Location id="38296" name="UI_Cancel" start="529704" end="591696" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616956273"/>
+        <Location id="38535" name="FRIDGE" start="1887113" end="1887113" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957444"/>
+        <Location id="38586" name="AMBIENT" start="797104" end="797104" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616957500"/>
+        <Location id="38852" name="Ambient_Pipes" start="951204" end="1456836" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616957986"/>
+        <Location id="53243" name="Player_Fridge_Ambient" start="1981756" end="2453820" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616958722"/>
+        <Location id="53737" name="WEAPONS" start="2942834" end="2942834" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959273"/>
+        <Location id="53768" name="SHOTS" start="3292228" end="3292228" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1616959280"/>
+        <Location id="53777" name="Weapons_Handun_Shot" start="3395228" end="3626978" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616959293"/>
+        <Location id="86008" name="UI_Confirm_Hit" start="611130" end="669498" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973806"/>
+        <Location id="86017" name="UI_Confirm_Kill" start="671546" end="722490" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1616973817"/>
+        <Location id="101868" name="CASINGS" start="4010022" end="4010022" flags="IsMark" locked="0" position-lock-style="AudioTime" timestamp="1617315023"/>
+        <Location id="109092" name="Weapons_Handun_Casing" start="4033948" end="4138909" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime" timestamp="1617315679"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="43" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="716" left-frame="3287891" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="716" left-frame="3287891" y-origin="2021">
+        <Selection>
+          <Regions>
+            <Region id="109076"/>
+          </Regions>
+          <MIDINotes region-id="37946">
+            <note note-id="7119"/>
+          </MIDINotes>
+          <MIDINotes region-id="109076">
+            <note note-id="49464"/>
+          </MIDINotes>
+          <Marker id="109092" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+</UndoHistory>

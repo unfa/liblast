@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.material" type="Material" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Audio/SFX/Collision-ShellCasing.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handun_Casing.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Effects/SubtleSmoke.png" type="Texture" id=4]
+[ext_resource path="res://addons/Trail/trail_3d.gd" type="Script" id=5]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.024889
@@ -66,6 +67,38 @@ albedo_texture = ExtResource( 4 )
 material = SubResource( 9 )
 size = Vector2( 0.15, 0.15 )
 
+[sub_resource type="OpenSimplexNoise" id=14]
+
+[sub_resource type="NoiseTexture" id=15]
+width = 128
+height = 128
+seamless = true
+noise = SubResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=11]
+resource_name = "SmokeTrail"
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_specular_mode = 4
+params_depth_draw_mode = 3
+albedo_color = Color( 1, 1, 1, 0.0784314 )
+albedo_texture = SubResource( 15 )
+transmission_enabled = true
+transmission = Color( 1, 1, 1, 1 )
+proximity_fade_enable = true
+proximity_fade_distance = 0.25
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 1.0
+
+[sub_resource type="Curve" id=12]
+max_value = 2.0
+_data = [ Vector2( 0.00291971, 0.163636 ), 0.0, 0.197694, 0, 0, Vector2( 0.60146, 1.65455 ), 1.13223, 1.13223, 0, 0, Vector2( 1, 1.98182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.081571, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
 [node name="Casing" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58307e-05, 0, 0.000259399 )
 mass = 0.27
@@ -91,9 +124,9 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
-max_db = -10.0
+max_db = -12.0
 attenuation_filter_cutoff_hz = 20000.0
 
 [node name="Smoke" type="Particles" parent="."]
@@ -106,5 +139,24 @@ explosiveness = 0.85
 local_coords = false
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 10 )
+
+[node name="SmokeTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Trail3D" type="ImmediateGeometry" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0543409, 0, 0 )
+material_override = SubResource( 11 )
+cast_shadow = 0
+script = ExtResource( 5 )
+emit = false
+distance = 0.25
+segments = 48
+lifetime = 3.0
+base_width = 0.2
+tiling = 2
+width_profile = SubResource( 12 )
+color_gradient = SubResource( 13 )
 [connection signal="body_entered" from="." to="." method="_on_Casing_body_entered"]
 [connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]
+[connection signal="timeout" from="SmokeTimer" to="." method="_on_SmokeTimer_timeout"]
