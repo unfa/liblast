@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/UI/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Classes/Player/Player.gd" type="Script" id=8]
 [ext_resource path="res://Classes/Player/WeaponsManager.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Weapons/Handgun/OtherHandgun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GranadeLauncher.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=11]
 [ext_resource path="res://Assets/Maps/DM1/OmniFlicker.gd" type="Script" id=12]
 
@@ -133,18 +133,18 @@ size = Vector2( 2, 0.6 )
 radius = 0.33
 height = 1.1
 
-[sub_resource type="Gradient" id=33]
+[sub_resource type="Gradient" id=20]
 offsets = PoolRealArray( 0, 0.427256, 0.992634 )
 colors = PoolColorArray( 0.34902, 0.662745, 1, 1, 0.972656, 0.962386, 0.315353, 1, 1, 0.15741, 0.0195312, 0 )
 
-[sub_resource type="GradientTexture" id=34]
-gradient = SubResource( 33 )
+[sub_resource type="GradientTexture" id=21]
+gradient = SubResource( 20 )
 
-[sub_resource type="Curve" id=28]
+[sub_resource type="Curve" id=22]
 _data = [ Vector2( 0.0229682, 0 ), 0.0, 9.50791, 0, 0, Vector2( 0.0706714, 0.304545 ), 1.50076, 1.50076, 0, 0, Vector2( 1, 1 ), 0.857576, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=23]
-curve = SubResource( 28 )
+curve = SubResource( 22 )
 
 [sub_resource type="ParticlesMaterial" id=24]
 lifetime_randomness = 0.25
@@ -158,7 +158,7 @@ damping_random = 0.2
 scale = 2.0
 scale_random = 0.2
 scale_curve = SubResource( 23 )
-color_ramp = SubResource( 34 )
+color_ramp = SubResource( 21 )
 
 [sub_resource type="SpatialMaterial" id=25]
 flags_transparent = true
@@ -175,14 +175,14 @@ albedo_texture = ExtResource( 11 )
 material = SubResource( 25 )
 size = Vector2( 0.3, 0.3 )
 
-[sub_resource type="Gradient" id=20]
+[sub_resource type="Gradient" id=27]
 offsets = PoolRealArray( 0, 0.379374, 0.992634 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=29]
-gradient = SubResource( 20 )
+[sub_resource type="GradientTexture" id=28]
+gradient = SubResource( 27 )
 
-[sub_resource type="ParticlesMaterial" id=30]
+[sub_resource type="ParticlesMaterial" id=29]
 lifetime_randomness = 0.1
 direction = Vector3( 0, -15, 0 )
 spread = 0.01
@@ -194,9 +194,9 @@ damping_random = 0.2
 scale = 3.0
 scale_random = 0.4
 scale_curve = SubResource( 23 )
-color_ramp = SubResource( 29 )
+color_ramp = SubResource( 28 )
 
-[sub_resource type="SpatialMaterial" id=31]
+[sub_resource type="SpatialMaterial" id=30]
 flags_transparent = true
 vertex_color_use_as_albedo = true
 params_specular_mode = 4
@@ -209,8 +209,8 @@ albedo_texture = ExtResource( 11 )
 transmission_enabled = true
 transmission = Color( 1, 1, 1, 1 )
 
-[sub_resource type="QuadMesh" id=32]
-material = SubResource( 31 )
+[sub_resource type="QuadMesh" id=31]
+material = SubResource( 30 )
 size = Vector2( 0.5, 0.5 )
 
 [node name="Player" type="KinematicBody"]
@@ -220,7 +220,7 @@ script = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.39301, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.394059, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )
@@ -237,9 +237,9 @@ anims/Walk = SubResource( 17 )
 [node name="Weapons" type="Spatial" parent="Camera/Hand"]
 script = ExtResource( 9 )
 
-[node name="Weapon" parent="Camera/Hand/Weapons" instance=ExtResource( 6 )]
+[node name="Handgun" parent="Camera/Hand/Weapons" instance=ExtResource( 6 )]
 
-[node name="OtherHandgun" parent="Camera/Hand/Weapons" instance=ExtResource( 10 )]
+[node name="GrenadeLauncher" parent="Camera/Hand/Weapons" instance=ExtResource( 10 )]
 
 [node name="Billboard" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49795, 0 )
@@ -300,6 +300,7 @@ __meta__ = {
 
 [node name="JetpackFlame" type="Particles" parent="Effects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )
+emitting = false
 amount = 32
 lifetime = 0.3
 visibility_aabb = AABB( -0.88845, -4.39128, -1.0129, 1.77577, 4.6895, 2.02716 )
@@ -309,12 +310,13 @@ draw_pass_1 = SubResource( 26 )
 
 [node name="JetpackSmoke" type="Particles" parent="Effects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )
+emitting = false
 amount = 128
 lifetime = 2.0
 visibility_aabb = AABB( -5, -5, -5, 10, 10, 10 )
 local_coords = false
-process_material = SubResource( 30 )
-draw_pass_1 = SubResource( 32 )
+process_material = SubResource( 29 )
+draw_pass_1 = SubResource( 31 )
 
 [node name="JetpackLight" type="OmniLight" parent="Effects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )

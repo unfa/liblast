@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Granade Launcher.gltf-165b0d86da95606ec889632aa962d922.scn"
+path="res://.import/GranadeLauncher.gltf-ca56a6672dae21dfb777c46e15746d8e.scn"
 
 [deps]
 
-source_file="res://Assets/Weapons/Granade Launcher/Granade Launcher.gltf"
-dest_files=[ "res://.import/Granade Launcher.gltf-165b0d86da95606ec889632aa962d922.scn" ]
+source_file="res://Assets/Weapons/GrenadeLauncher/GranadeLauncher.gltf"
+dest_files=[ "res://.import/GranadeLauncher.gltf-ca56a6672dae21dfb777c46e15746d8e.scn" ]
 
 [params]
 
