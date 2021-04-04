@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Classes/UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Maps/DM1/DM1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Classes/UI/CharacterSelect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PlayerListContainer.gd" type="Script" id=5]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -300,6 +301,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

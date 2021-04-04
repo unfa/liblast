@@ -36,12 +36,12 @@ func set_local_player(player):
 	var nickname = $MenuContainer/MainMenu/Name.text
 	set_nickname(nickname)
 	player.set_nickname(nickname)
-	on_player_added(player)
 	
 	var player_data = get_player_data()
-	print(player_data)
 	
 	rpc("set_player_data", player_data)
+	
+	$PlayerListContainer.update_player_list()
 	 
 	player.hide()
 
@@ -282,10 +282,8 @@ remote func check_players(player_data):
 			player.translation += Vector3(0.0, 3.0, 0.0)
 			
 			player.set_nickname(data["nickname"])
-			
-			on_player_added(player)
-			
-			print(player.player_class)
+	
+	$PlayerListContainer.update_player_list()
 
 func join_game():
 	var player = player_scene.instance()
@@ -303,19 +301,13 @@ sync func spawn(player_id):
 	spawning_player.show()
 	close_menus()
 
-func on_player_added(player):
-	var player_list_item = preload("res://Classes/UI/PlayerListItem.tscn").instance()
-	$PlayerListContainer/Panel/PlayerList.add_child(player_list_item)
-	player_list_item.player = player
-
 sync func remove_player(id):
-	for player_list_item in $PlayerListContainer/Panel/PlayerList.get_children():
-		if player_list_item.network_id == str(id):
-			player_list_item.queue_free()
-	
 	for player in $Players.get_children():
 		if player.name == str(id):
-			player.queue_free()
+			player.free()
+	
+	$PlayerListContainer.update_player_list()
+
 
 func get_spawn_point():
 	return $Level/SpawnPoints.get_spawn_point()
