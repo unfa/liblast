@@ -111,6 +111,11 @@ func jetpack(delta):
 	# Swap these to try the different versions of the jetpack.
 	jetpack_grounded(delta)
 	#jetpack_empty(delta)
+	
+	# activate visual jetpack effects when sound is playing:
+	$Effects/JetpackFlame.emitting = ! $Sounds/Jetpack.stream_paused
+	$Effects/JetpackSmoke.emitting = ! $Sounds/Jetpack.stream_paused
+	$Effects/JetpackLight.visible = ! $Sounds/Jetpack.stream_paused
 
 func jetpack_empty(delta):
 	debug.text = "JP fuel: %s\nJP active: %s\nJP used: %s\nJP sound: %s" % [
@@ -131,10 +136,6 @@ func jetpack_empty(delta):
 		$Sounds/Jetpack.stream_paused = false
 	else:
 		$Sounds/Jetpack.stream_paused = true
-	
-	# activate visual jetpack effects when sound is playing:
-	$Effects/JetpackParticles.emitting = not $Sounds/Jetpack.stream_paused
-	$Effects/JetpackLight.visible = not $Sounds/Jetpack.stream_paused
 	
 	# Only charge when fully empty.
 	if jetpack_used:

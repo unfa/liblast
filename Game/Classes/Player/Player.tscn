@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Classes/UI/Health.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Classes/UI/Billboard.gd" type="Script" id=2]
@@ -133,15 +133,15 @@ size = Vector2( 2, 0.6 )
 radius = 0.33
 height = 1.1
 
-[sub_resource type="Gradient" id=20]
-offsets = PoolRealArray( 0, 0.10596, 0.492274, 1 )
-colors = PoolColorArray( 0.384073, 0.892747, 0.95459, 1, 1, 0.917511, 0.378906, 1, 0.868652, 0.31811, 0, 1, 1, 0, 0, 0 )
+[sub_resource type="Gradient" id=33]
+offsets = PoolRealArray( 0, 0.427256, 0.992634 )
+colors = PoolColorArray( 0.34902, 0.662745, 1, 1, 0.972656, 0.962386, 0.315353, 1, 1, 0.15741, 0.0195312, 0 )
 
-[sub_resource type="GradientTexture" id=27]
-gradient = SubResource( 20 )
+[sub_resource type="GradientTexture" id=34]
+gradient = SubResource( 33 )
 
 [sub_resource type="Curve" id=28]
-_data = [ Vector2( 0, 0.206818 ), 0.0, 11.151, 0, 0, Vector2( 0.0987395, 0.825 ), 1.4875, 1.4875, 0, 0, Vector2( 1, 0.515909 ), -1.23636, 0.0, 0, 0 ]
+_data = [ Vector2( 0.0229682, 0 ), 0.0, 9.50791, 0, 0, Vector2( 0.0706714, 0.304545 ), 1.50076, 1.50076, 0, 0, Vector2( 1, 1 ), 0.857576, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=23]
 curve = SubResource( 28 )
@@ -158,7 +158,7 @@ damping_random = 0.2
 scale = 2.0
 scale_random = 0.2
 scale_curve = SubResource( 23 )
-color_ramp = SubResource( 27 )
+color_ramp = SubResource( 34 )
 
 [sub_resource type="SpatialMaterial" id=25]
 flags_transparent = true
@@ -175,6 +175,44 @@ albedo_texture = ExtResource( 11 )
 material = SubResource( 25 )
 size = Vector2( 0.3, 0.3 )
 
+[sub_resource type="Gradient" id=20]
+offsets = PoolRealArray( 0, 0.379374, 0.992634 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=29]
+gradient = SubResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=30]
+lifetime_randomness = 0.1
+direction = Vector3( 0, -15, 0 )
+spread = 0.01
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 7.0
+initial_velocity_random = 0.1
+damping = 15.0
+damping_random = 0.2
+scale = 3.0
+scale_random = 0.4
+scale_curve = SubResource( 23 )
+color_ramp = SubResource( 29 )
+
+[sub_resource type="SpatialMaterial" id=31]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_specular_mode = 4
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 1, 1, 0.223529 )
+albedo_texture = ExtResource( 11 )
+transmission_enabled = true
+transmission = Color( 1, 1, 1, 1 )
+
+[sub_resource type="QuadMesh" id=32]
+material = SubResource( 31 )
+size = Vector2( 0.5, 0.5 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 8 )
 
@@ -182,7 +220,7 @@ script = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.399882, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.39301, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )
@@ -260,15 +298,23 @@ __meta__ = {
 
 [node name="Effects" type="Spatial" parent="."]
 
-[node name="JetpackParticles" type="Particles" parent="Effects"]
+[node name="JetpackFlame" type="Particles" parent="Effects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )
-emitting = false
 amount = 32
 lifetime = 0.3
 visibility_aabb = AABB( -0.88845, -4.39128, -1.0129, 1.77577, 4.6895, 2.02716 )
 local_coords = false
 process_material = SubResource( 24 )
 draw_pass_1 = SubResource( 26 )
+
+[node name="JetpackSmoke" type="Particles" parent="Effects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )
+amount = 128
+lifetime = 2.0
+visibility_aabb = AABB( -5, -5, -5, 10, 10, 10 )
+local_coords = false
+process_material = SubResource( 30 )
+draw_pass_1 = SubResource( 32 )
 
 [node name="JetpackLight" type="OmniLight" parent="Effects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.317267, 0 )
