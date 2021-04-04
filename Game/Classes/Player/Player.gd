@@ -127,9 +127,14 @@ func jetpack_empty(delta):
 	if jetpack_active and not jetpack_used and jetpack_fuel > 0:
 		velocity.y += JETPACK_THRUST * delta
 		jetpack_fuel -= delta
+		
 		$Sounds/Jetpack.stream_paused = false
 	else:
 		$Sounds/Jetpack.stream_paused = true
+	
+	# activate visual jetpack effects when sound is playing:
+	$Effects/JetpackParticles.emitting = not $Sounds/Jetpack.stream_paused
+	$Effects/JetpackLight.visible = not $Sounds/Jetpack.stream_paused
 	
 	# Only charge when fully empty.
 	if jetpack_used:
