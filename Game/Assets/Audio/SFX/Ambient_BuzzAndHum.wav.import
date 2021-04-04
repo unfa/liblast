@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ambient_BuzzAndHum.wav-c53ede8b24d5bbeac9fce3d4059ea298.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Ambient_BuzzAndHum.wav"
+dest_files=[ "res://.import/Ambient_BuzzAndHum.wav-c53ede8b24d5bbeac9fce3d4059ea298.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

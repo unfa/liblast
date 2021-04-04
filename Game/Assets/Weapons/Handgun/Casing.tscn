@@ -67,22 +67,21 @@ albedo_texture = ExtResource( 4 )
 material = SubResource( 9 )
 size = Vector2( 0.15, 0.15 )
 
-[sub_resource type="OpenSimplexNoise" id=14]
+[sub_resource type="OpenSimplexNoise" id=11]
 
-[sub_resource type="NoiseTexture" id=15]
+[sub_resource type="NoiseTexture" id=12]
 width = 128
 height = 128
 seamless = true
-noise = SubResource( 14 )
+noise = SubResource( 11 )
 
-[sub_resource type="SpatialMaterial" id=11]
-resource_name = "SmokeTrail"
+[sub_resource type="SpatialMaterial" id=13]
 flags_transparent = true
 vertex_color_use_as_albedo = true
 params_specular_mode = 4
 params_depth_draw_mode = 3
 albedo_color = Color( 1, 1, 1, 0.0784314 )
-albedo_texture = SubResource( 15 )
+albedo_texture = SubResource( 12 )
 transmission_enabled = true
 transmission = Color( 1, 1, 1, 1 )
 proximity_fade_enable = true
@@ -91,11 +90,11 @@ distance_fade_mode = 1
 distance_fade_min_distance = 0.0
 distance_fade_max_distance = 1.0
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=14]
 max_value = 2.0
 _data = [ Vector2( 0.00291971, 0.163636 ), 0.0, 0.197694, 0, 0, Vector2( 0.60146, 1.65455 ), 1.13223, 1.13223, 0, 0, Vector2( 1, 1.98182 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=15]
 offsets = PoolRealArray( 0, 0.081571, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
 
@@ -131,6 +130,7 @@ attenuation_filter_cutoff_hz = 20000.0
 
 [node name="Smoke" type="Particles" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0305352, 0, 4.07454e-10 )
+visible = false
 emitting = false
 amount = 64
 lifetime = 4.0
@@ -146,7 +146,8 @@ one_shot = true
 
 [node name="Trail3D" type="ImmediateGeometry" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0543409, 0, 0 )
-material_override = SubResource( 11 )
+visible = false
+material_override = SubResource( 13 )
 cast_shadow = 0
 script = ExtResource( 5 )
 emit = false
@@ -155,8 +156,8 @@ segments = 48
 lifetime = 3.0
 base_width = 0.2
 tiling = 2
-width_profile = SubResource( 12 )
-color_gradient = SubResource( 13 )
+width_profile = SubResource( 14 )
+color_gradient = SubResource( 15 )
 [connection signal="body_entered" from="." to="." method="_on_Casing_body_entered"]
 [connection signal="timeout" from="FreeTimer" to="." method="_on_FreeTimer_timeout"]
 [connection signal="timeout" from="SmokeTimer" to="." method="_on_SmokeTimer_timeout"]
