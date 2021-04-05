@@ -375,9 +375,9 @@ func _input(event):
 	if event.is_action_pressed("WeaponReload"):
 		reload()
 	
-	if event.is_action_pressed("NextWeapon"):
+	if event.is_action_pressed("WeaponNext"):
 		rpc("switch_to_next_weapon")
-	if event.is_action_pressed("PrevWeapon"):
+	if event.is_action_pressed("WeaponPrev"):
 		rpc("switch_to_prev_weapon")
 
 
