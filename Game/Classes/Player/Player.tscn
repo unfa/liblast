@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/UI/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Classes/Player/Player.gd" type="Script" id=8]
 [ext_resource path="res://Classes/Player/WeaponsManager.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GranadeLauncher.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GrenadeLauncher.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=11]
 [ext_resource path="res://Assets/Maps/DM1/OmniFlicker.gd" type="Script" id=12]
 
@@ -220,7 +220,7 @@ script = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.394059, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.39248, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )

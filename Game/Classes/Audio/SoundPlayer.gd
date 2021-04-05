@@ -6,7 +6,7 @@ const SFX_dir = "res://Assets/Audio/SFX/" # all sound clips must reside somewher
 
 onready var player = $AudioStreamPlayer3D # playback backend
 
-export(String, FILE, "*-01.wav") var SoundClip = SFX_dir + "Test-01.wav"
+export(String, FILE, "*_01*.wav") var SoundClip = SFX_dir + "Test-01.wav"
 export(bool) var AutoPlay = false
 export(float) var MinimumRandomDistance = 0.35 # gives optimal playback repetition for sound clip groups of different sizes. 
 export(bool) var PlayUntilEnd = false # determines if the play() function is allowed to sop a previously started sound

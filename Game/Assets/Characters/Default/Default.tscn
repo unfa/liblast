@@ -14,12 +14,12 @@ script = ExtResource( 2 )
 max_health = 90
 
 [node name="Hand" parent="Camera" index="0"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.395602, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.396491, -0.559 )
 
 [node name="WeaponBobAnimationTree" parent="Camera/Hand" index="0"]
 parameters/playback = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="6"]
-transform = Transform( 1, 0, 0, 0, -0.00441578, -0.99999, 0, 0.99999, -0.00441578, 0, 0.883, 0 )
+transform = Transform( 1, 0, 0, 0, -0.00441578, -0.99999, 0, 0.99999, -0.00441578, 0, 0.888784, 0 )
 mesh = SubResource( 2 )
 material/0 = null

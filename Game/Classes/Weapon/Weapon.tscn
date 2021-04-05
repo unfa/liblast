@@ -1,12 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Classes/Audio/LayeredSoundPlayer.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Empty.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Handgun-Reload.wav" type="AudioStream" id=6]
-[ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.0511628, 0.0883721, 0.302326, 1 )
@@ -72,30 +69,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
 
 [node name="Sounds" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295478, 0.724833, 0.584699 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.63089, 0.616708, 0.43745 )
 
-[node name="Empty" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 5 )
-
-[node name="Reload" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 6 )
-
-[node name="Shoot" type="Spatial" parent="Sounds"]
-script = ExtResource( 3 )
-
-[node name="A" type="Spatial" parent="Sounds/Shoot"]
-
-[node name="SoundPlayer" parent="Sounds/Shoot/A" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav"
-
-[node name="B" type="Spatial" parent="Sounds/Shoot"]
-
-[node name="SoundPlayer" parent="Sounds/Shoot/B" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_B.wav"
-
-[node name="C" type="Spatial" parent="Sounds/Shoot"]
-
-[node name="SoundPlayer" parent="Sounds/Shoot/C" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_C.wav"
+[node name="SoundShoot" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 3 )
+unit_db = 4.0
+unit_size = 25.0
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+attenuation_filter_cutoff_hz = 15000.0
 
 [editable path="Handgun"]

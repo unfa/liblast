@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons_Handun_Shot_01_A.wav-b5049ef4e85c0808d916a354169d81be.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav"
+dest_files=[ "res://.import/Weapons_Handun_Shot_01_A.wav-b5049ef4e85c0808d916a354169d81be.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
