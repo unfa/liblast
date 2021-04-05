@@ -83,19 +83,45 @@ stream = ExtResource( 6 )
 [node name="Shoot" type="Spatial" parent="Sounds"]
 script = ExtResource( 3 )
 
-[node name="A" type="Spatial" parent="Sounds/Shoot"]
-
-[node name="SoundPlayer" parent="Sounds/Shoot/A" instance=ExtResource( 7 )]
+[node name="A" parent="Sounds/Shoot" instance=ExtResource( 7 )]
 SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav"
+RandomizePitch = 0.05
 
-[node name="B" type="Spatial" parent="Sounds/Shoot"]
+[node name="AudioStreamPlayer3D" parent="Sounds/Shoot/A" index="0"]
+unit_size = 3.0
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+emission_angle_filter_attenuation_db = -6.0
+attenuation_filter_cutoff_hz = 15000.0
+attenuation_filter_db = -6.0
 
-[node name="SoundPlayer" parent="Sounds/Shoot/B" instance=ExtResource( 7 )]
+[node name="B" parent="Sounds/Shoot" instance=ExtResource( 7 )]
 SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_B.wav"
+RandomizePitch = 0.05
 
-[node name="C" type="Spatial" parent="Sounds/Shoot"]
+[node name="AudioStreamPlayer3D" parent="Sounds/Shoot/B" index="0"]
+unit_size = 2.0
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+emission_angle_filter_attenuation_db = -6.0
+attenuation_filter_cutoff_hz = 15000.0
+attenuation_filter_db = -6.0
 
-[node name="SoundPlayer" parent="Sounds/Shoot/C" instance=ExtResource( 7 )]
+[node name="C" parent="Sounds/Shoot" instance=ExtResource( 7 )]
 SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_C.wav"
+RandomizePitch = 0.05
+
+[node name="AudioStreamPlayer3D" parent="Sounds/Shoot/C" index="0"]
+emission_angle_enabled = true
+emission_angle_degrees = 60.0
+emission_angle_filter_attenuation_db = -6.0
+attenuation_filter_cutoff_hz = 15000.0
+attenuation_filter_db = -6.0
 
 [editable path="Handgun"]
+
+[editable path="Sounds/Shoot/A"]
+
+[editable path="Sounds/Shoot/B"]
+
+[editable path="Sounds/Shoot/C"]

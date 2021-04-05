@@ -7,9 +7,9 @@ extends Spatial
 
 
 func play():
-	$A/SoundPlayer.play()
-	$B/SoundPlayer.play()
-	$C/SoundPlayer.play()
+	$A.play()
+	$B.play()
+	$C.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
