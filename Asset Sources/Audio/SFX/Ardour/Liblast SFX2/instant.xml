@@ -2,7 +2,7 @@
 <instant>
   <LastUsedSnapshot name="Liblast SFX2"/>
   <Main x="1920" y="0" w="1920" h="1051" current-tab="editor"/>
-  <Editor id="42" edit-horizontal-pane-pos="0.97435897588729858" notebook-shrunk="0" edit-vertical-pane-pos="0.9234088659286499" mixer-width="Wide" zoom-focus="ZoomFocusPlayhead" zoom="1432" grid-type="GridTypeBeat" snap-mode="SnapOff" internal-grid-type="GridTypeBeat" internal-snap-mode="SnapMagnetic" pre-internal-grid-type="GridTypeBeat" pre-internal-snap-mode="SnapOff" edit-point="EditAtMouse" visible-track-count="-1" playhead="1976160" left-frame="1496440" y-origin="0" maximised="0" follow-playhead="0" stationary-playhead="0" mouse-mode="MouseObject" join-object-range="0" show-editor-mixer="1" show-editor-list="0" editor-list-page="0" show-marker-lines="0" show-touched-automation="0" nudge-clock-value="240000">
+  <Editor id="42" edit-horizontal-pane-pos="0.97435897588729858" notebook-shrunk="0" edit-vertical-pane-pos="0.9234088659286499" mixer-width="Wide" zoom-focus="ZoomFocusPlayhead" zoom="640" grid-type="GridTypeBeat" snap-mode="SnapOff" internal-grid-type="GridTypeBeat" internal-snap-mode="SnapMagnetic" pre-internal-grid-type="GridTypeBeat" pre-internal-snap-mode="SnapOff" edit-point="EditAtMouse" visible-track-count="-1" playhead="3438163" left-frame="3163603" y-origin="634" maximised="0" follow-playhead="0" stationary-playhead="0" mouse-mode="MouseObject" join-object-range="0" show-editor-mixer="1" show-editor-list="0" editor-list-page="0" show-marker-lines="0" show-touched-automation="0" nudge-clock-value="240000">
     <Window name="Editor" visible="0" x-off="-1" y-off="-1" x-size="-1" y-size="-1" tabbed="1"/>
     <Buttons>
       <Press/>
@@ -12,7 +12,21 @@
       <MIDINotes region-id="37946">
         <note note-id="7119"/>
       </MIDINotes>
-      <Marker id="53243" start="1"/>
+      <MIDINotes region-id="135976">
+        <note note-id="127283"/>
+      </MIDINotes>
+      <MIDINotes region-id="54641">
+        <note note-id="32785"/>
+      </MIDINotes>
+      <MIDINotes region-id="135984">
+        <note note-id="127285"/>
+      </MIDINotes>
+      <MIDINotes region-id="135881">
+        <note note-id="127241"/>
+      </MIDINotes>
+      <MIDINotes region-id="132799">
+        <note note-id="80409"/>
+      </MIDINotes>
     </Selection>
     <RegionList/>
     <EditorLocations clock-mode="Timecode"/>
