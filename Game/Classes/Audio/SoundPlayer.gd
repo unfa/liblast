@@ -6,7 +6,7 @@ const SFX_dir = "res://Assets/Audio/SFX/" # all sound clips must reside somewher
 
 onready var player = $AudioStreamPlayer3D # playback backend
 
-export(String, FILE, "*01*.wav") var SoundClip = SFX_dir + "Test-01.wav"
+export(String, FILE, "*01*.wav") var SoundClip = SFX_dir + "Test_01.wav"
 export(bool) var AutoPlay = false
 export(float) var MinimumRandomDistance = 0.35 # gives optimal playback repetition for sound clip groups of different sizes. 
 export(bool) var PlayUntilEnd = false # determines if the play() function is allowed to sop a previously started sound
@@ -26,9 +26,19 @@ func _ready():
 	dir.open(SFX_dir)
 	dir.list_dir_begin()
 	
-	#print("SoundClip: ", SoundClip)
+	print("SoundClip: ", SoundClip)
+	# determine the sound group name part
 	var group = SoundClip.left(SoundClip.find_last('_')).right(SoundClip.find_last('/') + 1)
-	#print("group: ", group)
+	
+	# determine the sound layer name part
+	var layer = SoundClip.right(SoundClip.find_last('01') + 1)
+	layer = layer.right(layer.find_last('_') + 1)
+	layer = layer.left(layer.find_last('.'))
+	if layer == "1": # sound without a layer defined will return "1", so let's take that as a "no layers defined in this sound"
+		layer = ""
+	
+	print("group: ", group)
+	print("layer: ", layer)
 	
 	while true:
 		var file = dir.get_next()
@@ -36,7 +46,10 @@ func _ready():
 		if file == "":
 			break
 		elif not file.begins_with(".") and file.begins_with(group) and file.ends_with(".wav"):
-			files.append(file)
+			if layer.length() == 0: # no layer specified?
+				files.append(file)
+			elif file.find(layer) > -1: # chek if the file name contains the layer string
+				files.append(file)
 		
 	dir.list_dir_end()
 	
