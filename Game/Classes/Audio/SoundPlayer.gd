@@ -6,7 +6,7 @@ const SFX_dir = "res://Assets/Audio/SFX/" # all sound clips must reside somewher
 
 onready var player = $AudioStreamPlayer3D # playback backend
 
-export(String, FILE, "*_01*.wav") var SoundClip = SFX_dir + "Test-01.wav"
+export(String, FILE, "*01*.wav") var SoundClip = SFX_dir + "Test-01.wav"
 export(bool) var AutoPlay = false
 export(float) var MinimumRandomDistance = 0.35 # gives optimal playback repetition for sound clip groups of different sizes. 
 export(bool) var PlayUntilEnd = false # determines if the play() function is allowed to sop a previously started sound
@@ -27,7 +27,7 @@ func _ready():
 	dir.list_dir_begin()
 	
 	#print("SoundClip: ", SoundClip)
-	var group = SoundClip.left(SoundClip.find_last('-')).right(SoundClip.find_last('/') + 1)
+	var group = SoundClip.left(SoundClip.find_last('_')).right(SoundClip.find_last('/') + 1)
 	#print("group: ", group)
 	
 	while true:

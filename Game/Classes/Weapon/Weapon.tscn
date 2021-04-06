@@ -4,9 +4,9 @@
 [ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
 [ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Handgun-Reload.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handgun_Reload.wav" type="AudioStream" id=5]
 [ext_resource path="res://Classes/Audio/LayeredSoundPlayer.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Empty.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Empty.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flash"

@@ -14,7 +14,7 @@ script = ExtResource( 2 )
 max_health = 90
 
 [node name="Hand" parent="Camera" index="0"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.396491, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.39077, -0.559 )
 
 [node name="WeaponBobAnimationTree" parent="Camera/Hand" index="0"]
 parameters/playback = SubResource( 1 )

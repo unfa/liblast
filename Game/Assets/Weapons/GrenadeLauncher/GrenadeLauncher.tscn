@@ -4,8 +4,8 @@
 [ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Empty.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Handgun-Reload.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Empty.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handgun_Reload.wav" type="AudioStream" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.0511628, 0.0883721, 0.302326, 1 )

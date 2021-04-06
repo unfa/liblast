@@ -4,11 +4,11 @@
 [ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
 [ext_resource path="res://Classes/Audio/LayeredSoundPlayer.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Empty.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Audio/SFX/Weapons-Handgun-Reload.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Empty.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handgun_Reload.wav" type="AudioStream" id=6]
 [ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Flash"
 length = 0.1
 tracks/0/type = "value"
@@ -48,20 +48,20 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.0511628, 0.0883721, 0.302326, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 2, 2, 2, 1, 0.901961, 0.866667, 0.576471, 1, 0.909804, 0.592157, 0.168627, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0.986364 ), 0.0, -0.872434, 0, 0, Vector2( 0.092437, 0.752585 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.198039 ), -0.85103, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=6]
 direction = Vector3( 0, 0, -5 )
 spread = 15.0
 gravity = Vector3( 0, 0, 0 )
@@ -70,10 +70,10 @@ initial_velocity_random = 0.75
 damping = 100.0
 damping_random = 0.5
 scale_random = 1.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -84,8 +84,8 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 4 )
 
-[sub_resource type="QuadMesh" id=7]
-material = SubResource( 6 )
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
 size = Vector2( 0.3, 0.3 )
 
 [node name="Weapon" type="Spatial"]
@@ -103,7 +103,7 @@ transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68988, 0.110679, 0 )
 
 [node name="Flash" type="AnimationPlayer" parent="Effects"]
-anims/Flash = SubResource( 8 )
+anims/Flash = SubResource( 1 )
 
 [node name="MuzzleLight" type="OmniLight" parent="Effects"]
 light_color = Color( 1, 0.423529, 0.0431373, 1 )
@@ -120,8 +120,8 @@ lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB( -0.176241, -0.185755, -0.556571, 0.352482, 0.37151, 0.655134 )
-process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 7 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
 
 [node name="Sounds" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295478, 0.724833, 0.584699 )

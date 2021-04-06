@@ -240,6 +240,6 @@ __meta__ = {
 }
 
 [node name="SoundPlayer" parent="." instance=ExtResource( 4 )]
-SoundClip = "res://Assets/SFX/Weapons-BulletHitWall-01.wav"
+SoundClip = "res://Assets/SFX/Weapons_BulletHitWall_01.wav"
 AutoPlay = true
 [connection signal="timeout" from="FreeTimer" to="FreeTimer" method="_on_FreeTimer_timeout"]

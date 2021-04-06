@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/UI/Panel.svg" type="Texture" id=1]
 [ext_resource path="res://Classes/UI/Health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Classes/UI/HitConfirmation.gd" type="Script" id=3]
 [ext_resource path="res://Assets/UI/HUD.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Audio/SFX/UI-HitConfirmation.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SFX/UI_Confirm_Kill.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/SFX/UI_Confirm_Hit.wav" type="AudioStream" id=6]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=1]
 constant = Color( 0, 0, 0, 0.176471 )
@@ -184,6 +185,9 @@ margin_bottom = 300.0
 script = ExtResource( 3 )
 
 [node name="HitConfirmationSound" type="AudioStreamPlayer" parent="Crosshair/HitConfirmation"]
+stream = ExtResource( 6 )
+
+[node name="KillConfirmationSound" type="AudioStreamPlayer" parent="Crosshair/HitConfirmation"]
 stream = ExtResource( 5 )
 
 [node name="Line1" type="ColorRect" parent="Crosshair/HitConfirmation"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons_BulletHitWall_04.wav-6ea2c2a3d9ef42c7ef8fb10f9e065023.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Weapons_BulletHitWall_04.wav"
+dest_files=[ "res://.import/Weapons_BulletHitWall_04.wav-6ea2c2a3d9ef42c7ef8fb10f9e065023.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
