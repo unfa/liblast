@@ -93,9 +93,12 @@ func show_muzzle_flash(var rounds_left):
 	else:
 		$Handgun/AnimationPlayer.play("Shoot", -1, 2)
 	
-	$MuzzleFlash.emitting = true
+	$Effects/Flash.stop(true)
+	$Effects/Flash.play("Flash")
+	
+	$Effects/MuzzleFlash.emitting = true
 	yield(get_tree().create_timer(0.07),"timeout")
-	$MuzzleFlash.emitting = false
+	$Effects/MuzzleFlash.emitting = false
 	
 	$Sounds/Shoot.play()
 

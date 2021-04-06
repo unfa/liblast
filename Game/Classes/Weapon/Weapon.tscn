@@ -1,24 +1,67 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav" type="AudioStream" id=3]
+[ext_resource path="res://Classes/Audio/SoundPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Audio/SFX/Weapons-Handgun-Reload.wav" type="AudioStream" id=5]
+[ext_resource path="res://Classes/Audio/LayeredSoundPlayer.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Audio/SFX/Weapons-Empty.wav" type="AudioStream" id=7]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "Flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("MuzzleLight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MuzzleLight:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.996078, 1, 0.670588, 1 ), Color( 1, 0.423529, 0.0431373, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MuzzleLight:shadow_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.0511628, 0.0883721, 0.302326, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 2, 2, 2, 1, 0.901961, 0.866667, 0.576471, 1, 0.909804, 0.592157, 0.168627, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0.986364 ), 0.0, -0.872434, 0, 0, Vector2( 0.092437, 0.752585 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.198039 ), -0.85103, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=6]
 direction = Vector3( 0, 0, -5 )
 spread = 15.0
 gravity = Vector3( 0, 0, 0 )
@@ -27,10 +70,10 @@ initial_velocity_random = 0.75
 damping = 100.0
 damping_random = 0.5
 scale_random = 1.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
@@ -41,15 +84,27 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 4 )
 
-[sub_resource type="QuadMesh" id=7]
-material = SubResource( 6 )
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
 size = Vector2( 0.3, 0.3 )
 
 [node name="Weapon" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="MuzzleFlash" type="Particles" parent="."]
-transform = Transform( -4.37113e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37114e-08, -0.3053, 0.124057, 0 )
+[node name="Effects" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68988, 0.110679, 0 )
+
+[node name="Flash" type="AnimationPlayer" parent="Effects"]
+anims/Flash = SubResource( 1 )
+
+[node name="MuzzleLight" type="OmniLight" parent="Effects"]
+light_color = Color( 1, 0.423529, 0.0431373, 1 )
+light_energy = 0.0
+omni_range = 10.0
+omni_attenuation = 2.92817
+
+[node name="MuzzleFlash" type="Particles" parent="Effects"]
+transform = Transform( -4.37113e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37114e-08, 0.38458, 0.0133779, 0 )
 cast_shadow = 0
 emitting = false
 amount = 16
@@ -57,8 +112,8 @@ lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 visibility_aabb = AABB( -0.176241, -0.185755, -0.556571, 0.352482, 0.37151, 0.655134 )
-process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 7 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
 
 [node name="Handgun" parent="." instance=ExtResource( 1 )]
 
@@ -69,14 +124,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
 transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
 
 [node name="Sounds" type="Spatial" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.63089, 0.616708, 0.43745 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.21559, 1.34154, 0.732928 )
 
-[node name="SoundShoot" type="AudioStreamPlayer3D" parent="Sounds"]
-stream = ExtResource( 3 )
-unit_db = 4.0
-unit_size = 25.0
-emission_angle_enabled = true
-emission_angle_degrees = 60.0
-attenuation_filter_cutoff_hz = 15000.0
+[node name="Empty" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 7 )
+
+[node name="Reload" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+
+[node name="Shoot" type="Spatial" parent="Sounds"]
+script = ExtResource( 6 )
+
+[node name="A" parent="Sounds/Shoot" instance=ExtResource( 3 )]
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav"
+RandomizePitch = 0.05
+
+[node name="B" parent="Sounds/Shoot" instance=ExtResource( 3 )]
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_B.wav"
+RandomizePitch = 0.05
+
+[node name="C" parent="Sounds/Shoot" instance=ExtResource( 3 )]
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_C.wav"
+RandomizePitch = 0.05
 
 [editable path="Handgun"]
