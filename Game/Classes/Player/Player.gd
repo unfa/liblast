@@ -191,7 +191,7 @@ remote func mouselook(rel):
 	rpc_unreliable("mouselook_abs", camera.rotation.x, rotation.y)
 
 func _physics_process(delta):
-	if is_dead:
+	if get_parent().name != "Players":
 		return
 	
 	check_floor_collision()
