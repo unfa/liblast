@@ -91,13 +91,7 @@ size = Vector2( 0.3, 0.3 )
 [node name="Weapon" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="Handgun" parent="." instance=ExtResource( 1 )]
-
-[node name="Muzzle" parent="Handgun" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331868, 0.125291, 0 )
-
-[node name="Ejector" parent="Handgun" index="1"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.0373496, 0.126382, -0.00737098 )
+[node name="Model" parent="." instance=ExtResource( 1 )]
 
 [node name="Effects" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68988, 0.110679, 0 )
@@ -136,15 +130,16 @@ stream = ExtResource( 6 )
 script = ExtResource( 3 )
 
 [node name="A" parent="Sounds/Shoot" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_A.wav"
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handgun_Shot_01_A.wav"
 RandomizePitch = 0.05
+Voice_Count = 2
 
 [node name="B" parent="Sounds/Shoot" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_B.wav"
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handgun_Shot_01_B.wav"
 RandomizePitch = 0.05
+Voice_Count = 2
 
 [node name="C" parent="Sounds/Shoot" instance=ExtResource( 7 )]
-SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_C.wav"
+SoundClip = "res://Assets/Audio/SFX/Weapons_Handgun_Shot_01_C.wav"
 RandomizePitch = 0.05
-
-[editable path="Handgun"]
+Voice_Count = 2

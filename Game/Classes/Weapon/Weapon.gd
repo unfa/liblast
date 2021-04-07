@@ -37,7 +37,7 @@ func shoot(camera):
 	
 	if currently_fireing == true:
 		cached_fire = true
-		yield($Handgun/AnimationPlayer, "animation_finished")
+		yield($Model/AnimationPlayer, "animation_finished")
 	
 	# TODO: mutexes
 	currently_fireing = true
@@ -77,7 +77,7 @@ sync func fire_weapon(var rounds_left):
 	show_muzzle_flash(rounds_left)
 	show_tracer()
 	spawn_casing()
-	yield($Handgun/AnimationPlayer, "animation_finished")
+	yield($Model/AnimationPlayer, "animation_finished")
 	
 	if !cached_fire:
 		currently_fireing = false
@@ -86,12 +86,12 @@ sync func dry_fire():
 	pass
 
 func show_muzzle_flash(var rounds_left):
-	$Handgun/AnimationPlayer.stop()
+	$Model/AnimationPlayer.stop()
 	
 	if rounds_left == 1:
-		$Handgun/AnimationPlayer.play("Empty", -1, 2)
+		$Model/AnimationPlayer.play("Empty", -1, 2)
 	else:
-		$Handgun/AnimationPlayer.play("Shoot", -1, 2)
+		$Model/AnimationPlayer.play("Shoot", -1, 2)
 	
 	$Effects/Flash.stop(true)
 	$Effects/Flash.play("Flash")
@@ -142,7 +142,7 @@ func reload():
 	currently_fireing = true
 	cached_fire = false
 	
-	yield($Handgun/AnimationPlayer, "animation_finished")
+	yield($Model/AnimationPlayer, "animation_finished")
 	
 	if not cached_fire:
 		currently_fireing = false
@@ -152,5 +152,5 @@ func reload():
 	emit_signal("ammo_changed", "handgun", current_rounds)
 
 sync func play_reload_animation():
-	$Handgun/AnimationPlayer.play("Reload", 0.5, 1)
+	$Model/AnimationPlayer.play("Reload", 0.5, 1)
 	$Sounds/Reload.play()

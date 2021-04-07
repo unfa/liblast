@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapons_Handgun_Shot_02_B.wav-827fb39726fbf8f1250f0eeff39e9ea5.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Weapons_Handgun_Shot_02_B.wav"
+dest_files=[ "res://.import/Weapons_Handgun_Shot_02_B.wav-827fb39726fbf8f1250f0eeff39e9ea5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

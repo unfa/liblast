@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.material" type="Material" id=1]
 [ext_resource path="res://Assets/Weapons/Handgun/Casing.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Audio/SFX/Weapons_Handun_Casing.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/SFX/Weapons_Handgun_Casing.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/Effects/SubtleSmoke.png" type="Texture" id=4]
 [ext_resource path="res://addons/Trail/trail_3d.gd" type="Script" id=5]
 
