@@ -20,6 +20,8 @@ var ready = true # used as a semaphor for MinDelay
 var voices = []
 var voice = 0
 
+var debug = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var files = []
@@ -27,7 +29,8 @@ func _ready():
 	dir.open(SFX_dir)
 	dir.list_dir_begin()
 	
-	print("SoundClip: ", SoundClip)
+	if debug:
+		print("SoundClip: ", SoundClip)
 	# determine the sound group name part
 	var group = SoundClip.left(SoundClip.find_last('_')).right(SoundClip.find_last('/') + 1)
 	
@@ -39,10 +42,10 @@ func _ready():
 		layer = ""
 	else: # if the layers was specified the group will be incorrectly including the variant number, let's fix that
 		group = group.left(group.find_last('_'))
-	
-	print("group: ", group)
-	print("layer: ", layer)
-	
+	if debug:
+		print("group: ", group)
+		print("layer: ", layer)
+		
 	while true:
 		var file = dir.get_next()
 		#print(file)
@@ -51,20 +54,24 @@ func _ready():
 		elif not file.begins_with(".") and file.begins_with(group) and file.ends_with(".wav"):
 			if layer.length() == 0: # no layer specified?
 				files.append(file)
-				print("no layer specified - adding ", file)
+				if debug:
+					print("no layer specified - adding ", file)
 			elif file.find(layer) > -1: # chek if the file name contains the layer string
 				files.append(file)
-				print("layer matches - adding ", file)
+				if debug:
+					print("layer matches - adding ", file)
 		
 	dir.list_dir_end()
 	
-	print("files in list: \n", files)
+	if debug:
+		print("files in list: \n", files)
 	
 	for f in files:
 		var res_file = SFX_dir + f 
 		var clip = load(res_file)
 		clips.append(clip)
-		print("loading ", res_file, "; result: ", clip)
+		if debug:
+			print("loading ", res_file, "; result: ", clip)
 
 	var clip_count = clips.size()
 	
@@ -86,7 +93,8 @@ func _ready():
 	for i in get_children():
 		voices.append(i)
 		
-	print("voices: ", voices)
+	if debug:
+		print("voices: ", voices)
 	
 	if AutoPlay:
 		play()
@@ -100,7 +108,8 @@ sync func play():
 	
 	voice = (voice + 1) % voices.size()
 	
-	print("playing ", name, " on voice ", voice)
+	if debug:
+		print("playing ", name, " on voice ", voice)
 	
 	if PlayUntilEnd:
 		if player.playing:
@@ -122,7 +131,8 @@ sync func play():
 	if len(recently_played) > min_distance:
 		recently_played.remove(0)
 		
-	print("random pick: ", clips[i])
+	if debug:
+		print("random pick: ", clips[i])
 	
 	player.stream = clips[i]
 	
