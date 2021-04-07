@@ -33,6 +33,7 @@ const JETPACK_REFILL_RATE = 0.2
 const JETPACK_THRUST = 25
 
 var jetpack_active = false # is the jetpack active?
+var jetpack_fireing = false # Is the jetpack fireing?
 var jetpack_used = false # Is the jetpack recharging?
 var jetpack_fuel = JETPACK_FUEL_MAX # max fuel (in seconds)
 
@@ -109,13 +110,20 @@ remote func jump():
 
 func jetpack(delta):
 	# Swap these to try the different versions of the jetpack.
-	jetpack_grounded(delta)
+	#jetpack_grounded(delta)
 	#jetpack_empty(delta)
 	
 	# activate visual jetpack effects when sound is playing:
-	$Effects/JetpackFlame.emitting = ! $Sounds/Jetpack.stream_paused
-	$Effects/JetpackSmoke.emitting = ! $Sounds/Jetpack.stream_paused
-	$Effects/JetpackLight.visible = ! $Sounds/Jetpack.stream_paused
+	$Sounds/Jetpack.stream_paused = !jetpack_fireing
+	
+	$Effects/JetpackFlame.emitting = jetpack_fireing
+	$Effects/JetpackSmoke.emitting = jetpack_fireing
+	$Effects/JetpackLight.visible = jetpack_fireing
+	#print(get_tree().get_network_unique_id())
+	
+	#$Effects/JetpackFlame.emitting = ! $Sounds/Jetpack.stream_paused
+	#$Effects/JetpackSmoke.emitting = ! $Sounds/Jetpack.stream_paused
+	#$Effects/JetpackLight.visible = ! $Sounds/Jetpack.stream_paused
 
 func jetpack_empty(delta):
 	debug.text = "JP fuel: %s\nJP active: %s\nJP used: %s\nJP sound: %s" % [
@@ -159,16 +167,17 @@ func jetpack_grounded(delta):
 			JETPACK_FUEL_MAX
 		)
 		
-		$Sounds/Jetpack.stream_paused = true
+		jetpack_fireing = false
 	
 	# Only use jetpack in the air.
 	else:
 		if jetpack_active and jetpack_fuel > 0:
+			
 			velocity.y += JETPACK_THRUST * delta
 			jetpack_fuel -= delta
-			$Sounds/Jetpack.stream_paused = false
+			jetpack_fireing = true
 		else:
-			$Sounds/Jetpack.stream_paused = true
+			jetpack_fireing = false
 
 remote func mouselook_abs(x, y):
 	camera.rotation.x = x
@@ -192,7 +201,7 @@ func _physics_process(delta):
 	
 	walk(delta)
 	fall(delta)
-	jetpack(delta)
+	jetpack_grounded(delta)
 	
 	var movement_vector = Vector3()
 	if jump_timeout > 0:
@@ -359,17 +368,19 @@ func _input(event):
 		var rel = event.relative
 		
 		mouselook(rel)
-	# Jump
 	
+	# Jump
 	if event.is_action_pressed("MoveJump"):
 		rpc("jump")
 		jump()
 	
+	# Jetpack
 	if event.is_action_pressed("MoveJetpack"):
-		jetpack_active = true
+		rpc("set_jetpack_active", true)
 	if event.is_action_released("MoveJetpack"):
-		jetpack_active = false
-		
+		rpc("set_jetpack_active", false)
+	
+	# Weapon
 	if event.is_action_pressed("WeaponPrimary"):
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
@@ -380,6 +391,8 @@ func _input(event):
 	if event.is_action_pressed("WeaponPrev"):
 		rpc("switch_to_prev_weapon")
 
+sync func set_jetpack_active(active):
+	jetpack_active = active
 
 func set_local_player():
 	set_network_master(get_tree().get_network_unique_id())
@@ -417,5 +430,5 @@ func _ready():
 	#$Sounds/Jetpack.stream.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	jetpack(delta)
