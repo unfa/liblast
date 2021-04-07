@@ -7,10 +7,9 @@
 script = ExtResource( 2 )
 
 [node name="SoundPlayer" parent="." instance=ExtResource( 1 )]
-SoundClip = "res://Assets/SFX/Weapons-BulletFlyBy-01.wav"
+SoundClip = "res://Assets/SFX/Weapons_BulletFlyBy_01.wav"
 AutoPlay = true
 RandomizePitch = 0.3
-
 [connection signal="finished" from="SoundPlayer/AudioStreamPlayer3D" to="." method="_on_AudioStreamPlayer3D_finished"]
 
 [editable path="SoundPlayer"]

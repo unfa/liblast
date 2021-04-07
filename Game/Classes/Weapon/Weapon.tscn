@@ -149,7 +149,7 @@ RandomizePitch = 0.05
 
 [node name="AudioStreamPlayer3D" parent="Sounds/Shoot/B" index="0"]
 unit_db = -3.0
-unit_size = 1.5
+unit_size = 2.0
 
 [node name="C" parent="Sounds/Shoot" instance=ExtResource( 3 )]
 SoundClip = "res://Assets/Audio/SFX/Weapons_Handun_Shot_01_C.wav"
@@ -157,7 +157,7 @@ RandomizePitch = 0.05
 
 [node name="AudioStreamPlayer3D" parent="Sounds/Shoot/C" index="0"]
 unit_db = -3.0
-unit_size = 3.0
+unit_size = 6.0
 max_db = 6.0
 
 [editable path="Handgun"]
