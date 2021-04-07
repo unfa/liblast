@@ -194,14 +194,15 @@ func _physics_process(delta):
 	if is_dead:
 		return
 	
-	if str(get_tree().get_network_unique_id()) != name:
-		return
-	
 	check_floor_collision()
 	
 	walk(delta)
 	fall(delta)
 	jetpack_grounded(delta)
+	
+	
+	if str(get_tree().get_network_unique_id()) != name:
+		return
 	
 	var movement_vector = Vector3()
 	if jump_timeout > 0:
@@ -323,7 +324,7 @@ master func kill():
 #	gibs.queue_free()
 
 func spawn():
-	is_dead = false
+	rpc("unset_death")
 	set_health(max_health)
 	
 	velocity = Vector3()
@@ -337,6 +338,9 @@ func spawn():
 	
 	$Camera.rotation = Vector3.ZERO
 	rotation = Vector3.ZERO
+
+sync func unset_death():
+	is_dead = false
 
 func shoot():
 	# The underscore indicates an unused variable.
