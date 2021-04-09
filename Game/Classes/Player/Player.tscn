@@ -220,7 +220,7 @@ script = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.391233, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.392298, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )
