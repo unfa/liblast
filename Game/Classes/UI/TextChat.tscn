@@ -30,6 +30,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
+focus_mode = 2
 text = "
 "
 scroll_following = true
