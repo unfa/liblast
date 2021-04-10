@@ -57,6 +57,7 @@ __meta__ = {
 }
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
+mouse_filter = 2
 
 [node name="Weapon" type="MarginContainer" parent="."]
 anchor_left = 1.0
@@ -69,6 +70,7 @@ margin_right = -32.0
 margin_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,6 +92,7 @@ margin_right = 116.0
 margin_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="RoundsClips" type="Label" parent="Weapon/VBoxContainer"]
@@ -123,6 +126,7 @@ margin_left = -511.401
 margin_top = -301.225
 margin_right = 512.599
 margin_bottom = 298.775
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -132,6 +136,7 @@ margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
+mouse_filter = 2
 
 [node name="Line1" type="ColorRect" parent="Crosshair/CrosshairCenter"]
 margin_left = 8.0
@@ -139,6 +144,7 @@ margin_top = -1.0
 margin_right = 20.0
 margin_bottom = 1.0
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,6 +156,7 @@ margin_right = 20.0
 margin_bottom = 1.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -161,6 +168,7 @@ margin_right = 20.0
 margin_bottom = 1.0
 rect_rotation = 180.0
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -172,6 +180,7 @@ margin_right = 20.0
 margin_bottom = 1.0
 rect_rotation = -90.0
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -182,6 +191,7 @@ margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0
 margin_bottom = 300.0
+mouse_filter = 2
 script = ExtResource( 3 )
 
 [node name="HitConfirmationSound" type="AudioStreamPlayer" parent="Crosshair/HitConfirmation"]
@@ -198,6 +208,7 @@ margin_bottom = 1.0
 rect_rotation = 45.3067
 rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -210,6 +221,7 @@ margin_bottom = 1.0
 rect_rotation = 135.307
 rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -222,6 +234,7 @@ margin_bottom = 1.0
 rect_rotation = 225.306
 rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -234,6 +247,7 @@ margin_bottom = 1.0
 rect_rotation = -44.6931
 rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( -8, 1 )
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

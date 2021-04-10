@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Classes/UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Maps/DM1/DM1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Classes/UI/CharacterSelect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PlayerListContainer.gd" type="Script" id=5]
+[ext_resource path="res://Classes/UI/TextChat.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -317,6 +318,11 @@ theme = ExtResource( 1 )
 [node name="PlayerList" type="VBoxContainer" parent="PlayerListContainer/Panel"]
 theme = ExtResource( 1 )
 alignment = 1
+
+[node name="TextChat" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_top = -264.542
+margin_bottom = -80.5416
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="join_test_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Connect" to="." method="open_menu" binds= [ "ConnectMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]
@@ -339,5 +345,6 @@ alignment = 1
 [connection signal="value_changed" from="MenuContainer/ControlsMenu/HBoxContainer/SensitivitySlider" to="." method="set_mouse_sensitivity"]
 [connection signal="pressed" from="MenuContainer/GraphicsMenu/Back" to="." method="return_to_menu" binds= [ "OptionsMenu" ]]
 [connection signal="toggled" from="MenuContainer/GraphicsMenu/Fullscreen" to="." method="set_fullscreen"]
+[connection signal="typing_toggled" from="TextChat" to="." method="_on_TextChat_typing_toggled"]
 
 [editable path="MenuContainer/CharacterSelectScreen"]
