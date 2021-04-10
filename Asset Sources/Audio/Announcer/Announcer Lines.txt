@@ -1,0 +1,66 @@
+Double Kill - scoring 2 kills within 3 seconds
+Triple Kill - scoring thrid kill within 3 seconds after Double Kill
+Quad Kill - scoring a fourth kill within 3 seconds after Triple Kill
+Penta Kill - scoring a fifth kill within 3 seconds after the Quad Kill
+Sexta Kill
+Septa Kill
+Octa Kill
+Nona Kill
+Deca Kill
+
+Two in One - killing 2 players with one shot
+Three in One - killing 3 players with one shot
+Four in One - killing 4 players with one shot
+Are you Kidding Me - 4 or more in one
+
+Headshot - railgun only?
+
+Head Hunter - 3 headshots in a row
+
+Bull's Eye - ?
+
+Rage Quit - a user left right after you killed them
+
+Kernel Panic - ?
+
+Payback - killing someone who just killed you
+First Blood - being the first one to kill someone in the game
+You Suck - suicuide ?
+
+Owned - for killing the same user 3rd time in a row
+Merciless - for killing the same user 5 times in a row 
+Make it Stop - for killing the same user 10 times in a row
+
+Awesome - scoring a kill with a direct hit using a projectile weapon on an airborne target
+Nice - scoring a hit with a railgun on an airborne target 
+Sweet - scoring 2 hits with railgun in succesion
+Sublime - scoring 5 succesive hits with the railgun
+Aimbot - scoring 10 succesive hits with the railgun
+
+5 Minutes Left
+3 Minutes Left
+1 Minute Left
+15 Seconds Left
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+Over Time - game is extended due to a draw situation
+Victory - winning a match
+Defeat - loosing a match
+Merciless Victory - winning with no loss what so ever
+Embarrasing Defeat - loosing with no score
+
+Glory
+Shame
+
+Get Ready - the game starts soon
+Go - the game is on
