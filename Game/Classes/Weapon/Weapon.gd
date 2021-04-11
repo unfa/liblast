@@ -68,7 +68,8 @@ func shoot(camera):
 			if hit is Player:
 				var kill = hit.health <= 0
 				emit_signal("damage_dealt", kill)
-				print(player.get_network_master())
+				print(get_signal_connection_list("damage_dealt")[0]["target"].name)
+	
 	else:
 		reload()
 	

@@ -408,6 +408,9 @@ func set_local_player():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD/Health/HealthBar.max_value = max_health
+	
+	for weapon in $Camera/Hand/Weapons.get_children():
+		weapon.connect("damage_dealt", $HUD, "update_crosshair")
 
 	# Set player class
 	var path = get_script().get_path()
