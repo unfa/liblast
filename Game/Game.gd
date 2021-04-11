@@ -24,44 +24,44 @@ onready var menu_stack = [$MenuContainer/MainMenu]
 func set_local_player(player):
 	if local_player != null:
 		$Players.remove_child(local_player)
-	
+
 	local_player = player
-	
+
 	var id = peer.get_unique_id()
 	player.name = str(id)
 	player.set_network_master(id)
 	$Players.add_child(local_player)
 	player.set_local_player()
-	
+
 	var nickname = $MenuContainer/MainMenu/Name.text
 	set_nickname(nickname)
 	player.set_nickname(nickname)
-	
+
 	var player_data = get_player_data()
-	
+
 	rpc("set_player_data", player_data)
-	
+
 	$PlayerListContainer.update_player_list()
-	 
+
 	player.hide()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MenuContainer/ConnectMenu/Destination/IPAdress.set_text(SERVER_IP)
 	$MenuContainer/ConnectMenu/Destination/Port.set_text(str(SERVER_PORT))
-	
+
 	load_settings()
-	
+
 	if auto_host:
 		initialize_server(false)
 
 func load_settings():
 	var load_settings = File.new()
 	load_settings.open("user://settings.save", File.READ)
-	
+
 	if load_settings.is_open():
 		var settings = parse_json(load_settings.get_as_text())
-		
+
 		for setting in settings:
 			load_setting(setting, settings[setting])
 
@@ -71,7 +71,7 @@ func load_setting(setting, value):
 func save_setting(setting, value):
 	var save_settings = File.new()
 	save_settings.open("user://settings.save", File.READ_WRITE)
-	
+
 	if save_settings.is_open():
 		var settings = parse_json(save_settings.get_as_text())
 		settings[setting] = value
@@ -97,15 +97,19 @@ func _input(event):
 					for button in buttons:
 						if button.name == "Back":
 							button.emit_signal("pressed")
-	
+
 	if event.is_action_pressed("ShowPlayerList") and !$MenuContainer.visible:
 		$PlayerListContainer.show()
-	
+
 	if event.is_action_released("ShowPlayerList"):
 		$PlayerListContainer.hide()
 
+	if event.is_action_pressed("ToggleChatVisibility") and not $TextChat.is_typing() and GAME_MODE == "PLAYING":
+		$TextChat.toggle()
+
 func open_menus():
 	GAME_MODE = "MENU"
+	$TextChat.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$MenuContainer.show()
 
@@ -119,7 +123,7 @@ func return_to_menu(type=null):
 	if type == null:
 		menu_stack.pop_back()
 		type = menu_stack[-1].name
-	
+
 	for menu in $MenuContainer.get_children():
 		if menu.name == type:
 			if type != null:
@@ -164,7 +168,7 @@ func set_mouse_sensitivity(sensitivity_multiplier, save=true):
 		mouse_sensitivity_multiplier = sensitivity_multiplier
 	else:
 		return
-	
+
 	if save:
 		save_setting("mouse_sensitivity", sensitivity_multiplier)
 	else:
@@ -175,7 +179,7 @@ func set_fullscreen(is_fullscreen, save=true):
 		OS.window_fullscreen = is_fullscreen
 	else:
 		return
-	
+
 	if save:
 		save_setting("is_fullscreen", is_fullscreen)
 	else:
@@ -186,6 +190,8 @@ func set_nickname(nickname, save=true):
 		save_setting("nickname", nickname)
 	else:
 		$MenuContainer/MainMenu/Name.text = nickname
+
+	$TextChat.player_name = nickname
 
 func debug_connection_status():
 	if (get_tree().network_peer.get_connection_status() == NetworkedMultiplayerPeer.CONNECTION_CONNECTING):
@@ -202,9 +208,9 @@ func initialize_server(join=true):
 	get_tree().connect("network_peer_connected", self, "on_peer_connected")
 	get_tree().connect("network_peer_disconnected", self, "on_peer_disconnected")
 	get_tree().network_peer = peer
-	
+
 	initialize()
-	
+
 	if join:
 		join_game()
 		#add_player(peer.get_unique_id(), false)
@@ -214,32 +220,32 @@ func initialize_client():
 	get_tree().connect("connected_to_server", self, "on_connection_established")
 	get_tree().connect("connection_failed", self, "on_connection_failed")
 	get_tree().network_peer = peer
-	
+
 	initialize()
 
 func initialize():
 	return_to_menu("MainMenu")
-	
+
 	#$MenuContainer/MainMenu/Connect.hide()
 	#$MenuContainer/MainMenu/Disconnect.show()
-	
+
 	#close_menus()
 
 func free_client():
 	$MenuContainer/MainMenu/Connect.show()
 	$MenuContainer/MainMenu/Disconnect.hide()
-	
+
 	for player in $Players.get_children():
 		player.queue_free()
-	
+
 	for player_list_item in $PlayerListContainer/Panel/PlayerList.get_children():
 		player_list_item.queue_free()
-	
+
 	peer.close_connection()
-	
+
 	get_tree().network_peer = null
 	local_player = null
-	
+
 	return_to_menu("MainMenu")
 
 func quit():
@@ -247,15 +253,15 @@ func quit():
 
 func get_player_data():
 	var players =  $Players.get_children()
-	
+
 	var player_data = {}
 	for player in players:
 		var data = {}
 		data["nickname"] = player.nickname
 		data["char_class"] = player.player_class
-		
+
 		player_data[player.name] = data
-	
+
 	return player_data
 
 func get_character_scene(character_name):
@@ -266,37 +272,37 @@ func get_character_scene(character_name):
 remote func check_players(player_data):
 	for player_name in player_data:
 		var data = player_data[player_name]
-		
+
 		if $Players.has_node(player_name):
 			var p = $Players.get_node(player_name)
 			if data["char_class"] != p.player_class:
 				$Players.remove_child(p)
-		
+
 		if not $Players.has_node(player_name):
 			var player = get_character_scene(data["char_class"]).instance()
-			
+
 			player.name = player_name
 			player.set_network_master(int(player_name))
-			
+
 			$Players.add_child(player)
 			player.translation += Vector3(0.0, 3.0, 0.0)
-			
+
 			player.set_nickname(data["nickname"])
-	
+
 	$PlayerListContainer.update_player_list()
 
 func join_game():
 	var player = player_scene.instance()
-	
+
 	set_local_player(player)
-	
+
 	open_menu("CharacterSelectScreen")
 
 sync func spawn(player_id):
 	var spawning_player = $Players.get_node(str(player_id))
-	
+
 	$Level.show()
-	
+
 	spawning_player.spawn()
 	spawning_player.show()
 	close_menus()
@@ -305,7 +311,7 @@ sync func remove_player(id):
 	for player in $Players.get_children():
 		if player.name == str(id):
 			player.free()
-	
+
 	$PlayerListContainer.update_player_list()
 
 
@@ -317,14 +323,14 @@ func on_peer_connected(id):
 
 master func set_player_data(player_data):
 	check_players(player_data)
-	
+
 	var new_player_data = get_player_data()
-	
+
 	rpc("check_players", new_player_data)
 
 func on_peer_disconnected(id):
 	print("Peer disconnected with id ", id)
-	
+
 	rpc("remove_player", id)
 
 func on_connection_established():
@@ -333,3 +339,12 @@ func on_connection_established():
 
 func on_connection_failed():
 	print("Connection has failed")
+
+
+func _on_TextChat_typing_toggled(is_typing) -> void:
+	if is_typing:
+		GAME_MODE = "MENU"
+
+	else:
+		GAME_MODE = "PLAYING"
+	pass
