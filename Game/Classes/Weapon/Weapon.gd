@@ -1,6 +1,6 @@
 extends Spatial
 
-signal damage_dealt
+signal damage_dealt(kill)
 signal ammo_changed(type, amount)
 
 export(bool) var Hitscan = false
@@ -66,7 +66,8 @@ func shoot(camera):
 				hit.rpc("on_hit", 30, result.position)
 			
 			if hit is Player:
-				emit_signal("damage_dealt")
+				var kill = hit.health <= 0
+				emit_signal("damage_dealt", kill)
 				print(player.get_network_master())
 	else:
 		reload()
