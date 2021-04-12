@@ -183,6 +183,8 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 2 )
+proximity_fade_enable = true
+proximity_fade_distance = 0.15
 
 [sub_resource type="QuadMesh" id=22]
 material = SubResource( 21 )
