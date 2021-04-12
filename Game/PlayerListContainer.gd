@@ -12,4 +12,3 @@ func update_player_list():
 		var player_list_item = preload("res://Classes/UI/PlayerListItem.tscn").instance()
 		$Panel/PlayerList.add_child(player_list_item)
 		player_list_item.player = player
-

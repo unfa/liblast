@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Classes/UI/PlayerListItem.gd" type="Script" id=1]
+[ext_resource path="res://Classes/UI/theme.tres" type="Theme" id=2]
 
 [node name="Player" type="HBoxContainer"]
 margin_bottom = 14.0
@@ -9,7 +10,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Score" type="Label" parent="."]
+margin_right = 87.0
+margin_bottom = 38.0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.32549, 0.960784, 0.603922, 1 )
+custom_constants/shadow_as_outline = 0
+text = "SCORE"
+
 [node name="Nickname" type="Label" parent="."]
-margin_right = 28.0
-margin_bottom = 14.0
-text = "TEST"
+margin_left = 91.0
+margin_right = 232.0
+margin_bottom = 38.0
+theme = ExtResource( 2 )
+text = "NICKNAME"
+align = 2
