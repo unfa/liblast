@@ -10,9 +10,15 @@ length = 3.0
 [node name="BulletTracer" type="Spatial"]
 script = ExtResource( 1 )
 
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0.001 )
+enabled = true
+cast_to = Vector3( -10, 0, 0 )
+
 [node name="Raycast" type="Area" parent="."]
 transform = Transform( -1.62417e-07, 0, -0.996909, 0, 0.996909, 0, 0.996909, 0, -1.62417e-07, 2.816, -2.38419e-07, 0.000590307 )
 input_ray_pickable = false
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Raycast"]
