@@ -67,6 +67,14 @@ var bodyHitEffect = preload("res://Assets/Effects/BodyHit.tscn")
 onready var nickname = "guest" setget set_nickname
 var player_class = "none"
 
+var player_stats = stats.new()
+
+class stats:
+	var score: int
+	var kills: int
+	var deaths: int
+	var suicides: int
+
 #func sfx_play_footsteps():
 #	if not sfx_footsteps_play:
 #		sfx_footsteps_play = true
@@ -77,6 +85,11 @@ var player_class = "none"
 #		sfx_foosteps[sfx_footsteps_next].play()
 #		yield(get_tree().create_timer(sfx_footsteps_delay),"timeout")
 #		sfx_footsteps_play = false
+
+func score(target):
+	print("Player ", name, " scored a kill on ", target)
+	player_stats.kills += 1
+	player_stats.score += 1
 
 func set_health(value):
 	health = value
@@ -305,6 +318,8 @@ master func kill():
 	$Sounds/Death.rpc("play")
 
 	is_dead = true
+	
+	player_stats.deaths += 1
 
 	set_health(0)
 	$CollisionShapeBody.disabled = true
