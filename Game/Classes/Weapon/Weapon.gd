@@ -112,8 +112,9 @@ func show_muzzle_flash(var rounds_left):
 func show_tracer():
 	var tracer_instance = tracer.instance()
 	tracer_instance.hide()
-	tracer_instance.global_transform = muzzle.global_transform
-	
+	tracer_instance.global_transform = global_transform
+	tracer_instance.translation = $Model/Muzzle.global_transform.origin
+
 	get_tree().root.call_deferred("add_child", tracer_instance)
 	tracer_instance.call_deferred("show")
 
