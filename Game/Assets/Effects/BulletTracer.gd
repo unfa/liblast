@@ -9,6 +9,9 @@ func _ready():
 	translate_object_local(Vector3(-10,0,0))
 	set_process(true)
 
+func face_vector(target):
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	translate_object_local(Vector3(-velocity * delta,0,0))
@@ -17,9 +20,13 @@ func _process(delta):
 					queue_free()
 				else:
 					var bullet_hit_effect = bullet_hit.instance()
+					get_tree().root.add_child(bullet_hit_effect)
+					
+					bullet_hit_effect.look_at($RayCast.get_collision_normal(), Vector3(0.29348756, 0.834576, 0.2384765))
+					bullet_hit_effect.rotate_object_local(Vector3(1, 0, 0), -PI/2)
 					bullet_hit_effect.global_translate($RayCast.get_collision_point())
-					#bullet_hit_effect.global_transform *= bullet_hit_effect.global_transform.looking_at($RayCast.get_collision_point() + $RayCast.get_collision_normal(), Vector3.UP)
-					get_tree().root.call_deferred("add_child", bullet_hit_effect)
+					
+					
 					queue_free()
 
 const casing = preload("res://Assets/Weapons/Handgun/Casing.gd")

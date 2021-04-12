@@ -183,8 +183,6 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 2 )
-proximity_fade_enable = true
-proximity_fade_distance = 0.15
 
 [sub_resource type="QuadMesh" id=22]
 material = SubResource( 21 )
@@ -196,7 +194,7 @@ autoplay = "Effect"
 anims/Effect = SubResource( 1 )
 
 [node name="Hit" type="MeshInstance" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
