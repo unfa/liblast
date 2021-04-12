@@ -10,9 +10,11 @@ func updateHealth(health: int):
 
 func update_crosshair(kill):
 	$Crosshair.visible = true # visible
-	$Crosshair/HitConfirmation.activate(0.15, false)
+	#$Crosshair/HitConfirmation.activate(0.15, false)
 	
-	#if hit:
-	#	$Crosshair/HitConfirmation.activate(0.15, false)
-	#elif kill:
-	#	$Crosshair/HitConfirmation.activate(0.3, true)
+	print("HUD: kill = ", kill)
+	
+	if kill:
+		$Crosshair/HitConfirmation.activate(0.3, true)
+	else:
+		$Crosshair/HitConfirmation.activate(0.15, false)

@@ -68,12 +68,18 @@ func shoot(camera):
 				hit.rpc("on_hit", 30, result.position)
 			
 			if hit is Player:
-				var kill = hit.health <= 0
+				var kill = true if hit.health <= 0 else false
+				
+				print ("Player: kill = ", kill, " Target health: ", hit.health)
 				emit_signal("damage_dealt", kill)
+				
+				print(get_signal_connection_list("damage_dealt")[0]["target"].name)
+				
+				if kill:
+					player.score(hit.name)
 		
 		#print(get_signal_connection_list("ammo_changed")[0]["target"].name)
 		emit_signal("ammo_changed", self)
-	
 	else:
 		reload()
 	

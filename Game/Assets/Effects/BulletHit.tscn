@@ -86,7 +86,6 @@ curve = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=8]
 lifetime_randomness = 0.65
-spread = 180.0
 initial_velocity = 10.0
 initial_velocity_random = 1.0
 damping = 7.82
@@ -116,9 +115,9 @@ gradient = SubResource( 11 )
 
 [sub_resource type="ParticlesMaterial" id=13]
 lifetime_randomness = 0.34
-spread = 180.0
-initial_velocity = 10.0
-initial_velocity_random = 1.0
+spread = 35.0
+initial_velocity = 14.0
+initial_velocity_random = 0.7
 damping = 7.82
 damping_random = 0.92
 scale = 0.5
@@ -160,7 +159,7 @@ _data = [ Vector2( 0, 0.278253 ), 0.0, 1.12677, 0, 0, Vector2( 1, 1 ), 0.0, 0.0,
 curve = SubResource( 18 )
 
 [sub_resource type="ParticlesMaterial" id=20]
-spread = 180.0
+spread = 30.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 5.0
 initial_velocity_random = 0.2
@@ -205,28 +204,34 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="ParticlesDust" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
 amount = 128
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+local_coords = false
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 10 )
 
 [node name="ParticlesSparks" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
 amount = 32
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+local_coords = false
 process_material = SubResource( 13 )
 draw_pass_1 = SubResource( 15 )
 
 [node name="ParticlesSmoke" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
+local_coords = false
 process_material = SubResource( 20 )
 draw_pass_1 = SubResource( 22 )
 
