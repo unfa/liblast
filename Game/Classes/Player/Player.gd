@@ -409,8 +409,10 @@ func set_local_player():
 func _ready():
 	$HUD/Health/HealthBar.max_value = max_health
 	
-	for weapon in $Camera/Hand/Weapons.get_children():
+	print($Camera/Hand/Weapons.get_child_count())
+	for weapon in $Camera/Hand/Weapons.weapons:
 		weapon.connect("damage_dealt", $HUD, "update_crosshair")
+		weapon.connect("ammo_changed", $HUD, "update_ammo")
 
 	# Set player class
 	var path = get_script().get_path()

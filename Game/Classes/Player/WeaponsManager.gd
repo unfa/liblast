@@ -28,6 +28,7 @@ func _activate_weapon(index):
 	# Activate the requested weapon.
 	active_weapon = weapons[index]
 	add_child(active_weapon)
+	active_weapon.switched_to_weapon()
 
 func switch_to_weapon(index):
 	# Take a modulo here as a quick and easy way to have a valid index.

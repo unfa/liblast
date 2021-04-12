@@ -344,7 +344,6 @@ func on_connection_failed():
 func _on_TextChat_typing_toggled(is_typing) -> void:
 	if is_typing:
 		GAME_MODE = "MENU"
-
 	else:
 		GAME_MODE = "PLAYING"
 	pass

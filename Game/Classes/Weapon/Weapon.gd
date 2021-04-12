@@ -1,7 +1,7 @@
 extends Spatial
 
 signal damage_dealt(kill)
-signal ammo_changed(type, amount)
+signal ammo_changed(weapon)
 
 export(bool) var Hitscan = false
 export(int) var Damage = 100
@@ -31,6 +31,9 @@ var tracer = preload("res://Assets/Effects/BulletTracer.tscn")
 func _ready():
 	$Sounds.global_transform.origin = camera.global_transform.origin
 
+func switched_to_weapon():
+	emit_signal("ammo_changed", self)
+
 func shoot(camera):
 	if cached_fire == true:
 		return
@@ -48,7 +51,6 @@ func shoot(camera):
 		rpc("compute_bullet_flyby")
 		
 		current_rounds -= 1
-		emit_signal("ammo_changed", "handgun", current_rounds)
 		
 		var space_state = get_world().direct_space_state
 		
@@ -61,14 +63,16 @@ func shoot(camera):
 		
 		if "collider" in result:
 			var hit = result.collider
-					
+			
 			if hit.has_method("on_hit"):
 				hit.rpc("on_hit", 30, result.position)
 			
 			if hit is Player:
 				var kill = hit.health <= 0
 				emit_signal("damage_dealt", kill)
-				print(get_signal_connection_list("damage_dealt")[0]["target"].name)
+		
+		#print(get_signal_connection_list("ammo_changed")[0]["target"].name)
+		emit_signal("ammo_changed", self)
 	
 	else:
 		reload()
@@ -152,7 +156,7 @@ func reload():
 	
 	current_rounds = Rounds
 	
-	emit_signal("ammo_changed", "handgun", current_rounds)
+	emit_signal("ammo_changed", self)
 
 sync func play_reload_animation():
 	$Model/AnimationPlayer.play("Reload", 0.5, 1)
