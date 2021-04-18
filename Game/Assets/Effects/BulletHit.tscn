@@ -90,25 +90,29 @@ curve = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=8]
 lifetime_randomness = 0.65
-initial_velocity = 10.0
-initial_velocity_random = 1.0
-damping = 7.82
-damping_random = 0.92
-scale_random = 0.5
+initial_velocity = 7.0
+initial_velocity_random = 0.6
+damping = 6.0
+damping_random = 0.6
+scale_random = 0.9
 scale_curve = SubResource( 7 )
 
 [sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
 params_billboard_mode = 3
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.5
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_color = Color( 0.498039, 0.498039, 0.498039, 1 )
 albedo_texture = ExtResource( 1 )
+transmission_enabled = true
+transmission = Color( 0.52549, 0.52549, 0.52549, 1 )
 
 [sub_resource type="QuadMesh" id=10]
 material = SubResource( 9 )
-size = Vector2( 0.1, 0.1 )
+size = Vector2( 0.05, 0.05 )
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.0346021, 0.083045, 0.49481, 1 )
@@ -118,7 +122,7 @@ colors = PoolColorArray( 1, 0.984375, 0.75, 1, 0.933594, 0.694326, 0.12764, 1, 0
 gradient = SubResource( 11 )
 
 [sub_resource type="ParticlesMaterial" id=13]
-lifetime_randomness = 0.34
+lifetime_randomness = 0.8
 spread = 35.0
 initial_velocity = 14.0
 initial_velocity_random = 0.7
@@ -139,6 +143,8 @@ vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
 params_blend_mode = 1
 params_billboard_mode = 3
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.5
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
@@ -147,7 +153,7 @@ albedo_texture = ExtResource( 1 )
 
 [sub_resource type="QuadMesh" id=15]
 material = SubResource( 14 )
-size = Vector2( 0.1, 0.1 )
+size = Vector2( 0.05, 0.05 )
 
 [sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0, 0.0692042, 0.474048, 1 )
@@ -163,13 +169,13 @@ _data = [ Vector2( 0, 0.278253 ), 0.0, 1.12677, 0, 0, Vector2( 1, 1 ), 0.0, 0.0,
 curve = SubResource( 18 )
 
 [sub_resource type="ParticlesMaterial" id=20]
-spread = 30.0
+spread = 10.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 5.0
+initial_velocity = 4.0
 initial_velocity_random = 0.2
 angular_velocity = 395.12
 angular_velocity_random = 1.0
-damping = 9.0
+damping = 12.0
 damping_random = 0.83
 scale = 4.0
 scale_random = 0.5
@@ -201,11 +207,12 @@ anims/Effect = SubResource( 1 )
 
 [node name="Hit" type="MeshInstance" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+visible = false
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="4x4 Decal Sheet" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.499696, 0, 0, 0, 0.499696, 0, 0, 0, 0.499696, 0, 0.002, 0 )
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.002, 0 )
 script = ExtResource( 7 )
 
 [node name="Decal2" parent="4x4 Decal Sheet" index="0"]
@@ -233,7 +240,7 @@ material/0 = null
 [node name="ParticlesDust" type="Particles" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
-amount = 128
+amount = 64
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
@@ -243,11 +250,13 @@ draw_pass_1 = SubResource( 10 )
 
 [node name="ParticlesSparks" type="Particles" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+visible = false
 emitting = false
-amount = 32
+amount = 7
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+randomness = 1.0
 local_coords = false
 process_material = SubResource( 13 )
 draw_pass_1 = SubResource( 15 )
@@ -255,7 +264,8 @@ draw_pass_1 = SubResource( 15 )
 [node name="ParticlesSmoke" type="Particles" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 emitting = false
-lifetime = 4.0
+amount = 1
+lifetime = 3.0
 one_shot = true
 explosiveness = 1.0
 local_coords = false
