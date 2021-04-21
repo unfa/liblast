@@ -42,3 +42,8 @@ https://youtu.be/aUtSLNzvqvI
 
 Video of a version of the game not long before 0.1 release:
 https://youtu.be/g3KvNeu4X54 (quite outdated as of 2021-02)
+
+# What's with the name?
+
+`Libre` + `Blast` = `Liblast`
+No, it's not a library. Sorry if it's confusing.
