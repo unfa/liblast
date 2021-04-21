@@ -357,6 +357,8 @@ func spawn():
 
 sync func unset_death():
 	is_dead = false
+	for i in $Camera/Hand/Weapons.get_children():
+		i.reset()
 
 func shoot():
 	# The underscore indicates an unused variable.
