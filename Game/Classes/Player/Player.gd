@@ -207,7 +207,6 @@ remote func mouselook_abs(x, y):
 
 remote func mouselook(rel):
 	var sensitivity = MOUSE_SENSITIVITY * game.mouse_sensitivity_multiplier * (camera.fov / FOV_NORMAL)
-	print("Sensitivity: ", sensitivity)
 	rotate_y(- rel.x * sensitivity)
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
 
