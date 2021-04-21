@@ -373,11 +373,11 @@ sync func unset_death():
 	$HUD/Crosshair.modulate = Color(1,1,1,1)
 	camera.fov = FOV_NORMAL
 
-func shoot():
+func shoot(trigger_held):
 	# The underscore indicates an unused variable.
 	# Because it is declared in this scope, it will disappear as soon as the
 	# function returns. As is, it exists solely to catch the return value of shoot().
-	var _remaining_ammo = active_weapon.shoot($Camera)
+	var _remaining_ammo = active_weapon.shoot($Camera, true, trigger_held)
 
 func reload():
 	active_weapon.reload()
@@ -417,9 +417,11 @@ func _unhandled_input(event):
 
 	# Weapon
 	if event.is_action_pressed("WeaponPrimary") and camera.fov == FOV_NORMAL:
-		shoot()
+		shoot(true)
 	if event.is_action_pressed("WeaponReload"):
 		reload()
+	if event.is_action_released("WeaponPrimary") or camera.fov != FOV_NORMAL:
+		shoot(false)
 
 	if event.is_action_pressed("WeaponNext"):
 		rpc("switch_to_next_weapon")

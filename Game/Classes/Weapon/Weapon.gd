@@ -3,14 +3,11 @@ extends Spatial
 signal damage_dealt(kill)
 signal ammo_changed(weapon)
 
-export(bool) var Hitscan = false
+export(bool) var Hitscan = true
 export(int) var Damage = 100
 export(float) var Delay = 0.1
 export(bool) var Automatic = false
 export(int) var Rounds = 10
-export(int) var MaxRoundsInClip = 10
-export(int) var Clips = 1
-export(int) var MaxClips = 4
 
 onready var camera = get_parent().get_parent().get_parent()
 onready var player = camera.get_parent()
@@ -34,10 +31,11 @@ func _ready():
 func switched_to_weapon():
 	emit_signal("ammo_changed", self)
 
-func shoot(camera):
-	if cached_fire == true:
-		return
-	
+func shoot(camera, primary, trigger_held):
+	if not Automatic:
+		if cached_fire == true:
+			return
+		
 	if currently_fireing == true:
 		cached_fire = true
 		yield($Model/AnimationPlayer, "animation_finished")
@@ -46,7 +44,7 @@ func shoot(camera):
 	currently_fireing = true
 	cached_fire = false
 	
-	if current_rounds > 0:
+	while current_rounds > 0 and trigger_held:
 		rpc("fire_weapon", current_rounds)
 		rpc("compute_bullet_flyby")
 		
@@ -80,7 +78,13 @@ func shoot(camera):
 		
 		#print(get_signal_connection_list("ammo_changed")[0]["target"].name)
 		emit_signal("ammo_changed", self)
-	else:
+		
+		if not Automatic:
+			break
+		else:
+			yield(get_tree().create_timer(Delay),"timeout")
+			
+	if current_rounds == 0:
 		reload()
 	
 	return current_rounds

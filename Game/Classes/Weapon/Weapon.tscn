@@ -155,6 +155,8 @@ Voice_Count = 2
 [node name="AudioStreamPlayer3D" parent="Sounds/Shoot/C" index="0"]
 unit_db = -3.0
 
+[editable path="Model"]
+
 [editable path="Sounds/Shoot/A"]
 
 [editable path="Sounds/Shoot/B"]
