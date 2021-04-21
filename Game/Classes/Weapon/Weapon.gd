@@ -163,6 +163,11 @@ func reload():
 	current_rounds = Rounds
 	
 	emit_signal("ammo_changed", self)
+	
+func reset():
+	currently_fireing = false
+	current_rounds = Rounds
+	emit_signal("ammo_changed", self)
 
 sync func play_reload_animation():
 	$Model/AnimationPlayer.play("Reload", 0.5, 1)
