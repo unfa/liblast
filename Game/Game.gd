@@ -259,6 +259,7 @@ func get_player_data():
 		var data = {}
 		data["nickname"] = player.nickname
 		data["char_class"] = player.player_class
+		data["player_stats"] = inst2dict(player.player_stats)
 
 		player_data[player.name] = data
 
@@ -288,6 +289,8 @@ remote func check_players(player_data):
 			player.translation += Vector3(0.0, 3.0, 0.0)
 
 			player.set_nickname(data["nickname"])
+			player.player_stats = dict2inst(data["player_stats"])
+			print(data)
 
 	$PlayerListContainer.update_player_list()
 
