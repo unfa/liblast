@@ -304,6 +304,9 @@ sync func on_damage_dealt(damage, target, is_kill):
 		game.get_node("PlayerListContainer").update_player_list()
 
 master func on_hit(damage, location, source):
+	if is_dead:
+		return
+
 	set_health(health - damage)
 
 	rpc("blood_splatter", location)
