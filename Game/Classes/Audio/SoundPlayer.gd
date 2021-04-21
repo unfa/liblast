@@ -140,7 +140,7 @@ sync func play():
 		player.pitch_scale = PitchScale + rand_range(-RandomizePitch /2, RandomizePitch/2)
 	else:
 		player.pitch_scale = PitchScale
-		
+	
 	player.play()
 	
 	ready = false

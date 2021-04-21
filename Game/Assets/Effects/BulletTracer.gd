@@ -1,7 +1,7 @@
 extends Spatial
 
 var first = true
-var velocity = 200
+var velocity = 350
 
 const bullet_hit = preload("res://Assets/Effects/BulletHit.tscn")
 
