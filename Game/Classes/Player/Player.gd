@@ -1,6 +1,9 @@
 class_name Player
 extends KinematicBody
 
+const FOV_NORMAL = 70
+const FOV_ZOOM = 25
+
 const GRAVITY = Vector3.DOWN * 9.8 * 1.5
 const UP = Vector3.UP
 const JUMP_VELOCITY = 8
@@ -203,7 +206,8 @@ remote func mouselook_abs(x, y):
 	rotation.y = y
 
 remote func mouselook(rel):
-	var sensitivity = MOUSE_SENSITIVITY * game.mouse_sensitivity_multiplier
+	var sensitivity = MOUSE_SENSITIVITY * game.mouse_sensitivity_multiplier * (camera.fov / FOV_NORMAL)
+	print("Sensitivity: ", sensitivity)
 	rotate_y(- rel.x * sensitivity)
 	camera.rotation.x = clamp(camera.rotation.x-rel.y * sensitivity, -PI/2, PI/2)
 
@@ -359,6 +363,8 @@ sync func unset_death():
 	is_dead = false
 	for i in $Camera/Hand/Weapons.get_children():
 		i.reset()
+	$HUD/Crosshair.modulate = Color(1,1,1,1)
+	camera.fov = FOV_NORMAL
 
 func shoot():
 	# The underscore indicates an unused variable.
@@ -403,7 +409,7 @@ func _unhandled_input(event):
 		rpc("set_jetpack_active", false)
 
 	# Weapon
-	if event.is_action_pressed("WeaponPrimary"):
+	if event.is_action_pressed("WeaponPrimary") and camera.fov == FOV_NORMAL:
 		shoot()
 	if event.is_action_pressed("WeaponReload"):
 		reload()
@@ -412,6 +418,16 @@ func _unhandled_input(event):
 		rpc("switch_to_next_weapon")
 	if event.is_action_pressed("WeaponPrev"):
 		rpc("switch_to_prev_weapon")
+		
+	if event.is_action_pressed("PlayerZoom"):
+		$Camera/ZoomTween.interpolate_property(camera, "fov", camera.fov, FOV_ZOOM, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		$Camera/ZoomTween.interpolate_property($HUD/Crosshair, "modulate", Color(1,1,1,1), Color(1,1,1,0), 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		$Camera/ZoomTween.start()
+	elif event.is_action_released("PlayerZoom"):
+		$Camera/ZoomTween.interpolate_property(camera, "fov", camera.fov, FOV_NORMAL, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		$Camera/ZoomTween.interpolate_property($HUD/Crosshair, "modulate", Color(1,1,1,0), Color(1,1,1,1), 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		$Camera/ZoomTween.start()
+	
 
 sync func set_jetpack_active(active):
 	jetpack_active = active

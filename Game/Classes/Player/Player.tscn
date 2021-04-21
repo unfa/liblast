@@ -220,8 +220,10 @@ script = ExtResource( 8 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53592, -0.0651628 )
 
+[node name="ZoomTween" type="Tween" parent="Camera"]
+
 [node name="Hand" type="Spatial" parent="Camera"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.399925, -0.559 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.335, -0.390248, -0.559 )
 
 [node name="WeaponBobAnimationTree" type="AnimationTree" parent="Camera/Hand"]
 tree_root = SubResource( 12 )
@@ -359,3 +361,5 @@ stream_paused = true
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 visible = false
 mouse_filter = 2
+
+[editable path="HUD"]
