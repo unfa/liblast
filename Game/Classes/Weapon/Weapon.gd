@@ -65,7 +65,7 @@ func shoot(camera):
 			var hit = result.collider
 			
 			if hit.has_method("on_hit"):
-				hit.rpc("on_hit", 30, result.position)
+				hit.rpc("on_hit", 30, result.position, player.name)
 			
 			if hit is Player:
 				var kill = true if hit.health <= 0 else false

@@ -295,23 +295,31 @@ func fall(delta):
 
 	was_on_floor = is_on_floor()
 
+sync func on_damage_dealt(damage, target, is_kill):
+	if is_kill:
+		player_stats.score += 1
+		game.get_node("PlayerListContainer").update_player_list()
 
-master func on_hit(damage, location):
-	set_health(health - 30)
+master func on_hit(damage, location, source):
+	set_health(health - damage)
 
 	rpc("blood_splatter", location)
-
+	
+	var source_player = get_parent().get_node(source)
+	
 	if health <= 0:
-		rpc("kill")
+		kill()
+		source_player.rpc("on_damage_dealt", damage, self.name, true)
 	else:
 		$Sounds/Pain.rpc("play")
+		source_player.rpc("on_damage_dealt", damage, self.name, false)
 
 sync func blood_splatter(location):
 	var effect = bodyHitEffect.instance()
 	get_tree().root.add_child(effect)
 	effect.global_transform.origin = location
 
-master func kill():
+func kill():
 	if is_dead:
 		return
 
