@@ -7,6 +7,9 @@
 
 [resource]
 flags_transparent = true
+params_cull_mode = 2
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.5
 albedo_color = Color( 0.796875, 0.796875, 0.796875, 1 )
 albedo_texture = ExtResource( 1 )
 metallic = 1.0
