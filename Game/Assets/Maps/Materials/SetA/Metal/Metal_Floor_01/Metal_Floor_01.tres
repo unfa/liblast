@@ -6,10 +6,10 @@
 [ext_resource path="res://Assets/Maps/Materials/SetA/Metal/Metal_Floor_01/Metal_Floor_01_depth.png" type="Texture" id=4]
 
 [resource]
-albedo_color = Color( 0.611765, 0.611765, 0.611765, 1 )
+params_diffuse_mode = 1
+albedo_color = Color( 0.364706, 0.254902, 0.211765, 1 )
 albedo_texture = ExtResource( 1 )
-metallic = 1.0
-metallic_specular = 1.0
+metallic = 0.22
 metallic_texture = ExtResource( 2 )
 metallic_texture_channel = 2
 roughness_texture = ExtResource( 2 )
