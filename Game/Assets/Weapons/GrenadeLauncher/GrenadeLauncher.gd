@@ -23,6 +23,6 @@ sync func fire_weapon():
 	var muzzle_transform = $Model/Muzzle.global_transform
 	grenade_instance.global_transform = muzzle_transform
 	
-	grenade_instance.linear_velocity = muzzle_transform.basis.y * 40 + player.velocity
+	grenade_instance.linear_velocity = muzzle_transform.basis.y * 20 + player.velocity
 	
 	get_tree().root.call_deferred("add_child", grenade_instance)
