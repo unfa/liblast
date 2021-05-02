@@ -326,6 +326,7 @@ __meta__ = {
 visible = false
 margin_top = -264.542
 margin_bottom = -80.5416
+
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="join_test_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Connect" to="." method="open_menu" binds= [ "ConnectMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]
