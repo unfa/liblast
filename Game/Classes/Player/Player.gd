@@ -380,7 +380,8 @@ func shoot(trigger_held):
 	# The underscore indicates an unused variable.
 	# Because it is declared in this scope, it will disappear as soon as the
 	# function returns. As is, it exists solely to catch the return value of shoot().
-	var _remaining_ammo = active_weapon.shoot($Camera, true, trigger_held)
+	#var _remaining_ammo = active_weapon.shoot($Camera, true, trigger_held)
+	active_weapon.trigger_held_primary = trigger_held
 
 func reload():
 	active_weapon.reload()
