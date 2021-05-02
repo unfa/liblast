@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/GranadeLauncher.gltf-ca56a6672dae21dfb777c46e15746d8e.scn"
+path="res://.import/GrenadeLauncher.gltf-097e9ef9a1df3c2d00f87164cabfb0b1.scn"
 
 [deps]
 
-source_file="res://Assets/Weapons/GrenadeLauncher/GranadeLauncher.gltf"
-dest_files=[ "res://.import/GranadeLauncher.gltf-ca56a6672dae21dfb777c46e15746d8e.scn" ]
+source_file="res://Assets/Weapons/GrenadeLauncher/GrenadeLauncher.gltf"
+dest_files=[ "res://.import/GrenadeLauncher.gltf-097e9ef9a1df3c2d00f87164cabfb0b1.scn" ]
 
 [params]
 
@@ -16,6 +16,7 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
+nodes/use_legacy_names=true
 materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true

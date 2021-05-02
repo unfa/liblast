@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GranadeLauncher.gltf" type="PackedScene" id=1]
-[ext_resource path="res://Classes/Weapon/Weapon.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GrenadeLauncher.gltf" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Weapons/GrenadeLauncher/GrenadeLauncher.gd" type="Script" id=2]
 [ext_resource path="res://Classes/Audio/LayeredSoundPlayer.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Effects/CircleSoft.svg" type="Texture" id=4]
 [ext_resource path="res://Assets/Audio/SFX/Weapons_Empty.wav" type="AudioStream" id=5]
@@ -24,9 +24,6 @@ size = Vector2( 0.3, 0.3 )
 
 [node name="Weapon" type="Spatial"]
 script = ExtResource( 2 )
-Delay = 0.05
-Automatic = true
-Rounds = 100
 
 [node name="Model" parent="." instance=ExtResource( 1 )]
 
