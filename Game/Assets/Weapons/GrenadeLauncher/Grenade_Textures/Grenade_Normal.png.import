@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Grenade_Normal.png-8569f0f8a36921b87d275360d21c571f.s3tc.stex"
-path.etc2="res://.import/Grenade_Normal.png-8569f0f8a36921b87d275360d21c571f.etc2.stex"
+path.s3tc="res://.import/Grenade_Normal.png-4fc71acc0e899466470093bc13ba1d4e.s3tc.stex"
+path.etc2="res://.import/Grenade_Normal.png-4fc71acc0e899466470093bc13ba1d4e.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Weapons/GrenadeLauncher/Grenade_Normal.png"
-dest_files=[ "res://.import/Grenade_Normal.png-8569f0f8a36921b87d275360d21c571f.s3tc.stex", "res://.import/Grenade_Normal.png-8569f0f8a36921b87d275360d21c571f.etc2.stex" ]
+source_file="res://Assets/Weapons/GrenadeLauncher/Grenade_Textures/Grenade_Normal.png"
+dest_files=[ "res://.import/Grenade_Normal.png-4fc71acc0e899466470093bc13ba1d4e.s3tc.stex", "res://.import/Grenade_Normal.png-4fc71acc0e899466470093bc13ba1d4e.etc2.stex" ]
 
 [params]
 
@@ -31,6 +31,6 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
-size_limit=0
+size_limit=256
 detect_3d=false
 svg/scale=1.0
