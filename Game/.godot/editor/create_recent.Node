@@ -1,0 +1,15 @@
+ReflectionProbe
+BakedLightmap
+LightmapProbe
+OmniLight3D
+Node3D
+DirectionalLight3D
+WorldEnvironment
+Camera3D
+MeshInstance3D
+CollisionShape3D
+KinematicBody3D
+CSGBox3D
+CSGCombiner3D
+CSGTorus3D
+Node

@@ -1,0 +1,13 @@
+3844edc3d1660e6e25a999aafc25a878
+::res://::1621020247
+default_env.tres::Environment::1621020364::0::1::::<><>::
+icon.png::StreamTexture2D::1620750313::1620750329::1::::<><>::
+Main.tscn::PackedScene::1621020364::0::1::::<><>::res://Player.gd<>res://Assets/Materials/BaseVisualShader.tres<>res://Assets/Maps/DM1/DM1.glb
+Player.gd::GDScript::1620765662::0::1::::<>KinematicBody3D<>::
+::res://Assets/::1620765792
+::res://Assets/Maps/::1620765783
+::res://Assets/Maps/DM1/::1620765882
+DM1.glb::PackedScene::1620765856::1620765882::1::::<><>::
+::res://Assets/Materials/::1621019147
+Base.tres::StandardMaterial3D::1620767404::0::1::::<><>::
+BaseVisualShader.tres::ShaderMaterial::1621019147::0::1::::<><>::
