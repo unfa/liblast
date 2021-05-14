@@ -100,6 +100,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68988, 0.110679, 0 )
 anims/Flash = SubResource( 1 )
 
 [node name="MuzzleLight" type="OmniLight" parent="Effects"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00515842, 1.90735e-06, 0.0512087 )
 light_color = Color( 1, 0.423529, 0.0431373, 1 )
 light_energy = 0.0
 omni_range = 10.0

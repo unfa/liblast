@@ -156,9 +156,6 @@ Voice_Count = 2
 unit_db = -3.0
 
 [editable path="Model"]
-
 [editable path="Sounds/Shoot/A"]
-
 [editable path="Sounds/Shoot/B"]
-
 [editable path="Sounds/Shoot/C"]
