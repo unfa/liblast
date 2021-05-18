@@ -27,10 +27,13 @@ script = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = null
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera" type="Camera3D" parent="Head"]
 transform = Transform( 1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0, 0, 0 )
 current = true
 fov = 90.0
+script = null
+
+[node name="Hand" type="Node3D" parent="Head/Camera"]
 script = null
 
 [node name="Body" type="CollisionShape3D" parent="."]
@@ -40,8 +43,5 @@ script = null
 [node name="Feet" type="CollisionShape3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
 shape = SubResource( 3 )
-script = null
-
-[node name="GroundCheck" type="RayCast3D" parent="."]
-target_position = Vector3( 0, -1.5, 0 )
+disabled = true
 script = null

@@ -1,24 +1,32 @@
 extends KinematicBody3D
 
 @export var mouse_sensitivity := 0.35
-@export var move_speed := 15
+#var speed := 15
 
 @onready var head = $Head
-@onready var ground_check = $GroundCheck
 
-
-var move_direction := Vector3.ZERO
-var accel_h := 12
-var accel_air := 1
-var accel_ground := 12
+var direction := Vector3.ZERO
+var accel := 0
+var speed := 0
+var medium = "ground"
+var accel_type := {
+	"ground": 12,
+	"air": 1,
+	"water": 4
+	}
+var speed_type := {
+	"ground": 15,
+	"air": 15,
+	"water": 7.5
+	}
 var gravity := 28
 var jump := 14
 
-var vel_h := Vector3.ZERO
+var velocity := Vector3.ZERO
 var movement := Vector3.ZERO
 var gravity_vec := Vector3.ZERO
-var ground_contact := false
 var slide := Vector3.ZERO
+var snap := Vector3.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,51 +52,43 @@ func _input(event) -> void:
 	aim(event)
 	
 func _physics_process(delta):
-	move_direction = Vector3.ZERO
+	direction = Vector3.ZERO
 	
-	if ground_check.is_colliding():
-		ground_contact = true
+	if is_on_floor():
+		snap = -get_floor_normal()
+		medium = "ground"
+		gravity_vec = Vector3.ZERO
 	else:
-		ground_contact = false
-	
-	if not is_on_floor():
+		snap = Vector3.DOWN
+		medium = "air"
 		gravity_vec += Vector3.DOWN * gravity * delta
-		accel_h = accel_air
-		print("AIR")
-	elif is_on_floor() and ground_contact:
-		accel_h = accel_ground
-		print("FLOOR")
-		gravity_vec = -get_floor_normal() * gravity
-	else:
-		print("OTHER")
-		accel_h = accel_ground
-		#gravity_vec = -get_floor_normal()
-		gravity_vec = Vector3.DOWN * gravity * delta
 		
-	if Input.is_action_just_pressed("move_jump") and (is_on_floor() or ground_contact):
+	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+		snap = Vector3.ZERO
 		gravity_vec = Vector3.UP * jump
 	
 	if Input.is_action_pressed("move_forward"):
-		move_direction -= transform.basis.z
+		direction -= transform.basis.z
 	if Input.is_action_pressed("move_backward"):
-		move_direction += transform.basis.z
+		direction += transform.basis.z
 	if Input.is_action_pressed("move_left"):
-		move_direction -= transform.basis.x
+		direction -= transform.basis.x
 	if Input.is_action_pressed("move_right"):
-		move_direction += transform.basis.x
+		direction += transform.basis.x
 	
-	if move_direction.length() > 0: # normalized() will return a null
-		move_direction = move_direction.normalized()
+	if direction.length() > 0: # normalized() will return a null
+		direction = direction.normalized()
 	
-	vel_h = vel_h.lerp(move_direction * move_speed, accel_h * delta)
+	speed = speed_type[medium]
+	accel = accel_type[medium]
 	
-	movement.z = vel_h.z + gravity_vec.z
-	movement.x = vel_h.x + gravity_vec.x
-	movement.y = gravity_vec.y
+	velocity = velocity.lerp(direction * speed, accel * delta)
 	
-	slide = move_and_slide(movement, Vector3.UP, )
+	movement = velocity + gravity_vec
 	
-	if not is_on_floor():
-		vel_h.x = slide.x
-		vel_h.z = slide.z
+	slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
+	
+	if not is_on_floor(): # while in mid-air collisions affect momentum
+		velocity.x = slide.x
+		velocity.z = slide.z
 		gravity_vec.y = slide.y
