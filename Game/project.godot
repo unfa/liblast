@@ -16,71 +16,88 @@ config/icon="res://icon.png"
 
 [input]
 
-player_forward={
+move_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":87,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":83,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":65,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":68,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":32,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_crouch={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":16777238,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+trigger_primary={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+ ]
+}
+trigger_secondary={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+ ]
+}
+view_zoom={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":16777240,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_special={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"store_command":true,"alt":false,"shift":false,"meta":false,"command":false,"pressed":false,"keycode":16777237,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+weapon_previous={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_backward={
+weapon_next={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_left={
+weapon_reload={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_right={
+weapon_swap={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_jump={
+weapon_1={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_crouch={
+weapon_2={
 "deadzone": 0.5,
 "events": [  ]
 }
-player_trigger_primary={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_trigger_secondary={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_zoom={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_jetpack={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_weapon_previous={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_weapon_next={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_weapon_reload={
-"deadzone": 0.5,
-"events": [  ]
-}
-player_weapon_swap={
+weapon_3={
 "deadzone": 0.5,
 "events": [  ]
 }
 
 [rendering]
 
-shadows/directional_shadow/soft_shadow_quality=4
-shadows/shadows/soft_shadow_quality=4
 global_illumination/sdfgi/probe_ray_count=2
 global_illumination/sdfgi/frames_to_converge=0
 global_illumination/sdfgi/frames_to_update_lights=4
-anti_aliasing/quality/msaa=1
-anti_aliasing/quality/screen_space_aa=1
-anti_aliasing/quality/use_debanding=true
 environment/defaults/default_environment="res://default_env.tres"
