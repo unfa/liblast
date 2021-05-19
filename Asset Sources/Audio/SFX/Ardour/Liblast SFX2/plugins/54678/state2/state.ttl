@@ -8,7 +8,7 @@
 
 <>
 	a pset:Preset ;
-	lv2:appliesTo <http://gareus.org/oss/lv2/fil4#mono> ;
+	lv2:appliesTo <http://gareus.org/oss/lv2/fil4#stereo> ;
 	state:state [
 		<http://gareus.org/oss/lv2/fil4#dbscale> "30.0"^^xsd:float ;
 		<http://gareus.org/oss/lv2/fil4#fftgain> "0.0"^^xsd:float ;

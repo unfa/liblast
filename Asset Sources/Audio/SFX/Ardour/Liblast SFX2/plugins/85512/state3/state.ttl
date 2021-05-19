@@ -12,7 +12,7 @@
 	state:state [
 		<http://gareus.org/oss/lv2/fil4#dbscale> "30.0"^^xsd:float ;
 		<http://gareus.org/oss/lv2/fil4#fftgain> "0.0"^^xsd:float ;
-		<http://gareus.org/oss/lv2/fil4#fftmode> "4609"^^xsd:int ;
+		<http://gareus.org/oss/lv2/fil4#fftmode> "4613"^^xsd:int ;
 		<http://gareus.org/oss/lv2/fil4#fftchannel> "-1"^^xsd:int ;
 		<http://gareus.org/oss/lv2/fil4#uiscale> "1.0"^^xsd:float ;
 		<http://gareus.org/oss/lv2/fil4#kbtuning> "440.0"^^xsd:float
