@@ -2,19 +2,18 @@
 
 [ext_resource path="res://Classes/UI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Maps/DM1/DM1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Classes/UI/CharacterSelect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PlayerListContainer.gd" type="Script" id=5]
 [ext_resource path="res://Classes/UI/TextChat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Maps/Village/Level_Village.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
 SERVER_IP = "127.0.0.1"
 
-[node name="Players" type="Spatial" parent="."]
+[node name="Level" parent="." instance=ExtResource( 7 )]
 
-[node name="Level" parent="." instance=ExtResource( 3 )]
-visible = false
+[node name="Players" type="Spatial" parent="."]
 
 [node name="MenuContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -326,7 +325,6 @@ __meta__ = {
 visible = false
 margin_top = -264.542
 margin_bottom = -80.5416
-
 [connection signal="pressed" from="MenuContainer/MainMenu/QuickConnect" to="." method="join_test_server"]
 [connection signal="pressed" from="MenuContainer/MainMenu/Connect" to="." method="open_menu" binds= [ "ConnectMenu" ]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Disconnect" to="." method="free_client"]

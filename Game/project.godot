@@ -127,8 +127,8 @@ PlayerZoom={
 
 [rendering]
 
-quality/shadow_atlas/cubemap_size=1024
 quality/voxel_cone_tracing/high_quality=true
+environment/default_environment="res://default_env.tres"
+quality/shadow_atlas/cubemap_size=1024
 quality/filters/use_fxaa=true
 quality/filters/use_debanding=true
-environment/default_environment="res://default_env.tres"

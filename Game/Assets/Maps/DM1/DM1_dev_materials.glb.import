@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Player.gltf-b4659b9a4d21f98aebd8322b4effa5c1.scn"
+path="res://.import/DM1_dev_materials.glb-d5aeb8078fa9c60969b596a4649ee557.scn"
 
 [deps]
 
-source_file="res://Assets/Characters/Default/Player.gltf"
-dest_files=[ "res://.import/Player.gltf-b4659b9a4d21f98aebd8322b4effa5c1.scn" ]
+source_file="res://Assets/Maps/DM1/DM1_dev_materials.glb"
+dest_files=[ "res://.import/DM1_dev_materials.glb-d5aeb8078fa9c60969b596a4649ee557.scn" ]
 
 [params]
 
@@ -16,7 +16,6 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
-nodes/use_legacy_names=true
 materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true
