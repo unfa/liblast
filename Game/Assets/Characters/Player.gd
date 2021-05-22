@@ -13,12 +13,12 @@ extends KinematicBody3D
 @onready var vignette = hud.get_node("Vignette")
 
 var base_fov = 90
-var view_zoom := 1.0 :
+var view_zoom := .0 :
 	set(zoom):
 		view_zoom = zoom
-		camera.fov = base_fov / (zoom * 4)
-		crosshair.modulate.a = 1 - (zoom - 1) * 2
-		vignette.material["shader_param/Factor"] = zoom
+		camera.fov = base_fov / ((zoom + 1) * 2)
+		#crosshair.modulate.a = 1 - (zoom - 1) * 2
+		#vignette.modulate.a = zoom
 
 var direction := Vector3.ZERO
 var accel := 0
@@ -82,14 +82,12 @@ func _input(event) -> void:
 func _physics_process(delta):
 	direction = Vector3.ZERO
 	
-	snap = Vector3.ZERO
-	
 	if is_on_floor() and ground_check.is_colliding():
-		#snap = -get_floor_normal()
+		snap = -get_floor_normal()
 		medium = "ground"
 		gravity_vec = Vector3.ZERO
 	else:
-		#snap = Vector3.DOWN
+		snap = Vector3.DOWN
 		medium = "air"
 		gravity_vec += Vector3.DOWN * gravity * delta
 		
