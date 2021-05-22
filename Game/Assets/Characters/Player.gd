@@ -4,6 +4,7 @@ extends KinematicBody3D
 #var speed := 15
 
 @onready var head = $Head
+@onready var ground_check = $GroundCheck
 
 var direction := Vector3.ZERO
 var accel := 0
@@ -54,7 +55,7 @@ func _input(event) -> void:
 func _physics_process(delta):
 	direction = Vector3.ZERO
 	
-	if is_on_floor():
+	if is_on_floor() and ground_check.is_colliding():
 		snap = -get_floor_normal()
 		medium = "ground"
 		gravity_vec = Vector3.ZERO

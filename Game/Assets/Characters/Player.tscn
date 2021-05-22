@@ -15,7 +15,7 @@ radius = 0.25
 height = 0.5
 
 [node name="Player" type="KinematicBody3D"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0 )
 script = ExtResource( 1 )
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -44,4 +44,10 @@ script = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0 )
 shape = SubResource( 3 )
 disabled = true
+script = null
+
+[node name="GroundCheck" type="RayCast3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+target_position = Vector3( 0, -1.1, 0 )
+debug_shape_thickness = 5.0
 script = null
