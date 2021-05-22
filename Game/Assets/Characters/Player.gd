@@ -17,8 +17,8 @@ var view_zoom := .0 :
 	set(zoom):
 		view_zoom = zoom
 		camera.fov = base_fov / ((zoom + 1) * 2)
-		#crosshair.modulate.a = 1 - (zoom - 1) * 2
-		#vignette.modulate.a = zoom
+		crosshair.modulate.a = 1 - (zoom - 1) * 2
+		vignette.modulate.a = zoom
 
 var direction := Vector3.ZERO
 var accel := 0
