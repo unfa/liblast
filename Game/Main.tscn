@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/HUD/Crosshair.png" type="Texture2D" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/HUD/Crosshair.gd" type="Script" id=4]
 [ext_resource path="res://Assets/SFX/UI_Confirm_Hit.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SFX/UI_Confirm_Kill.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Props/BeerCan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/HUD/Vignette.png" type="Texture2D" id=8]
 
 [sub_resource type="PhysicalSkyMaterial" id=1]
 
@@ -59,7 +61,23 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "Hit"
+resource_name = "Hide"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Crosshair:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -89,8 +107,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array( 0 )
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Kill"
+[sub_resource type="Animation" id=9]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -119,6 +136,90 @@ tracks/1/keys = {
 } ],
 "times": PackedFloat32Array( 0 )
 }
+
+[sub_resource type="Animation" id=10]
+resource_name = "Show"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Crosshair:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="VisualShaderNodeFloatUniform" id=11]
+default_input_values = [  ]
+uniform_name = "Factor"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeInput" id=12]
+output_port_for_preview = 0
+default_input_values = [  ]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeMix" id=13]
+default_input_values = [ 0, Vector3( 1, 1, 1 ), 1, Vector3( 1, 1, 1 ), 2, 0.5 ]
+op_type = 2
+
+[sub_resource type="VisualShader" id=14]
+code = "shader_type canvas_item;
+render_mode blend_mul;
+
+uniform float Factor : hint_range(0, 1) = 0;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:3
+	vec3 n_out3p0 = COLOR.rgb;
+
+// FloatUniform:2
+	float n_out2p0 = Factor;
+
+// Mix:4
+	vec3 n_in4p0 = vec3(1.00000, 1.00000, 1.00000);
+	vec3 n_out4p0 = mix(n_in4p0, n_out3p0, n_out2p0);
+
+// Output:0
+	COLOR.rgb = n_out4p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -113, 35 )
+version = "4.0"
+mode = 1
+modes/blend = 3
+flags/light_only = false
+nodes/fragment/0/position = Vector2( 400, 180 )
+nodes/fragment/2/node = SubResource( 11 )
+nodes/fragment/2/position = Vector2( -440, 300 )
+nodes/fragment/3/node = SubResource( 12 )
+nodes/fragment/3/position = Vector2( -400, 120 )
+nodes/fragment/4/node = SubResource( 13 )
+nodes/fragment/4/position = Vector2( 60, 180 )
+nodes/fragment/connections = PackedInt32Array( 4, 0, 0, 0, 2, 0, 4, 2, 3, 0, 4, 1 )
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/Factor = 0.0
 
 [node name="Game" type="Node3D"]
 script = null
@@ -170,7 +271,6 @@ __meta__ = {
 }
 
 [node name="Crosshair" type="TextureRect" parent="HUD/Crosshair"]
-modulate = Color( 1, 0.716667, 0, 1 )
 texture_filter = 2
 anchor_left = 0.5
 anchor_top = 0.5
@@ -191,14 +291,28 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Crosshair"]
 autoplay = "Default"
 anims/Default = SubResource( 6 )
-anims/Hit = SubResource( 7 )
-anims/Kill = SubResource( 8 )
+anims/Hide = SubResource( 7 )
+anims/Hit = SubResource( 8 )
+anims/Kill = SubResource( 9 )
+anims/Show = SubResource( 10 )
 blend_times = [  ]
 script = null
 
 [node name="Hit_Confirmation" type="AudioStreamPlayer" parent="HUD/Crosshair"]
 stream = ExtResource( 6 )
 script = null
+
+[node name="Vignette" type="TextureRect" parent="HUD"]
+material = SubResource( 15 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 7
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -208,5 +322,8 @@ extents = Vector3( 33, 13, 29 )
 box_projection = true
 enable_shadows = true
 script = null
+
+[node name="BeerCan" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 11, -3 )
 
 [editable path="DM1"]

@@ -4,7 +4,21 @@ extends KinematicBody3D
 #var speed := 15
 
 @onready var head = $Head
+@onready var camera = $Head/Camera
+@onready var tween = $Head/Camera/Tween
 @onready var ground_check = $GroundCheck
+
+@onready var hud = get_tree().root.find_node("HUD", true, false)
+@onready var crosshair = hud.get_node("Crosshair")
+@onready var vignette = hud.get_node("Vignette")
+
+var base_fov = 90
+var view_zoom := 1.0 :
+	set(zoom):
+		view_zoom = zoom
+		camera.fov = base_fov / (zoom * 4)
+		crosshair.modulate.a = 1 - (zoom - 1) * 2
+		vignette.material["shader_param/Factor"] = zoom
 
 var direction := Vector3.ZERO
 var accel := 0
@@ -31,15 +45,16 @@ var snap := Vector3.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	view_zoom = .0
 
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
 	
 	if mouse_motion:
-		rotation_degrees.y -= mouse_motion.relative.x * mouse_sensitivity
+		rotation_degrees.y -= mouse_motion.relative.x * mouse_sensitivity / view_zoom
 		
 		var current_tilt: float = head.rotation_degrees.x
-		current_tilt -= mouse_motion.relative.y * mouse_sensitivity
+		current_tilt -= mouse_motion.relative.y * mouse_sensitivity / view_zoom
 		head.rotation_degrees.x = clamp(current_tilt, -90, 90)
 
 func _input(event) -> void:
@@ -49,18 +64,32 @@ func _input(event) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
+	
+	if Input.is_action_just_pressed("view_zoom"):
+		#tween.stop_all()
+		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		crosshair.hide()
+	
+	if Input.is_action_just_released("view_zoom"):
+		#tween.stop_all()
+		tween.interpolate_property(self, "view_zoom", view_zoom, 0.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
+		crosshair.show()
+		
 	aim(event)
 	
 func _physics_process(delta):
 	direction = Vector3.ZERO
 	
+	snap = Vector3.ZERO
+	
 	if is_on_floor() and ground_check.is_colliding():
-		snap = -get_floor_normal()
+		#snap = -get_floor_normal()
 		medium = "ground"
 		gravity_vec = Vector3.ZERO
 	else:
-		snap = Vector3.DOWN
+		#snap = Vector3.DOWN
 		medium = "air"
 		gravity_vec += Vector3.DOWN * gravity * delta
 		
@@ -89,7 +118,7 @@ func _physics_process(delta):
 	
 	slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
 	
-	if not is_on_floor(): # while in mid-air collisions affect momentum
+	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = slide.x
 		velocity.z = slide.z
 		gravity_vec.y = slide.y
