@@ -78,7 +78,7 @@ func _input(event) -> void:
 		tween.remove_all()
 		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
-			
+		
 	aim(event)
 	
 func _physics_process(delta):
@@ -148,8 +148,7 @@ func _physics_process(delta):
 	#			climb_tween.interpolate_property(body, "shape/translation.y", body.translation.y, body.translation.y - (climb / 2), 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	#			climb_tween.start()
 	
-	
-	if not is_on_floor(): # while in mid-air collisions affect momentum
+	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = slide.x
 		velocity.z = slide.z
 		gravity_vec.y = slide.y

@@ -33,6 +33,9 @@ current = true
 fov = 90.0
 script = null
 
+[node name="Tween" type="Tween" parent="Head/Camera"]
+script = null
+
 [node name="Hand" type="Node3D" parent="Head/Camera"]
 script = null
 

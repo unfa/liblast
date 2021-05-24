@@ -100,4 +100,5 @@ weapon_3={
 global_illumination/sdfgi/probe_ray_count=2
 global_illumination/sdfgi/frames_to_converge=0
 global_illumination/sdfgi/frames_to_update_lights=4
+anti_aliasing/quality/use_debanding=true
 environment/defaults/default_environment="res://default_env.tres"
