@@ -5,6 +5,7 @@ extends KinematicBody3D
 
 @onready var hud = get_tree().root.find_node("HUD", true, false)
 @onready var crosshair = hud.get_node("Crosshair")
+@onready var vignette = hud.get_node("Vignette")
 @onready var head = $Head
 @onready var camera = $Head/Camera
 @onready var tween = $Head/Camera/Tween
@@ -20,7 +21,8 @@ var view_zoom := 1.0 :
 	set(zoom):
 		view_zoom = zoom
 		camera.fov = base_fov / zoom
-		crosshair.modulate.a = 1 - (zoom - 1)
+		crosshair.modulate.a = clamp(1 - (zoom - 1), 0, 1)
+		vignette.modulate.a = (zoom - 1) / 3
 
 var climb_height := 1
 
