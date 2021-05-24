@@ -70,12 +70,12 @@ func _input(event) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
 	if Input.is_action_just_pressed("view_zoom"):
-		#tween.stop_all()
+		tween.remove_all()
 		tween.interpolate_property(self, "view_zoom", view_zoom, 4.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 	
 	if Input.is_action_just_released("view_zoom"):
-		#tween.stop_all()
+		tween.remove_all()
 		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 			
