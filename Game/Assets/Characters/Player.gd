@@ -14,6 +14,14 @@ extends KinematicBody3D
 @onready var climb_tween = $ClimbTween
 @onready var climb_check = $ClimbCheck
 @onready var body = $Body
+@onready var mesh = $Mesh
+
+@onready var body_height = body.shape.height
+@onready var body_y = body.translation.y
+@onready var mesh_height = mesh.mesh.mid_height
+@onready var mesh_y = mesh.translation.y
+@onready var climb_check_y = climb_check.translation.y
+@onready var ground_check_y = ground_check.translation.y
 
 
 var base_fov = 90
@@ -24,7 +32,20 @@ var view_zoom := 1.0 :
 		crosshair.modulate.a = clamp(1 - (zoom - 1), 0, 1)
 		vignette.modulate.a = (zoom - 1) / 3
 
-var climb_height := 1
+var climb_height := 0.75
+var climb_time := 0.15
+var climb_state := 0.0 :
+	set(factor):
+		#print("climb_state is now ", factor)
+		climb_state = factor
+		body.shape.height = body_height - factor * climb_height
+		body.translation.y = body_y + factor * climb_height / 2
+		
+		mesh.mesh.mid_height = mesh_height - factor * climb_height
+		mesh.translation.y = mesh_y + factor * climb_height / 2
+		
+		ground_check.translation.y = ground_check_y + factor * climb_height / 2
+		climb_check.translation.y = climb_check_y + factor * climb_height / 2
 
 var direction := Vector3.ZERO
 var accel := 0
@@ -120,37 +141,27 @@ func _physics_process(delta):
 	
 	slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
 	
-	# (stair) climbing
-	
-	return 0
-	
-	if get_slide_count() > 1:
-		var hit_wall = false
-		for i in range(0, get_slide_count()):
-			if get_slide_collision(i).position.y > global_transform.origin.y:
-				hit_wall = true
-				print("hit a wall!")
-				break
-		
-		if not hit_wall:
-			print("didn't hit a wall")
-		else:
-			var climb_test_start = global_transform.translated(Vector3(0, climb_height, 0))
-			var climb_test_step =  Vector3(0,0,-0.1).rotated(Vector3.UP, rotation.y)
-			if not test_move(climb_test_start, climb_test_step): # no collision
-				var step = climb_check.get_collision_point().y
-				var start = global_transform.origin.y
-				print("step: ", step, " start: ", start)
-				global_transform.origin.y = step
-	#			var climb = start - step
-	#			body.shape.height -= climb
-	#			body.translation.y +=  climb / 2
-	#
-	#			climb_tween.interpolate_property(body, "shape/height", body.shape.height, body.shape.height + climb, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	#			climb_tween.interpolate_property(body, "shape/translation.y", body.translation.y, body.translation.y - (climb / 2), 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	#			climb_tween.start()
-	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = slide.x
 		velocity.z = slide.z
 		gravity_vec.y = slide.y
+		
+	# (stair) climbing
+	
+	if get_slide_count() > 1 and climb_check.is_colliding():
+		#print("climb started at climb state: ", climb_state)
+		var test_y = climb_height * (1 - climb_state)
+		#print("test_y: ", test_y)
+		var climb_test_start = global_transform.translated(Vector3(0, test_y, 0))
+		var climb_test_step =  Vector3(0,0,-0.1).rotated(Vector3.UP, rotation.y)
+		if not test_move(climb_test_start, climb_test_step): # no collision
+			var step = climb_check.get_collision_point().y
+			var start = global_transform.origin.y
+#			print("step: ", step, " start: ", start)
+			global_transform.origin.y += climb_height * climb_state * 2
+			climb_state = clamp((step - start) / climb_height, 0, 1)
+			#print("climb state to start: ", climb_state)
+#			print("Climb height: ", step - start, " Climb state: ", climb_state)
+			climb_tween.remove_all()
+			climb_tween.interpolate_property(self, "climb_state", climb_state, 0.0, climb_time, Tween.TRANS_CUBIC, Tween.EASE_IN)
+			climb_tween.start()

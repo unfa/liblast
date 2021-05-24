@@ -60,9 +60,13 @@ debug_shape_thickness = 5.0
 script = null
 
 [node name="ClimbCheck" type="RayCast3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00905, -0.7 )
-target_position = Vector3( 0, -2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60905, -0.5 )
+target_position = Vector3( 0, -1.35, 0 )
 script = null
 
 [node name="ClimbTween" type="Tween" parent="."]
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3 )
 script = null
