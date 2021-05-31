@@ -23,7 +23,6 @@ extends KinematicBody3D
 @onready var climb_check_y = climb_check.translation.y
 @onready var ground_check_y = ground_check.translation.y
 
-
 var base_fov = 90
 var view_zoom := 1.0 :
 	set(zoom):
@@ -158,8 +157,8 @@ func _physics_process(delta):
 			var step = climb_check.get_collision_point().y
 			var start = global_transform.origin.y
 #			print("step: ", step, " start: ", start)
-			global_transform.origin.y += climb_height * climb_state * 2
 			climb_state = clamp((step - start) / climb_height, 0, 1)
+			global_transform.origin.y += climb_height * climb_state
 			#print("climb state to start: ", climb_state)
 #			print("Climb height: ", step - start, " Climb state: ", climb_state)
 			climb_tween.remove_all()

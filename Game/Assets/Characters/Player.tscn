@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Characters/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.4
@@ -37,7 +38,10 @@ script = null
 script = null
 
 [node name="Hand" type="Node3D" parent="Head/Camera"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.3, -0.4, -0.6 )
 script = null
+
+[node name="Handgun" parent="Head/Camera/Hand" instance=ExtResource( 2 )]
 
 [node name="Tween" type="Tween" parent="Head/Camera"]
 script = null
