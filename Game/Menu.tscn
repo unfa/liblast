@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="VBoxContainer"]
+offset_left = 475.0
+offset_top = 269.0
+offset_right = 548.0
+offset_bottom = 331.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+offset_right = 73.0
+offset_bottom = 29.0
+text = "back
+"
+script = null
+
+[connection signal="pressed" from="Back" to="." method="go_back"]

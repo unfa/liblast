@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GUI.gd" type="Script" id=1]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=2]
+
+[node name="GUI" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="." instance=ExtResource( 2 )]
+offset_left = 477.0
+offset_top = 252.0
+offset_right = 547.0
+offset_bottom = 347.0
+
+[node name="Options" type="Button" parent="MainMenu"]
+offset_top = 33.0
+offset_right = 70.0
+offset_bottom = 62.0
+text = "options"
+script = null
+
+[node name="Quit" type="Button" parent="MainMenu"]
+offset_top = 66.0
+offset_right = 70.0
+offset_bottom = 95.0
+text = "quit"
+script = null
+
+[connection signal="pressed" from="MainMenu/Options" to="MainMenu" method="open_menu" binds= [ "res://OptionsMenu.tscn" ]]
+[connection signal="pressed" from="MainMenu/Quit" to="." method="quit_game"]
