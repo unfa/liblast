@@ -1,20 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GraphicsMenu.gd" type="Script" id=2]
+[ext_resource path="res://MenuCheckButton.tscn" type="PackedScene" id=3]
 
 [node name="GraphicsMenu" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Fullscreen" type="CheckButton" parent="." index="0"]
-offset_right = 158.0
+[node name="Fullscreen" parent="." index="0" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 76.0
 offset_bottom = 40.0
-text = "Fullscreen"
-script = null
+label = "Fullscreen"
 
 [node name="Back" parent="." index="1"]
 offset_top = 44.0
-offset_right = 158.0
+offset_right = 76.0
 offset_bottom = 73.0
 
-[connection signal="toggled" from="Fullscreen" to="." method="toggle_fullscreen"]
+[connection signal="data_changed" from="Fullscreen" to="." method="toggle_fullscreen"]
