@@ -1,18 +1,21 @@
 extends Node
 
-enum GameFocus {IN_MENU, PLAYING, TYPING, AFK}
+enum GameFocus {MENU, GAME, CHAT, AWAY}
 
-var mode = GameFocus.IN_MENU
+@onready var gui = $GUI
+@onready var player = $Level/Player
+
+var focus = GameFocus.MENU
 
 func _input(event) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		if mode == GameFocus.PLAYING:
+		if focus == GameFocus.GAME:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			$CanvasLayer/GUI.show()
-			$Level/Player.input_active = false
-			mode = GameFocus.IN_MENU
-		elif mode == GameFocus.IN_MENU:
+			gui.show()
+			player.input_active = false
+			focus = GameFocus.MENU
+		elif focus == GameFocus.MENU:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			$CanvasLayer/GUI.hide()
-			$Level/Player.input_active = true
-			mode = GameFocus.PLAYING
+			gui.hide()
+			player.input_active = true
+			focus = GameFocus.GAME

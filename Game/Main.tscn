@@ -1,16 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://Assets/HUD/HUD.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 5
-script = null
+[node name="HUD" parent="." instance=ExtResource( 4 )]
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="GUI" parent="." instance=ExtResource( 2 )]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
