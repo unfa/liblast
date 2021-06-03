@@ -3,7 +3,9 @@ extends Node
 enum GameFocus {MENU, GAME, CHAT, AWAY}
 
 @onready var gui = $GUI
+@onready var hud = $HUD
 @onready var player = $Level/Player
+@onready var chat = hud.get_node("Chat")
 
 var focus = GameFocus.MENU
 
