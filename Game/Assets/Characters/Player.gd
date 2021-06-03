@@ -23,6 +23,8 @@ extends KinematicBody3D
 @onready var climb_check_y = climb_check.translation.y
 @onready var ground_check_y = ground_check.translation.y
 
+var input_active = false
+
 var base_fov = 90
 var view_zoom := 1.0 :
 	set(zoom):
@@ -70,7 +72,7 @@ var slide := Vector3.ZERO
 var snap := Vector3.ZERO
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
 
 func aim(event) -> void:
@@ -84,13 +86,9 @@ func aim(event) -> void:
 		head.rotation_degrees.x = clamp(current_tilt, -90, 90)
 
 func _input(event) -> void:
+	if not input_active:
+		return
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
 	if Input.is_action_just_pressed("view_zoom"):
 		tween.remove_all()
 		tween.interpolate_property(self, "view_zoom", view_zoom, 4.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
@@ -102,7 +100,7 @@ func _input(event) -> void:
 		tween.start()
 		
 	aim(event)
-	
+
 func _physics_process(delta):
 	direction = Vector3.ZERO
 	
