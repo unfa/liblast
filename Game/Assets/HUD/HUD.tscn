@@ -206,8 +206,9 @@ __meta__ = {
 
 [node name="LineEdit" type="LineEdit" parent="Chat/VBoxContainer/Typing"]
 offset_left = 38.0
-offset_right = 108.0
+offset_right = 238.0
 offset_bottom = 33.0
+rect_min_size = Vector2( 200, 0 )
 context_menu_enabled = false
 virtual_keyboard_enabled = false
 shortcut_keys_enabled = false
@@ -218,3 +219,5 @@ script = null
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="text_entered" from="Chat/VBoxContainer/Typing/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]

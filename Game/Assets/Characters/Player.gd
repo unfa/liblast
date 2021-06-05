@@ -113,18 +113,19 @@ func _physics_process(delta):
 		medium = "air"
 		gravity_vec += Vector3.DOWN * gravity * delta
 		
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		snap = Vector3.ZERO
-		gravity_vec = Vector3.UP * jump
-	
-	if Input.is_action_pressed("move_forward"):
-		direction -= transform.basis.z
-	if Input.is_action_pressed("move_backward"):
-		direction += transform.basis.z
-	if Input.is_action_pressed("move_left"):
-		direction -= transform.basis.x
-	if Input.is_action_pressed("move_right"):
-		direction += transform.basis.x
+	if input_active:
+		if Input.is_action_just_pressed("move_jump") and is_on_floor():
+			snap = Vector3.ZERO
+			gravity_vec = Vector3.UP * jump
+		
+		if Input.is_action_pressed("move_forward"):
+			direction -= transform.basis.z
+		if Input.is_action_pressed("move_backward"):
+			direction += transform.basis.z
+		if Input.is_action_pressed("move_left"):
+			direction -= transform.basis.x
+		if Input.is_action_pressed("move_right"):
+			direction += transform.basis.x
 	
 	if direction.length() > 0: # normalized() will return a null
 		direction = direction.normalized()

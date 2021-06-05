@@ -13,3 +13,31 @@ script = ExtResource( 3 )
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
+
+[node name="NetworkTesting" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+offset_right = 100.0
+offset_bottom = -500.0
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="NetworkTesting"]
+offset_right = 100.0
+offset_bottom = 29.0
+text = "Host"
+script = null
+
+[node name="Connect" type="Button" parent="NetworkTesting"]
+offset_top = 33.0
+offset_right = 100.0
+offset_bottom = 62.0
+text = "Connect"
+script = null
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="NetworkTesting/Host" to="." method="_on_Host_pressed"]
+[connection signal="pressed" from="NetworkTesting/Connect" to="." method="_on_Connect_pressed"]
