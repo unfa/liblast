@@ -49,10 +49,11 @@ func _input(event) -> void:
 		if Input.is_action_just_pressed("say_all"):
 			main.focus = 2 #main.GameFocus.CHAT
 			state = 1 #ChatState.TYPING_ALL
-			
+			get_tree().get_root().set_input_as_handled()
 		if Input.is_action_just_pressed("say_team"):
 			main.focus = 2 #main.GameFocus.CHAT
 			state = 2 #ChatState.TYPING_TEAM
+			get_tree().get_root().set_input_as_handled()
 	elif Input.is_action_just_pressed("say_cancel"):
 			main.focus = 1 #main.GameFocus.GAME
 			state = 0 #ChatState.INACTIVE
