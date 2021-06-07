@@ -153,11 +153,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Chat"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -500.0
 offset_right = 300.0
-offset_bottom = 37.0
+offset_bottom = 507.0
 alignment = 2
 script = null
 __meta__ = {
@@ -165,15 +162,10 @@ __meta__ = {
 }
 
 [node name="ChatHistory" type="RichTextLabel" parent="Chat/VBoxContainer"]
-offset_top = 422.0
+offset_top = 37.0
 offset_right = 300.0
-offset_bottom = 537.0
-text = "text
-text
-text
-text
-text"
-fit_content_height = true
+offset_bottom = 507.0
+rect_min_size = Vector2( 0, 470 )
 scroll_active = false
 scroll_following = true
 custom_effects = [  ]
@@ -185,9 +177,9 @@ __meta__ = {
 
 [node name="Typing" type="HBoxContainer" parent="Chat/VBoxContainer"]
 visible = false
-offset_top = 504.0
-offset_right = 300.0
-offset_bottom = 537.0
+offset_top = 474.0
+offset_right = 339.0
+offset_bottom = 507.0
 script = null
 __meta__ = {
 "_edit_use_anchors_": false
@@ -195,8 +187,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Chat/VBoxContainer/Typing"]
 offset_top = 3.0
-offset_right = 34.0
+offset_right = 55.0
 offset_bottom = 29.0
+rect_min_size = Vector2( 55, 0 )
 text = "say: "
 structured_text_bidi_override_options = [  ]
 script = null
@@ -204,20 +197,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="Chat/VBoxContainer/Typing"]
-offset_left = 38.0
-offset_right = 238.0
+[node name="Editor" type="LineEdit" parent="Chat/VBoxContainer/Typing"]
+offset_left = 59.0
+offset_right = 339.0
 offset_bottom = 33.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 250, 0 )
+max_length = 80
+expand_to_text_length = true
 context_menu_enabled = false
 virtual_keyboard_enabled = false
 shortcut_keys_enabled = false
 selecting_enabled = false
 structured_text_bidi_override_options = [  ]
+placeholder_text = "ENTER to send, ESC to cancel"
+placeholder_alpha = 0.5
 caret_blink = true
 script = null
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="text_entered" from="Chat/VBoxContainer/Typing/LineEdit" to="Chat" method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="Chat/VBoxContainer/Typing/Editor" to="Chat" method="_on_LineEdit_text_entered"]
