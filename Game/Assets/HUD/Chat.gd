@@ -7,24 +7,7 @@ extends Control
 @onready var chat_editor = $VBoxContainer/Typing/Editor
 @onready var chat_label = $VBoxContainer/Typing/Label
 
-
-#class chat_message:
-#	var sender_id := 0
-#	var team := 0
-#	var message := ''
-#
-#	func _init(sender_id, team, message):
-#		self.sender_id = sender_id
-#		self.team = team
-#		self.message = message
-
-#@remotesync var message: chat_message:
-#	set(new_message):
-#		print("message changed : ", new_message)
-#		$VBoxContainer/ChatHistory.text += "\n" + str(new_message[0]) + ' : ' + new_message[2]
-
 enum ChatState {INACTIVE, TYPING_ALL, TYPING_TEAM}
-
 enum GameFocus {MENU, GAME, CHAT, AWAY} # copied from Main.gd TODO: delete this
 
 var state = ChatState.INACTIVE :
@@ -77,8 +60,7 @@ func _on_LineEdit_text_entered(new_text):
 	# RPC is currently not implemented in the engine
 	var sender_id = get_tree().get_network_unique_id()
 	var new_message = [sender_id, 0, new_text]
-	chat_message(sender_id, 0, new_text)
-	#chat_message.rpc(get_tree().get_network_unique_id(), $VBoxContainer/Typing/LineEdit.text)
+	rpc(&'chat_message',sender_id, 0, new_text)
 	chat_editor.text = ''
 	state = 0 #ChatState.INACTIVE
 	main.focus = 0 #main.GameFocus.GAME

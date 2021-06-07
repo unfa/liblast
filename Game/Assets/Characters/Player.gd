@@ -1,4 +1,4 @@
-extends KinematicBody3D
+extends CharacterBody3D
 
 @export var mouse_sensitivity := 0.35
 #var speed := 15
@@ -17,11 +17,11 @@ extends KinematicBody3D
 @onready var mesh = $Mesh
 
 @onready var body_height = body.shape.height
-@onready var body_y = body.translation.y
+@onready var body_y = body.position.y
 @onready var mesh_height = mesh.mesh.mid_height
-@onready var mesh_y = mesh.translation.y
-@onready var climb_check_y = climb_check.translation.y
-@onready var ground_check_y = ground_check.translation.y
+@onready var mesh_y = mesh.position.y
+@onready var climb_check_y = climb_check.position.y
+@onready var ground_check_y = ground_check.position.y
 
 var input_active = false
 
@@ -40,13 +40,13 @@ var climb_state := 0.0 :
 		#print("climb_state is now ", factor)
 		climb_state = factor
 		body.shape.height = body_height - factor * climb_height
-		body.translation.y = body_y + factor * climb_height / 2
+		body.position.y = body_y + factor * climb_height / 2
 		
 		mesh.mesh.mid_height = mesh_height - factor * climb_height
-		mesh.translation.y = mesh_y + factor * climb_height / 2
+		mesh.position.y = mesh_y + factor * climb_height / 2
 		
-		ground_check.translation.y = ground_check_y + factor * climb_height / 2
-		climb_check.translation.y = climb_check_y + factor * climb_height / 2
+		ground_check.position.y = ground_check_y + factor * climb_height / 2
+		climb_check.position.y = climb_check_y + factor * climb_height / 2
 
 var direction := Vector3.ZERO
 var accel := 0
@@ -66,10 +66,7 @@ var gravity := 28
 var jump := 14
 
 var velocity := Vector3.ZERO
-var movement := Vector3.ZERO
 var gravity_vec := Vector3.ZERO
-var slide := Vector3.ZERO
-var snap := Vector3.ZERO
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -135,14 +132,14 @@ func _physics_process(delta):
 	
 	velocity = velocity.lerp(direction * speed, accel * delta)
 	
-	movement = velocity + gravity_vec
-	
-	slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
+	linear_velocity = velocity + gravity_vec
+	#slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
+	move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
-		velocity.x = slide.x
-		velocity.z = slide.z
-		gravity_vec.y = slide.y
+		velocity.x = linear_velocity.x
+		velocity.z = linear_velocity.z
+		gravity_vec.y = linear_velocity.y
 		
 	# (stair) climbing
 	
