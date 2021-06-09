@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="SpawnPoint" type="Position3D"]
+script = null

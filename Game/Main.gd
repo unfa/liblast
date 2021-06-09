@@ -3,8 +3,11 @@ extends Node
 enum GameFocus {MENU, GAME, CHAT, AWAY}
 
 const NET_PORT = 12597
+const NET_SERVER = "liblast.unfa.xyz"
 
 var peer = NetworkedMultiplayerENet.new()
+
+var player_scene = preload("res://Assets/Characters/Player.tscn")
 
 @onready var gui = $GUI
 @onready var hud = $HUD
@@ -41,11 +44,17 @@ func _on_Host_pressed():
 	get_tree().network_peer = peer
 
 func _on_Connect_pressed():
-	peer.create_client('localhost', NET_PORT)
+	peer.create_client(NET_SERVER, NET_PORT)
 	get_tree().network_peer = peer
 	
 func _player_connected(id) -> void:
 	print("player connected, id: ", id)
+	var new_player = player_scene.instance()
+	new_player.set_network_master(id)
+	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % size($Map/SpawnPoints.get_children())]
+	new_player.name = id
+	new_player.global_transform = spawnpoint.global_transform
+	$Players.add_child(new_player)
 
 func _player_disconnected(id) -> void:
 	print("player disconnected, id: ", id)

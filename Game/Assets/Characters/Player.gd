@@ -23,8 +23,19 @@ extends CharacterBody3D
 @onready var climb_check_y = climb_check.position.y
 @onready var ground_check_y = ground_check.position.y
 
+class player_info:
+	var name: String
+	var team: int
+	var color: Color
+
+	func _init(name: String, team: int, color: Color):
+		self.name = name
+		self.team = team
+		self.color = color
+
 var input_active = false
 
+@remotesync var info = player_info.new("unfa", 0, Color("#CE0000"))
 var base_fov = 90
 var view_zoom := 1.0 :
 	set(zoom):
@@ -71,7 +82,7 @@ var gravity_vec := Vector3.ZERO
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
-
+	
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
 	
