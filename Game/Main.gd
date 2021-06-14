@@ -44,7 +44,7 @@ func _input(_event) -> void:
 			focus = GameFocus.GAME
 	
 	
-func create_player(id: int, is_local) -> void:
+func create_player(id: int, is_local: bool) -> void:
 	var new_player = player_scene.instance()
 	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % len($Map/SpawnPoints.get_children())]
 	new_player.name = str(id)
@@ -57,6 +57,8 @@ func create_player(id: int, is_local) -> void:
 		local_player.get_node("Head/Camera").current = true
 	else:
 		$Players.get_node(str(id) + "/Head/Camera").current = false
+		if local_player:
+			local_player.get_node("Head/Camera").current = true
 
 func _on_Host_pressed():
 	$NetworkTesting/Host.disabled = true

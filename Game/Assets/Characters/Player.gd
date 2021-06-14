@@ -82,9 +82,12 @@ var gravity_vec := Vector3.ZERO
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
-		
-	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_REMOTESYNC)
+
+	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
+	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
+	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
@@ -110,10 +113,11 @@ func _input(event) -> void:
 		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 		
-	aim(event)
-
+	rpc_unreliable(&'aim', event)
+	
 func _physics_process(delta):
 	rpc_unreliable(&'set_global_transform', global_transform)
+	head.rpc_unreliable(&'set_rotation', head.get_rotation())
 	
 	direction = Vector3.ZERO
 	
@@ -150,7 +154,8 @@ func _physics_process(delta):
 	
 	linear_velocity = velocity + gravity_vec
 	#slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
-	rpc(&"move_and_slide")
+	rpc_unreliable(&'set_linear_velocity', linear_velocity)
+	rpc_unreliable(&"move_and_slide")
 	#move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
