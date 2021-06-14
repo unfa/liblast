@@ -82,6 +82,9 @@ var gravity_vec := Vector3.ZERO
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
+		
+	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
 	
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
@@ -110,6 +113,8 @@ func _input(event) -> void:
 	aim(event)
 
 func _physics_process(delta):
+	rpc_unreliable(&'set_global_transform', global_transform)
+	
 	direction = Vector3.ZERO
 	
 	if is_on_floor() and ground_check.is_colliding():
@@ -145,7 +150,8 @@ func _physics_process(delta):
 	
 	linear_velocity = velocity + gravity_vec
 	#slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
-	move_and_slide()
+	rpc(&"move_and_slide")
+	#move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = linear_velocity.x

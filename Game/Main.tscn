@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/HUD/HUD.tscn" type="PackedScene" id=4]
@@ -16,6 +16,7 @@ script = ExtResource( 3 )
 script = null
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 
 [node name="NetworkTesting" type="VBoxContainer" parent="."]
 anchor_bottom = 1.0

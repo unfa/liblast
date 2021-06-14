@@ -1,7 +1,7 @@
 extends Control
 
 @onready var main = get_tree().get_root().get_node("Main")
-@onready var player = main.player
+@onready var player = main.local_player
 @onready var chat_history = $VBoxContainer/ChatHistory
 @onready var chat_typing = $VBoxContainer/Typing
 @onready var chat_editor = $VBoxContainer/Typing/Editor

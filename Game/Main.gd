@@ -3,7 +3,7 @@ extends Node
 enum GameFocus {MENU, GAME, CHAT, AWAY}
 
 const NET_PORT = 12597
-const NET_SERVER = "liblast.unfa.xyz"
+const NET_SERVER = "localhost"# "liblast.unfa.xyz"
 
 var peer = NetworkedMultiplayerENet.new()
 
@@ -11,8 +11,8 @@ var player_scene = preload("res://Assets/Characters/Player.tscn")
 
 @onready var gui = $GUI
 @onready var hud = $HUD
-@onready var player = $Level/Player
 @onready var chat = hud.get_node("Chat")
+var local_player: Node = null
 
 var focus = GameFocus.MENU :
 	set(new_focus):
@@ -20,15 +20,19 @@ var focus = GameFocus.MENU :
 			0:
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				gui.show()
-				player.input_active = false
+				if local_player:
+					local_player.input_active = false
 			1:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				gui.hide()
-				player.input_active = true
+				if local_player:
+					local_player.input_active = true
 			2:
-				player.input_active = false
+				if local_player:
+					local_player.input_active = false
 			3:
-				player.input_active = true
+				if local_player:
+					local_player.input_active = true
 
 		focus = new_focus
 
@@ -38,35 +42,58 @@ func _input(_event) -> void:
 			focus = GameFocus.MENU
 		elif focus == GameFocus.MENU:
 			focus = GameFocus.GAME
+	
+	
+func create_player(id: int, is_local) -> void:
+	var new_player = player_scene.instance()
+	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % len($Map/SpawnPoints.get_children())]
+	new_player.name = str(id)
+	new_player.global_transform = spawnpoint.global_transform
+	new_player.set_network_master(id)
+	$Players.add_child(new_player)
+	
+	if is_local:
+		local_player = $Players.get_node(str(id))
+		local_player.get_node("Head/Camera").current = true
+	else:
+		$Players.get_node(str(id) + "/Head/Camera").current = false
 
 func _on_Host_pressed():
+	$NetworkTesting/Host.disabled = true
+	$NetworkTesting/Connect.disabled = true
+	
 	peer.create_server(NET_PORT, 16)
 	get_tree().network_peer = peer
+	create_player(1, true)
 
 func _on_Connect_pressed():
+	$NetworkTesting/Host.disabled = true
+	$NetworkTesting/Connect.disabled = true
+	
 	peer.create_client(NET_SERVER, NET_PORT)
 	get_tree().network_peer = peer
 	
+	
 func _player_connected(id) -> void:
 	print("player connected, id: ", id)
-	var new_player = player_scene.instance()
-	new_player.set_network_master(id)
-	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % size($Map/SpawnPoints.get_children())]
-	new_player.name = id
-	new_player.global_transform = spawnpoint.global_transform
-	$Players.add_child(new_player)
+	create_player(id, false)
+
 
 func _player_disconnected(id) -> void:
 	print("player disconnected, id: ", id)
 	
+	
 func _connected_ok() -> void:
 	print("connected to server")
+	var id = get_tree().get_network_unique_id()
+	create_player(id, true)
 	
 func _connected_fail() -> void:
 	print("connection to server failed")
 	
 func _server_disconnected() -> void:
 	print("server disconnected")
+
 
 func _ready() -> void:
 	get_tree().connect("network_peer_connected", self._player_connected)
