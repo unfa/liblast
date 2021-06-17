@@ -16,6 +16,8 @@ extends CharacterBody3D
 @onready var body = $Body
 @onready var mesh = $Mesh
 
+@onready var weapon = $Head/Camera/Hand/Weapon
+
 @onready var body_height = body.shape.height
 @onready var body_y = body.position.y
 @onready var mesh_height = mesh.mesh.mid_height
@@ -114,6 +116,15 @@ func _input(event) -> void:
 		tween.start()
 		
 	rpc_unreliable(&'aim', event)
+	
+	if Input.is_action_just_pressed("trigger_primary"):
+		weapon.trigger(0, true)
+	elif Input.is_action_just_released("trigger_primary"):
+		weapon.trigger(0, false)
+	if Input.is_action_just_pressed("trigger_secondary"):
+		weapon.trigger(1, true)
+	elif Input.is_action_just_released("trigger_secondary"):
+		weapon.trigger(1, false)
 	
 func _physics_process(delta):
 	rpc_unreliable(&'set_global_transform', global_transform)
