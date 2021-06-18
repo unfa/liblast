@@ -25,7 +25,7 @@ extends CharacterBody3D
 @onready var climb_check_y = climb_check.position.y
 @onready var ground_check_y = ground_check.position.y
 
-class player_info:
+class PlayerInfo:
 	var name: String
 	var team: int
 	var color: Color
@@ -34,10 +34,9 @@ class player_info:
 		self.name = name
 		self.team = team
 		self.color = color
-
 var input_active = false
 
-@remotesync var info = player_info.new("unfa", 0, Color("#CE0000"))
+@remotesync var player_info: PlayerInfo
 var base_fov = 90
 var view_zoom := 1.0 :
 	set(zoom):
@@ -84,6 +83,13 @@ var gravity_vec := Vector3.ZERO
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
+	
+	# generate random names for testing
+	var player_name = ""
+	for i in range(0, 4):
+		player_name += ['a','b','c'][randi() % 2]
+	
+	player_info = PlayerInfo.new(player_name, 0, Color("#CE0000"))
 
 	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)

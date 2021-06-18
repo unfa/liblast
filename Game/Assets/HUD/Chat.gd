@@ -54,7 +54,8 @@ func _unhandled_input(_event) -> void:
 
 # doesn't work over network due to missing RPC implementation in Godot 4
 @remotesync func chat_message(sender_id: int, recipient_team, message: String) -> void:
-	chat_history.text += '\n' + str(sender_id) + " | " + message
+	var sender_name = main.get_node("Players").get_node(str(sender_id)).player_info.name
+	chat_history.text += '\n' + str(sender_name) + " | " + message
 
 func _on_LineEdit_text_entered(new_text):
 	# RPC is currently not implemented in the engine
