@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Weapons/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Weapons/VFX/Flash.png" type="Texture2D" id=3]
+[ext_resource path="res://Assets/Weapons/VFX/Flash good.png" type="Texture2D" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PackedFloat32Array( 0.00362319, 0.148551, 0.34058, 0.630435, 1 )
