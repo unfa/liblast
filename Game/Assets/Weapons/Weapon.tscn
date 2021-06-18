@@ -5,28 +5,31 @@
 [ext_resource path="res://Assets/Weapons/VFX/Flash.png" type="Texture2D" id=3]
 
 [sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0, 0.105072, 0.485507, 1 )
-colors = PackedColorArray( 1, 1, 1, 1, 1, 0.935276, 0.740205, 1, 1, 0.841919, 0.421875, 1, 0, 0, 0, 1 )
+offsets = PackedFloat32Array( 0.00362319, 0.148551, 0.34058, 0.630435, 1 )
+colors = PackedColorArray( 0, 0, 0, 1, 0.921875, 0.903307, 0.80304, 1, 0.867188, 0.723618, 0.342133, 1, 0.382812, 0.302671, 0.0897217, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
+width = 64
 
 [sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0 ), 0.0, 14.3675, 0, 0, Vector2( 0.214047, 0.990909 ), -0.869818, -0.869818, 0, 0, Vector2( 1, 0 ), -0.290291, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 9.39008, 0, 0, Vector2( 0.120401, 0.645455 ), 0.649118, 0.649118, 0, 0, Vector2( 1, 0.990909 ), -0.0393939, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
 [sub_resource type="ParticlesMaterial" id=5]
 lifetime_randomness = 0.01
+particle_flag_rotate_y = true
 direction = Vector3( -1, 0, 0 )
-spread = 15.0
+spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 7.0
-initial_velocity_random = 0.5
-damping = 4.0
+initial_velocity = 16.0
+initial_velocity_random = 0.9
+angular_velocity = 15.0
 angle = 360.0
 angle_random = 1.0
+scale_random = 0.2
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 anim_offset = 1.0
@@ -37,6 +40,7 @@ attractor_interaction_enabled = false
 blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
+albedo_color = Color( 1, 1, 1, 0.196078 )
 albedo_texture = ExtResource( 3 )
 billboard_mode = 3
 particles_anim_h_frames = 2
@@ -45,7 +49,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id=7]
 material = SubResource( 6 )
-size = Vector2( 0.5, 0.5 )
+size = Vector2( 0.6, 0.6 )
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource( 2 )
@@ -61,10 +65,11 @@ script = null
 [node name="Particles" type="GPUParticles3D" parent="Flash"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340809, 0.124171, 0 )
 emitting = false
-amount = 12
-lifetime = 0.2
+amount = 16
+lifetime = 0.15
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 60
 process_material = SubResource( 5 )
 draw_pass_1 = SubResource( 7 )
 script = null
