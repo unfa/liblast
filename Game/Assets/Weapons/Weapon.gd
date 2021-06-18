@@ -10,7 +10,7 @@ func trigger(index: int, active: bool) -> void:
 	print("Weapon " + str(name) + ", Trigger " + str(index) + ", active: " + str(active))
 	
 	if index == 0 and active:
-		$Flash/FlashParticles.emmiting = true
+		$Flash/Particles.emmiting = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,68 +1,51 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Weapons/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Weapons/VFX/Flash.png" type="Texture2D" id=3]
-
-[sub_resource type="Gradient" id=4]
-offsets = PackedFloat32Array( 0, 0.148551, 0.438406, 0.757246, 1 )
-colors = PackedColorArray( 1, 1, 1, 1, 1, 0.936768, 0.421875, 1, 0.90625, 0.568287, 0.240723, 1, 0.242188, 0.127472, 0.0652771, 1, 0, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
-
-[sub_resource type="Curve" id=6]
-_data = [ Vector2( 0, 0 ), 0.0, 12.0808, 0, 0, Vector2( 0.200669, 0.954545 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.63091, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=1]
+particle_flag_align_y = true
+direction = Vector3( -1, 0, 0 )
 spread = 15.0
-gravity = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, -9.3, 0 )
 initial_velocity = 5.0
-initial_velocity_random = 0.75
-damping = 4.0
-scale = 0.3
-scale_curve = SubResource( 7 )
-color_ramp = SubResource( 5 )
-anim_offset = 1.0
-anim_offset_random = 1.0
-attractor_interaction_enabled = false
+initial_velocity_random = 0.5
 
-[sub_resource type="StandardMaterial3D" id=3]
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0.0090909 ), 0.0, 37.0519, 0, 0, Vector2( 0.0820189, 1 ), -1.14279, -1.14279, 0, 0, Vector2( 1, 0 ), 0.110839, 0.0, 0, 0 ]
+
+[sub_resource type="StandardMaterial3D" id=2]
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color( 1, 0.898039, 0.439216, 1 )
-albedo_texture = ExtResource( 3 )
-texture_repeat = false
-disable_receive_shadows = true
-billboard_mode = 3
-particles_anim_h_frames = 2
-particles_anim_v_frames = 2
-particles_anim_loop = false
+albedo_color = Color( 1, 0.796078, 0.137255, 1 )
 
-[sub_resource type="QuadMesh" id=2]
-material = SubResource( 3 )
+[sub_resource type="RibbonTrailMesh" id=3]
+material = SubResource( 2 )
+shape = 0
+size = 0.02
+sections = 3
+curve = SubResource( 4 )
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="Model" parent="." instance=ExtResource( 1 )]
+[node name="Handgun" parent="." instance=ExtResource( 1 )]
 
-[node name="AnimationPlayer" parent="Model" index="4"]
+[node name="AnimationPlayer" parent="Handgun" index="4"]
 blend_times = [  ]
 
 [node name="Flash" type="Node3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353838, 0.125179, 0 )
 script = null
 
-[node name="FlashParticles" type="GPUParticles3D" parent="Flash"]
-transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="Particles" type="GPUParticles3D" parent="Flash"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340809, 0.124171, 0 )
+emitting = false
+amount = 16
 lifetime = 0.1
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 1 )
-draw_pass_1 = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
 script = null
 
-[editable path="Model"]
+[editable path="Handgun"]
