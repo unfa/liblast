@@ -6,11 +6,11 @@ extends Node3D
 
 #enum Trigger {TRIGGER_PRIMARY, TRIGGER_SECONDARY}
 
-func trigger(index: int, active: bool) -> void:
+@remotesync func trigger(index: int, active: bool) -> void:
 	print("Weapon " + str(name) + ", Trigger " + str(index) + ", active: " + str(active))
 	
 	if index == 0 and active:
-		$Flash/Particles.emmiting = true
+		$Flash/Particles.emitting = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

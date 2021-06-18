@@ -118,13 +118,13 @@ func _input(event) -> void:
 	rpc_unreliable(&'aim', event)
 	
 	if Input.is_action_just_pressed("trigger_primary"):
-		weapon.trigger(0, true)
+		weapon.rpc(&'trigger', 0, true)
 	elif Input.is_action_just_released("trigger_primary"):
-		weapon.trigger(0, false)
+		weapon.rpc(&'trigger', 0, false)
 	if Input.is_action_just_pressed("trigger_secondary"):
-		weapon.trigger(1, true)
+		weapon.rpc(&'trigger', 1, true)
 	elif Input.is_action_just_released("trigger_secondary"):
-		weapon.trigger(1, false)
+		weapon.rpc(&'trigger', 1, false)
 	
 func _physics_process(delta):
 	rpc_unreliable(&'set_global_transform', global_transform)
