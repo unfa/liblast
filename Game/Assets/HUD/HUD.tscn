@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/HUD/Vignette.png" type="Texture2D" id=1]
 [ext_resource path="res://Assets/HUD/Crosshair.png" type="Texture2D" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/SFX/UI_Confirm_Hit.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/HUD/Crosshair.gd" type="Script" id=5]
 [ext_resource path="res://Assets/HUD/Chat.gd" type="Script" id=6]
+[ext_resource path="res://Assets/HUD/Theme.tres" type="Theme" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Default"
@@ -166,10 +167,12 @@ offset_top = 37.0
 offset_right = 300.0
 offset_bottom = 507.0
 rect_min_size = Vector2( 0, 470 )
+theme = ExtResource( 7 )
+bbcode_enabled = true
 scroll_active = false
 scroll_following = true
 custom_effects = [  ]
-structured_text_bidi_override_options = [  ]
+structured_text_bidi_override_options = [ @"" ]
 script = null
 __meta__ = {
 "_edit_use_anchors_": false

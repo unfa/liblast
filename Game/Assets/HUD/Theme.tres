@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Fonts/Liberation Sans/LiberationSans-Italic.ttf" type="FontData" id=1]
+[ext_resource path="res://Assets/Fonts/Liberation Sans/LiberationSans-Bold.ttf" type="FontData" id=2]
+[ext_resource path="res://Assets/Fonts/Liberation Sans/LiberationMono-Regular.ttf" type="FontData" id=3]
+[ext_resource path="res://Assets/Fonts/Liberation Sans/LiberationSans-Regular.ttf" type="FontData" id=4]
+
+[sub_resource type="Font" id=1]
+data/0 = ExtResource( 2 )
+
+[sub_resource type="Font" id=2]
+data/0 = ExtResource( 1 )
+
+[sub_resource type="Font" id=3]
+data/0 = ExtResource( 1 )
+
+[sub_resource type="Font" id=4]
+data/0 = ExtResource( 3 )
+
+[sub_resource type="Font" id=5]
+data/0 = ExtResource( 4 )
+
+[resource]
+RichTextLabel/fonts/bold_font = SubResource( 1 )
+RichTextLabel/fonts/bold_italics_font = SubResource( 2 )
+RichTextLabel/fonts/italics_font = SubResource( 3 )
+RichTextLabel/fonts/mono_font = SubResource( 4 )
+RichTextLabel/fonts/normal_font = SubResource( 5 )
