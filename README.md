@@ -6,9 +6,10 @@ Libre Multiplayer FPS Game built with Godot game engine and a fully FOSS toolcha
 
 ## Rewrite Status
 
-The game is currently scheduled to be rewritten from scratch in Godot 4 once the first Alpha releasae is there.
-The current version of the game has served well as a prototype and a testbed to help us figure out what we want to do. We've also learned some important lessons on our mistakes.
-We wanted to take advantage of the improvement performance, features and workflow of Godot 4 and since the GDScript syntax is changing significantly - we've decided we'll take this opportunity to rebuild the game from scratch and improve our design.
+The game is currently being rewritten from scratch in Godot 4.
+The legacy branch contains the initial, Godot 3-based version of the game. This version of the game has served well as a prototype and a testbed to help us figure out what we want to do. We've also learned some important lessons on our mistakes.
+
+We wanted to take advantage of the improved performance, features and workflow of Godot 4 and since the GDScript syntax is changing significantly - we've decided we'll take this opportunity to rebuild the game from scratch and improve our design.
 
 Hence - if you'd like to contribute to the project, please get in touch first, as things are very much in flux right now, and we'd hate to have any effort wasted!
 
@@ -16,6 +17,22 @@ Hence - if you'd like to contribute to the project, please get in touch first, a
 
 If you want to talk to the devs and discuss the game in an instant manner, go here:
 https://chat.unfa.xyz/channel/liblast
+
+## Controls
+
+- WASD to walk around
+- mouse too look around
+- mouse 1 to shoot
+- space bar to jump
+- T to write to your team mates (not complete yet)
+- Y to write to all players on the server (not complete yet)
+
+Because of Godot 4's unstable nature, thing may not work. The gmae is being developed using the `v4.0.dev.calinou.94c31ba30` build of the engine.
+You can clone the Godot source code of the specified commit and it should work, though sometimes the project just won't load. That's the price of using unfinished software for production :D Once Godot 4 alpha is out, the development should be able to continue on a bit more smoothly.
+
+---
+
+# Stuff below applies only to the legacy branch
 
 ## Controls
 
