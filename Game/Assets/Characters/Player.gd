@@ -29,20 +29,20 @@ class PlayerInfo:
 	var name: String
 	var team: int
 	var color: Color
-	var is_typing: bool
+	var focus: int #"res://Main.gd".GameFocus.GAME
 
 	func _init(name: String, team: int, color: Color):
 		self.name = name
 		self.team = team
 		self.color = color
-		self.is_typing = false
+		self.focus = 0 #false
 		
 	func serialize():
 		return {
 			'name': self.name,
 			'team': str(self.team),
 			'color': self.color.to_html(),
-			'is_typing': self.is_typing,
+			'focus': self.focus,
 		}
 
 var input_active = false

@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Weapons/Handgun/Handgun.gltf" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Weapons/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Effects/Flame.png" type="Texture2D" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PackedFloat32Array( 0.00362319, 0.148551, 0.34058, 0.630435, 1 )
@@ -13,7 +12,7 @@ gradient = SubResource( 1 )
 width = 64
 
 [sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0 ), 0.0, 9.39008, 0, 0, Vector2( 0.120401, 0.645455 ), 0.649118, 0.649118, 0, 0, Vector2( 1, 0.990909 ), -0.0393939, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0 ), 0.0, 9.39008, 0, 0, Vector2( 0.0844156, 0.972727 ), 0.649118, 0.649118, 0, 0, Vector2( 1, 0 ), -0.0393939, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
@@ -24,9 +23,11 @@ particle_flag_rotate_y = true
 direction = Vector3( -1, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 16.0
+initial_velocity = 50.0
 initial_velocity_random = 0.9
-angular_velocity = 15.0
+angular_velocity = 1.0
+angular_velocity_random = 1.0
+damping = 8.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 0.2
@@ -41,7 +42,6 @@ blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color( 1, 1, 1, 0.196078 )
-albedo_texture = ExtResource( 3 )
 billboard_mode = 3
 particles_anim_h_frames = 2
 particles_anim_v_frames = 2
@@ -49,7 +49,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id=7]
 material = SubResource( 6 )
-size = Vector2( 0.6, 0.6 )
+size = Vector2( 0.3, 0.3 )
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource( 2 )
@@ -65,7 +65,6 @@ script = null
 [node name="Particles" type="GPUParticles3D" parent="Flash"]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340809, 0.124171, 0 )
 emitting = false
-amount = 16
 lifetime = 0.15
 one_shot = true
 explosiveness = 1.0
