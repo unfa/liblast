@@ -13,10 +13,9 @@ We wanted to take advantage of the improved performance, features and workflow o
 Hence - if you'd like to contribute to the project, please get in touch first, as things are very much in flux right now, and we'd hate to have any effort wasted!
 
 **DISCLAIMER: THE GAME IS IN VERY EARLY STAGES OF DEVELOPMENT.
-DO NOT EXPECT MUCH, AND DON'T BE SURPRISED IF IT DOES NOT WORK AT ALL
+DO NOT EXPECT MUCH, AND DON'T BE SURPRISED IF IT DOES NOT WORK AT ALL**
 
-PLEASE DO NOT REPORT ISSUES OR PROPOSE FEATURES AT THIS POINT IN TIME
-- IF YOU WANT TO HELP, GET IN TOUCH FIRST!**
+**PLEASE DO NOT REPORT ISSUES OR PROPOSE FEATURES AT THIS POINT IN TIME - IF YOU WANT TO HELP, GET IN TOUCH FIRST!**
 
 ## How to run the game
 
