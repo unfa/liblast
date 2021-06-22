@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 270.93335 270.93335"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   sodipodi:docname="Liblast logo 03.svg"
+   inkscape:export-filename="/data/Projects/Games/Liblast/Design/Liblast logo bg.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#181818"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.60399832"
+     inkscape:cx="299.66971"
+     inkscape:cy="485.9285"
+     inkscape:window-width="1920"
+     inkscape:window-height="1006"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g16576"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="px"
+     showguides="false"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="259.4941,179.9198"
+       orientation="-0.97920786,0.20285948"
+       id="guide9012" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient16388">
+      <stop
+         style="stop-color:#969696;stop-opacity:1"
+         offset="0"
+         id="stop16370" />
+      <stop
+         style="stop-color:#797979;stop-opacity:1"
+         offset="0.38876015"
+         id="stop16372" />
+      <stop
+         style="stop-color:#808080;stop-opacity:1"
+         offset="0.39911264"
+         id="stop16374" />
+      <stop
+         style="stop-color:#8d8d8d;stop-opacity:1;"
+         offset="0.44501048"
+         id="stop16376" />
+      <stop
+         style="stop-color:#626262;stop-opacity:1;"
+         offset="0.48981985"
+         id="stop16378" />
+      <stop
+         style="stop-color:#777777;stop-opacity:1"
+         offset="0.60766327"
+         id="stop16380" />
+      <stop
+         style="stop-color:#4b4b4b;stop-opacity:1;"
+         offset="0.74658179"
+         id="stop16382" />
+      <stop
+         style="stop-color:#363636;stop-opacity:1;"
+         offset="0.77055788"
+         id="stop16384" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop16386" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient13441-3">
+      <stop
+         style="stop-color:#212121;stop-opacity:1"
+         offset="0"
+         id="stop13437" />
+      <stop
+         style="stop-color:#323232;stop-opacity:1;"
+         offset="0.31166762"
+         id="stop15027" />
+      <stop
+         style="stop-color:#757575;stop-opacity:1"
+         offset="0.32409576"
+         id="stop13993" />
+      <stop
+         style="stop-color:#8d8d8d;stop-opacity:1;"
+         offset="0.44501048"
+         id="stop13927" />
+      <stop
+         style="stop-color:#626262;stop-opacity:1;"
+         offset="0.48981985"
+         id="stop14251" />
+      <stop
+         style="stop-color:#393939;stop-opacity:1"
+         offset="0.60766327"
+         id="stop14961" />
+      <stop
+         style="stop-color:#4b4b4b;stop-opacity:1;"
+         offset="0.74658179"
+         id="stop14573" />
+      <stop
+         style="stop-color:#363636;stop-opacity:1;"
+         offset="0.77055788"
+         id="stop14575" />
+      <stop
+         style="stop-color:#a8a8a8;stop-opacity:1"
+         offset="1"
+         id="stop13439" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient10513">
+      <stop
+         style="stop-color:#d9d9d9;stop-opacity:1"
+         offset="0"
+         id="stop10509" />
+      <stop
+         style="stop-color:#373737;stop-opacity:1;"
+         offset="0.5218088"
+         id="stop12398" />
+      <stop
+         style="stop-color:#2d2d2d;stop-opacity:1"
+         offset="0.57287824"
+         id="stop10551" />
+      <stop
+         style="stop-color:#373737;stop-opacity:1;"
+         offset="0.60735714"
+         id="stop12266" />
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0.64605701"
+         id="stop12332" />
+      <stop
+         style="stop-color:#6d6d6d;stop-opacity:1"
+         offset="0.68806946"
+         id="stop10681" />
+      <stop
+         style="stop-color:#818181;stop-opacity:1"
+         offset="1"
+         id="stop10511" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient10513"
+       id="linearGradient12684"
+       x1="-35.629807"
+       y1="458.61984"
+       x2="29.674446"
+       y2="458.61984"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter12686"
+       x="-0.090820107"
+       y="-0.029377659"
+       width="1.1816402"
+       height="1.0587553">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.1496286"
+         id="feGaussianBlur12688" />
+    </filter>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12933">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none"
+         x="-728.78284"
+         y="490.40057"
+         id="text12937"
+         transform="matrix(0,-3.2231088,2.3221071,0,-1107.4744,-1736.67)"><tspan
+           sodipodi:role="line"
+           id="tspan12935"
+           x="-728.78284"
+           y="490.40057"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';fill:#ff0000;fill-opacity:1">LIBLAST</tspan></text>
+    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13441-3"
+       id="radialGradient13443"
+       cx="472.96451"
+       cy="952.76697"
+       fx="472.96451"
+       fy="952.76697"
+       r="532.69763"
+       gradientTransform="matrix(0,-0.7434447,1.0499613,0,-527.4039,972.64483)"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter15241"
+       x="-0.025988555"
+       y="-0.057365285"
+       width="1.0519771"
+       height="1.1147306">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="13.90923"
+         id="feGaussianBlur15243" />
+    </filter>
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask15334">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#fdfdfd;stroke-width:0.605657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="-728.78284"
+         y="490.40057"
+         id="text15338"
+         transform="matrix(2.6211221,0,0,2.6211221,1931.39,-1099.5214)"><tspan
+           sodipodi:role="line"
+           id="tspan15336"
+           x="-728.78284"
+           y="490.40057"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';fill:#ffffff;fill-opacity:1;stroke:#fdfdfd;stroke-width:0.605657;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">LIBLAST</tspan></text>
+    </mask>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient16388"
+       id="radialGradient15674"
+       cx="-514.24927"
+       cy="278.05515"
+       fx="-514.24927"
+       fy="278.05515"
+       r="191.93359"
+       gradientTransform="matrix(1.3438846e-4,0.25880959,-4.4825645,0,732.21993,594.02181)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-7.4556532,-26.258593)">
+    <g
+       id="g16576"
+       transform="translate(0,0.19880048)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#4e4e4e;stroke-opacity:1"
+         x="-728.78284"
+         y="490.40057"
+         id="text15382"
+         transform="matrix(2.6211221,0,0,2.621122,1931.39,-1099.5214)"><tspan
+           sodipodi:role="line"
+           id="tspan15380"
+           x="-728.78284"
+           y="490.40057"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';fill:#ffffff;fill-opacity:1;stroke:#4e4e4e;stroke-opacity:1">LIBLAST</tspan></text>
+      <g
+         id="g15332"
+         mask="url(#mask15334)">
+        <rect
+           style="fill:url(#radialGradient13443);fill-opacity:1;stroke:none;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill;filter:url(#filter15241)"
+           id="rect13333"
+           width="1284.4944"
+           height="581.92255"
+           x="-155.95796"
+           y="219.73967"
+           transform="matrix(0.26458333,0,0,0.26458333,7.4556532,26.258593)" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#radialGradient15674);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         x="-728.78284"
+         y="490.40057"
+         id="text7061"
+         transform="matrix(0.60677203,0,0,0.60677203,460.70045,-83.392836)"><tspan
+           sodipodi:role="line"
+           id="tspan7059"
+           x="-728.78284"
+           y="490.40057"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Open Sans Condensed';-inkscape-font-specification:'Open Sans Condensed, ';fill:url(#radialGradient15674);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill">A LIBRE MULTIPLAYER FPS GAME</tspan></text>
+      <rect
+         style="mix-blend-mode:normal;fill:url(#linearGradient12684);fill-opacity:1;stroke:none;stroke-width:7.55906;stroke-linecap:round;paint-order:markers stroke fill;filter:url(#filter12686)"
+         id="rect12596"
+         width="109.65753"
+         height="339.00281"
+         x="-60.158474"
+         y="290.37952"
+         transform="matrix(0,1.1287688,-0.81322793,0,519.08145,150.56112)"
+         clip-path="url(#clipPath12933)" />
+    </g>
+    <g
+       id="g8930"
+       transform="matrix(1.515274,0,0,1.515274,-12.238779,-21.927445)">
+      <g
+         id="g7697"
+         transform="matrix(6.5378298,0,0,6.5378298,1307.5503,-702.31895)" />
+    </g>
+  </g>
+</svg>
