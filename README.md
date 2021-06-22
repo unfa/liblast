@@ -1,8 +1,7 @@
 # Liblast
 Libre Multiplayer FPS Game built with Godot game engine and a fully FOSS toolchain.
 
-![Screenshot 01](https://github.com/unfa/liblast/raw/legacy/Screenshots/01.png)
-![Screenshot 02](https://github.com/unfa/liblast/raw/legacy/Screenshots/02.png)
+![Screenshot 03](https://github.com/unfa/liblast/raw/main/Screenshots/01.jpg)
 
 ## Rewrite Status
 
@@ -12,6 +11,26 @@ The legacy branch contains the initial, Godot 3-based version of the game. This 
 We wanted to take advantage of the improved performance, features and workflow of Godot 4 and since the GDScript syntax is changing significantly - we've decided we'll take this opportunity to rebuild the game from scratch and improve our design.
 
 Hence - if you'd like to contribute to the project, please get in touch first, as things are very much in flux right now, and we'd hate to have any effort wasted!
+
+## How to run the game
+
+### GNU/Linux
+
+1. Make sure you have `git` and `git-lfs` installed.
+
+1. Clone the Git repository: `git clone git@github.com:unfa/liblast.git`
+
+1. Enter thr cloned repository: `cd liblast`
+
+1. Initialize Git-LFS: `git lfs install`
+
+1. Pull the large files: `git pull`
+
+1. Extract the godot editor binary: `tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz`
+
+1. Run the Godot editor binary and load the project: `./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64 ./Game/project.godot`
+
+Once Godot editor loads the project, hit `F5` to start the game
 
 ## Get in touch
 
@@ -30,9 +49,16 @@ https://chat.unfa.xyz/channel/liblast
 Because of Godot 4's unstable nature, thing may not work. The gmae is being developed using the `v4.0.dev.calinou.94c31ba30` build of the engine.
 You can clone the Godot source code of the specified commit and it should work, though sometimes the project just won't load. That's the price of using unfinished software for production :D Once Godot 4 alpha is out, the development should be able to continue on a bit more smoothly.
 
+# What's with the name?
+
+`Libre` + `Blast` = `Liblast`
+No, it's not a library ;)
 ---
 
 # Stuff below applies only to the legacy branch
+
+![Screenshot 01](https://github.com/unfa/liblast/raw/legacy/Screenshots/01.png)
+![Screenshot 02](https://github.com/unfa/liblast/raw/legacy/Screenshots/02.png)
 
 ## Controls
 
@@ -68,7 +94,3 @@ https://youtu.be/aUtSLNzvqvI
 Video of a version of the game not long before 0.1 release:
 https://youtu.be/g3KvNeu4X54 (quite outdated as of 2021-02)
 
-# What's with the name?
-
-`Libre` + `Blast` = `Liblast`
-No, it's not a library. Sorry if it's confusing.
