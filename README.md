@@ -75,10 +75,12 @@ You can clone the Godot source code of the specified commit and it should work, 
 # What's with the name?
 
 `Libre` + `Blast` = `Liblast`
+
 No, it's not a library ;)
+
 ---
 
-# Stuff below applies only to the legacy branch
+# Stuff below applies only to the `legacy` branch
 
 ![Screenshot 01](https://github.com/unfa/liblast/raw/legacy/Screenshots/01.png)
 ![Screenshot 02](https://github.com/unfa/liblast/raw/legacy/Screenshots/02.png)
