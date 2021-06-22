@@ -12,23 +12,46 @@ We wanted to take advantage of the improved performance, features and workflow o
 
 Hence - if you'd like to contribute to the project, please get in touch first, as things are very much in flux right now, and we'd hate to have any effort wasted!
 
+**DISCLAIMER: THE GAME IS IN VERY EARLY STAGES OF DEVELOPMENT.
+DO NOT EXPECT MUCH, AND DON'T BE SURPRISED IF IT DOES NOT WORK AT ALL
+PLEAASE DO NOT REPORT ISSUES OR PROPOSE FEATURES AT THIS POINT IN TIME
+IT SI TOO EARLY**
+
 ## How to run the game
 
 ### GNU/Linux
 
 1. Make sure you have `git` and `git-lfs` installed.
 
-1. Clone the Git repository: `git clone git@github.com:unfa/liblast.git`
+1. Clone the Git repository:
+```
+git clone git://github.com/unfa/liblast
+```
 
-1. Enter thr cloned repository: `cd liblast`
+1. Enter thr cloned repository:
+```
+cd liblast
+```
 
-1. Initialize Git-LFS: `git lfs install`
+1. Initialize Git-LFS:
+```
+git lfs install
+```
 
-1. Pull the large files: `git pull`
+1. Pull the large files (if any):
+```
+git pull
+```
 
-1. Extract the godot editor binary: `tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz`
+1. Extract the godot editor binary:
+```
+tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz
+```
 
-1. Run the Godot editor binary and load the project: `./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64 ./Game/project.godot`
+1. Run the Godot editor binary and load the project:
+```
+./godot-v4.0.dev.calinou.94c31ba30.Linux-x64 ./Game/project.godot
+```
 
 Once Godot editor loads the project, hit `F5` to start the game
 
