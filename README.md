@@ -17,6 +17,11 @@ DO NOT EXPECT MUCH, AND DON'T BE SURPRISED IF IT DOES NOT WORK AT ALL**
 
 **PLEASE DO NOT REPORT ISSUES OR PROPOSE FEATURES AT THIS POINT IN TIME - IF YOU WANT TO HELP, GET IN TOUCH FIRST!**
 
+## Get in touch
+
+If you want to talk to the dev team and discuss the game in an instant manner, go here:
+https://chat.unfa.xyz/channel/liblast
+
 ## How to run the game
 
 ### GNU/Linux
@@ -54,11 +59,6 @@ tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz
 ```
 
 Once Godot editor loads the project, hit `F5` to start the game
-
-## Get in touch
-
-If you want to talk to the devs and discuss the game in an instant manner, go here:
-https://chat.unfa.xyz/channel/liblast
 
 ## Controls
 
