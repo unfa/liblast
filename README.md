@@ -14,7 +14,7 @@ Hence - if you'd like to contribute to the project, please get in touch first, a
 
 ## How to run the game
 
-# GNU/Linux
+### GNU/Linux
 
 1. Make sure you have `git` and `git-lfs` installed.
 
