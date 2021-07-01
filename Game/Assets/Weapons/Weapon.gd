@@ -10,7 +10,7 @@ extends Node3D
 	print("Weapon " + str(name) + ", Trigger " + str(index) + ", active: " + str(active))
 	
 	if index == 0 and active:
-		$Flash/Particles.emitting = true
+		$Flash/AnimationPlayer.play("Flash")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

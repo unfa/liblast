@@ -45,7 +45,7 @@ func _input(_event) -> void:
 	
 	
 func create_player(id: int, is_local: bool) -> void:
-	var new_player = player_scene.instance()
+	var new_player = player_scene.instantiate()
 	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % len($Map/SpawnPoints.get_children())]
 	new_player.name = str(id)
 	new_player.global_transform = spawnpoint.global_transform

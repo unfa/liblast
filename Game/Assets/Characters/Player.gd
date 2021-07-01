@@ -109,11 +109,11 @@ func _ready() -> void:
 	
 	generate_info()
 
-	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
-	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
-	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
+#	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
+#	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	#rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	
 func aim(event) -> void:
@@ -140,8 +140,9 @@ func _input(event) -> void:
 		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		tween.start()
 		
-	rpc_unreliable(&'aim', event)
-#	rpc(&'aim', event)
+#	rpc_unreliable(&'aim', event)
+	aim(event)
+	rpc(&'aim', event)
 	
 	if Input.is_action_just_pressed("trigger_primary"):
 		weapon.rpc(&'trigger', 0, true)
@@ -153,10 +154,10 @@ func _input(event) -> void:
 		weapon.rpc(&'trigger', 1, false)
 	
 func _physics_process(delta):
-	rpc_unreliable(&'set_global_transform', global_transform)
-	head.rpc_unreliable(&'set_rotation', head.get_rotation())
-#	rpc(&'set_global_transform', global_transform)
-#	head.rpc(&'set_rotation', head.get_rotation())
+#	rpc_unreliable(&'set_global_transform', global_transform)
+#	head.rpc_unreliable(&'set_rotation', head.get_rotation())
+	rpc(&'set_global_transform', global_transform)
+	head.rpc(&'set_rotation', head.get_rotation())
 	
 	direction = Vector3.ZERO
 	
@@ -193,11 +194,11 @@ func _physics_process(delta):
 	
 	linear_velocity = velocity + gravity_vec
 	#slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
-	rpc_unreliable(&'set_linear_velocity', linear_velocity)
-	rpc_unreliable(&"move_and_slide")
-#	rpc(&'set_linear_velocity', linear_velocity)
-#	rpc(&"move_and_slide")
-	#move_and_slide()
+#	rpc_unreliable(&'set_linear_velocity', linear_velocity)
+#	rpc_unreliable(&"move_and_slide")
+	rpc(&'set_linear_velocity', linear_velocity)
+	rpc(&"move_and_slide")
+	move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = linear_velocity.x
