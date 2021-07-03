@@ -120,11 +120,11 @@ func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
 	
 	if mouse_motion:
-		rotation_degrees.y -= mouse_motion.relative.x * mouse_sensitivity / view_zoom
+		rotation.y -= deg2rad(mouse_motion.relative.x * mouse_sensitivity / view_zoom)
 		
-		var current_tilt: float = head.rotation_degrees.x
-		current_tilt -= mouse_motion.relative.y * mouse_sensitivity / view_zoom
-		head.rotation_degrees.x = clamp(current_tilt, -90, 90)
+		var current_tilt: float = head.rotation.x
+		current_tilt -= deg2rad(mouse_motion.relative.y * mouse_sensitivity / view_zoom)
+		head.rotation.x = clamp(current_tilt, deg2rad(-90), deg2rad(90))
 
 func _input(event) -> void:
 	if not input_active:
