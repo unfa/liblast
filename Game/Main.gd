@@ -3,7 +3,7 @@ extends Node
 enum GameFocus {MENU, GAME, CHAT, AWAY}
 
 const NET_PORT = 12597
-const NET_SERVER = "localhost"# "liblast.unfa.xyz"
+const NET_SERVER = "unfa.xyz"# "liblast.unfa.xyz"
 
 var peer = NetworkedMultiplayerENet.new()
 
@@ -59,6 +59,11 @@ func create_player(id: int, is_local: bool) -> void:
 		$Players.get_node(str(id) + "/Head/Camera").current = false
 		if local_player:
 			local_player.get_node("Head/Camera").current = true
+
+func start_dedicated_server():	
+	peer.create_server(NET_PORT, 16)
+	get_tree().network_peer = peer
+	#create_player(1, true)
 
 func _on_Host_pressed():
 	$NetworkTesting/Host.disabled = true
