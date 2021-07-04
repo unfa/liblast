@@ -1,22 +1,28 @@
 extends Node3D
 
+@onready var ejector = find_node("Ejector")
+@onready var muzzle = find_node("Muzzle")
+
+var casing = preload("res://Assets/Weapons/Handgun/Casing.tscn")
+var flash = preload("res://Assets/Weapons/Handgun/Flash.tscn")
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 #enum Trigger {TRIGGER_PRIMARY, TRIGGER_SECONDARY}
 
-@remotesync func trigger(index: int, active: bool) -> void:
+@puppetsync func trigger(index: int, active: bool) -> void:
 	print("Weapon " + str(name) + ", Trigger " + str(index) + ", active: " + str(active))
 	
 	if index == 0 and active:
-		$Flash/AnimationPlayer.play("Flash")
+		
+		$Handgun/AnimationPlayer.play("Shoot", 0, 2.5)
+		
+		var flash_effect = flash.instance()
+		get_parent().add_child(flash_effect)
+		flash_effect.global_transform = muzzle.global_transform
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	pass

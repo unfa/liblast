@@ -92,7 +92,7 @@ var jump := 14
 var velocity := Vector3.ZERO
 var gravity_vec := Vector3.ZERO
 
-@remotesync func set_info(info):
+@puppetsync func set_info(info):
 	player_info = PlayerInfo.new(info['name'], info['team'].to_int(), Color(info['color']))
 
 @master func generate_info() -> void:
@@ -101,20 +101,20 @@ var gravity_vec := Vector3.ZERO
 		player_name += ['a','b','c', 'd', 'e', 'f'][randi() % 5]
 	
 	var color = Color(randf(),randf(),randf())
-	rpc(&'set_info', PlayerInfo.new(player_name, 0, color).serialize() )
+#	rpc(&'set_info', PlayerInfo.new(player_name, 0, color).serialize() )
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
 	
-	generate_info()
+	#generate_info()
 
-#	rpc_config(&"move_and_slide", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-#	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-#	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
-#	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
-#	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	#rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	rpc_config(&'move_and_slide', MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
+	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
+	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
@@ -141,7 +141,7 @@ func _input(event) -> void:
 		tween.start()
 		
 #	rpc_unreliable(&'aim', event)
-	aim(event)
+#	aim(event)
 	rpc(&'aim', event)
 	
 	if Input.is_action_just_pressed("trigger_primary"):
@@ -196,9 +196,9 @@ func _physics_process(delta):
 	#slide = move_and_slide_with_snap(movement, snap, Vector3.UP)
 #	rpc_unreliable(&'set_linear_velocity', linear_velocity)
 #	rpc_unreliable(&"move_and_slide")
-	rpc(&'set_linear_velocity', linear_velocity)
-	rpc(&"move_and_slide")
-	move_and_slide()
+#	rpc(&'set_linear_velocity', linear_velocity)
+	rpc(&'move_and_slide')
+#	move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = linear_velocity.x

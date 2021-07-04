@@ -1,0 +1,219 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Effects/Flame.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Weapons/Handgun/Flash.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance3D:mesh:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.025, 0.1 ),
+"transitions": PackedFloat32Array( 1, 0.420448, 1 ),
+"update": 0,
+"values": [ Color( 4, 4, 3, 1 ), Color( 4, 2, 0.3, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.025, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.535305, 0.124179, 0 ), Vector3( -0.620616, 0.124179, 0 ), Vector3( -1.57472, 0.124179, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0, 0.025, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.336758, -0.0845939, -0.0845939 ), Vector3( -0.299894, -0.119659, -0.119659 ), Vector3( -0.197144, -0.00375807, -0.00375807 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OmniLight3D:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PackedFloat32Array( 0, 0.025, 0.05, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.933333, 0.380392, 1 ), Color( 1, 0.637428, 0.415262, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Color( 4, 2, 0.3, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector3( -0.620616, 0.124179, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector3( -0.299894, -0.119659, -0.119659 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OmniLight3D:light_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="StandardMaterial3D" id=4]
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color( 4, 2, 0.3, 1 )
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.25, 0.25, 0.25 )
+uv1_offset = Vector3( 0.25, 0.25, 0.25 )
+uv1_triplanar = true
+proximity_fade_distance = 3.94
+
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id=6]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color( 3, 3, 3, 1 )
+albedo_texture = ExtResource( 1 )
+billboard_mode = 3
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 0.3, 0.3 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 8.69697, 0, 0, Vector2( 0.501742, 0.918182 ), -1.36667, -1.36667, 0, 0, Vector2( 1, 0.0363636 ), -3.03219, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+offsets = PackedFloat32Array( 0, 0.0568182, 0.454545, 0.746212, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 2, 1.7, 0.7, 1, 1, 0.682129, 0.34375, 1, 0.675781, 0.355111, 0.0976715, 1, 0, 0, 0, 1 )
+
+[node name="Flash" type="Node3D"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Off"
+anims/Flash = SubResource( 1 )
+anims/Off = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+blend_times = [  ]
+script = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D( -0.299894, 0, 0, 0, -0.119659, 0, 0, 0, -0.119659, -0.620616, 0.124179, 0 )
+visible = false
+mesh = SubResource( 5 )
+surface_material_override/0 = null
+script = null
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.15
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+fixed_fps = 120
+mesh = SubResource( 7 )
+particle_flag_rotate_y = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 12.0
+initial_velocity_random = 0.9
+damping = 100.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 1.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 8 )
+color_ramp = SubResource( 9 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+script = null
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+script = null
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230188, 0 )
+light_energy = 5.0
+shadow_enabled = true
+shadow_blur = 8.0
+omni_range = 100.0
+omni_attenuation = 4.0
+script = null
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

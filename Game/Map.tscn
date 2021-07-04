@@ -57,7 +57,6 @@ shadow_enabled = true
 shadow_bias = 0.035
 shadow_blur = 8.0
 directional_shadow_blend_splits = true
-directional_shadow_depth_range = 1
 script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
