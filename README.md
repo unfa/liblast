@@ -28,32 +28,32 @@ https://chat.unfa.xyz/channel/liblast
 
 1. Make sure you have `git` and `git-lfs` installed.
 
-1. Clone the Git repository:
+2. Clone the Git repository:
 ```
 git clone git://github.com/unfa/liblast
 ```
 
-1. Enter thr cloned repository:
+3. Enter the cloned repository:
 ```
 cd liblast
 ```
 
-1. Initialize Git-LFS:
+4. Initialize Git-LFS:
 ```
 git lfs install
 ```
 
-1. Pull the large files (if any):
+5. Pull the large files (if any):
 ```
 git pull
 ```
 
-1. Extract the godot editor binary:
+6. Extract the godot editor binary:
 ```
 tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz
 ```
 
-1. Run the Godot editor binary and load the project:
+7. Run the Godot editor binary and load the project:
 ```
 ./godot-v4.0.dev.calinou.94c31ba30.Linux-x64 ./Game/project.godot
 ```
@@ -69,7 +69,7 @@ Once Godot editor loads the project, hit `F5` to start the game
 - T to write to your team mates (not complete yet)
 - Y to write to all players on the server (not complete yet)
 
-Because of Godot 4's unstable nature, thing may not work. The gmae is being developed using the `v4.0.dev.calinou.94c31ba30` build of the engine.
+Because of Godot 4's unstable nature, thing may not work. The game is being developed using the `v4.0.dev.calinou.94c31ba30` build of the engine.
 You can clone the Godot source code of the specified commit and it should work, though sometimes the project just won't load. That's the price of using unfinished software for production :D Once Godot 4 alpha is out, the development should be able to continue on a bit more smoothly.
 
 # What's with the name?
