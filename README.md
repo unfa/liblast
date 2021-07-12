@@ -26,7 +26,7 @@ https://chat.unfa.xyz/channel/liblast
 
 ### GNU/Linux
 
-1. Make sure you have `git` and `git-lfs` installed.
+1. Make sure you have `git`, `git-lfs` and `unzip` installed.
 
 2. Clone the Git repository:
 ```
@@ -50,12 +50,13 @@ git pull
 
 6. Extract the godot editor binary:
 ```
-tar -xvf ./Godot/godot-v4.0.dev.calinou.94c31ba30.Linux-x64.tar.gz
+cd ./Godot
+unzip godot-linux-nightly-x86_64.zip 
 ```
 
 7. Run the Godot editor binary and load the project:
 ```
-./godot-v4.0.dev.calinou.94c31ba30.Linux-x64 ./Game/project.godot
+./godot ../Game/project.godot
 ```
 
 Once Godot editor loads the project, hit `F5` to start the game
