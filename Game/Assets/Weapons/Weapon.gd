@@ -19,7 +19,12 @@ var flash = preload("res://Assets/Weapons/Handgun/Flash.tscn")
 		
 		$Handgun/AnimationPlayer.play("Shoot", 0, 2.5)
 		
-		var flash_effect = flash.instance()
+		var flash_effect
+		if flash.has_method(&"instance"):
+			flash_effect = flash.instance()
+		else:
+			flash_effect = flash.instantiate()
+			
 		get_parent().add_child(flash_effect)
 		flash_effect.global_transform = muzzle.global_transform
 

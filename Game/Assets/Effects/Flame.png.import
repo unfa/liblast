@@ -5,14 +5,14 @@ type="StreamTexture2D"
 path.s3tc="res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.s3tc.stex"
 path.etc2="res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.etc2.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Effects/Flame.png"
-dest_files=[ "res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.s3tc.stex", "res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.etc2.stex" ]
+dest_files=["res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.s3tc.stex", "res://.godot/imported/Flame.png-7c44abd65ae181a5818470a5b3268f30.etc2.stex"]
 
 [params]
 

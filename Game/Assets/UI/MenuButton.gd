@@ -1,4 +1,4 @@
-extends "res://MenuItem.gd"
+extends "res://Assets/UI/MenuItem.gd"
 
 func on_label_changed():
 	self.text = label

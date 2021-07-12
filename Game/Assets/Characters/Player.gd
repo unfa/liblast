@@ -11,7 +11,7 @@ extends CharacterBody3D
 @onready var tween = $Head/Camera/Tween
 
 @onready var ground_check = $GroundCheck
-@onready var climb_tween = $ClimbTween
+@onready var climb_tween = $ClimbTween # undergoing redesign in Godot 4
 @onready var climb_check = $ClimbCheck
 @onready var body = $Body
 @onready var mesh = $Mesh
@@ -101,20 +101,31 @@ var gravity_vec := Vector3.ZERO
 		player_name += ['a','b','c', 'd', 'e', 'f'][randi() % 5]
 	
 	var color = Color(randf(),randf(),randf())
-#	rpc(&'set_info', PlayerInfo.new(player_name, 0, color).serialize() )
+	rpc(&'set_info', PlayerInfo.new(player_name, 0, color).serialize() )
+
+@puppet func update_movement(player_transform, head_rotation):
+	global_transform = player_transform
+	head.set_rotation(head_rotation)
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
 	
-	#generate_info()
-
-	rpc_config(&'move_and_slide', MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
-	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
-	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
-	rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+	generate_info()
+	
+	rpc_config(&'move_and_slide', MultiplayerAPI.RPC_MODE_REMOTE)
+	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_REMOTE)
+	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_REMOTE)
+	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_REMOTE)
+	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_REMOTE)
+	rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_REMOTE)
+	
+#	rpc_config(&'move_and_slide', MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"aim", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"set_global_transform", MultiplayerAPI.RPC_MODE_PUPPET)
+#	rpc_config(&"set_linear_velocity", MultiplayerAPI.RPC_MODE_PUPPET)
+#	head.rpc_config(&"set_rotation", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
+#	rpc_config(&"set_info", MultiplayerAPI.RPC_MODE_PUPPETSYNC)
 	
 func aim(event) -> void:
 	var mouse_motion = event as InputEventMouseMotion
@@ -141,8 +152,8 @@ func _input(event) -> void:
 		tween.start()
 		
 #	rpc_unreliable(&'aim', event)
-#	aim(event)
-	rpc(&'aim', event)
+	aim(event)
+#	rpc(&'aim', event)
 	
 	if Input.is_action_just_pressed("trigger_primary"):
 		weapon.rpc(&'trigger', 0, true)
@@ -156,9 +167,9 @@ func _input(event) -> void:
 func _physics_process(delta):
 #	rpc_unreliable(&'set_global_transform', global_transform)
 #	head.rpc_unreliable(&'set_rotation', head.get_rotation())
-	rpc(&'set_global_transform', global_transform)
-	head.rpc(&'set_rotation', head.get_rotation())
-	
+	#rpc(&'set_global_transform', global_transform)
+	#head.rpc(&'set_rotation', head.get_rotation())
+
 	direction = Vector3.ZERO
 	
 	if is_on_floor() and ground_check.is_colliding():
@@ -197,17 +208,20 @@ func _physics_process(delta):
 #	rpc_unreliable(&'set_linear_velocity', linear_velocity)
 #	rpc_unreliable(&"move_and_slide")
 #	rpc(&'set_linear_velocity', linear_velocity)
-	rpc(&'move_and_slide')
-#	move_and_slide()
+#	rpc(&'move_and_slide')
+	move_and_slide()
 	
 	if not is_on_floor() and not ground_check.is_colliding(): # while in mid-air collisions affect momentum
 		velocity.x = linear_velocity.x
 		velocity.z = linear_velocity.z
 		gravity_vec.y = linear_velocity.y
-		
+	
+	# update puppets
+	rpc(&'update_movement', global_transform, head.get_rotation())
+	
 	# (stair) climbing
 	
-	if get_slide_count() > 1 and climb_check.is_colliding():
+	if get_slide_count() > 1 and climb_check.is_colliding() and false: # disabled - Tween is undergoing redesign in Godot 4
 		#print("climb started at climb state: ", climb_state)
 		var test_y = climb_height * (1 - climb_state)
 		#print("test_y: ", test_y)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://GUI.gd" type="Script" id=1]
-[ext_resource path="res://Menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://MenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/UI/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/UI/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/UI/GUI.gd" type="Script" id=3]
 
 [node name="GUI" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -18,7 +18,7 @@ offset_top = 252.0
 offset_right = 547.0
 offset_bottom = 347.0
 
-[node name="Options" parent="Menu" instance=ExtResource( 3 )]
+[node name="Options" parent="Menu" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 33.0
@@ -27,7 +27,7 @@ offset_bottom = 62.0
 text = "options"
 label = "options"
 
-[node name="Quit" parent="Menu" instance=ExtResource( 3 )]
+[node name="Quit" parent="Menu" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 66.0
@@ -36,5 +36,5 @@ offset_bottom = 95.0
 text = "quit"
 label = "quit"
 
-[connection signal="pressed" from="Menu/Options" to="Menu" method="open_menu" binds= [ "res://OptionsMenu.tscn" ]]
+[connection signal="pressed" from="Menu/Options" to="Menu" method="open_menu" binds= ["res://OptionsMenu.tscn"]]
 [connection signal="pressed" from="Menu/Quit" to="." method="quit_game"]

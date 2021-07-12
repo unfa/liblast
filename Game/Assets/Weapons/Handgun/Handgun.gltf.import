@@ -8,7 +8,7 @@ path="res://.godot/imported/Handgun.gltf-dfc6de5a6d72ba5ef43f43a4cd2ab91e.scn"
 [deps]
 
 source_file="res://Assets/Weapons/Handgun/Handgun.gltf"
-dest_files=[ "res://.godot/imported/Handgun.gltf-dfc6de5a6d72ba5ef43f43a4cd2ab91e.scn" ]
+dest_files=["res://.godot/imported/Handgun.gltf-dfc6de5a6d72ba5ef43f43a4cd2ab91e.scn"]
 
 [params]
 

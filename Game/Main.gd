@@ -3,7 +3,7 @@ extends Node
 enum GameFocus {MENU, GAME, CHAT, AWAY}
 
 const NET_PORT = 12597
-const NET_SERVER = "localhost"# "liblast.unfa.xyz"
+const NET_SERVER = "localhost" #liblast.unfa.xyz"
 
 var peer = NetworkedMultiplayerENet.new()
 
@@ -45,7 +45,13 @@ func _input(_event) -> void:
 	
 	
 func create_player(id: int, is_local: bool) -> void:
-	var new_player = player_scene.instance() #tiate()
+	var new_player
+	
+	if player_scene.has_method(&"instance"):
+		new_player = player_scene.instance()
+	else:
+		new_player = player_scene.instantiate()
+		
 	var spawnpoint = $Map/SpawnPoints.get_children()[randi() % len($Map/SpawnPoints.get_children())]
 	new_player.name = str(id)
 	new_player.global_transform = spawnpoint.global_transform
