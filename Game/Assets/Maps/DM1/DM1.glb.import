@@ -8,7 +8,7 @@ path="res://.godot/imported/DM1.glb-9d0a731111d6eea69d0dd97fe5ed5e9b.scn"
 [deps]
 
 source_file="res://Assets/Maps/DM1/DM1.glb"
-dest_files=[ "res://.godot/imported/DM1.glb-9d0a731111d6eea69d0dd97fe5ed5e9b.scn" ]
+dest_files=["res://.godot/imported/DM1.glb-9d0a731111d6eea69d0dd97fe5ed5e9b.scn"]
 
 [params]
 
@@ -25,4 +25,9 @@ animation/import=true
 animation/fps=15
 import_script/path=""
 _subresources={
+"nodes": {
+"PATH:Main": {
+"generate/physics": 1
+}
+}
 }
