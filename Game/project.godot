@@ -125,6 +125,8 @@ say_cancel={
 [rendering]
 
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+environment/glow/use_high_quality=true
+environment/screen_space_reflection/roughness_quality=2
 global_illumination/sdfgi/probe_ray_count=2
 global_illumination/sdfgi/frames_to_converge=0
 global_illumination/sdfgi/frames_to_update_lights=4

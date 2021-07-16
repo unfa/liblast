@@ -3,9 +3,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.35
 #var speed := 15
 
-@onready var hud = get_tree().root.find_node("HUD", true, false)
-@onready var crosshair = hud.get_node("Crosshair")
-@onready var vignette = hud.get_node("Vignette")
+var hud: Node
+var crosshair: Node
+var vignette: Node
 @onready var head = $Head
 @onready var camera = $Head/Camera
 @onready var tween = $Head/Camera/Tween
@@ -108,6 +108,10 @@ var gravity_vec := Vector3.ZERO
 	head.set_rotation(head_rotation)
 
 func _ready() -> void:
+	hud = get_tree().root.find_node("HUD", true, false)
+	crosshair = hud.get_node("Crosshair")
+	vignette = hud.get_node("Vignette")
+	
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
 	
