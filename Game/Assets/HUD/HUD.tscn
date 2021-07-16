@@ -219,3 +219,5 @@ script = null
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="text_submitted" from="Chat/VBoxContainer/Typing/Editor" to="Chat" method="_on_Editor_text_submitted"]

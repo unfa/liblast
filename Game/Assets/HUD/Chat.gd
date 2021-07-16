@@ -58,7 +58,7 @@ func _unhandled_input(_event) -> void:
 	
 	chat_history.append_bbcode('\n' + '[b][color=' + sender_info.color.to_html() +']' + str(sender_info.name) + '[/color][/b] : [i]' + message + '[/i]')
 
-func _on_LineEdit_text_entered(new_text):
+func _on_Editor_text_submitted(new_text):
 	# RPC is currently not implemented in the engine
 	var sender_id = get_tree().get_network_unique_id()
 	var new_message = [sender_id, 0, new_text]
