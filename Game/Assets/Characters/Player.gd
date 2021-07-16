@@ -3,9 +3,12 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.35
 #var speed := 15
 
-var hud: Node
-var crosshair: Node
-var vignette: Node
+@onready var hud = 			get_tree().root.get_node("Main").get_node("HUD")
+@onready var crosshair = 	hud.get_node("Crosshair")
+@onready var vignette = 	hud.get_node("Vignette")
+
+
+
 @onready var head = $Head
 @onready var camera = $Head/Camera
 @onready var tween = $Head/Camera/Tween
@@ -108,10 +111,6 @@ var gravity_vec := Vector3.ZERO
 	head.set_rotation(head_rotation)
 
 func _ready() -> void:
-	hud = get_tree().root.find_node("HUD", true, false)
-	crosshair = hud.get_node("Crosshair")
-	vignette = hud.get_node("Vignette")
-	
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	view_zoom = 1.0
 	
@@ -146,14 +145,18 @@ func _input(event) -> void:
 		return
 	
 	if Input.is_action_just_pressed("view_zoom"):
-		tween.remove_all()
-		tween.interpolate_property(self, "view_zoom", view_zoom, 4.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
+#		tween.remove_all()
+#		tween.interpolate_property(self, "view_zoom", view_zoom, 4.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+#		tween.start()
+		
+		view_zoom = 4.0
 	
 	if Input.is_action_just_released("view_zoom"):
-		tween.remove_all()
-		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-		tween.start()
+#		tween.remove_all()
+#		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+#		tween.start()
+		
+		view_zoom = 1.0
 		
 #	rpc_unreliable(&'aim', event)
 	aim(event)

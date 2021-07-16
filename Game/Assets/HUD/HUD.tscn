@@ -18,10 +18,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id=2]
@@ -34,10 +34,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 0.716667, 0, 1 ), Color( 1, 0.716667, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 0.716667, 0, 1), Color(1, 0.716667, 0, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("Hit_Confirmation")
@@ -46,12 +46,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
+"clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 4 )
-} ],
-"times": PackedFloat32Array( 0 )
+}],
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id=3]
@@ -64,10 +64,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.25, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 0.0532926, 0, 1 ), Color( 1, 0.0532926, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 0.0532926, 0, 1), Color(1, 0.0532926, 0, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("Hit_Confirmation")
@@ -76,12 +76,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
+"clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
-} ],
-"times": PackedFloat32Array( 0 )
+}],
+"times": PackedFloat32Array(0)
 }
 
 [node name="HUD" type="Control"]
@@ -112,7 +112,7 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 96.0
 offset_bottom = 96.0
-rect_scale = Vector2( 0.5, 0.5 )
+rect_scale = Vector2(0.5, 0.5)
 texture = ExtResource( 2 )
 expand = true
 script = null
@@ -125,7 +125,7 @@ autoplay = "Default"
 anims/Default = SubResource( 1 )
 anims/Hit = SubResource( 2 )
 anims/Kill = SubResource( 3 )
-blend_times = [  ]
+blend_times = []
 script = null
 
 [node name="Hit_Confirmation" type="AudioStreamPlayer" parent="Crosshair"]
@@ -166,13 +166,13 @@ __meta__ = {
 offset_top = 37.0
 offset_right = 300.0
 offset_bottom = 507.0
-rect_min_size = Vector2( 0, 470 )
+rect_min_size = Vector2(0, 470)
 theme = ExtResource( 7 )
 bbcode_enabled = true
 scroll_active = false
 scroll_following = true
-custom_effects = [  ]
-structured_text_bidi_override_options = [  ]
+custom_effects = []
+structured_text_bidi_override_options = []
 script = null
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,7 +181,7 @@ __meta__ = {
 [node name="Typing" type="HBoxContainer" parent="Chat/VBoxContainer"]
 visible = false
 offset_top = 474.0
-offset_right = 339.0
+offset_right = 309.0
 offset_bottom = 507.0
 script = null
 __meta__ = {
@@ -192,9 +192,9 @@ __meta__ = {
 offset_top = 3.0
 offset_right = 55.0
 offset_bottom = 29.0
-rect_min_size = Vector2( 55, 0 )
+rect_min_size = Vector2(55, 0)
 text = "say: "
-structured_text_bidi_override_options = [  ]
+structured_text_bidi_override_options = []
 script = null
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,16 +202,16 @@ __meta__ = {
 
 [node name="Editor" type="LineEdit" parent="Chat/VBoxContainer/Typing"]
 offset_left = 59.0
-offset_right = 339.0
+offset_right = 309.0
 offset_bottom = 33.0
-rect_min_size = Vector2( 250, 0 )
+rect_min_size = Vector2(250, 0)
 max_length = 80
 expand_to_text_length = true
 context_menu_enabled = false
 virtual_keyboard_enabled = false
 shortcut_keys_enabled = false
 selecting_enabled = false
-structured_text_bidi_override_options = [  ]
+structured_text_bidi_override_options = []
 placeholder_text = "ENTER to send, ESC to cancel"
 placeholder_alpha = 0.5
 caret_blink = true
