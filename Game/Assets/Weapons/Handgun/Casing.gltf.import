@@ -8,7 +8,7 @@ path="res://.godot/imported/Casing.gltf-2dbae5f7e896c690e0ad2c5617eec138.scn"
 [deps]
 
 source_file="res://Assets/Weapons/Handgun/Casing.gltf"
-dest_files=[ "res://.godot/imported/Casing.gltf-2dbae5f7e896c690e0ad2c5617eec138.scn" ]
+dest_files=["res://.godot/imported/Casing.gltf-2dbae5f7e896c690e0ad2c5617eec138.scn"]
 
 [params]
 
@@ -25,4 +25,14 @@ animation/import=true
 animation/fps=15
 import_script/path=""
 _subresources={
+"meshes": {
+"Casing_Cylinder": {
+"generate/lods": 1
+}
+},
+"nodes": {
+"PATH:Casing_LOD1": {
+"import/skip_import": true
+}
+}
 }

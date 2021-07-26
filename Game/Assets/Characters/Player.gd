@@ -1,13 +1,10 @@
 extends CharacterBody3D
 
 @export var mouse_sensitivity := 0.35
-#var speed := 15
 
 @onready var hud = 			get_tree().root.get_node("Main").get_node("HUD")
 @onready var crosshair = 	hud.get_node("Crosshair")
 @onready var vignette = 	hud.get_node("Vignette")
-
-
 
 @onready var head = $Head
 @onready var camera = $Head/Camera
@@ -53,7 +50,9 @@ var input_active = false
 var player_info: PlayerInfo
 
 var base_fov = 90
-var view_zoom := 1.0 :
+var view_zoom_target := 1.0
+var view_zoom_direction = true
+var view_zoom := view_zoom_target :
 	set(zoom):
 		view_zoom = zoom
 		camera.fov = base_fov / zoom
@@ -95,8 +94,12 @@ var jump := 14
 var velocity := Vector3.ZERO
 var gravity_vec := Vector3.ZERO
 
-@puppetsync func set_info(info):
+@puppetsync func set_info(info) -> void:
 	player_info = PlayerInfo.new(info['name'], info['team'].to_int(), Color(info['color']))
+	print("set_info - rpc called from ", get_tree().get_rpc_sender_id())
+
+@master func update_info() -> void:
+	rpc(&'set_info', player_info.serialize())
 
 @master func generate_info() -> void:
 	var player_name = ""
@@ -112,7 +115,7 @@ var gravity_vec := Vector3.ZERO
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	view_zoom = 1.0
+	view_zoom_target = 1.0
 	
 	generate_info()
 	
@@ -148,20 +151,18 @@ func _input(event) -> void:
 #		tween.remove_all()
 #		tween.interpolate_property(self, "view_zoom", view_zoom, 4.0, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 #		tween.start()
-		
-		view_zoom = 4.0
+		view_zoom_direction = true
+		view_zoom_target = 4.0
 	
 	if Input.is_action_just_released("view_zoom"):
 #		tween.remove_all()
 #		tween.interpolate_property(self, "view_zoom", view_zoom, 1.0, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 #		tween.start()
+		view_zoom_direction = false
+		view_zoom_target = 1.0
 		
-		view_zoom = 1.0
-		
-#	rpc_unreliable(&'aim', event)
 	aim(event)
-#	rpc(&'aim', event)
-	
+
 	if Input.is_action_just_pressed("trigger_primary"):
 		weapon.rpc(&'trigger', 0, true)
 	elif Input.is_action_just_released("trigger_primary"):
@@ -170,7 +171,14 @@ func _input(event) -> void:
 		weapon.rpc(&'trigger', 1, true)
 	elif Input.is_action_just_released("trigger_secondary"):
 		weapon.rpc(&'trigger', 1, false)
-	
+
+func _process(delta):
+	if view_zoom_direction and view_zoom < view_zoom_target:
+		view_zoom = min(view_zoom_target, view_zoom + delta * 4)
+	elif not view_zoom_direction and view_zoom > view_zoom_target:
+		view_zoom = max(view_zoom_target, view_zoom - delta * 4)
+
+
 func _physics_process(delta):
 #	rpc_unreliable(&'set_global_transform', global_transform)
 #	head.rpc_unreliable(&'set_rotation', head.get_rotation())

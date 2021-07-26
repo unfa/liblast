@@ -8,7 +8,7 @@ func _ready():
 		$Back.hide()
 
 func open_menu(path : String):
-	var menu = load(path).instance()
+	var menu = load(path).instantiate()
 	menu.previous_menu = self
 	get_parent().add_child(menu)
 	hide()

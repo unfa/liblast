@@ -19,7 +19,6 @@ ss_reflections_enabled = true
 ssao_enabled = true
 ssao_radius = 8.0
 ssao_intensity = 1.0
-sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_read_sky_light = true
 sdfgi_bounce_feedback = 1.24
@@ -83,7 +82,7 @@ script = null
 [node name="StaticBody3D" type="StaticBody3D" parent="DM1/Main" index="0"]
 script = null
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DM1/Main/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DM1/Main/StaticBody3D"]
 shape = SubResource( 5 )
 script = null
 
