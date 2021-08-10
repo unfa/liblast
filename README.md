@@ -1,6 +1,11 @@
 # Liblast
 Libre Multiplayer FPS Game built with Godot game engine and a fully FOSS toolchain.
 
+**This repository has moved!**
+https://git.gieszer.link/unfa/liblast
+
+---
+
 ![Screenshot 03](https://github.com/unfa/liblast/raw/main/Screenshots/01.jpg)
 
 ## Rewrite Status
