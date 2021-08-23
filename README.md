@@ -1,5 +1,5 @@
 # Liblast
-Libre Multiplayer FPS Game built with Godot game engine and a fully FOSS toolchain.
+A Libre Multiplayer FPS Game built with Godot game engine and a fully FOSS toolchain.
 
 **This repository has moved!**
 
